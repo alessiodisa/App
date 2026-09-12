@@ -91,22 +91,41 @@
   function initMarquee() {
     var track = document.getElementById("marqueeTrack");
     if (!track) return;
-    var groups = track.querySelectorAll(".marquee-group");
-    if (groups.length < 2) return;
+    var base = track.querySelector(".marquee-group");
+    if (!base) return;
 
-    function measure() {
-      var distance = groups[1].getBoundingClientRect().left - groups[0].getBoundingClientRect().left;
-      if (distance > 0) {
-        track.style.setProperty("--mq-w", distance + "px");
-        track.classList.add("mq-ready");
+    function fillAndMeasure() {
+      track.querySelectorAll(".marquee-group[data-clone]").forEach(function (el) {
+        el.remove();
+      });
+
+      var groupWidth = base.getBoundingClientRect().width;
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 76;
+      var step = groupWidth + gap;
+      if (!step || step <= gap) return;
+
+      var viewportWidth = track.parentElement.getBoundingClientRect().width;
+      // Enough copies to cover the visible width twice over, so there is
+      // always a full screen of logos queued up ahead during the loop.
+      var groupsNeeded = Math.ceil((viewportWidth * 2) / step) + 1;
+      var current = track.querySelectorAll(".marquee-group").length;
+
+      for (var i = current; i < groupsNeeded; i++) {
+        var clone = base.cloneNode(true);
+        clone.setAttribute("data-clone", "");
+        clone.setAttribute("aria-hidden", "true");
+        track.appendChild(clone);
       }
+
+      track.style.setProperty("--mq-w", step + "px");
+      track.classList.add("mq-ready");
     }
 
-    measure();
+    fillAndMeasure();
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(measure);
+      document.fonts.ready.then(fillAndMeasure);
     }
-    window.addEventListener("resize", measure);
+    window.addEventListener("resize", fillAndMeasure);
   }
 
   document.addEventListener("DOMContentLoaded", function () {
