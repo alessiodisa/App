@@ -14,6 +14,8 @@ const I18N = {
     "hero.cta2": "Unisciti alla community",
     "hero.scroll": "Scorri",
 
+    "partners.label": "Collaborazioni",
+
     "community.eyebrow": "Community",
     "community.title": "Una community che corre nella stessa direzione",
     "community.text": "Migliaia di persone che condividono la stessa energia: allenamenti, sfide, storie ed esperienze da vivere insieme, dentro e fuori dal campo.",
@@ -76,6 +78,8 @@ const I18N = {
     "hero.cta1": "Discover United",
     "hero.cta2": "Join the community",
     "hero.scroll": "Scroll",
+
+    "partners.label": "Collaborations",
 
     "community.eyebrow": "Community",
     "community.title": "A community moving in the same direction",
