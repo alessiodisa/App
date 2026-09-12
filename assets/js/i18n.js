@@ -37,14 +37,6 @@ const I18N = {
     "product.notify": "Avvisami alla prossima uscita",
     "product.badge": "Sold Out",
 
-    "values.title": "I valori che ci uniscono",
-    "values.card1.title": "Passione",
-    "values.card1.text": "L'energia che ci spinge ad allenarci, migliorarci e condividere ogni traguardo.",
-    "values.card2.title": "Community",
-    "values.card2.text": "Un movimento di persone che si sostengono e si allenano insieme, ogni giorno.",
-    "values.card3.title": "Equilibrio",
-    "values.card3.text": "Corpo, mente e ritmo di vita in armonia: la vera performance nasce dall'equilibrio.",
-
     "join.title": "Unisciti al movimento United",
     "join.text": "Iscriviti alla newsletter per contenuti esclusivi, eventi della community e le ultime novità del brand.",
     "join.placeholder": "La tua email",
@@ -112,14 +104,6 @@ const I18N = {
     "product.text": "Heavyweight cotton long sleeve, crewneck, three-star embroidered logo. The first drop sold out in hours.",
     "product.notify": "Notify me for the next release",
     "product.badge": "Sold Out",
-
-    "values.title": "The values that unite us",
-    "values.card1.title": "Passion",
-    "values.card1.text": "The energy that drives us to train, improve and share every milestone.",
-    "values.card2.title": "Community",
-    "values.card2.text": "A movement of people who support each other and train together, every day.",
-    "values.card3.title": "Balance",
-    "values.card3.text": "Body, mind and lifestyle in harmony: true performance is born from balance.",
 
     "join.title": "Join the United movement",
     "join.text": "Sign up for the newsletter for exclusive content, community events and the latest brand news.",
