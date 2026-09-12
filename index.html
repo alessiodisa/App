@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>United — Sport. Lifestyle. Community.</title>
+<meta name="description" content="United è il brand e la community di chi vive lo sport come stile di vita: passione, equilibrio ed energia condivisa.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-nav" id="siteNav">
+  <div class="container">
+    <a href="#top" class="brand">
+      <img src="assets/img/logo.svg" alt="United">
+    </a>
+
+    <nav class="nav-links">
+      <a href="#community" data-i18n="nav.community">Community</a>
+      <a href="#lifestyle" data-i18n="nav.lifestyle">Lifestyle</a>
+      <a href="#sport" data-i18n="nav.sport">Sport</a>
+      <a href="#values" data-i18n="nav.about">Chi siamo</a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="it" class="active">IT</button>
+        <span class="sep">|</span>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a href="#join" class="nav-cta" data-i18n="nav.join">Entra</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span></button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#community" data-i18n="nav.community">Community</a>
+    <a href="#lifestyle" data-i18n="nav.lifestyle">Lifestyle</a>
+    <a href="#sport" data-i18n="nav.sport">Sport</a>
+    <a href="#values" data-i18n="nav.about">Chi siamo</a>
+    <a href="#join" class="nav-cta" data-i18n="nav.join">Entra</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-mark"><img src="assets/img/logo.svg" alt=""></div>
+    <h1>
+      <span data-i18n="hero.title1">Vivi lo sport.</span><br>
+      <span class="accent" data-i18n="hero.title2">Vivi in equilibrio.</span>
+    </h1>
+    <p class="sub" data-i18n="hero.sub">United è il brand e la community di chi trasforma lo sport in uno stile di vita: passione, energia ed equilibrio, ogni giorno.</p>
+    <div class="hero-ctas">
+      <a href="#sport" class="btn btn-primary" data-i18n="hero.cta1">Scopri United</a>
+      <a href="#join" class="btn btn-ghost" data-i18n="hero.cta2">Unisciti alla community</a>
+    </div>
+    <div class="scroll-cue"><span data-i18n="hero.scroll">Scorri</span><span class="dot"></span></div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section class="feature reveal" id="community">
+    <div class="container">
+      <div class="feature-copy">
+        <span class="eyebrow" data-i18n="community.eyebrow">Community</span>
+        <h2 data-i18n="community.title">Una community che corre nella stessa direzione</h2>
+        <p data-i18n="community.text">Migliaia di persone che condividono la stessa energia: allenamenti, sfide, storie ed esperienze da vivere insieme, dentro e fuori dal campo.</p>
+        <a href="#join" class="btn-link" data-i18n="community.link">Scopri la community <span class="arrow">→</span></a>
+      </div>
+      <div class="feature-visual visual-community" data-caption="Community">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="22" cy="20" r="7"/>
+          <circle cx="44" cy="20" r="7"/>
+          <path d="M8 50c0-8 6-14 14-14s14 6 14 14"/>
+          <path d="M28 50c0-8 6-14 14-14s14 6 14 14"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFESTYLE -->
+  <section class="feature reverse reveal" id="lifestyle">
+    <div class="container">
+      <div class="feature-copy">
+        <span class="eyebrow" data-i18n="lifestyle.eyebrow">Lifestyle</span>
+        <h2 data-i18n="lifestyle.title">L'equilibrio è il vero allenamento</h2>
+        <p data-i18n="lifestyle.text">United nasce per chi vive lo sport come stile di vita: alimentazione consapevole, recupero, mente lucida e tanta energia positiva, ogni giorno.</p>
+        <a href="#join" class="btn-link" data-i18n="lifestyle.link">Scopri il nostro approccio <span class="arrow">→</span></a>
+      </div>
+      <div class="feature-visual visual-lifestyle" data-caption="Lifestyle">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 10v10"/>
+          <path d="M32 44v10"/>
+          <path d="M12 32h10"/>
+          <path d="M42 32h10"/>
+          <circle cx="32" cy="32" r="12"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPORT -->
+  <section class="feature reveal" id="sport">
+    <div class="container">
+      <div class="feature-copy">
+        <span class="eyebrow" data-i18n="sport.eyebrow">Sport</span>
+        <h2 data-i18n="sport.title">La passione per lo sport, senza confini</h2>
+        <p data-i18n="sport.text">Dalla corsa al fitness, dal basket all'outdoor: United accompagna ogni disciplina con contenuti, eventi e prodotti pensati per chi non si ferma mai.</p>
+        <a href="#join" class="btn-link" data-i18n="sport.link">Esplora le discipline <span class="arrow">→</span></a>
+      </div>
+      <div class="feature-visual visual-sport" data-caption="Sport">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="32" cy="32" r="20"/>
+          <path d="M32 12v40M12 32h40M17 17l30 30M47 17 17 47"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values reveal" id="values">
+    <div class="container">
+      <h2 data-i18n="values.title">I valori che ci uniscono</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c2 4-2 5-2 9a4 4 0 0 0 8 0c0-1.5-1-2.5-1-2.5.5 3-1 4-1 4 1-4-3-5-2-9-1.5 1-3 3-3 5.5A4 4 0 0 0 8 13c0-4 2-7 4-11Z"/></svg>
+          <h3 data-i18n="values.card1.title">Passione</h3>
+          <p data-i18n="values.card1.text">L'energia che ci spinge ad allenarci, migliorarci e condividere ogni traguardo.</p>
+        </div>
+        <div class="value-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3.5 20c0-3.6 2.5-6.2 5.5-6.2s5.5 2.6 5.5 6.2"/><path d="M14.8 14.3c2.4.3 4.2 2.6 4.2 5.7"/></svg>
+          <h3 data-i18n="values.card2.title">Community</h3>
+          <p data-i18n="values.card2.text">Un movimento di persone che si sostengono e si allenano insieme, ogni giorno.</p>
+        </div>
+        <div class="value-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v3M12 18v3M4 12H2M22 12h-2"/><circle cx="12" cy="12" r="7"/></svg>
+          <h3 data-i18n="values.card3.title">Equilibrio</h3>
+          <p data-i18n="values.card3.text">Corpo, mente e ritmo di vita in armonia: la vera performance nasce dall'equilibrio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN -->
+  <section class="join reveal" id="join">
+    <div class="container">
+      <h2 data-i18n="join.title">Unisciti al movimento United</h2>
+      <p data-i18n="join.text">Iscriviti alla newsletter per contenuti esclusivi, eventi della community e le ultime novità del brand.</p>
+      <form class="join-form" id="joinForm">
+        <input type="email" required data-i18n-placeholder="join.placeholder" placeholder="La tua email">
+        <button type="submit" class="btn btn-primary" data-i18n="join.submit">Iscriviti</button>
+      </form>
+      <p class="join-note" data-i18n="join.note">Niente spam, solo energia buona. Puoi disiscriverti quando vuoi.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/img/logo.svg" alt="United">
+        <p data-i18n="footer.blurb">Il brand e la community di chi vive lo sport come stile di vita.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.community.title">Community</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.community.l1">Eventi</a></li>
+          <li><a href="#" data-i18n="footer.community.l2">Storie</a></li>
+          <li><a href="#" data-i18n="footer.community.l3">Forum</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.lifestyle.title">Lifestyle</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.lifestyle.l1">Allenamento</a></li>
+          <li><a href="#" data-i18n="footer.lifestyle.l2">Alimentazione</a></li>
+          <li><a href="#" data-i18n="footer.lifestyle.l3">Recupero</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.sport.title">Sport</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.sport.l1">Running</a></li>
+          <li><a href="#" data-i18n="footer.sport.l2">Fitness</a></li>
+          <li><a href="#" data-i18n="footer.sport.l3">Outdoor</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.company.title">Azienda</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.company.l1">Chi siamo</a></li>
+          <li><a href="#" data-i18n="footer.company.l2">Contatti</a></li>
+          <li><a href="#" data-i18n="footer.company.l3">Lavora con noi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.copy">© 2026 United. Tutti i diritti riservati.</span>
+      <div class="footer-social" aria-hidden="true">
+        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c0 2.8 2 5 5 5"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="6" width="19" height="12" rx="4"/><path d="M10.5 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

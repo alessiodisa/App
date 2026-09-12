@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 230" role="img" aria-label="United">
+  <!-- PLACEHOLDER LOGO: ricostruzione approssimativa in attesa del file originale -->
+  <g fill="#E31B23">
+    <path d="M10 95 C 90 70, 150 40, 170 10 C 190 40, 175 75, 220 95 C 175 100, 190 140, 170 175 C 150 140, 95 120, 10 95 Z"/>
+    <path d="M170 95 C 250 70, 310 40, 330 10 C 350 40, 335 75, 380 95 C 335 100, 350 140, 330 175 C 310 140, 255 120, 170 95 Z"/>
+    <path d="M330 95 C 430 66, 520 45, 610 95 C 520 100, 435 135, 330 175 C 350 140, 350 130, 330 95 Z"/>
+  </g>
+  <text x="10" y="215" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="66" letter-spacing="1" fill="#0b0b0c">UNITED</text>
+</svg>
