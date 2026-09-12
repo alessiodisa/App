@@ -385,7 +385,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 40px;
 }
 .value-card {
@@ -573,9 +573,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .nav-toggle { display: block; }
-  .feature .container { grid-template-columns: 1fr; gap: 36px; }
-  .feature.reverse .container { direction: ltr; }
-  .values-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 
