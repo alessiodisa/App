@@ -46,6 +46,11 @@ const I18N = {
     "join.note": "Niente spam, solo energia buona. Puoi disiscriverti quando vuoi.",
     "join.thanks": "Grazie! Ti abbiamo aggiunto alla community.",
 
+    "instagram.eyebrow": "@unitedcultureee",
+    "instagram.title": "Seguici su Instagram",
+    "instagram.cta": "Segui su Instagram",
+    "instagram.note": "Anteprima: i post live arriveranno collegando l'account. Nel frattempo ogni riquadro porta già al profilo vero.",
+
     "footer.blurb": "Il brand e la community di chi vive lo sport come stile di vita.",
     "footer.community.title": "Community",
     "footer.community.l1": "Eventi",
@@ -110,6 +115,11 @@ const I18N = {
     "join.submit": "Subscribe",
     "join.note": "No spam, just good energy. Unsubscribe anytime.",
     "join.thanks": "Thanks! You've been added to the community.",
+
+    "instagram.eyebrow": "@unitedcultureee",
+    "instagram.title": "Follow us on Instagram",
+    "instagram.cta": "Follow on Instagram",
+    "instagram.note": "Preview: live posts will show up once the account is connected. Each tile already links to the real profile.",
 
     "footer.blurb": "The brand and community for people who live sport as a lifestyle.",
     "footer.community.title": "Community",

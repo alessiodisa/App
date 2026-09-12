@@ -88,27 +88,29 @@
     });
   }
 
-  function initMarquee() {
-    var track = document.getElementById("marqueeTrack");
+  // Infinite horizontal auto-scroll: clones the group markup enough times to
+  // always keep at least two screens' worth of content queued ahead, then
+  // drives the CSS animation off the exact measured pixel distance so the
+  // loop never gaps or pops (used by both the partners bar and the
+  // Instagram carousel).
+  function initAutoScroll(track, groupSelector, cssVarName, defaultGap) {
     if (!track) return;
-    var base = track.querySelector(".marquee-group");
+    var base = track.querySelector(groupSelector);
     if (!base) return;
 
     function fillAndMeasure() {
-      track.querySelectorAll(".marquee-group[data-clone]").forEach(function (el) {
+      track.querySelectorAll(groupSelector + "[data-clone]").forEach(function (el) {
         el.remove();
       });
 
       var groupWidth = base.getBoundingClientRect().width;
-      var gap = parseFloat(getComputedStyle(track).columnGap) || 76;
+      var gap = parseFloat(getComputedStyle(track).columnGap) || defaultGap;
       var step = groupWidth + gap;
       if (!step || step <= gap) return;
 
       var viewportWidth = track.parentElement.getBoundingClientRect().width;
-      // Enough copies to cover the visible width twice over, so there is
-      // always a full screen of logos queued up ahead during the loop.
       var groupsNeeded = Math.ceil((viewportWidth * 2) / step) + 1;
-      var current = track.querySelectorAll(".marquee-group").length;
+      var current = track.querySelectorAll(groupSelector).length;
 
       for (var i = current; i < groupsNeeded; i++) {
         var clone = base.cloneNode(true);
@@ -117,7 +119,7 @@
         track.appendChild(clone);
       }
 
-      track.style.setProperty("--mq-w", step + "px");
+      track.style.setProperty(cssVarName, step + "px");
       track.classList.add("mq-ready");
     }
 
@@ -134,6 +136,7 @@
     initMobileNav();
     initReveal();
     initJoinForm();
-    initMarquee();
+    initAutoScroll(document.getElementById("marqueeTrack"), ".marquee-group", "--mq-w", 76);
+    initAutoScroll(document.getElementById("igTrack"), ".ig-group", "--ig-w", 20);
   });
 })();
