@@ -276,7 +276,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .marquee-track{
   display:flex; align-items:center; gap:76px; width:max-content;
-  animation:marquee 24s linear infinite;
+  animation:marquee 15s linear infinite;
 }
 .marquee:hover .marquee-track{ animation-play-state:paused; }
 @keyframes marquee{
