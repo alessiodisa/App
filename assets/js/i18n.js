@@ -31,6 +31,12 @@ const I18N = {
     "sport.text": "Dalla corsa al fitness, dal basket all'outdoor: United accompagna ogni disciplina con contenuti, eventi e prodotti pensati per chi non si ferma mai.",
     "sport.link": "Esplora le discipline",
 
+    "product.eyebrow": "Drop 01",
+    "product.title": "Long Sleeve United",
+    "product.text": "Manica lunga in cotone pesante, girocollo e logo a tre stelle. Il primo drop è andato esaurito in poche ore.",
+    "product.notify": "Avvisami alla prossima uscita",
+    "product.badge": "Sold Out",
+
     "values.title": "I valori che ci uniscono",
     "values.card1.title": "Passione",
     "values.card1.text": "L'energia che ci spinge ad allenarci, migliorarci e condividere ogni traguardo.",
@@ -100,6 +106,12 @@ const I18N = {
     "sport.title": "A passion for sport, without limits",
     "sport.text": "From running to fitness, from basketball to the outdoors: United supports every discipline with content, events and products made for those who never stop.",
     "sport.link": "Explore the disciplines",
+
+    "product.eyebrow": "Drop 01",
+    "product.title": "Long Sleeve United",
+    "product.text": "Heavyweight cotton long sleeve, crewneck, three-star embroidered logo. The first drop sold out in hours.",
+    "product.notify": "Notify me for the next release",
+    "product.badge": "Sold Out",
 
     "values.title": "The values that unite us",
     "values.card1.title": "Passion",
