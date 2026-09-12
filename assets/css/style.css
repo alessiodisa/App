@@ -506,6 +506,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .ig-2, .ig-5{ background:linear-gradient(135deg,#1d1d1f 0%,#46464a 100%); }
 .ig-3, .ig-6{ background:linear-gradient(135deg,#46464a 0%,#e31b23 130%); }
 
+.ig-tile.ig-real{ background-size:cover; background-position:center; }
+.ig-tile.ig-real .ig-label{
+  right:16px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;
+}
+
 @media (prefers-reduced-motion: reduce){
   .ig-track{ animation:none; }
 }

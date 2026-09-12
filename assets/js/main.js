@@ -130,6 +130,54 @@
     window.addEventListener("resize", fillAndMeasure);
   }
 
+  // Tries to load the real Instagram posts from the Netlify function. If it
+  // is not configured yet (no token) or unreachable (e.g. local file preview,
+  // or the site isn't deployed to Netlify), the static placeholder tiles
+  // already in the HTML stay untouched.
+  function initInstagramFeed() {
+    var track = document.getElementById("igTrack");
+    if (!track) return;
+
+    fetch("/.netlify/functions/instagram-feed")
+      .then(function (res) {
+        if (!res.ok) throw new Error("feed unavailable");
+        return res.json();
+      })
+      .then(function (data) {
+        if (!data.posts || !data.posts.length) return;
+
+        track.querySelectorAll(".ig-group").forEach(function (el) {
+          el.remove();
+        });
+        track.classList.remove("mq-ready");
+        track.style.removeProperty("--ig-w");
+
+        var group = document.createElement("div");
+        group.className = "ig-group";
+        data.posts.forEach(function (post) {
+          var tile = document.createElement("a");
+          tile.className = "ig-tile ig-real";
+          tile.href = post.permalink;
+          tile.target = "_blank";
+          tile.rel = "noopener";
+          tile.style.backgroundImage = "url('" + post.image + "')";
+
+          var label = document.createElement("span");
+          label.className = "ig-label";
+          label.textContent = post.caption || "@unitedcultureee";
+          tile.appendChild(label);
+
+          group.appendChild(tile);
+        });
+        track.appendChild(group);
+
+        initAutoScroll(track, ".ig-group", "--ig-w", 20);
+      })
+      .catch(function () {
+        // Keep the existing placeholder tiles.
+      });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initLang();
     initNavScroll();
@@ -138,5 +186,6 @@
     initJoinForm();
     initAutoScroll(document.getElementById("marqueeTrack"), ".marquee-group", "--mq-w", 76);
     initAutoScroll(document.getElementById("igTrack"), ".ig-group", "--ig-w", 20);
+    initInstagramFeed();
   });
 })();
