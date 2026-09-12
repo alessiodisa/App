@@ -369,6 +369,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .feature-visual svg { width: 34%; opacity: .9; }
 .feature-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.visual-lifestyle img { object-position: center 63%; }
 
 /* ==========================================================================
    Values band
