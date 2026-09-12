@@ -88,11 +88,33 @@
     });
   }
 
+  function initMarquee() {
+    var track = document.getElementById("marqueeTrack");
+    if (!track) return;
+    var groups = track.querySelectorAll(".marquee-group");
+    if (groups.length < 2) return;
+
+    function measure() {
+      var distance = groups[1].getBoundingClientRect().left - groups[0].getBoundingClientRect().left;
+      if (distance > 0) {
+        track.style.setProperty("--mq-w", distance + "px");
+        track.classList.add("mq-ready");
+      }
+    }
+
+    measure();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(measure);
+    }
+    window.addEventListener("resize", measure);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initLang();
     initNavScroll();
     initMobileNav();
     initReveal();
     initJoinForm();
+    initMarquee();
   });
 })();
