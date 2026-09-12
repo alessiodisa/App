@@ -1,9 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 230" role="img" aria-label="United">
-  <!-- PLACEHOLDER LOGO: ricostruzione approssimativa in attesa del file originale -->
-  <g fill="#E31B23">
-    <path d="M10 95 C 90 70, 150 40, 170 10 C 190 40, 175 75, 220 95 C 175 100, 190 140, 170 175 C 150 140, 95 120, 10 95 Z"/>
-    <path d="M170 95 C 250 70, 310 40, 330 10 C 350 40, 335 75, 380 95 C 335 100, 350 140, 330 175 C 310 140, 255 120, 170 95 Z"/>
-    <path d="M330 95 C 430 66, 520 45, 610 95 C 520 100, 435 135, 330 175 C 350 140, 350 130, 330 95 Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" role="img" aria-label="United">
+  <!-- PLACEHOLDER LOGO: ricostruzione approssimativa in attesa del file vettoriale originale -->
+  <defs>
+    <path id="unitedStar" d="
+      M120,2
+      C108,40 100,60 78,68
+      C40,80 -10,95 -40,110
+      C-5,118 35,120 72,118
+      C85,150 88,175 95,195
+      C102,175 108,150 122,120
+      C160,112 230,100 300,80
+      C235,70 175,65 132,50
+      C128,35 124,18 120,2
+      Z"/>
+  </defs>
+  <g fill="#D8181E">
+    <use href="#unitedStar" x="20" y="0"/>
+    <use href="#unitedStar" x="190" y="0"/>
+    <use href="#unitedStar" x="360" y="0"/>
   </g>
-  <text x="10" y="215" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="66" letter-spacing="1" fill="#0b0b0c">UNITED</text>
+  <text x="6" y="345" font-family="'Baloo 2','Nunito',Arial,sans-serif" font-weight="800" font-size="92" letter-spacing="0" fill="#0a0a0a">UNITED</text>
 </svg>
