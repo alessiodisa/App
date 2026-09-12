@@ -368,6 +368,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .visual-sport      { background: linear-gradient(135deg, #46464a 0%, #e31b23 120%); }
 
 .feature-visual svg { width: 34%; opacity: .9; }
+.feature-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ==========================================================================
    Values band
