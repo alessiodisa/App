@@ -292,18 +292,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .partner-logo{
-  display:flex; align-items:center; gap:10px; height:40px;
+  display:flex; align-items:center; justify-content:center; height:44px;
   white-space:nowrap; filter:grayscale(1); opacity:.5;
   transition:filter .25s var(--ease), opacity .25s var(--ease);
 }
 .partner-logo:hover{ filter:grayscale(0); opacity:1; }
-.partner-logo img{ height:26px; width:88px; object-fit:contain; object-position:left center; }
-.partner-logo .badge{
-  width:34px; height:34px; border-radius:50%; border:1.5px solid currentColor;
-  display:flex; align-items:center; justify-content:center;
-  font-size:12px; font-weight:800; letter-spacing:.01em; color:var(--gray-700);
-}
-.partner-logo .pname{ font-size:14px; font-weight:700; color:var(--gray-700); }
+.partner-logo img{ height:100%; width:auto; max-width:140px; object-fit:contain; }
 
 @media (prefers-reduced-motion: reduce){
   .marquee-track{ animation:none; }
