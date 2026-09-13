@@ -343,6 +343,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .feature-overlay-inner { max-width: 640px; margin: 0 auto; }
 
+.feature-overlay h1,
 .feature-overlay h2 {
   color: var(--white);
   font-size: clamp(1.8rem, 3.6vw, 2.8rem);
@@ -580,6 +581,43 @@ ul { margin: 0; padding: 0; list-style: none; }
   transition: opacity .8s var(--ease), transform .8s var(--ease);
 }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ==========================================================================
+   Dedicated section pages (Community / Lifestyle / Sport / Chi siamo)
+   ========================================================================== */
+.page-hero{
+  background: var(--black);
+  color: var(--white);
+  padding: calc(var(--nav-h) + 90px) 24px 100px;
+  text-align: center;
+}
+.page-hero .eyebrow{ color: var(--blue); }
+.page-hero h1{
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.08;
+  margin: 0 0 18px;
+}
+.page-hero p{
+  color: rgba(255,255,255,.7);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 56ch;
+  margin: 0 auto;
+}
+
+.page-placeholder{
+  padding: 100px 24px;
+  text-align: center;
+}
+.page-placeholder p{
+  color: var(--gray-500);
+  font-size: 1.05rem;
+  max-width: 46ch;
+  margin: 0 auto;
+}
+.page-placeholder .btn-link{ margin-top: 20px; display: inline-flex; }
 
 /* ==========================================================================
    Responsive

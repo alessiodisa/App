@@ -16,6 +16,13 @@ const I18N = {
 
     "partners.label": "Collaborazioni",
 
+    "about.eyebrow": "United",
+    "about.title": "Chi siamo",
+    "about.text": "United è il brand e la community di chi vive lo sport come stile di vita. La nostra storia, i nostri valori e le persone dietro il progetto arrivano presto in questa pagina.",
+
+    "page.placeholder": "Stiamo costruendo questa pagina passo dopo passo — nuovi contenuti in arrivo presto.",
+    "page.back": "Torna alla home",
+
     "community.eyebrow": "Community",
     "community.title": "Una community che corre nella stessa direzione",
     "community.text": "Migliaia di persone che condividono la stessa energia: allenamenti, sfide, storie ed esperienze da vivere insieme, dentro e fuori dal campo.",
@@ -83,6 +90,13 @@ const I18N = {
     "hero.scroll": "Scroll",
 
     "partners.label": "Collaborations",
+
+    "about.eyebrow": "United",
+    "about.title": "About us",
+    "about.text": "United is the brand and community for people who live sport as a lifestyle. Our story, our values and the people behind the project are coming soon to this page.",
+
+    "page.placeholder": "We're building this page step by step — new content coming soon.",
+    "page.back": "Back to home",
 
     "community.eyebrow": "Community",
     "community.title": "A community moving in the same direction",
