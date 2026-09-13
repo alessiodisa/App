@@ -2,8 +2,8 @@
    United — Design tokens
    ========================================================================== */
 :root {
-  --red: #e31b23;
-  --red-dark: #b8141b;
+  --blue: #0e4c8c;
+  --blue-dark: #0a3a6b;
   --black: #0b0b0c;
   --ink: #1d1d1f;
   --gray-900: #1d1d1f;
@@ -50,7 +50,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--blue);
   margin-bottom: 14px;
 }
 
@@ -67,17 +67,17 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .btn:hover { transform: translateY(-1px); }
 
-.btn-primary { background: var(--red); color: var(--white); }
-.btn-primary:hover { background: var(--red-dark); }
+.btn-primary { background: var(--blue); color: var(--white); }
+.btn-primary:hover { background: var(--blue-dark); }
 
 .btn-ghost { border-color: currentColor; }
 
 .btn-link {
   font-weight: 600;
-  color: var(--red);
+  color: var(--blue);
   border-bottom: 1.5px solid transparent;
 }
-.btn-link:hover { border-color: var(--red); }
+.btn-link:hover { border-color: var(--blue); }
 .btn-link .arrow { transition: transform .25s var(--ease); display: inline-block; }
 .btn-link:hover .arrow { transform: translateX(4px); }
 
@@ -203,7 +203,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   text-align: center;
   padding: calc(var(--nav-h) + 40px) 24px 80px;
   background:
-    radial-gradient(60% 50% at 50% 0%, rgba(227, 27, 35, .16), transparent 70%),
+    radial-gradient(60% 50% at 50% 0%, rgba(14, 76, 140, .2), transparent 70%),
     linear-gradient(180deg, #0b0b0c 0%, #161617 60%, #1d1d1f 100%);
   color: var(--white);
   overflow: hidden;
@@ -224,7 +224,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   margin: 0 0 22px;
   max-width: 920px;
 }
-.hero h1 .accent { color: var(--red); }
+.hero h1 .accent { color: var(--blue); }
 
 .hero p.sub {
   font-size: clamp(1.05rem, 2vw, 1.4rem);
@@ -382,7 +382,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   align-items: center;
   gap: 72px;
 }
-.product .eyebrow{ color: var(--red); }
+.product .eyebrow{ color: var(--blue); }
 .product h2{
   color: var(--white);
   font-size: clamp(1.9rem, 3.4vw, 2.7rem);
@@ -462,7 +462,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: .95rem;
 }
 .join-form input::placeholder { color: rgba(255,255,255,.45); }
-.join-form input:focus { outline: none; border-color: var(--red); }
+.join-form input:focus { outline: none; border-color: var(--blue); }
 .join-note { margin-top: 16px; font-size: .8rem; color: rgba(255,255,255,.4); }
 
 /* ==========================================================================
@@ -516,9 +516,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .ig-tile:hover .ig-label{ opacity:1; }
 
-.ig-1, .ig-4{ background:linear-gradient(135deg,#e31b23 0%,#7a0e13 100%); }
+.ig-1, .ig-4{ background:linear-gradient(135deg,#0e4c8c 0%,#082646 100%); }
 .ig-2, .ig-5{ background:linear-gradient(135deg,#1d1d1f 0%,#46464a 100%); }
-.ig-3, .ig-6{ background:linear-gradient(135deg,#46464a 0%,#e31b23 130%); }
+.ig-3, .ig-6{ background:linear-gradient(135deg,#46464a 0%,#0e4c8c 130%); }
 
 .ig-tile.ig-real{ background-size:cover; background-position:center; }
 .ig-tile.ig-real .ig-label{
