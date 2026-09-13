@@ -178,11 +178,13 @@
       });
   }
 
-  // Some mobile browsers (notably iOS Safari under Low Power Mode / Low Data
-  // Mode) ignore the `autoplay` attribute even when muted+playsinline are
-  // set. This retries play() explicitly, again once each video scrolls into
-  // view, and again on the first touch/scroll/click as a last resort — so
-  // the background videos never get stuck showing a paused first frame.
+  // On real devices (especially over cellular) the video often isn't
+  // buffered enough to play the instant the page loads — play() is called
+  // too early, silently fails, and nothing retries it until the browser's
+  // own autoplay-unlock gesture (scroll/tap) fires our retry below. To get
+  // it playing the moment it's actually ready — with zero interaction —
+  // this also retries on every buffering milestone (loadeddata/canplay/
+  // canplaythrough) and once more when it's fully downloaded.
   function initVideoAutoplay() {
     var videos = document.querySelectorAll("video[autoplay]");
     if (!videos.length) return;
@@ -192,7 +194,13 @@
       if (p && p.catch) p.catch(function () {});
     }
 
-    videos.forEach(tryPlay);
+    videos.forEach(function (video) {
+      tryPlay(video);
+      ["loadeddata", "canplay", "canplaythrough", "progress"].forEach(function (evt) {
+        video.addEventListener(evt, function () { tryPlay(video); });
+      });
+      if (video.readyState >= 2) tryPlay(video);
+    });
 
     if ("IntersectionObserver" in window) {
       var io = new IntersectionObserver(function (entries) {
