@@ -427,6 +427,59 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* ==========================================================================
+   Squad (Treviso United)
+   ========================================================================== */
+.squad{
+  background: var(--gray-100);
+  padding: 110px 0 130px;
+}
+.squad-inner{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 72px;
+}
+.squad-crest{ width: 68px; height: auto; margin-bottom: 20px; }
+.squad-copy .eyebrow{ color: var(--blue); }
+.squad-copy h2{
+  color: var(--ink);
+  font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  margin: 0 0 16px;
+}
+.squad-copy p{
+  color: var(--gray-700);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 46ch;
+  margin: 0;
+}
+.squad-sponsor{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 32px;
+}
+.squad-sponsor span{
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+}
+.squad-sponsor img{ height: 20px; width: auto; }
+
+.squad-visual{ display: flex; justify-content: center; }
+.squad-visual img{
+  width: 100%;
+  max-width: 380px;
+  border-radius: 20px;
+  box-shadow: 0 40px 80px -30px rgba(0,0,0,.25);
+  display: block;
+}
+
+/* ==========================================================================
    Join / newsletter
    ========================================================================== */
 .join {
@@ -628,6 +681,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .product-inner { grid-template-columns: 1fr; text-align: center; gap: 44px; }
   .product p { margin: 0 auto; }
+  .squad-inner { grid-template-columns: 1fr; text-align: center; gap: 44px; }
+  .squad-copy p { margin: 0 auto; }
+  .squad-crest { margin-left: auto; margin-right: auto; }
+  .squad-sponsor { justify-content: center; }
 }
 
 @media (max-width: 560px) {
