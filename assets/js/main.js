@@ -178,6 +178,37 @@
       });
   }
 
+  // Some mobile browsers (notably iOS Safari under Low Power Mode / Low Data
+  // Mode) ignore the `autoplay` attribute even when muted+playsinline are
+  // set. This retries play() explicitly, again once each video scrolls into
+  // view, and again on the first touch/scroll/click as a last resort — so
+  // the background videos never get stuck showing a paused first frame.
+  function initVideoAutoplay() {
+    var videos = document.querySelectorAll("video[autoplay]");
+    if (!videos.length) return;
+
+    function tryPlay(video) {
+      var p = video.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+
+    videos.forEach(tryPlay);
+
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) tryPlay(entry.target);
+        });
+      }, { threshold: 0.1 });
+      videos.forEach(function (v) { io.observe(v); });
+    }
+
+    var retry = function () { videos.forEach(tryPlay); };
+    ["touchstart", "scroll", "click"].forEach(function (evt) {
+      document.addEventListener(evt, retry, { once: true, passive: true });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initLang();
     initNavScroll();
@@ -187,5 +218,6 @@
     initAutoScroll(document.getElementById("marqueeTrack"), ".marquee-group", "--mq-w", 76);
     initAutoScroll(document.getElementById("igTrack"), ".ig-group", "--ig-w", 20);
     initInstagramFeed();
+    initVideoAutoplay();
   });
 })();
