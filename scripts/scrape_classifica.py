@@ -1,71 +1,83 @@
 #!/usr/bin/env python3
 """
-Debug probe: fetches the calciotto.tv Serie A standings page and prints its
-structure (tables, headings, links mentioning "treviso") so the real scraper
-selectors can be written against the actual markup. Run via GitHub Actions,
-where the network isn't blocked (unlike the sandboxed dev environment this
-was authored in).
+Debug probe: the site (calciotto.tv) runs on WordPress + SportsPress
+(confirmed via the team page's body classes: sp_team, sportspress, ...).
+SportsPress usually exposes REST API routes under /wp-json/sportspress/v2/.
+This checks which routes exist and what a Treviso United team/player/event
+looks like as JSON, so the real scraper can use the API instead of scraping
+HTML tables.
 """
+import json
 import sys
 import requests
-from bs4 import BeautifulSoup
 
-URL = "https://calciotto.tv/classifica-serie-a-2026-2027/"
-TEAM_URL = "https://calciotto.tv/team/treviso-united-c8/"
+BASE = "https://calciotto.tv"
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; UnitedSiteBot/1.0)"}
 
-def probe(url):
-    resp = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (compatible; UnitedSiteBot/1.0)"}, timeout=30)
-    print(f"status: {resp.status_code}")
-    print(f"final url: {resp.url}")
-    print(f"content-length: {len(resp.text)}")
 
-    soup = BeautifulSoup(resp.text, "html.parser")
+def get(url):
+    try:
+        r = requests.get(url, headers=HEADERS, timeout=30)
+        return r.status_code, r
+    except Exception as e:
+        return None, str(e)
 
-    print("\n=== TITLE ===")
-    print(soup.title.string if soup.title else "(none)")
 
-    print("\n=== TABLES ===")
-    tables = soup.find_all("table")
-    print(f"found {len(tables)} <table> elements")
-    for i, t in enumerate(tables):
-        rows = t.find_all("tr")
-        print(f"\n--- table {i} ({len(rows)} rows) ---")
-        for r in rows[:5]:
-            cells = [c.get_text(strip=True) for c in r.find_all(["td", "th"])]
-            print(cells)
-        if len(rows) > 5:
-            print(f"... ({len(rows)-5} more rows)")
+def show(label, url, max_chars=3000):
+    print(f"\n=== {label}: {url} ===")
+    status, r = get(url)
+    if status is None:
+        print(f"request failed: {r}")
+        return None
+    print(f"status: {status}")
+    if status != 200:
+        print(r.text[:500])
+        return None
+    ctype = r.headers.get("content-type", "")
+    print(f"content-type: {ctype}")
+    if "json" in ctype:
+        try:
+            data = r.json()
+            text = json.dumps(data, indent=2, ensure_ascii=False)
+            print(text[:max_chars])
+            if len(text) > max_chars:
+                print(f"... ({len(text)-max_chars} more chars)")
+            return data
+        except Exception as e:
+            print(f"json parse failed: {e}")
+            print(r.text[:max_chars])
+    else:
+        print(r.text[:max_chars])
+    return None
 
-    print("\n=== LINKS MENTIONING 'treviso' ===")
-    for a in soup.find_all("a", href=True):
-        text = a.get_text(strip=True)
-        href = a["href"]
-        if "treviso" in text.lower() or "treviso" in href.lower():
-            print(f"{text!r} -> {href}")
 
-    print("\n=== HEADINGS ===")
-    for h in soup.find_all(["h1", "h2", "h3"]):
-        print(f"{h.name}: {h.get_text(strip=True)}")
+def main():
+    # Discover all registered REST routes
+    routes_data = show("WP-JSON ROOT (route discovery)", f"{BASE}/wp-json/", max_chars=200)
+    root_status, root_resp = get(f"{BASE}/wp-json/")
+    if root_status == 200:
+        try:
+            full = root_resp.json()
+            routes = list(full.get("routes", {}).keys())
+            sp_routes = [r for r in routes if "sportspress" in r.lower() or "/sp" in r.lower()]
+            print("\n=== SPORTSPRESS-RELATED ROUTES ===")
+            for r in sp_routes:
+                print(r)
+        except Exception as e:
+            print(f"route listing failed: {e}")
 
-    print("\n=== ELEMENTS WITH CLASS CONTAINING 'classifica'/'standing'/'player'/'staff'/'rosa'/'roster' ===")
-    keywords = ["classifica", "standing", "player", "staff", "rosa", "roster", "dirigen", "team-"]
-    for el in soup.find_all(class_=True):
-        classes = " ".join(el.get("class", []))
-        if any(k in classes.lower() for k in keywords):
-            print(f"<{el.name} class='{classes}'> first 120 chars: {el.get_text(strip=True)[:120]!r}")
+    # Common SportsPress v2 endpoints
+    for slug in ["teams", "players", "staff", "events", "leagues", "tables", "venues", "seasons"]:
+        show(f"SPORTSPRESS {slug.upper()} (list)", f"{BASE}/wp-json/sportspress/v2/{slug}?per_page=5")
 
-    print("\n=== ALL IMAGES (src + alt) ===")
-    for img in soup.find_all("img")[:60]:
-        print(f"alt={img.get('alt','')!r} src={img.get('src','')!r}")
+    # Try to find Treviso United specifically
+    show("SEARCH TEAM 'treviso-united-c8'", f"{BASE}/wp-json/sportspress/v2/teams?slug=treviso-united-c8")
+    show("SEARCH TABLE for Serie A 2026-2027", f"{BASE}/wp-json/sportspress/v2/tables?search=Serie%20A")
 
-    return soup
 
 if __name__ == "__main__":
     try:
-        print("\n\n########## CLASSIFICA PAGE ##########")
-        probe(URL)
-        print("\n\n########## TEAM PAGE (Treviso United) ##########")
-        probe(TEAM_URL)
+        main()
     except Exception as e:
         print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(1)
