@@ -371,6 +371,28 @@ ul { margin: 0; padding: 0; list-style: none; }
   #sport.feature-full .feature-bg { object-position: center 70%; }
 }
 
+.sport-intro{
+  background: var(--black);
+  color: var(--white);
+  padding: 72px 24px;
+  text-align: center;
+}
+.sport-intro .eyebrow{ color: var(--blue); }
+.sport-intro h1{
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.08;
+  margin: 0 0 18px;
+}
+.sport-intro p{
+  color: rgba(255,255,255,.7);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 56ch;
+  margin: 0 auto;
+}
+
 /* ==========================================================================
    Product spotlight
    ========================================================================== */
