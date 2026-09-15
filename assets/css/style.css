@@ -271,6 +271,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .marquee{
   position:relative; overflow:hidden;
+  contain: layout paint;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
 }
@@ -624,6 +625,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--gray-300);
   border-radius: 16px;
   padding: 26px 28px;
+  min-width: 0;
 }
 .campionato-card-wide{ grid-column: span 2; }
 .campionato-card h3{
@@ -649,7 +651,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .campionato-list .campionato-date{ color: var(--gray-500); font-size: .78rem; white-space: nowrap; flex-shrink: 0; }
 .campionato-list .campionato-role{ color: var(--gray-500); font-size: .78rem; white-space: nowrap; flex-shrink: 0; }
 
-.campionato-table-wrap{ overflow-x: auto; }
+.campionato-table-wrap{ overflow-x: auto; contain: layout paint; }
 .campionato-table{ width: 100%; border-collapse: collapse; font-size: .84rem; }
 .campionato-table th,
 .campionato-table td{
@@ -777,6 +779,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .ig-marquee{
   position:relative; overflow:hidden;
+  contain: layout paint;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   padding:0 24px;
@@ -928,6 +931,14 @@ ul { margin: 0; padding: 0; list-style: none; }
   .squad-sponsor { justify-content: center; }
   .campionato-grid { grid-template-columns: 1fr; }
   .campionato-card-wide { grid-column: span 1; }
+  .campionato-card { padding: 22px 20px; }
+  .campionato-table-wrap {
+    margin: 0 -20px;
+    padding: 0 20px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .campionato-table th,
+  .campionato-table td { padding: 8px 6px; }
 }
 
 @media (max-width: 560px) {
