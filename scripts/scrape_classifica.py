@@ -30,14 +30,19 @@ LEAGUE_SLUG = "serie-a-2026-2027"
 SEASON_SLUG = "2026-2027"
 OUT_PATH = "assets/data/treviso-united.json"
 
+# A shared, keep-alive session avoids a fresh TCP+TLS handshake per request,
+# which otherwise dominates latency when paginating through many pages.
+SESSION = requests.Session()
+SESSION.headers.update(HEADERS)
+
 
 def get(path, params=None):
-    r = requests.get(f"{BASE}/{path}", headers=HEADERS, params=params or {}, timeout=30)
+    r = SESSION.get(f"{BASE}/{path}", params=params or {}, timeout=20)
     r.raise_for_status()
     return r.json()
 
 
-def get_all(path, params=None, max_pages=100):
+def get_all(path, params=None, max_pages=100, log_progress=False):
     """Paginate through a collection endpoint."""
     items = []
     page = 1
@@ -45,7 +50,7 @@ def get_all(path, params=None, max_pages=100):
     params["per_page"] = 100
     while page <= max_pages:
         params["page"] = page
-        r = requests.get(f"{BASE}/{path}", headers=HEADERS, params=params, timeout=30)
+        r = SESSION.get(f"{BASE}/{path}", params=params, timeout=20)
         if r.status_code == 400:  # WP returns 400 once past the last page
             break
         r.raise_for_status()
@@ -54,6 +59,8 @@ def get_all(path, params=None, max_pages=100):
             break
         items.extend(batch)
         total_pages = int(r.headers.get("X-WP-TotalPages", "1"))
+        if log_progress:
+            print(f"  {path}: page {page}/{total_pages} ({len(items)} items so far)", flush=True)
         if page >= total_pages:
             break
         page += 1
@@ -144,8 +151,10 @@ def main():
     # results), so scan the full players collection and filter client-side.
     # Use _fields to trim the (large, statistics-heavy) default payload for
     # this discovery pass — full details are fetched only for actual matches.
-    all_players_slim = get_all("players", {"_fields": "id,title,current_teams,class_list,number"})
+    print("scanning players...", flush=True)
+    all_players_slim = get_all("players", {"_fields": "id,title,current_teams,class_list,number"}, log_progress=True)
     matching_ids = [p["id"] for p in all_players_slim if team_id in (p.get("current_teams") or [])]
+    print(f"found {len(matching_ids)} matching players, fetching full records...", flush=True)
     players_raw = []
     for pid in matching_ids:
         try:
