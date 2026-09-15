@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T21:45:27.441867+00:00",
+  "generated_at": "2026-09-15T21:54:02.574510+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -247,7 +247,27 @@
   ],
   "players": [
     {
-      "name": "Mattia Pellegrino",
+      "name": "Andrea Visentin",
+      "number": null,
+      "position": "goalkeeper",
+      "position_label": "Portiere",
+      "stats": {}
+    },
+    {
+      "name": "Andrea Visonà Dalla Pozza",
+      "number": null,
+      "position": "goalkeeper",
+      "position_label": "Portiere",
+      "stats": {
+        "appearances": "1",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Giulio Bianchin",
       "number": null,
       "position": "goalkeeper",
       "position_label": "Portiere",
@@ -260,28 +280,243 @@
       }
     },
     {
-      "name": "Cataldo Zaza",
+      "name": "Jacopo Traldi",
+      "number": null,
+      "position": "goalkeeper",
+      "position_label": "Portiere",
+      "stats": {}
+    },
+    {
+      "name": "Matteo Guizzon",
+      "number": null,
+      "position": "goalkeeper",
+      "position_label": "Portiere",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Simone Torresan",
+      "number": null,
+      "position": "goalkeeper",
+      "position_label": "Portiere",
+      "stats": {}
+    },
+    {
+      "name": "Alberto Barbierato",
       "number": null,
       "position": "defender",
       "position_label": "Difensore",
       "stats": {}
     },
     {
-      "name": "Federico Salvatore Brocca",
+      "name": "Alessandro Giacomin",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Alvise Magli",
       "number": null,
       "position": "defender",
       "position_label": "Difensore",
       "stats": {}
     },
     {
-      "name": "Giacomo Vivian",
+      "name": "Andrea Bortoluzzi",
       "number": null,
       "position": "defender",
       "position_label": "Difensore",
       "stats": {}
     },
     {
-      "name": "Michael Rolfini",
+      "name": "Christian Cappelletto",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "1",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Cristian Alberto Mastori",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {}
+    },
+    {
+      "name": "Diego Mazzer",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {}
+    },
+    {
+      "name": "Edoardo Casellato",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {}
+    },
+    {
+      "name": "Edoardo Dozzo",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {}
+    },
+    {
+      "name": "Enrico Pavan",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "1",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Filippo Camarin",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {}
+    },
+    {
+      "name": "Filippo Zambon",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {}
+    },
+    {
+      "name": "Francesco Dozzo",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {}
+    },
+    {
+      "name": "Giacomo Bettiol",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "1",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Luca Tinazzi",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "1",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Luigi Sama",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {}
+    },
+    {
+      "name": "Matteo Biral",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {}
+    },
+    {
+      "name": "Matteo Boldrin",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {}
+    },
+    {
+      "name": "Matteo Lamonato",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {}
+    },
+    {
+      "name": "Mattia Furlan",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "1",
+        "goals": 1,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Mouhamed Lamine Diomande",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Nicholas Ostan",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Nicolo&#8217; Guidolin",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {}
+    },
+    {
+      "name": "Paolo Bortolanza",
       "number": null,
       "position": "defender",
       "position_label": "Difensore",
@@ -301,6 +536,100 @@
       }
     },
     {
+      "name": "Sebastiano Martini",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "1",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Alberto Mingolla",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Alberto Susanna",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Alberto Tocanne",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Alessandro Corrò",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Axel Emmanuel Gerard Akafou",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Davide Fasan",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "1",
+        "goals": 1,
+        "yellow_cards": 1,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Edoardo Guerra",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Endrit Loshi",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Federico Borso",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
       "name": "Francesco Gheller",
       "number": null,
       "position": "midfielder",
@@ -314,32 +643,363 @@
       }
     },
     {
-      "name": "Maicol Doppieri",
+      "name": "Gianluigi Mosele",
       "number": null,
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {}
     },
     {
-      "name": "Fabio Giacomini",
+      "name": "Gianmarco Drusian",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Lorenzo Bonaldo",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Lorenzo Pavan",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Luca Cervi",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Luca Padoan",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Luca Salamon",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Ludovico Polesel",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Luis Marinello",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Marco Codato",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Marco Pivetta",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Marco Salvi",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Marco Zuin",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Martino Tonolo",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "1",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Matteo Marcon",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Mattia Manganiello",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Messeve Moustafa Diomande",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Michele Cherchi",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Nicolo&#8217; Campagner",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Nicolo&#8217; Marangon",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Pietro Mariano",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Pietro Pinto",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Tommaso Benvenuti",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Tommaso Boriero",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {}
+    },
+    {
+      "name": "Tommaso Durante",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Alessio Bezze",
       "number": null,
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {}
     },
     {
-      "name": "Sebastiano Davanzo",
+      "name": "Alexis Yara",
       "number": null,
       "position": "forward",
       "position_label": "Attaccante",
+      "stats": {}
+    },
+    {
+      "name": "Fatlum Shukolli",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {}
+    },
+    {
+      "name": "Federico Busato",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {}
+    },
+    {
+      "name": "Francesco Gallo",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {
+        "appearances": "1",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Francesco Oliva",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {}
+    },
+    {
+      "name": "Francesco Semenzato",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Francesco Zanin",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {}
+    },
+    {
+      "name": "Gabriele Rosa",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Mirko Ceselin",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {}
+    },
+    {
+      "name": "Niccolo&#8217; Cattapan",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {}
+    },
+    {
+      "name": "Sergio Cosentino",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {
+        "appearances": "1",
+        "goals": 2,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 1
+      }
+    },
+    {
+      "name": "Tommaso Spigariol",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {}
+    },
+    {
+      "name": "Francesco Sama",
+      "number": null,
+      "position": "dirigente",
+      "position_label": "dirigente",
+      "stats": {}
+    },
+    {
+      "name": "Giovanni Jonatas Zanucco",
+      "number": null,
+      "position": "dirigente",
+      "position_label": "dirigente",
+      "stats": {}
+    },
+    {
+      "name": "Moreno Ziliotto",
+      "number": null,
+      "position": "dirigente",
+      "position_label": "dirigente",
       "stats": {}
     }
   ],
   "staff": [
     {
-      "name": "Andrea Visonà Dalla Pozza",
-      "role": "dirigente",
-      "role_label": "Dirigente"
+      "name": "Jonatas Zanucco",
+      "role": "presidente",
+      "role_label": "Presidente"
+    },
+    {
+      "name": "Francesco Sama",
+      "role": "allenatore",
+      "role_label": "Allenatore"
     },
     {
       "name": "Andrea Brugnerotto",
@@ -355,56 +1015,6 @@
       "name": "Luca Pregnolato",
       "role": "dirigente",
       "role_label": "Dirigente"
-    },
-    {
-      "name": "Francesco Zanin",
-      "role": "dirigente",
-      "role_label": "Dirigente"
-    },
-    {
-      "name": "Edoardo Baviera",
-      "role": "dirigente",
-      "role_label": "Dirigente"
-    },
-    {
-      "name": "Jacopo Traldi",
-      "role": "allenatore",
-      "role_label": "Allenatore"
-    },
-    {
-      "name": "Mattia Manganiello",
-      "role": "dirigente",
-      "role_label": "Dirigente"
-    },
-    {
-      "name": "Moreno Ziliotto",
-      "role": "dirigente",
-      "role_label": "Dirigente"
-    },
-    {
-      "name": "Francesco Sama",
-      "role": "allenatore",
-      "role_label": "Allenatore"
-    },
-    {
-      "name": "Daniele Peron",
-      "role": "allenatore",
-      "role_label": "Allenatore"
-    },
-    {
-      "name": "Jonatas Zanucco",
-      "role": "presidente",
-      "role_label": "Presidente"
-    },
-    {
-      "name": "Guido Borso",
-      "role": "presidente",
-      "role_label": "Presidente"
-    },
-    {
-      "name": "Nino Pisanu",
-      "role": "collaboratore-tecnico",
-      "role_label": "Collaboratore Tecnico"
     }
   ],
   "upcoming_matches": [
