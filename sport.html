@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=4">
+<link rel="stylesheet" href="assets/css/style.css?v=5">
 </head>
 <body>
 
@@ -142,6 +142,41 @@
         <img src="assets/img/treviso-united-team.jpg?v=2" alt="La squadra Treviso United schierata in campo" loading="lazy">
       </div>
     </div>
+
+    <div class="container campionato" id="campionato">
+      <span class="eyebrow" data-i18n="campionato.eyebrow">Il campionato</span>
+      <h2 data-i18n="campionato.title">Serie A — Calciotto Treviso</h2>
+
+      <div class="campionato-grid">
+        <div class="campionato-card">
+          <h3 data-i18n="campionato.matches.title">Prossime partite</h3>
+          <ul class="campionato-list" id="campionatoMatches"></ul>
+        </div>
+
+        <div class="campionato-card campionato-card-wide">
+          <h3 data-i18n="campionato.standings.title">Classifica</h3>
+          <div class="campionato-table-wrap">
+            <table class="campionato-table" id="campionatoTable"></table>
+          </div>
+        </div>
+
+        <div class="campionato-card campionato-card-wide">
+          <h3 data-i18n="campionato.roster.title">Rosa e statistiche</h3>
+          <div class="campionato-roster" id="campionatoRoster"></div>
+        </div>
+
+        <div class="campionato-card">
+          <h3 data-i18n="campionato.staff.title">Dirigenza</h3>
+          <ul class="campionato-list" id="campionatoStaff"></ul>
+        </div>
+      </div>
+
+      <p class="campionato-source">
+        <span data-i18n="campionato.source">Dati aggiornati automaticamente da</span>
+        <a href="https://calciotto.tv/classifica-serie-a-2026-2027/" target="_blank" rel="noopener">calciotto.tv</a>
+        <span id="campionatoUpdated"></span>
+      </p>
+    </div>
   </section>
 
   <section class="page-placeholder reveal">
@@ -204,7 +239,7 @@
   </div>
 </footer>
 
-<script src="assets/js/i18n.js?v=5"></script>
-<script src="assets/js/main.js?v=2"></script>
+<script src="assets/js/i18n.js?v=6"></script>
+<script src="assets/js/main.js?v=3"></script>
 </body>
 </html>

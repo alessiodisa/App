@@ -605,6 +605,121 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: block;
 }
 
+.campionato{ margin-top: 90px; }
+.campionato .eyebrow{ color: var(--blue); }
+.campionato h2{
+  color: var(--ink);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  margin: 0 0 36px;
+}
+.campionato-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.campionato-card{
+  background: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: 16px;
+  padding: 26px 28px;
+}
+.campionato-card-wide{ grid-column: span 2; }
+.campionato-card h3{
+  font-size: .95rem;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+
+.campionato-list{ list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.campionato-list li{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  font-size: .88rem;
+  color: var(--gray-700);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gray-100);
+}
+.campionato-list li:last-child{ border-bottom: none; padding-bottom: 0; }
+.campionato-list .campionato-date{ color: var(--gray-500); font-size: .78rem; white-space: nowrap; flex-shrink: 0; }
+.campionato-list .campionato-role{ color: var(--gray-500); font-size: .78rem; white-space: nowrap; flex-shrink: 0; }
+
+.campionato-table-wrap{ overflow-x: auto; }
+.campionato-table{ width: 100%; border-collapse: collapse; font-size: .84rem; }
+.campionato-table th,
+.campionato-table td{
+  text-align: left;
+  padding: 9px 8px;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--gray-100);
+}
+.campionato-table th{
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--gray-500);
+  font-weight: 700;
+}
+.campionato-table tbody tr.is-united{ background: rgba(14,76,140,.07); font-weight: 700; }
+.campionato-table tbody tr.is-united td:first-child{ box-shadow: inset 3px 0 0 var(--blue); }
+
+.campionato-roster{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 10px;
+}
+.campionato-player{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--gray-100);
+  border-radius: 10px;
+}
+.campionato-player .campionato-num{
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--gray-100);
+  color: var(--gray-700);
+  font-size: .72rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.campionato-player .campionato-info{ display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.campionato-player .campionato-name{
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.campionato-player .campionato-pos{ font-size: .7rem; color: var(--gray-500); }
+.campionato-player .campionato-stats{
+  margin-left: auto;
+  font-size: .7rem;
+  color: var(--gray-500);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.campionato-source{
+  margin-top: 28px;
+  font-size: .78rem;
+  color: var(--gray-500);
+}
+.campionato-source a{ color: var(--blue); }
+#campionatoUpdated{ display: block; margin-top: 2px; }
+
 /* ==========================================================================
    Join / newsletter
    ========================================================================== */
@@ -811,6 +926,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   .squad-copy p { margin: 0 auto; }
   .squad-crest { margin-left: auto; margin-right: auto; }
   .squad-sponsor { justify-content: center; }
+  .campionato-grid { grid-template-columns: 1fr; }
+  .campionato-card-wide { grid-column: span 1; }
 }
 
 @media (max-width: 560px) {
