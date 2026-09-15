@@ -16,12 +16,18 @@ Notes on the API (learned by probing, since it isn't documented):
   itself exposes a `staff` field with the exact IDs to fetch.
 - Per-player season stats live at statistics[str(league_id)][str(season_id)].
 """
+import html
 import json
 import os
 import sys
 from datetime import datetime, timezone
 
 import requests
+
+
+def clean_text(s):
+    """Decode HTML entities WordPress leaves in rendered titles (e.g. &#8217;)."""
+    return html.unescape(s) if isinstance(s, str) else s
 
 BASE = "https://calciotto.tv/wp-json/sportspress/v2"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; UnitedSiteBot/1.0)"}
@@ -122,13 +128,13 @@ def main():
     standings = []
     if table:
         for tid_str, row in table.get("data", {}).items():
-            name = row.get("name", "")
+            name = clean_text(row.get("name", ""))
             if isinstance(name, str) and name.isdigit():
                 # data bug on their end: name field holds a raw team ID instead
                 # of the team name. Resolve it via the teams endpoint.
                 try:
                     resolved = get(f"teams/{name}")
-                    name = resolved.get("title", {}).get("rendered", name)
+                    name = clean_text(resolved.get("title", {}).get("rendered", name))
                 except Exception:
                     pass
             standings.append({
@@ -162,23 +168,29 @@ def main():
         except Exception:
             continue
 
+    # `current_teams` turns out to reflect *ever* having been on this team
+    # (83 matches — this club's whole history), not this season's roster. The
+    # reliable signal is whether the player has a stats record for the
+    # current league+season at all — only actively-registered squad members
+    # get one (even a 0/0/0 one), so that's what actually narrows it down
+    # to the real ~28-player roster.
     players = []
     for p in players_raw:
         class_list = p.get("class_list", [])
         position = class_value(class_list, "sp_position-")
-        stats = {}
         league_stats = (p.get("statistics") or {}).get(str(league_id), {})
         season_stats = league_stats.get(str(season_id)) if season_id else None
-        if season_stats:
-            stats = {
-                "appearances": season_stats.get("appearances", 0),
-                "goals": season_stats.get("goals", 0),
-                "yellow_cards": season_stats.get("yellowcards", 0),
-                "red_cards": season_stats.get("redcards", 0),
-                "motm": season_stats.get("manofthematch", 0),
-            }
+        if not season_stats:
+            continue
+        stats = {
+            "appearances": season_stats.get("appearances", 0),
+            "goals": season_stats.get("goals", 0),
+            "yellow_cards": season_stats.get("yellowcards", 0),
+            "red_cards": season_stats.get("redcards", 0),
+            "motm": season_stats.get("manofthematch", 0),
+        }
         players.append({
-            "name": p.get("title", {}).get("rendered", ""),
+            "name": clean_text(p.get("title", {}).get("rendered", "")),
             "number": p.get("number") or None,
             "position": position,
             "position_label": POSITION_LABELS.get(position, position),
@@ -198,7 +210,7 @@ def main():
         class_list = s.get("class_list", [])
         role = class_value(class_list, "sp_role-")
         staff.append({
-            "name": s.get("title", {}).get("rendered", ""),
+            "name": clean_text(s.get("title", {}).get("rendered", "")),
             "role": role,
             "role_label": ROLE_LABELS.get(role, (role or "").replace("-", " ").title()),
         })
@@ -216,7 +228,7 @@ def main():
             continue
         if event_dt < now:
             continue
-        title = e.get("title", {}).get("rendered", "")
+        title = clean_text(e.get("title", {}).get("rendered", ""))
         opponent = title.replace("TREVISO UNITED", "").replace(" vs ", "").strip()
         class_list = e.get("class_list", [])
         league_slug = class_value(class_list, "sp_league-")
@@ -233,7 +245,7 @@ def main():
         "generated_at": now.isoformat(),
         "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
         "team": {
-            "name": team.get("title", {}).get("rendered", "TREVISO UNITED"),
+            "name": clean_text(team.get("title", {}).get("rendered", "TREVISO UNITED")),
             "link": team.get("link"),
         },
         "standings": standings,
