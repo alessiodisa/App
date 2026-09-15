@@ -9,6 +9,7 @@ network — this can't be run from a sandboxed dev environment that blocks
 calciotto.tv).
 """
 import json
+import os
 import re
 import sys
 from datetime import datetime, timezone
@@ -221,6 +222,7 @@ def main():
         "upcoming_matches": upcoming,
     }
 
+    os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
