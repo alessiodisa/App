@@ -321,8 +321,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   object-fit: cover;
   z-index: 0;
 }
-#community.feature-full .feature-bg { object-position: center 42%; }
-#lifestyle.feature-full .feature-bg { object-position: center 65%; }
+#shop.feature-full .feature-bg { object-position: center 42%; }
+#servizi.feature-full .feature-bg { object-position: center 65%; }
 #sport.feature-full .feature-bg { object-position: center 52%; }
 
 .feature-full::before {
