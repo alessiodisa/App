@@ -43,6 +43,11 @@ const I18N = {
     "squad.text": "Treviso United è la squadra di calcio a 8 che porta in campo lo spirito del brand: energia, appartenenza e voglia di vincere insieme. Un gruppo di amici e atleti che ogni settimana scende in campo con la maglia United, portando la community dagli spalti al terreno di gioco.",
     "squad.sponsor.label": "Sponsor ufficiale",
 
+    "gametime.role": "Ruolo",
+    "gametime.player": "Nome Giocatore",
+    "gametime.eyebrow": "Prossima partita",
+    "gametime.match": "Treviso United vs Avversario",
+
     "product.eyebrow": "Drop 01",
     "product.title": "Long Sleeve United",
     "product.text": "Manica lunga in cotone pesante, girocollo e logo a tre stelle. Il primo drop è andato esaurito in poche ore.",
@@ -122,6 +127,11 @@ const I18N = {
     "squad.title": "Treviso United",
     "squad.text": "Treviso United is the eight-a-side football team that brings the brand's spirit onto the pitch: energy, belonging and the drive to win together. A group of friends and athletes who take the field every week wearing the United shirt, bringing the community from the stands to the pitch.",
     "squad.sponsor.label": "Official sponsor",
+
+    "gametime.role": "Position",
+    "gametime.player": "Player Name",
+    "gametime.eyebrow": "Next match",
+    "gametime.match": "Treviso United vs Opponent",
 
     "product.eyebrow": "Drop 01",
     "product.title": "Long Sleeve United",
