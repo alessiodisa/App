@@ -142,8 +142,16 @@ def main():
 
     # --- Roster: the `teams=` REST filter is broken (returns unfiltered
     # results), so scan the full players collection and filter client-side.
-    all_players = get_all("players")
-    players_raw = [p for p in all_players if team_id in (p.get("current_teams") or [])]
+    # Use _fields to trim the (large, statistics-heavy) default payload for
+    # this discovery pass — full details are fetched only for actual matches.
+    all_players_slim = get_all("players", {"_fields": "id,title,current_teams,class_list,number"})
+    matching_ids = [p["id"] for p in all_players_slim if team_id in (p.get("current_teams") or [])]
+    players_raw = []
+    for pid in matching_ids:
+        try:
+            players_raw.append(get(f"players/{pid}"))
+        except Exception:
+            continue
 
     players = []
     for p in players_raw:
@@ -230,7 +238,7 @@ def main():
         json.dump(output, f, ensure_ascii=False, indent=2)
 
     print(f"wrote {OUT_PATH}")
-    print(f"standings rows: {len(standings)}, players: {len(players)} (scanned {len(all_players)} total), staff: {len(staff)}, upcoming: {len(upcoming)}")
+    print(f"standings rows: {len(standings)}, players: {len(players)} (scanned {len(all_players_slim)} total), staff: {len(staff)}, upcoming: {len(upcoming)}")
 
 
 if __name__ == "__main__":
