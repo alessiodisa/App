@@ -54,6 +54,10 @@ const I18N = {
     "product.notify": "Avvisami alla prossima uscita",
     "product.badge": "Sold Out",
 
+    "product2.eyebrow": "Drop 02",
+    "product2.title": "Hoodie United",
+    "product2.text": "Felpa con cappuccio in cotone pesante, tasca a marsupio e logo a tre stelle. Anche questo drop è andato esaurito in poche ore.",
+
     "join.title": "Unisciti al movimento United",
     "join.text": "Iscriviti alla newsletter per contenuti esclusivi, eventi della community e le ultime novità del brand.",
     "join.placeholder": "La tua email",
@@ -138,6 +142,10 @@ const I18N = {
     "product.text": "Heavyweight cotton long sleeve, crewneck, three-star embroidered logo. The first drop sold out in hours.",
     "product.notify": "Notify me for the next release",
     "product.badge": "Sold Out",
+
+    "product2.eyebrow": "Drop 02",
+    "product2.title": "Hoodie United",
+    "product2.text": "Heavyweight cotton hoodie, kangaroo pocket, three-star logo. This drop sold out in hours too.",
 
     "join.title": "Join the United movement",
     "join.text": "Sign up for the newsletter for exclusive content, community events and the latest brand news.",
