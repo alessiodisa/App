@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T21:54:02.574510+00:00",
+  "generated_at": "2026-09-15T21:56:51.985010+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -163,7 +163,7 @@
     {
       "team_id": 189,
       "pos": 12,
-      "name": "F.C. CA&#8217;NELSON",
+      "name": "F.C. CA’NELSON",
       "pts": "0",
       "played": "1",
       "wins": "0",
@@ -247,13 +247,6 @@
   ],
   "players": [
     {
-      "name": "Andrea Visentin",
-      "number": null,
-      "position": "goalkeeper",
-      "position_label": "Portiere",
-      "stats": {}
-    },
-    {
       "name": "Andrea Visonà Dalla Pozza",
       "number": null,
       "position": "goalkeeper",
@@ -280,13 +273,6 @@
       }
     },
     {
-      "name": "Jacopo Traldi",
-      "number": null,
-      "position": "goalkeeper",
-      "position_label": "Portiere",
-      "stats": {}
-    },
-    {
       "name": "Matteo Guizzon",
       "number": null,
       "position": "goalkeeper",
@@ -298,20 +284,6 @@
         "red_cards": 0,
         "motm": 0
       }
-    },
-    {
-      "name": "Simone Torresan",
-      "number": null,
-      "position": "goalkeeper",
-      "position_label": "Portiere",
-      "stats": {}
-    },
-    {
-      "name": "Alberto Barbierato",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
     },
     {
       "name": "Alessandro Giacomin",
@@ -327,20 +299,6 @@
       }
     },
     {
-      "name": "Alvise Magli",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
-    },
-    {
-      "name": "Andrea Bortoluzzi",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
-    },
-    {
       "name": "Christian Cappelletto",
       "number": null,
       "position": "defender",
@@ -354,34 +312,6 @@
       }
     },
     {
-      "name": "Cristian Alberto Mastori",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
-    },
-    {
-      "name": "Diego Mazzer",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
-    },
-    {
-      "name": "Edoardo Casellato",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
-    },
-    {
-      "name": "Edoardo Dozzo",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
-    },
-    {
       "name": "Enrico Pavan",
       "number": null,
       "position": "defender",
@@ -393,27 +323,6 @@
         "red_cards": 0,
         "motm": 0
       }
-    },
-    {
-      "name": "Filippo Camarin",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
-    },
-    {
-      "name": "Filippo Zambon",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
-    },
-    {
-      "name": "Francesco Dozzo",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
     },
     {
       "name": "Giacomo Bettiol",
@@ -440,34 +349,6 @@
         "red_cards": 0,
         "motm": 0
       }
-    },
-    {
-      "name": "Luigi Sama",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
-    },
-    {
-      "name": "Matteo Biral",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
-    },
-    {
-      "name": "Matteo Boldrin",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
-    },
-    {
-      "name": "Matteo Lamonato",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
     },
     {
       "name": "Mattia Furlan",
@@ -509,20 +390,6 @@
       }
     },
     {
-      "name": "Nicolo&#8217; Guidolin",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
-    },
-    {
-      "name": "Paolo Bortolanza",
-      "number": null,
-      "position": "defender",
-      "position_label": "Difensore",
-      "stats": {}
-    },
-    {
       "name": "Riccardo Milanello",
       "number": null,
       "position": "defender",
@@ -547,27 +414,6 @@
         "red_cards": 0,
         "motm": 0
       }
-    },
-    {
-      "name": "Alberto Mingolla",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Alberto Susanna",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Alberto Tocanne",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
     },
     {
       "name": "Alessandro Corrò",
@@ -609,27 +455,6 @@
       }
     },
     {
-      "name": "Edoardo Guerra",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Endrit Loshi",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Federico Borso",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
       "name": "Francesco Gheller",
       "number": null,
       "position": "midfielder",
@@ -641,34 +466,6 @@
         "red_cards": 0,
         "motm": 0
       }
-    },
-    {
-      "name": "Gianluigi Mosele",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Gianmarco Drusian",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Lorenzo Bonaldo",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Lorenzo Pavan",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
     },
     {
       "name": "Luca Cervi",
@@ -684,62 +481,6 @@
       }
     },
     {
-      "name": "Luca Padoan",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Luca Salamon",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Ludovico Polesel",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Luis Marinello",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Marco Codato",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Marco Pivetta",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Marco Salvi",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Marco Zuin",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
       "name": "Martino Tonolo",
       "number": null,
       "position": "midfielder",
@@ -751,20 +492,6 @@
         "red_cards": 0,
         "motm": 0
       }
-    },
-    {
-      "name": "Matteo Marcon",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Mattia Manganiello",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
     },
     {
       "name": "Messeve Moustafa Diomande",
@@ -793,34 +520,6 @@
       }
     },
     {
-      "name": "Nicolo&#8217; Campagner",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Nicolo&#8217; Marangon",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Pietro Mariano",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
-      "name": "Pietro Pinto",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
-    },
-    {
       "name": "Tommaso Benvenuti",
       "number": null,
       "position": "midfielder",
@@ -832,13 +531,6 @@
         "red_cards": 0,
         "motm": 0
       }
-    },
-    {
-      "name": "Tommaso Boriero",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {}
     },
     {
       "name": "Tommaso Durante",
@@ -854,34 +546,6 @@
       }
     },
     {
-      "name": "Alessio Bezze",
-      "number": null,
-      "position": "forward",
-      "position_label": "Attaccante",
-      "stats": {}
-    },
-    {
-      "name": "Alexis Yara",
-      "number": null,
-      "position": "forward",
-      "position_label": "Attaccante",
-      "stats": {}
-    },
-    {
-      "name": "Fatlum Shukolli",
-      "number": null,
-      "position": "forward",
-      "position_label": "Attaccante",
-      "stats": {}
-    },
-    {
-      "name": "Federico Busato",
-      "number": null,
-      "position": "forward",
-      "position_label": "Attaccante",
-      "stats": {}
-    },
-    {
       "name": "Francesco Gallo",
       "number": null,
       "position": "forward",
@@ -893,13 +557,6 @@
         "red_cards": 0,
         "motm": 0
       }
-    },
-    {
-      "name": "Francesco Oliva",
-      "number": null,
-      "position": "forward",
-      "position_label": "Attaccante",
-      "stats": {}
     },
     {
       "name": "Francesco Semenzato",
@@ -915,13 +572,6 @@
       }
     },
     {
-      "name": "Francesco Zanin",
-      "number": null,
-      "position": "forward",
-      "position_label": "Attaccante",
-      "stats": {}
-    },
-    {
       "name": "Gabriele Rosa",
       "number": null,
       "position": "forward",
@@ -935,20 +585,6 @@
       }
     },
     {
-      "name": "Mirko Ceselin",
-      "number": null,
-      "position": "forward",
-      "position_label": "Attaccante",
-      "stats": {}
-    },
-    {
-      "name": "Niccolo&#8217; Cattapan",
-      "number": null,
-      "position": "forward",
-      "position_label": "Attaccante",
-      "stats": {}
-    },
-    {
       "name": "Sergio Cosentino",
       "number": null,
       "position": "forward",
@@ -960,34 +596,6 @@
         "red_cards": 0,
         "motm": 1
       }
-    },
-    {
-      "name": "Tommaso Spigariol",
-      "number": null,
-      "position": "forward",
-      "position_label": "Attaccante",
-      "stats": {}
-    },
-    {
-      "name": "Francesco Sama",
-      "number": null,
-      "position": "dirigente",
-      "position_label": "dirigente",
-      "stats": {}
-    },
-    {
-      "name": "Giovanni Jonatas Zanucco",
-      "number": null,
-      "position": "dirigente",
-      "position_label": "dirigente",
-      "stats": {}
-    },
-    {
-      "name": "Moreno Ziliotto",
-      "number": null,
-      "position": "dirigente",
-      "position_label": "dirigente",
-      "stats": {}
     }
   ],
   "staff": [
