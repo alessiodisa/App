@@ -55,11 +55,6 @@ const I18N = {
     "campionato.loading": "Caricamento dati in corso…",
     "campionato.error": "Dati non disponibili al momento.",
 
-    "gametime.role": "Ruolo",
-    "gametime.player": "Nome Giocatore",
-    "gametime.eyebrow": "Prossima partita",
-    "gametime.match": "Treviso United vs Avversario",
-
     "product.eyebrow": "Drop 01",
     "product.title": "Long Sleeve United",
     "product.text": "Manica lunga in cotone pesante, girocollo e logo a tre stelle. Il primo drop è andato esaurito in poche ore.",
@@ -155,11 +150,6 @@ const I18N = {
     "campionato.source": "Data automatically updated from",
     "campionato.loading": "Loading data…",
     "campionato.error": "Data unavailable right now.",
-
-    "gametime.role": "Position",
-    "gametime.player": "Player Name",
-    "gametime.eyebrow": "Next match",
-    "gametime.match": "Treviso United vs Opponent",
 
     "product.eyebrow": "Drop 01",
     "product.title": "Long Sleeve United",

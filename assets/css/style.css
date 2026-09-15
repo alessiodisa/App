@@ -449,15 +449,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .gametime-dark{ background: var(--black); }
 .gametime-light{ background: var(--black); }
 
-.gametime-half::after{
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.15) 30%, rgba(0,0,0,0) 55%);
-  z-index: 2;
-  pointer-events: none;
-}
-
 .gametime-photo,
 .gametime-cutout{
   position: absolute;
@@ -465,40 +456,11 @@ ul { margin: 0; padding: 0; list-style: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
   display: block;
   z-index: 0;
 }
-
-.gametime-player{
-  position: absolute;
-  left: 5%;
-  bottom: 6%;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.gametime-player-logo{ width: clamp(24px, 4vw, 34px); height: auto; filter: brightness(0) invert(1); }
-.gametime-player-text{
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  line-height: 1.15;
-}
-.gametime-player-text span{
-  font-size: clamp(8px, 1.4vw, 11px);
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.6);
-}
-.gametime-player-text strong{
-  font-size: clamp(11px, 1.9vw, 15px);
-  font-weight: 800;
-  letter-spacing: -.01em;
-  color: var(--white);
-}
+.gametime-photo{ object-position: center 42%; }
+.gametime-cutout{ object-position: center 92%; }
 
 .gametime-title{
   position: absolute;
@@ -523,35 +485,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   text-transform: uppercase;
   color: var(--white);
   line-height: .86;
-}
-
-.gametime-match{
-  position: absolute;
-  left: 6%;
-  bottom: 6%;
-  right: 6%;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  max-width: 60%;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255,255,255,.3);
-}
-.gametime-sponsor{ height: clamp(10px, 1.6vw, 14px); width: auto; margin-bottom: 2px; filter: brightness(0) invert(1); }
-.gametime-eyebrow{
-  font-size: clamp(8px, 1.3vw, 11px);
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.6);
-}
-.gametime-match strong{
-  font-size: clamp(12px, 2.4vw, 18px);
-  font-weight: 800;
-  letter-spacing: -.01em;
-  color: var(--white);
 }
 
 /* ==========================================================================
