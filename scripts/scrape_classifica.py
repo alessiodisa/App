@@ -11,9 +11,10 @@ import requests
 from bs4 import BeautifulSoup
 
 URL = "https://calciotto.tv/classifica-serie-a-2026-2027/"
+TEAM_URL = "https://calciotto.tv/team/treviso-united-c8/"
 
-def main():
-    resp = requests.get(URL, headers={"User-Agent": "Mozilla/5.0 (compatible; UnitedSiteBot/1.0)"}, timeout=30)
+def probe(url):
+    resp = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (compatible; UnitedSiteBot/1.0)"}, timeout=30)
     print(f"status: {resp.status_code}")
     print(f"final url: {resp.url}")
     print(f"content-length: {len(resp.text)}")
@@ -46,15 +47,25 @@ def main():
     for h in soup.find_all(["h1", "h2", "h3"]):
         print(f"{h.name}: {h.get_text(strip=True)}")
 
-    print("\n=== ELEMENTS WITH CLASS CONTAINING 'classifica' OR 'standing' ===")
+    print("\n=== ELEMENTS WITH CLASS CONTAINING 'classifica'/'standing'/'player'/'staff'/'rosa'/'roster' ===")
+    keywords = ["classifica", "standing", "player", "staff", "rosa", "roster", "dirigen", "team-"]
     for el in soup.find_all(class_=True):
         classes = " ".join(el.get("class", []))
-        if "classifica" in classes.lower() or "standing" in classes.lower() or "table" in classes.lower():
-            print(f"<{el.name} class='{classes}'> first 100 chars: {el.get_text(strip=True)[:100]!r}")
+        if any(k in classes.lower() for k in keywords):
+            print(f"<{el.name} class='{classes}'> first 120 chars: {el.get_text(strip=True)[:120]!r}")
+
+    print("\n=== ALL IMAGES (src + alt) ===")
+    for img in soup.find_all("img")[:60]:
+        print(f"alt={img.get('alt','')!r} src={img.get('src','')!r}")
+
+    return soup
 
 if __name__ == "__main__":
     try:
-        main()
+        print("\n\n########## CLASSIFICA PAGE ##########")
+        probe(URL)
+        print("\n\n########## TEAM PAGE (Treviso United) ##########")
+        probe(TEAM_URL)
     except Exception as e:
         print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(1)
