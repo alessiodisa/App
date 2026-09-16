@@ -826,16 +826,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-social a:hover { color: var(--black); }
 
 /* ==========================================================================
-   Reveal-on-scroll
-   ========================================================================== */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity .8s var(--ease), transform .8s var(--ease);
-}
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
-
-/* ==========================================================================
    Dedicated section pages (Community / Lifestyle / Sport / Chi siamo)
    ========================================================================== */
 .page-hero{

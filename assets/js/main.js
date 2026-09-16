@@ -59,23 +59,6 @@
     });
   }
 
-  function initReveal() {
-    var els = document.querySelectorAll(".reveal");
-    if (!("IntersectionObserver" in window) || !els.length) {
-      els.forEach(function (el) { el.classList.add("is-visible"); });
-      return;
-    }
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    els.forEach(function (el) { observer.observe(el); });
-  }
-
   function initJoinForm() {
     var form = document.getElementById("joinForm");
     if (!form) return;
@@ -322,7 +305,6 @@
     initLang();
     initNavScroll();
     initMobileNav();
-    initReveal();
     initJoinForm();
     initAutoScroll(document.getElementById("marqueeTrack"), ".marquee-group", "--mq-w", 76);
     initAutoScroll(document.getElementById("igTrack"), ".ig-group", "--ig-w", 20);
