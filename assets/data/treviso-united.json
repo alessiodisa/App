@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T18:06:42.224519+00:00",
+  "generated_at": "2026-09-17T21:05:35.088463+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -7,8 +7,22 @@
   },
   "standings": [
     {
-      "team_id": 8310,
+      "team_id": 16523,
       "pos": 1,
+      "name": "F.C. BORUSSIA PORCMUND",
+      "pts": "6",
+      "played": "2",
+      "wins": "2",
+      "draws": "0",
+      "losses": "0",
+      "for": "11",
+      "against": "2",
+      "gd": "9",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 8310,
+      "pos": 2,
       "name": "TREVISO UNITED",
       "pts": "6",
       "played": "2",
@@ -22,7 +36,7 @@
     },
     {
       "team_id": 20446,
-      "pos": 2,
+      "pos": 3,
       "name": "NEXT DINAMO",
       "pts": "4",
       "played": "2",
@@ -31,20 +45,6 @@
       "losses": "0",
       "for": "6",
       "against": "2",
-      "gd": "4",
-      "is_treviso_united": false
-    },
-    {
-      "team_id": 52,
-      "pos": 3,
-      "name": "QUINTO TEAM",
-      "pts": "3",
-      "played": "1",
-      "wins": "1",
-      "draws": "0",
-      "losses": "0",
-      "for": "4",
-      "against": "0",
       "gd": "4",
       "is_treviso_united": false
     },
@@ -63,22 +63,8 @@
       "is_treviso_united": false
     },
     {
-      "team_id": 16523,
-      "pos": 5,
-      "name": "F.C. BORUSSIA PORCMUND",
-      "pts": "3",
-      "played": "1",
-      "wins": "1",
-      "draws": "0",
-      "losses": "0",
-      "for": "3",
-      "against": "0",
-      "gd": "3",
-      "is_treviso_united": false
-    },
-    {
       "team_id": 185,
-      "pos": 6,
+      "pos": 5,
       "name": "G.S.A. MONTEBELLUNA",
       "pts": "3",
       "played": "1",
@@ -91,22 +77,8 @@
       "is_treviso_united": false
     },
     {
-      "team_id": 165,
-      "pos": 7,
-      "name": "INGARBUJATI NEXT GEN",
-      "pts": "3",
-      "played": "1",
-      "wins": "1",
-      "draws": "0",
-      "losses": "0",
-      "for": "4",
-      "against": "3",
-      "gd": "1",
-      "is_treviso_united": false
-    },
-    {
       "team_id": 19325,
-      "pos": 8,
+      "pos": 6,
       "name": "ADELANTES",
       "pts": "3",
       "played": "1",
@@ -120,7 +92,7 @@
     },
     {
       "team_id": 25070,
-      "pos": 9,
+      "pos": 7,
       "name": "REAL SANTA MARIA",
       "pts": "3",
       "played": "1",
@@ -133,8 +105,50 @@
       "is_treviso_united": false
     },
     {
-      "team_id": 190,
+      "team_id": 165,
+      "pos": 8,
+      "name": "INGARBUJATI NEXT GEN",
+      "pts": "3",
+      "played": "2",
+      "wins": "1",
+      "draws": "0",
+      "losses": "1",
+      "for": "4",
+      "against": "4",
+      "gd": "0",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 52,
+      "pos": 9,
+      "name": "QUINTO TEAM",
+      "pts": "3",
+      "played": "2",
+      "wins": "1",
+      "draws": "0",
+      "losses": "1",
+      "for": "6",
+      "against": "8",
+      "gd": "-2",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 20412,
       "pos": 10,
+      "name": "MIDNIGHT",
+      "pts": "3",
+      "played": "2",
+      "wins": "1",
+      "draws": "0",
+      "losses": "1",
+      "for": "1",
+      "against": "4",
+      "gd": "-3",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 190,
+      "pos": 11,
       "name": "LOS BULLDOGS",
       "pts": "1",
       "played": "2",
@@ -148,7 +162,7 @@
     },
     {
       "team_id": 192,
-      "pos": 11,
+      "pos": 12,
       "name": "ATHLETIC DINAMO",
       "pts": "0",
       "played": "1",
@@ -162,7 +176,7 @@
     },
     {
       "team_id": 189,
-      "pos": 12,
+      "pos": 13,
       "name": "F.C. CA’NELSON",
       "pts": "0",
       "played": "1",
@@ -176,22 +190,8 @@
     },
     {
       "team_id": 167,
-      "pos": 13,
+      "pos": 14,
       "name": "A.c. ATLETICO PAPATO",
-      "pts": "0",
-      "played": "1",
-      "wins": "0",
-      "draws": "0",
-      "losses": "1",
-      "for": "0",
-      "against": "4",
-      "gd": "-4",
-      "is_treviso_united": false
-    },
-    {
-      "team_id": 20412,
-      "pos": 13,
-      "name": "MIDNIGHT",
       "pts": "0",
       "played": "1",
       "wins": "0",
