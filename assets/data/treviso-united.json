@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T18:05:51.934275+00:00",
+  "generated_at": "2026-09-18T21:04:51.515770+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -63,8 +63,22 @@
       "is_treviso_united": false
     },
     {
-      "team_id": 20421,
+      "team_id": 185,
       "pos": 5,
+      "name": "G.S.A. MONTEBELLUNA",
+      "pts": "4",
+      "played": "2",
+      "wins": "1",
+      "draws": "1",
+      "losses": "0",
+      "for": "5",
+      "against": "3",
+      "gd": "2",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 20421,
+      "pos": 6,
       "name": "TREVISO CITY",
       "pts": "3",
       "played": "2",
@@ -74,20 +88,6 @@
       "for": "7",
       "against": "4",
       "gd": "3",
-      "is_treviso_united": false
-    },
-    {
-      "team_id": 185,
-      "pos": 6,
-      "name": "G.S.A. MONTEBELLUNA",
-      "pts": "3",
-      "played": "1",
-      "wins": "1",
-      "draws": "0",
-      "losses": "0",
-      "for": "3",
-      "against": "1",
-      "gd": "2",
       "is_treviso_united": false
     },
     {
@@ -102,6 +102,20 @@
       "for": "4",
       "against": "4",
       "gd": "0",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 189,
+      "pos": 8,
+      "name": "F.C. CA’NELSON",
+      "pts": "3",
+      "played": "2",
+      "wins": "1",
+      "draws": "0",
+      "losses": "1",
+      "for": "2",
+      "against": "3",
+      "gd": "-1",
       "is_treviso_united": false
     },
     {
@@ -120,7 +134,7 @@
     },
     {
       "team_id": 52,
-      "pos": 9,
+      "pos": 10,
       "name": "QUINTO TEAM",
       "pts": "3",
       "played": "2",
@@ -134,7 +148,7 @@
     },
     {
       "team_id": 20412,
-      "pos": 10,
+      "pos": 11,
       "name": "MIDNIGHT",
       "pts": "3",
       "played": "2",
@@ -148,7 +162,7 @@
     },
     {
       "team_id": 190,
-      "pos": 11,
+      "pos": 12,
       "name": "LOS BULLDOGS",
       "pts": "1",
       "played": "2",
@@ -161,45 +175,31 @@
       "is_treviso_united": false
     },
     {
+      "team_id": 167,
+      "pos": 13,
+      "name": "A.c. ATLETICO PAPATO",
+      "pts": "1",
+      "played": "2",
+      "wins": "0",
+      "draws": "1",
+      "losses": "1",
+      "for": "2",
+      "against": "6",
+      "gd": "-4",
+      "is_treviso_united": false
+    },
+    {
       "team_id": 192,
-      "pos": 12,
+      "pos": 14,
       "name": "ATHLETIC DINAMO",
       "pts": "0",
-      "played": "1",
+      "played": "2",
       "wins": "0",
       "draws": "0",
-      "losses": "1",
+      "losses": "2",
       "for": "3",
-      "against": "4",
-      "gd": "-1",
-      "is_treviso_united": false
-    },
-    {
-      "team_id": 189,
-      "pos": 13,
-      "name": "F.C. CA’NELSON",
-      "pts": "0",
-      "played": "1",
-      "wins": "0",
-      "draws": "0",
-      "losses": "1",
-      "for": "0",
-      "against": "3",
+      "against": "6",
       "gd": "-3",
-      "is_treviso_united": false
-    },
-    {
-      "team_id": 167,
-      "pos": 14,
-      "name": "A.c. ATLETICO PAPATO",
-      "pts": "0",
-      "played": "1",
-      "wins": "0",
-      "draws": "0",
-      "losses": "1",
-      "for": "0",
-      "against": "4",
-      "gd": "-4",
       "is_treviso_united": false
     },
     {
