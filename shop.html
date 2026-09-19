@@ -51,7 +51,22 @@
 <main>
 
   <section class="feature-full">
-    <img class="feature-bg" src="assets/img/community.jpg" alt="Felpa United indossata, dettaglio logo" loading="lazy">
+    <video class="feature-bg" poster="assets/img/shop-poster.jpg" autoplay muted loop playsinline webkit-playsinline preload="auto" id="shopHeroVideo">
+      <source src="assets/videos/shop.mp4" type="video/mp4">
+    </video>
+    <script>
+      (function(){
+        var v = document.getElementById('shopHeroVideo');
+        if (!v) return;
+        var conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
+        var isSlowConn = !!(conn && (conn.saveData || /2g/.test(conn.effectiveType || '')));
+        var isSmallScreen = window.matchMedia('(max-width: 900px)').matches;
+        if (isSmallScreen || isSlowConn) {
+          v.querySelector('source').src = 'assets/videos/shop-mobile.mp4';
+          v.load();
+        }
+      })();
+    </script>
     <div class="feature-overlay">
       <div class="feature-overlay-inner">
         <span class="eyebrow" data-i18n="shop.eyebrow">Shop</span>
