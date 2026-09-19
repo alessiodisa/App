@@ -953,12 +953,42 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .map-places{ padding: 12px 24px 100px; }
-.map-places h2{
-  font-size: clamp(1.5rem, 3vw, 2rem);
+
+.map-category{ margin-bottom: 56px; }
+.map-category:last-child{ margin-bottom: 0; }
+.map-category-header{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.map-category-header h2{
+  font-size: clamp(1.4rem, 2.6vw, 1.8rem);
   font-weight: 800;
   letter-spacing: -.01em;
-  margin: 0 0 28px;
+  margin: 0;
 }
+.map-sort{
+  display: flex;
+  gap: 4px;
+  background: var(--gray-100);
+  border-radius: 999px;
+  padding: 4px;
+}
+.map-sort button{
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  background: transparent;
+  white-space: nowrap;
+  transition: background .2s var(--ease), color .2s var(--ease);
+}
+.map-sort button.is-active{ background: var(--white); color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+
 .map-places-grid{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -1000,15 +1030,31 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .map-place-name{ font-size: 1rem; font-weight: 800; letter-spacing: -.01em; margin: 0 0 6px; }
 .map-place-desc{ font-size: .85rem; color: var(--gray-500); line-height: 1.5; margin: 0; }
+.map-place-meta{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: .75rem;
+  color: var(--gray-500);
+}
 
-.map-places-empty{
+.map-category-empty{
+  color: var(--gray-500);
+  font-size: .9rem;
+  text-align: center;
+  padding: 24px 0;
+}
+
+.map-places-empty-global{
   display: none;
   color: var(--gray-500);
   font-size: .95rem;
   text-align: center;
   padding: 40px 0;
 }
-.map-places-grid:empty + .map-places-empty{ display: block; }
+#mapCategorySections:empty + .map-places-empty-global{ display: block; }
 
 .page-placeholder{
   padding: 100px 24px;
