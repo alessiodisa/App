@@ -126,10 +126,22 @@
 
   <!-- SPORT -->
   <section class="feature-full" id="sport">
-    <video class="feature-bg" poster="assets/img/sport.jpg" autoplay muted loop playsinline webkit-playsinline preload="auto">
-      <source src="assets/videos/sport.webm" type="video/webm">
+    <video class="feature-bg" poster="assets/img/sport.jpg" autoplay muted loop playsinline webkit-playsinline preload="auto" id="sportHeroVideoHome">
       <source src="assets/videos/sport.mp4" type="video/mp4">
     </video>
+    <script>
+      (function(){
+        var v = document.getElementById('sportHeroVideoHome');
+        if (!v) return;
+        var conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
+        var isSlowConn = !!(conn && (conn.saveData || /2g/.test(conn.effectiveType || '')));
+        var isSmallScreen = window.matchMedia('(max-width: 900px)').matches;
+        if (isSmallScreen || isSlowConn) {
+          v.querySelector('source').src = 'assets/videos/sport-mobile.mp4';
+          v.load();
+        }
+      })();
+    </script>
     <div class="feature-overlay">
       <div class="feature-overlay-inner">
         <span class="eyebrow" data-i18n="sport.eyebrow">Sport</span>
