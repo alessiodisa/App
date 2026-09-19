@@ -924,9 +924,16 @@ ul { margin: 0; padding: 0; list-style: none; }
 .map-filter:hover{ border-color: rgba(255,255,255,.5); color: var(--white); }
 .map-filter.is-active{ background: var(--blue); border-color: var(--blue); color: var(--white); }
 
-.map-section{
-  padding: 48px 24px;
+.map-layout{ padding: 48px 24px 100px; }
+.map-layout-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "map" "list";
+  gap: 40px;
 }
+.map-layout-map{ grid-area: map; }
+.map-layout-list{ grid-area: list; }
+
 #unitedMap{
   width: 100%;
   height: 560px;
@@ -951,8 +958,16 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 640px){
   #unitedMap{ height: 420px; border-radius: 14px; }
 }
-
-.map-places{ padding: 12px 24px 100px; }
+@media (min-width: 768px){
+  .map-layout-grid{
+    grid-template-columns: minmax(320px, 1fr) 1.3fr;
+    grid-template-areas: "list map";
+    align-items: start;
+    gap: 32px;
+  }
+  .map-layout-map{ position: sticky; top: calc(var(--nav-h) + 20px); }
+  #unitedMap{ height: calc(100vh - var(--nav-h) - 40px); min-height: 480px; max-height: 720px; }
+}
 
 .map-category{ margin-bottom: 56px; }
 .map-category:last-child{ margin-bottom: 0; }
@@ -993,6 +1008,24 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 20px;
+}
+@media (max-width: 767px){
+  .map-places-grid{
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    contain: layout paint;
+    margin: 0 -24px;
+    padding: 0 24px 4px;
+  }
+  .map-places-grid::-webkit-scrollbar{ display: none; }
+  .map-places-grid .map-place-card{
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+  }
 }
 .map-place-card{
   background: var(--white);
