@@ -609,7 +609,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 #campionatoStaffTeam{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(7, auto);
+  grid-auto-flow: column;
   gap: 0 24px;
 }
 
@@ -1113,6 +1115,11 @@ ul { margin: 0; padding: 0; list-style: none; }
   .campionato-grid { grid-template-columns: 1fr; }
   .campionato-card-wide { grid-column: span 1; }
   .campionato-card { padding: 22px 20px; }
+  #campionatoStaffTeam {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-flow: row;
+  }
   .campionato-table-wrap {
     margin: 0 -20px;
     padding: 0 20px;
