@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
 """
-Pulls Treviso United's current data (standings, roster+stats, staff,
-upcoming matches) from the calciotto.tv SportsPress REST API and writes it
-to assets/data/treviso-united.json for the Sport page to render.
+Pulls Treviso United's current data (standings, roster+stats, upcoming
+matches) from the calciotto.tv SportsPress REST API and writes it to
+assets/data/treviso-united.json for the Sport page to render.
+
+Dirigenza/staff are NOT scraped — they're curated by hand in
+assets/js/treviso-staff.js, since calciotto.tv's own listing doesn't match
+how these people actually work with the team.
 
 Run on a schedule by .github/workflows/update-classifica.yml (GitHub's own
 network — this can't be run from a sandboxed dev environment that blocks
 calciotto.tv).
 
 Notes on the API (learned by probing, since it isn't documented):
-- The `teams=<id>` query param on /players and /staff is silently ignored
-  by this site's REST setup — it just returns the default unfiltered page.
-  So players are found by fully paginating /players and filtering
-  client-side on `current_teams`. Staff has a shortcut: the team object
-  itself exposes a `staff` field with the exact IDs to fetch.
+- The `teams=<id>` query param on /players is silently ignored by this
+  site's REST setup — it just returns the default unfiltered page. So
+  players are found by fully paginating /players and filtering
+  client-side on `current_teams`.
 - Per-player season stats live at statistics[str(league_id)][str(season_id)].
 """
 import html
@@ -87,30 +90,6 @@ POSITION_LABELS = {
     "midfielder": "Centrocampista",
     "forward": "Attaccante",
 }
-
-ROLE_LABELS = {
-    "dirigente": "Dirigente",
-    "allenatore": "Allenatore",
-    "presidente": "Presidente",
-    "capitano": "Capitano",
-    "vice-presidente": "Vicepresidente",
-    "direttore-sportivo": "Direttore Sportivo",
-    "collaboratore-tecnico": "Collaboratore Tecnico",
-}
-
-# calciotto.tv's own staff roles don't match how these people actually work
-# with the team (and some, like the club president, aren't listed there at
-# all), so reapply these corrections after every scrape.
-STAFF_ROLE_OVERRIDES = {
-    "Jonatas Zanucco": "Vice Allenatore",
-    "Andrea Brugnerotto": "Videomaker",
-    "Sebastiano Rusconi": "Fotografo",
-    "Luca Pregnolato": "Videomaker",
-}
-STAFF_ADDITIONS = [
-    {"name": "Guido Borso", "role": "presidente", "role_label": "Presidente"},
-]
-
 
 def main():
     # --- League + season + team lookup ---
@@ -213,30 +192,8 @@ def main():
     position_order = {"goalkeeper": 0, "defender": 1, "midfielder": 2, "forward": 3}
     players.sort(key=lambda p: (position_order.get(p["position"], 9), p["name"]))
 
-    # --- Staff / dirigenza: the team object gives the exact IDs directly. ---
-    staff = []
-    for staff_id in team.get("staff", []):
-        try:
-            s = get(f"staff/{staff_id}")
-        except Exception:
-            continue
-        class_list = s.get("class_list", [])
-        role = class_value(class_list, "sp_role-")
-        staff.append({
-            "name": clean_text(s.get("title", {}).get("rendered", "")),
-            "role": role,
-            "role_label": ROLE_LABELS.get(role, (role or "").replace("-", " ").title()),
-        })
-
-    for s in staff:
-        override = STAFF_ROLE_OVERRIDES.get(s["name"])
-        if override:
-            s["role_label"] = override
-
-    existing_staff_names = {s["name"] for s in staff}
-    for addition in reversed(STAFF_ADDITIONS):
-        if addition["name"] not in existing_staff_names:
-            staff.insert(0, addition)
+    # Dirigenza/staff are curated by hand in assets/js/treviso-staff.js and no
+    # longer scraped from calciotto.tv.
 
     # --- Upcoming matches ---
     events_raw = get_all("events", {"search": "TREVISO UNITED"})
@@ -273,7 +230,6 @@ def main():
         },
         "standings": standings,
         "players": players,
-        "staff": staff,
         "upcoming_matches": upcoming,
     }
 
@@ -282,7 +238,7 @@ def main():
         json.dump(output, f, ensure_ascii=False, indent=2)
 
     print(f"wrote {OUT_PATH}")
-    print(f"standings rows: {len(standings)}, players: {len(players)} (scanned {len(all_players_slim)} total), staff: {len(staff)}, upcoming: {len(upcoming)}")
+    print(f"standings rows: {len(standings)}, players: {len(players)} (scanned {len(all_players_slim)} total), upcoming: {len(upcoming)}")
 
 
 if __name__ == "__main__":

@@ -224,7 +224,7 @@
       .catch(function () {
         var lang = document.documentElement.getAttribute("lang") || "it";
         var msg = escapeHtml(I18N[lang]["campionato.error"]);
-        ["campionatoMatches", "campionatoStaff"].forEach(function (id) {
+        ["campionatoMatches"].forEach(function (id) {
           var el = document.getElementById(id);
           if (el) el.innerHTML = "<li>" + msg + "</li>";
         });
@@ -266,18 +266,6 @@
       }
     }
 
-    var staffList = document.getElementById("campionatoStaff");
-    if (staffList) {
-      var lang2 = document.documentElement.getAttribute("lang") || "it";
-      if (data.staff && data.staff.length) {
-        staffList.innerHTML = data.staff.map(function (s) {
-          return "<li><span>" + escapeHtml(s.name) + '</span><span class="campionato-role">' + escapeHtml(s.role_label || "") + "</span></li>";
-        }).join("");
-      } else {
-        staffList.innerHTML = "<li>" + escapeHtml(I18N[lang2]["campionato.staff.empty"]) + "</li>";
-      }
-    }
-
     var matches = document.getElementById("campionatoMatches");
     if (matches) {
       var lang3 = document.documentElement.getAttribute("lang") || "it";
@@ -301,6 +289,22 @@
     }
   }
 
+  // Dirigenza/Staff are curated by hand in assets/js/treviso-staff.js, not
+  // scraped from calciotto.tv, so they render independently of the fetch above.
+  function renderStaticStaff() {
+    var lists = [
+      { id: "campionatoDirigenza", items: window.TREVISO_DIRIGENZA || [] },
+      { id: "campionatoStaffTeam", items: window.TREVISO_STAFF || [] }
+    ];
+    lists.forEach(function (list) {
+      var el = document.getElementById(list.id);
+      if (!el) return;
+      el.innerHTML = list.items.map(function (s) {
+        return "<li><span>" + escapeHtml(s.name) + '</span><span class="campionato-role">' + escapeHtml(s.role) + "</span></li>";
+      }).join("");
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initLang();
     initNavScroll();
@@ -311,5 +315,6 @@
     initInstagramFeed();
     initVideoAutoplay();
     initTrevisoData();
+    renderStaticStaff();
   });
 })();
