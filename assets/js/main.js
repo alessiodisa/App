@@ -276,11 +276,14 @@
           var dateStr = isNaN(d) ? "" :
             d.toLocaleDateString(locale, { day: "2-digit", month: "short" }) + ", " +
             d.toLocaleTimeString(locale, { hour: "2-digit", minute: "2-digit" });
-          var row = '<div class="campionato-match-row"><span>' + escapeHtml(m.opponent) +
-            '</span><span class="campionato-date">' + escapeHtml(dateStr) + "</span></div>";
-          var countdown = i === 0 && !isNaN(d) ?
-            '<div class="campionato-countdown" data-date="' + escapeHtml(m.date) + '"></div>' : "";
-          return '<li class="campionato-match' + (i === 0 ? " campionato-match-next" : "") + '">' + row + countdown + "</li>";
+          var isNext = i === 0 && !isNaN(d);
+          var row = isNext ?
+            '<div class="campionato-match-row"><span>' + escapeHtml(m.opponent) +
+              '</span><div class="campionato-countdown" data-date="' + escapeHtml(m.date) + '"></div></div>' +
+              '<span class="campionato-date campionato-date-next">' + escapeHtml(dateStr) + "</span>" :
+            '<div class="campionato-match-row"><span>' + escapeHtml(m.opponent) +
+              '</span><span class="campionato-date">' + escapeHtml(dateStr) + "</span></div>";
+          return '<li class="campionato-match' + (isNext ? " campionato-match-next" : "") + '">' + row + "</li>";
         }).join("");
         startMatchCountdowns(lang3);
       } else {

@@ -611,23 +611,29 @@ ul { margin: 0; padding: 0; list-style: none; }
 .campionato-match-row{
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: 12px;
 }
-.campionato-match-next .campionato-match-row{ margin-bottom: 10px; }
-.campionato-countdown{ display: flex; gap: 8px; }
+.campionato-match-next .campionato-match-row{ flex-wrap: wrap; row-gap: 8px; }
+.campionato-date-next{
+  display: block;
+  margin-top: 6px;
+  color: var(--gray-500);
+  font-size: .78rem;
+}
+.campionato-countdown{ display: flex; gap: 6px; flex-shrink: 0; }
 .campionato-countdown-item{
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2px;
-  min-width: 38px;
-  padding: 6px 8px;
+  min-width: 32px;
+  padding: 5px 7px;
   background: var(--gray-100);
   border-radius: 8px;
 }
-.campionato-countdown-item strong{ font-size: .95rem; font-weight: 800; color: var(--ink); line-height: 1; }
-.campionato-countdown-item span{ font-size: .62rem; text-transform: uppercase; letter-spacing: .04em; color: var(--gray-500); }
+.campionato-countdown-item strong{ font-size: .85rem; font-weight: 800; color: var(--ink); line-height: 1; }
+.campionato-countdown-item span{ font-size: .58rem; text-transform: uppercase; letter-spacing: .04em; color: var(--gray-500); }
 
 #campionatoStaffTeam{
   display: grid;
