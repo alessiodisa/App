@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=25">
+<link rel="stylesheet" href="assets/css/style.css?v=26">
 </head>
 <body>
 
@@ -100,22 +100,10 @@
 
   <!-- SHOP -->
   <section class="feature-full" id="shop">
-    <video class="feature-bg" poster="assets/img/shop-poster.jpg" autoplay muted loop playsinline webkit-playsinline preload="auto" id="shopHeroVideoHome">
-      <source src="assets/videos/shop.mp4" type="video/mp4">
-    </video>
-    <script>
-      (function(){
-        var v = document.getElementById('shopHeroVideoHome');
-        if (!v) return;
-        var conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
-        var isSlowConn = !!(conn && (conn.saveData || /2g/.test(conn.effectiveType || '')));
-        var isSmallScreen = window.matchMedia('(max-width: 900px)').matches;
-        if (isSmallScreen || isSlowConn) {
-          v.querySelector('source').src = 'assets/videos/shop-mobile.mp4';
-          v.load();
-        }
-      })();
-    </script>
+    <picture>
+      <source media="(max-width: 640px)" srcset="assets/img/shop-hero-mobile.jpg">
+      <img class="feature-bg" src="assets/img/shop-hero.jpg" alt="Ragazza con maglia United bianca a maniche lunghe" loading="lazy">
+    </picture>
     <div class="feature-overlay">
       <div class="feature-overlay-inner">
         <span class="eyebrow" data-i18n="shop.eyebrow">Shop</span>
