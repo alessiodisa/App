@@ -597,6 +597,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .squad-sponsor img{ height: 20px; width: auto; filter: brightness(0) invert(1); }
 
+.squad-text-mobile{ display: none; }
+
 .campionato{ margin-top: 90px; }
 .campionato .eyebrow{ color: var(--blue); }
 .campionato h2{
@@ -1173,6 +1175,14 @@ ul { margin: 0; padding: 0; list-style: none; }
   .product p { margin: 0 auto; }
   .squad-hero { aspect-ratio: 3 / 4; min-height: 460px; border-radius: 20px; }
   .squad-hero-overlay { padding: 24px; }
+  .squad-hero-bottom p { display: none; }
+  .squad-text-mobile {
+    display: block;
+    color: var(--ink);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 20px;
+  }
   .campionato-grid { grid-template-columns: 1fr; }
   .campionato-card-wide { grid-column: span 1; }
   .campionato-card { padding: 22px 20px; }
