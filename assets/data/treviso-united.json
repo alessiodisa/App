@@ -600,9 +600,14 @@
   ],
   "staff": [
     {
-      "name": "Jonatas Zanucco",
+      "name": "Guido Borso",
       "role": "presidente",
       "role_label": "Presidente"
+    },
+    {
+      "name": "Jonatas Zanucco",
+      "role": "presidente",
+      "role_label": "Vice Allenatore"
     },
     {
       "name": "Francesco Sama",
@@ -612,17 +617,17 @@
     {
       "name": "Andrea Brugnerotto",
       "role": "dirigente",
-      "role_label": "Dirigente"
+      "role_label": "Videomaker"
     },
     {
       "name": "Sebastiano Rusconi",
       "role": "dirigente",
-      "role_label": "Dirigente"
+      "role_label": "Fotografo"
     },
     {
       "name": "Luca Pregnolato",
       "role": "dirigente",
-      "role_label": "Dirigente"
+      "role_label": "Videomaker"
     }
   ],
   "upcoming_matches": [

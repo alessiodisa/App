@@ -98,6 +98,19 @@ ROLE_LABELS = {
     "collaboratore-tecnico": "Collaboratore Tecnico",
 }
 
+# calciotto.tv's own staff roles don't match how these people actually work
+# with the team (and some, like the club president, aren't listed there at
+# all), so reapply these corrections after every scrape.
+STAFF_ROLE_OVERRIDES = {
+    "Jonatas Zanucco": "Vice Allenatore",
+    "Andrea Brugnerotto": "Videomaker",
+    "Sebastiano Rusconi": "Fotografo",
+    "Luca Pregnolato": "Videomaker",
+}
+STAFF_ADDITIONS = [
+    {"name": "Guido Borso", "role": "presidente", "role_label": "Presidente"},
+]
+
 
 def main():
     # --- League + season + team lookup ---
@@ -214,6 +227,16 @@ def main():
             "role": role,
             "role_label": ROLE_LABELS.get(role, (role or "").replace("-", " ").title()),
         })
+
+    for s in staff:
+        override = STAFF_ROLE_OVERRIDES.get(s["name"])
+        if override:
+            s["role_label"] = override
+
+    existing_staff_names = {s["name"] for s in staff}
+    for addition in reversed(STAFF_ADDITIONS):
+        if addition["name"] not in existing_staff_names:
+            staff.insert(0, addition)
 
     # --- Upcoming matches ---
     events_raw = get_all("events", {"search": "TREVISO UNITED"})
