@@ -366,6 +366,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 .feature-overlay .btn-ghost { border-color: rgba(255,255,255,.55); color: var(--white); }
 .feature-overlay .btn-ghost:hover { border-color: var(--white); }
 
+.feature-full.feature-pattern::before {
+  background: linear-gradient(180deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.68) 45%, rgba(0,0,0,.5) 100%);
+}
+.feature-pattern .feature-overlay .btn-ghost {
+  border-color: rgba(255,255,255,.75);
+  background: rgba(0,0,0,.2);
+}
+.feature-pattern .feature-overlay .btn-ghost:hover { background: rgba(0,0,0,.35); }
+
 @media (max-width: 640px) {
   .feature-full { height: clamp(480px, 84vh, 700px); }
   #sport.feature-full .feature-bg { object-position: center 70%; }
