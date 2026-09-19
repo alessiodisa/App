@@ -4,6 +4,7 @@ const I18N = {
     "nav.shop": "Shop",
     "nav.servizi": "Servizi",
     "nav.sport": "Sport",
+    "nav.map": "Mappa",
     "nav.about": "Chi siamo",
     "nav.join": "Entra",
 
@@ -42,6 +43,10 @@ const I18N = {
     "squad.title": "Treviso United",
     "squad.text": "Treviso United è la squadra di calcio a 8 che porta in campo lo spirito del brand: energia, appartenenza e voglia di vincere insieme. Un gruppo di amici e atleti che ogni settimana scende in campo con la maglia United, portando la community dagli spalti al terreno di gioco.",
     "squad.sponsor.label": "Sponsor ufficiale",
+
+    "map.eyebrow": "Mappa",
+    "map.title": "La mappa United",
+    "map.text": "Scopri i posti United: cibo, esperienze, sport e tanto altro. Una mappa interattiva per orientarti tra i luoghi del nostro mondo.",
 
     "campionato.eyebrow": "Il campionato",
     "campionato.title": "Serie A — Calciotto Treviso",
@@ -100,6 +105,7 @@ const I18N = {
     "nav.shop": "Shop",
     "nav.servizi": "Services",
     "nav.sport": "Sport",
+    "nav.map": "Map",
     "nav.about": "About",
     "nav.join": "Join",
 
@@ -138,6 +144,10 @@ const I18N = {
     "squad.title": "Treviso United",
     "squad.text": "Treviso United is the eight-a-side football team that brings the brand's spirit onto the pitch: energy, belonging and the drive to win together. A group of friends and athletes who take the field every week wearing the United shirt, bringing the community from the stands to the pitch.",
     "squad.sponsor.label": "Official sponsor",
+
+    "map.eyebrow": "Map",
+    "map.title": "The United map",
+    "map.text": "Discover United's spots: food, experiences, sport and much more. An interactive map to find your way around our world.",
 
     "campionato.eyebrow": "The league",
     "campionato.title": "Serie A — Calciotto Treviso",
