@@ -26,5 +26,9 @@ window.TREVISO_STAFF = [
   { name: "Francesco Zanin", role: "Team Manager" },
   { name: "Jacopo Traldi", role: "Responsabile Portieri" },
   { name: "Lorenzo Pavan", role: "Team Manager" },
-  { name: "Alexis Yara", role: "Team Manager" }
+  { name: "Alexis Yara", role: "Team Manager" },
+  { name: "Marco Zuin", role: "Team Manager" },
+  { name: "Vittorio Toffolo", role: "Team Manager" },
+  { name: "Alessandro Paccagnan", role: "Team Manager" },
+  { name: "Matteo Lamonato", role: "Team Manager" }
 ];

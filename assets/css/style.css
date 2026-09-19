@@ -610,7 +610,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 #campionatoStaffTeam{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(7, auto);
+  grid-template-rows: repeat(9, auto);
   grid-auto-flow: column;
   gap: 0 24px;
 }
