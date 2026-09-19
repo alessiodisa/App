@@ -270,11 +270,19 @@
     if (matches) {
       var lang3 = document.documentElement.getAttribute("lang") || "it";
       if (data.upcoming_matches && data.upcoming_matches.length) {
-        matches.innerHTML = data.upcoming_matches.map(function (m) {
+        var nextMatches = data.upcoming_matches.slice(0, 3);
+        matches.innerHTML = nextMatches.map(function (m, i) {
           var d = new Date(m.date);
-          var dateStr = isNaN(d) ? "" : d.toLocaleDateString(locale, { day: "2-digit", month: "short" });
-          return '<li><span>' + escapeHtml(m.opponent) + '</span><span class="campionato-date">' + escapeHtml(dateStr) + "</span></li>";
+          var dateStr = isNaN(d) ? "" :
+            d.toLocaleDateString(locale, { day: "2-digit", month: "short" }) + ", " +
+            d.toLocaleTimeString(locale, { hour: "2-digit", minute: "2-digit" });
+          var row = '<div class="campionato-match-row"><span>' + escapeHtml(m.opponent) +
+            '</span><span class="campionato-date">' + escapeHtml(dateStr) + "</span></div>";
+          var countdown = i === 0 && !isNaN(d) ?
+            '<div class="campionato-countdown" data-date="' + escapeHtml(m.date) + '"></div>' : "";
+          return '<li class="campionato-match' + (i === 0 ? " campionato-match-next" : "") + '">' + row + countdown + "</li>";
         }).join("");
+        startMatchCountdowns(lang3);
       } else {
         matches.innerHTML = "<li>" + escapeHtml(I18N[lang3]["campionato.matches.empty"]) + "</li>";
       }
@@ -287,6 +295,51 @@
         updated.textContent = gd.toLocaleString(locale, { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" });
       }
     }
+  }
+
+  var COUNTDOWN_UNITS = {
+    it: { d: "g", h: "h", m: "m", s: "s" },
+    en: { d: "d", h: "h", m: "m", s: "s" }
+  };
+
+  function pad2(n) {
+    return n < 10 ? "0" + n : String(n);
+  }
+
+  // Live countdown to the next match. Runs on its own interval since the
+  // target time doesn't come from a re-fetch — just ticks against the
+  // already-loaded date.
+  function startMatchCountdowns(lang) {
+    var units = COUNTDOWN_UNITS[lang] || COUNTDOWN_UNITS.it;
+    document.querySelectorAll(".campionato-countdown[data-date]").forEach(function (el) {
+      var target = new Date(el.getAttribute("data-date")).getTime();
+      if (isNaN(target)) return;
+
+      function tick() {
+        var diff = target - Date.now();
+        if (diff <= 0) {
+          el.innerHTML = "";
+          clearInterval(timer);
+          return;
+        }
+        var totalSeconds = Math.floor(diff / 1000);
+        var days = Math.floor(totalSeconds / 86400);
+        var hours = Math.floor((totalSeconds % 86400) / 3600);
+        var minutes = Math.floor((totalSeconds % 3600) / 60);
+        var seconds = totalSeconds % 60;
+        el.innerHTML = [
+          [days, units.d],
+          [pad2(hours), units.h],
+          [pad2(minutes), units.m],
+          [pad2(seconds), units.s]
+        ].map(function (pair) {
+          return '<div class="campionato-countdown-item"><strong>' + pair[0] + "</strong><span>" + pair[1] + "</span></div>";
+        }).join("");
+      }
+
+      tick();
+      var timer = setInterval(tick, 1000);
+    });
   }
 
   // Dirigenza/Staff are curated by hand in assets/js/treviso-staff.js, not

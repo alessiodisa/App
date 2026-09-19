@@ -607,6 +607,28 @@ ul { margin: 0; padding: 0; list-style: none; }
 .campionato-list .campionato-date{ color: var(--gray-500); font-size: .78rem; white-space: nowrap; flex-shrink: 0; }
 .campionato-list .campionato-role{ color: var(--gray-500); font-size: .78rem; white-space: nowrap; flex-shrink: 0; }
 
+#campionatoMatches li{ display: block; }
+.campionato-match-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.campionato-match-next .campionato-match-row{ margin-bottom: 10px; }
+.campionato-countdown{ display: flex; gap: 8px; }
+.campionato-countdown-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 38px;
+  padding: 6px 8px;
+  background: var(--gray-100);
+  border-radius: 8px;
+}
+.campionato-countdown-item strong{ font-size: .95rem; font-weight: 800; color: var(--ink); line-height: 1; }
+.campionato-countdown-item span{ font-size: .62rem; text-transform: uppercase; letter-spacing: .04em; color: var(--gray-500); }
+
 #campionatoStaffTeam{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
