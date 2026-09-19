@@ -607,6 +607,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 .campionato-list .campionato-date{ color: var(--gray-500); font-size: .78rem; white-space: nowrap; flex-shrink: 0; }
 .campionato-list .campionato-role{ color: var(--gray-500); font-size: .78rem; white-space: nowrap; flex-shrink: 0; }
 
+#campionatoStaffTeam{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0 24px;
+}
+
 .campionato-table-wrap{ overflow-x: auto; contain: layout paint; }
 .campionato-table{ width: 100%; border-collapse: collapse; font-size: .84rem; }
 .campionato-table th,
