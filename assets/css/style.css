@@ -958,16 +958,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 640px){
   #unitedMap{ height: 420px; border-radius: 14px; }
 }
-@media (min-width: 768px){
-  .map-layout-grid{
-    grid-template-columns: minmax(320px, 1fr) 1.3fr;
-    grid-template-areas: "list map";
-    align-items: start;
-    gap: 32px;
-  }
-  .map-layout-map{ position: sticky; top: calc(var(--nav-h) + 20px); }
-  #unitedMap{ height: calc(100vh - var(--nav-h) - 40px); min-height: 480px; max-height: 720px; }
-}
 
 .map-category{ margin-bottom: 56px; }
 .map-category:last-child{ margin-bottom: 0; }
