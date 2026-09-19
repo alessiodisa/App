@@ -39,7 +39,6 @@ const I18N = {
     "sport.text": "Dalla corsa al fitness, dal basket all'outdoor: United accompagna ogni disciplina con contenuti, eventi e prodotti pensati per chi non si ferma mai.",
     "sport.link": "Esplora le discipline",
 
-    "squad.eyebrow": "La squadra",
     "squad.title": "Treviso United",
     "squad.text": "Treviso United è la squadra di calcio a 8 che porta in campo lo spirito del brand: energia, appartenenza e voglia di vincere insieme. Un gruppo di amici e atleti che ogni settimana scende in campo con la maglia United, portando la community dagli spalti al terreno di gioco.",
     "squad.sponsor.label": "Sponsor ufficiale",
@@ -152,7 +151,6 @@ const I18N = {
     "sport.text": "From running to fitness, from basketball to the outdoors: United supports every discipline with content, events and products made for those who never stop.",
     "sport.link": "Explore the disciplines",
 
-    "squad.eyebrow": "The team",
     "squad.title": "Treviso United",
     "squad.text": "Treviso United is the eight-a-side football team that brings the brand's spirit onto the pitch: energy, belonging and the drive to win together. A group of friends and athletes who take the field every week wearing the United shirt, bringing the community from the stands to the pitch.",
     "squad.sponsor.label": "Official sponsor",
