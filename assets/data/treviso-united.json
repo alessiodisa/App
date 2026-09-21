@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T11:02:56.930098+00:00",
+  "generated_at": "2026-09-21T12:03:41.520523+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -582,19 +582,6 @@
         "yellow_cards": 0,
         "red_cards": 0,
         "motm": 0
-      }
-    },
-    {
-      "name": "Sergio Cosentino",
-      "number": null,
-      "position": "forward",
-      "position_label": "Attaccante",
-      "stats": {
-        "appearances": "1",
-        "goals": 2,
-        "yellow_cards": 0,
-        "red_cards": 0,
-        "motm": 1
       }
     }
   ],
