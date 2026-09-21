@@ -76,15 +76,32 @@
     var mapEl = document.getElementById("unitedMap");
 
     if (mapEl && typeof L !== "undefined") {
-      map = L.map(mapEl, { scrollWheelZoom: false }).setView([45.6669, 12.2431], 13);
+      map = L.map(mapEl, {
+        scrollWheelZoom: false,
+        dragging: false,
+        touchZoom: false,
+        doubleClickZoom: false
+      }).setView([45.6669, 12.2431], 13);
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
       }).addTo(map);
 
-      mapEl.addEventListener("mouseenter", function () { map.scrollWheelZoom.enable(); });
-      mapEl.addEventListener("mouseleave", function () { map.scrollWheelZoom.disable(); });
+      var activateOverlay = document.getElementById("mapActivateOverlay");
+      var activated = false;
+      function activateMap() {
+        if (activated) return;
+        activated = true;
+        map.dragging.enable();
+        map.scrollWheelZoom.enable();
+        map.touchZoom.enable();
+        map.doubleClickZoom.enable();
+        if (activateOverlay) activateOverlay.classList.add("is-hidden");
+      }
+      if (activateOverlay) {
+        activateOverlay.addEventListener("click", activateMap);
+      }
 
       markers = places.map(function (place) {
         var marker = L.marker([place.lat, place.lng], { icon: makeIcon(place.category) });
