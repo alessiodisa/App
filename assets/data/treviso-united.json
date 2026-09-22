@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T20:02:56.318790+00:00",
+  "generated_at": "2026-09-22T21:02:58.660343+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -67,13 +67,13 @@
       "pos": 5,
       "name": "NEXT DINAMO",
       "pts": "4",
-      "played": "2",
+      "played": "3",
       "wins": "1",
       "draws": "1",
-      "losses": "0",
-      "for": "6",
-      "against": "2",
-      "gd": "4",
+      "losses": "1",
+      "for": "7",
+      "against": "5",
+      "gd": "2",
       "is_treviso_united": false
     },
     {
@@ -119,8 +119,22 @@
       "is_treviso_united": false
     },
     {
-      "team_id": 189,
+      "team_id": 192,
       "pos": 9,
+      "name": "ATHLETIC DINAMO",
+      "pts": "3",
+      "played": "3",
+      "wins": "1",
+      "draws": "0",
+      "losses": "2",
+      "for": "6",
+      "against": "7",
+      "gd": "-1",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 189,
+      "pos": 10,
       "name": "F.C. CA’NELSON",
       "pts": "3",
       "played": "2",
@@ -134,7 +148,7 @@
     },
     {
       "team_id": 25070,
-      "pos": 9,
+      "pos": 10,
       "name": "REAL SANTA MARIA",
       "pts": "3",
       "played": "2",
@@ -148,7 +162,7 @@
     },
     {
       "team_id": 52,
-      "pos": 11,
+      "pos": 12,
       "name": "QUINTO TEAM",
       "pts": "3",
       "played": "2",
@@ -162,7 +176,7 @@
     },
     {
       "team_id": 190,
-      "pos": 12,
+      "pos": 13,
       "name": "LOS BULLDOGS",
       "pts": "1",
       "played": "2",
@@ -176,7 +190,7 @@
     },
     {
       "team_id": 167,
-      "pos": 13,
+      "pos": 14,
       "name": "A.c. ATLETICO PAPATO",
       "pts": "1",
       "played": "2",
@@ -186,20 +200,6 @@
       "for": "2",
       "against": "6",
       "gd": "-4",
-      "is_treviso_united": false
-    },
-    {
-      "team_id": 192,
-      "pos": 14,
-      "name": "ATHLETIC DINAMO",
-      "pts": "0",
-      "played": "2",
-      "wins": "0",
-      "draws": "0",
-      "losses": "2",
-      "for": "3",
-      "against": "6",
-      "gd": "-3",
       "is_treviso_united": false
     },
     {
