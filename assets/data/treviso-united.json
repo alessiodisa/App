@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T19:03:10.885578+00:00",
+  "generated_at": "2026-09-24T20:03:15.777568+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -147,22 +147,8 @@
       "is_treviso_united": false
     },
     {
-      "team_id": 25070,
-      "pos": 10,
-      "name": "REAL SANTA MARIA",
-      "pts": "3",
-      "played": "2",
-      "wins": "1",
-      "draws": "0",
-      "losses": "1",
-      "for": "2",
-      "against": "3",
-      "gd": "-1",
-      "is_treviso_united": false
-    },
-    {
       "team_id": 52,
-      "pos": 12,
+      "pos": 11,
       "name": "QUINTO TEAM",
       "pts": "3",
       "played": "2",
@@ -175,8 +161,36 @@
       "is_treviso_united": false
     },
     {
-      "team_id": 167,
+      "team_id": 12204,
+      "pos": 12,
+      "name": "SPARTA PREGA",
+      "pts": "3",
+      "played": "3",
+      "wins": "1",
+      "draws": "0",
+      "losses": "2",
+      "for": "5",
+      "against": "8",
+      "gd": "-3",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 25070,
       "pos": 13,
+      "name": "REAL SANTA MARIA",
+      "pts": "3",
+      "played": "3",
+      "wins": "1",
+      "draws": "0",
+      "losses": "2",
+      "for": "3",
+      "against": "7",
+      "gd": "-4",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 167,
+      "pos": 14,
       "name": "A.c. ATLETICO PAPATO",
       "pts": "2",
       "played": "3",
@@ -190,7 +204,7 @@
     },
     {
       "team_id": 190,
-      "pos": 14,
+      "pos": 15,
       "name": "LOS BULLDOGS",
       "pts": "1",
       "played": "2",
@@ -204,7 +218,7 @@
     },
     {
       "team_id": 163,
-      "pos": 15,
+      "pos": 16,
       "name": "CARMELITEAM",
       "pts": "0",
       "played": "2",
@@ -214,20 +228,6 @@
       "for": "4",
       "against": "9",
       "gd": "-5",
-      "is_treviso_united": false
-    },
-    {
-      "team_id": 12204,
-      "pos": 16,
-      "name": "SPARTA PREGA",
-      "pts": "0",
-      "played": "2",
-      "wins": "0",
-      "draws": "0",
-      "losses": "2",
-      "for": "1",
-      "against": "7",
-      "gd": "-6",
       "is_treviso_united": false
     },
     {
