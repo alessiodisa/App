@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T20:03:15.777568+00:00",
+  "generated_at": "2026-09-24T21:03:38.322687+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -7,8 +7,22 @@
   },
   "standings": [
     {
-      "team_id": 19325,
+      "team_id": 8310,
       "pos": 1,
+      "name": "TREVISO UNITED",
+      "pts": "9",
+      "played": "3",
+      "wins": "3",
+      "draws": "0",
+      "losses": "0",
+      "for": "12",
+      "against": "3",
+      "gd": "9",
+      "is_treviso_united": true
+    },
+    {
+      "team_id": 19325,
+      "pos": 2,
       "name": "ADELANTES",
       "pts": "7",
       "played": "3",
@@ -22,31 +36,17 @@
     },
     {
       "team_id": 16523,
-      "pos": 2,
+      "pos": 3,
       "name": "F.C. BORUSSIA PORCMUND",
       "pts": "6",
-      "played": "2",
+      "played": "3",
       "wins": "2",
       "draws": "0",
-      "losses": "0",
-      "for": "11",
-      "against": "2",
-      "gd": "9",
-      "is_treviso_united": false
-    },
-    {
-      "team_id": 8310,
-      "pos": 3,
-      "name": "TREVISO UNITED",
-      "pts": "6",
-      "played": "2",
-      "wins": "2",
-      "draws": "0",
-      "losses": "0",
-      "for": "7",
-      "against": "2",
+      "losses": "1",
+      "for": "12",
+      "against": "7",
       "gd": "5",
-      "is_treviso_united": true
+      "is_treviso_united": false
     },
     {
       "team_id": 20412,
@@ -252,7 +252,7 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -304,9 +304,9 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 0,
-        "yellow_cards": 0,
+        "yellow_cards": 1,
         "red_cards": 0,
         "motm": 0
       }
@@ -330,7 +330,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -408,7 +408,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -447,7 +447,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 1,
         "yellow_cards": 1,
         "red_cards": 0,
@@ -486,7 +486,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -499,11 +499,11 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "0",
-        "goals": 0,
+        "appearances": "1",
+        "goals": 2,
         "yellow_cards": 0,
         "red_cards": 0,
-        "motm": 0
+        "motm": 1
       }
     },
     {
@@ -538,8 +538,8 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "0",
-        "goals": 0,
+        "appearances": "1",
+        "goals": 2,
         "yellow_cards": 0,
         "red_cards": 0,
         "motm": 0
@@ -551,7 +551,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 1,
         "yellow_cards": 1,
         "red_cards": 0,
@@ -564,8 +564,8 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "1",
-        "goals": 1,
+        "appearances": "2",
+        "goals": 2,
         "yellow_cards": 0,
         "red_cards": 0,
         "motm": 0
@@ -577,7 +577,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -599,12 +599,6 @@
     }
   ],
   "upcoming_matches": [
-    {
-      "date": "2026-09-24T21:00:00",
-      "title": "F.C. BORUSSIA PORCMUND vs TREVISO UNITED",
-      "opponent": "F.C. BORUSSIA PORCMUND",
-      "league": "serie-a-2026-2027"
-    },
     {
       "date": "2026-10-01T21:00:14",
       "title": "TREVISO CITY vs TREVISO UNITED",
@@ -633,6 +627,12 @@
       "date": "2026-11-05T20:00:01",
       "title": "NEXT DINAMO vs TREVISO UNITED",
       "opponent": "NEXT DINAMO",
+      "league": "serie-a-2026-2027"
+    },
+    {
+      "date": "2026-11-12T20:00:56",
+      "title": "CARMELITEAM vs TREVISO UNITED",
+      "opponent": "CARMELITEAM",
       "league": "serie-a-2026-2027"
     }
   ]
