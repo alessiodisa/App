@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T20:03:10.157593+00:00",
+  "generated_at": "2026-09-25T21:02:50.259803+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -77,8 +77,22 @@
       "is_treviso_united": false
     },
     {
-      "team_id": 20421,
+      "team_id": 52,
       "pos": 6,
+      "name": "QUINTO TEAM",
+      "pts": "6",
+      "played": "3",
+      "wins": "2",
+      "draws": "0",
+      "losses": "1",
+      "for": "12",
+      "against": "13",
+      "gd": "-1",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 20421,
+      "pos": 7,
       "name": "TREVISO CITY",
       "pts": "4",
       "played": "3",
@@ -92,7 +106,7 @@
     },
     {
       "team_id": 20446,
-      "pos": 7,
+      "pos": 8,
       "name": "NEXT DINAMO",
       "pts": "4",
       "played": "3",
@@ -106,7 +120,7 @@
     },
     {
       "team_id": 185,
-      "pos": 8,
+      "pos": 9,
       "name": "G.S.A. MONTEBELLUNA",
       "pts": "4",
       "played": "3",
@@ -120,7 +134,7 @@
     },
     {
       "team_id": 192,
-      "pos": 9,
+      "pos": 10,
       "name": "ATHLETIC DINAMO",
       "pts": "3",
       "played": "3",
@@ -130,20 +144,6 @@
       "for": "6",
       "against": "7",
       "gd": "-1",
-      "is_treviso_united": false
-    },
-    {
-      "team_id": 52,
-      "pos": 10,
-      "name": "QUINTO TEAM",
-      "pts": "3",
-      "played": "2",
-      "wins": "1",
-      "draws": "0",
-      "losses": "1",
-      "for": "6",
-      "against": "8",
-      "gd": "-2",
       "is_treviso_united": false
     },
     {
@@ -221,13 +221,13 @@
       "pos": 16,
       "name": "CARMELITEAM",
       "pts": "0",
-      "played": "2",
+      "played": "3",
       "wins": "0",
       "draws": "0",
-      "losses": "2",
-      "for": "4",
-      "against": "9",
-      "gd": "-5",
+      "losses": "3",
+      "for": "9",
+      "against": "15",
+      "gd": "-6",
       "is_treviso_united": false
     },
     {
