@@ -345,17 +345,17 @@ def main_apertura(s, p):
 
 
 def gallery_file(s, p):
-    """Tre foto verticali per pagina, come una fila di schede."""
+    """Per pagina: un progetto grande orizzontale (5:3) + due piccoli (3:2)."""
     c, pr = s["code"], s["progetti"]
     pages = []
     for side in (0, 1):
-        items = ""
-        for i in range(3):
-            k = side * 3 + i
-            x = M + i * 68
-            items += foto(f"{c}-{k+4:02d}", "Progetto: foto verticale", x, 64, 64, 150)
-            t, d = pr[k]
-            items += cap(k + 1, f"{BRAND} — {t}", d, x, 219, 62)
+        k = side * 3
+        items = foto(f"{c}-{k+4:02d}", "Progetto: foto orizzontale (3:2 o 16:10)", M, 56, 200, 120)
+        items += cap(k + 1, f"{BRAND} — {pr[k][0]}", pr[k][1], M, 179, 150)
+        for i in range(2):
+            x = M + i * 102
+            items += foto(f"{c}-{k+5+i:02d}", "Progetto: foto orizzontale (3:2)", x, 196, 98, 66)
+            items += cap(k + 2 + i, f"{BRAND} — {pr[k+1+i][0]}", pr[k+1+i][1], x, 265, 98)
         head = (f'<div class="abs" style="{at(M, 28, 120)}"><div class="l">Progetti</div></div>'
                 f'<div class="abs label" style="{at(160, 30, 55)}">Una selezione di progetti realizzati per brand di settori diversi.</div>'
                 if side == 0 else
@@ -379,12 +379,12 @@ def gallery_collage(s, p):
   {folio(p + 2, s['nome'])}""")
     dx = ("", f"""
   {run(s['nome'])}
-  {foto(f"{c}-07", "Progetto 2: foto verticale", M, 28, 90, 170)}
-  {foto(f"{c}-08", "Progetto 2: ambientata", 109, 28, 106, 82)}
-  {foto(f"{c}-09", "Progetto 2: dettaglio", 109, 116, 106, 82)}
-  <div class="abs" style="{at(M, 212, 90)}"><div class="l">{BRAND}<span class="num">/02</span></div>
+  {foto(f"{c}-07", "Progetto 2: foto verticale (3:4)", M, 28, 98, 131)}
+  {foto(f"{c}-08", "Progetto 2: ambientata (3:2)", 117, 28, 98, 63)}
+  {foto(f"{c}-09", "Progetto 2: dettaglio (3:2)", 117, 96, 98, 63)}
+  <div class="abs" style="{at(M, 176, 98)}"><div class="l">{BRAND}<span class="num">/02</span></div>
     <p class="label" style="margin-top:2mm">{pr[1][0]}</p></div>
-  <div class="abs" style="{at(109, 212, 106)}">{kv([("Materiale", pr[1][1]), ("Formato", '<span class="tbd">120 × 80 × 160 cm</span>'), ("Tiratura", '<span class="tbd">200 pz</span>')], "narrow")}
+  <div class="abs" style="{at(117, 176, 98)}">{kv([("Materiale", pr[1][1]), ("Formato", '<span class="tbd">120 × 80 × 160 cm</span>'), ("Tiratura", '<span class="tbd">200 pz</span>')], "narrow")}
     <p class="body" style="margin-top:4mm">Breve descrizione del progetto: obiettivo del cliente, soluzione strutturale, risultato.</p></div>
   {folio(p + 3, s['nome'])}""")
     return [sx, dx]
