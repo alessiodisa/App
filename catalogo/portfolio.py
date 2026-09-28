@@ -245,50 +245,51 @@ def apertura(num, titolo, testo, sezione_codes, pages, hero, pts, legenda):
     fr = (137, TOP + 3, 148, 148)
     leg = "".join(f"<li><b>{i + 1:02d}</b>{x}</li>" for i, x in enumerate(legenda))
     return f"""
-  <div class="mono lbl light" style="{bx(M, TOP + 3)}">Sezione</div>
+  <div class="mono lbl" style="{bx(M, TOP + 3)}">Sezione</div>
   <div class="bignum" style="{bx(M - 1, TOP + 5)}">{num}</div>
   <div class="h1" style="{bx(M, 70, 115)}">{titolo}</div>
-  <p class="body light" style="{bx(M, 92, 110)}">{testo}</p>
-  <table class="dist dark dense" style="{bx(M, 112, 115)}"><tr><th>Cod.</th><th>Progetto</th><th>Pag.</th></tr>{idx}</table>
+  <p class="body" style="{bx(M, 92, 110)}">{testo}</p>
+  <table class="dist dense" style="{bx(M, 112, 115)}"><tr><th>Cod.</th><th>Progetto</th><th>Pag.</th></tr>{idx}</table>
   {photo(hero, fr, s=148, tag=False)}
   {svg(ruler(fr, "right", "#6B6E73") + callouts(fr, 148, pts))}
-  <div class="mono lbl light" style="{bx(137, 175)}">Tav. {cid(hero)} — {PROGETTI[hero][0]}</div>
+  <div class="mono lbl" style="{bx(137, 175)}">Tav. {cid(hero)} — {PROGETTI[hero][0]}</div>
   <ul class="leg" style="{bx(137, 180, 148)}">{leg}</ul>"""
 
 
 def copertina():
     fr = (125, TOP + 3, 160, 160)
     return f"""
-  <div class="mono lbl light" style="{bx(M, TOP + 3)}">{AZ}</div>
+  <div class="mono lbl" style="{bx(M, TOP + 3)}">{AZ}</div>
   <div class="cover-t" style="{bx(M - 1, 62)}">Portfolio<br><span>Espositori</span></div>
-  <p class="body light" style="{bx(M, 112, 95)}">Progettazione, prototipazione e produzione di espositori in cartotecnica e materiali durevoli.</p>
-  <table class="dist dark" style="{bx(M, 150, 95)}"><tr><th>Sez.</th><th>Contenuto</th><th>Tavole</th></tr>
+  <p class="body" style="{bx(M, 112, 95)}">Progettazione, prototipazione e produzione di espositori in cartotecnica e materiali durevoli.</p>
+  <table class="dist" style="{bx(M, 150, 95)}"><tr><th>Sez.</th><th>Contenuto</th><th>Tavole</th></tr>
     <tr><td class="c">01</td><td>Espositori da banco</td><td class="p">17</td></tr>
     <tr><td class="c">02</td><td>Espositori da terra</td><td class="p">8</td></tr></table>
   {photo("B06", fr, s=160, tag=False)}
   {svg(ruler(fr, "right", "#6B6E73"))}
-  <div class="mono lbl light" style="{bx(125, 187)}">Ed. 2026 — Rev. 00</div>"""
+  <div class="mono lbl" style="{bx(125, 187)}">Ed. 2026 — Rev. 00</div>"""
 
 
 def chi_siamo():
-    thumbs = "".join(photo(c, (M + i * 69, 136, 64, 57), s=64) for i, c in enumerate(["B03", "B11", "T02", "B16"]))
+    fr = (150, TOP + 3, 135, 170)
     return f"""
   <div class="mono lbl" style="{bx(M, TOP + 3)}">00 — Chi siamo</div>
-  <div class="h1 ink" style="{bx(M, TOP + 9, 110)}">Dal disegno<br>al bancale.</div>
-  <p class="body" style="{bx(128, TOP + 3, 75)}">Dal {TBD('[anno]')} a {TBD('[città]')} progettiamo e produciamo espositori in cartotecnica e materiali durevoli. Seguiamo ogni progetto internamente: ufficio tecnico, campionatura, stampa, fustellatura, incollaggio e confezionamento.</p>
-  <p class="body" style="{bx(128, 62, 75)}">Ogni espositore parte da una domanda semplice: dove verrà visto, da chi, per quanto tempo. Da lì scegliamo struttura, materiale e finiture, prototipiamo, testiamo e solo allora produciamo.</p>
-  <dl class="cart" style="{bx(210, TOP + 3, 75)}"><dt>Esperienza</dt><dd>{TBD('35+ anni')}</dd><dt>Progetti</dt><dd>{TBD('400 l’anno')}</dd>
+  <div class="h1" style="{bx(M, TOP + 9, 125)}">Dal disegno<br>al bancale.</div>
+  <p class="body" style="{bx(M, 58, 62)}">Dal {TBD('[anno]')} a {TBD('[città]')} progettiamo e produciamo espositori in cartotecnica e materiali durevoli. Seguiamo ogni progetto internamente: ufficio tecnico, campionatura, stampa, fustellatura, incollaggio e confezionamento.</p>
+  <p class="body" style="{bx(78, 58, 62)}">Ogni espositore parte da una domanda semplice: dove verrà visto, da chi, per quanto tempo. Da lì scegliamo struttura, materiale e finiture, prototipiamo, testiamo e solo allora produciamo.</p>
+  <dl class="cart" style="{bx(M, 118, 128)}"><dt>Esperienza</dt><dd>{TBD('35+ anni')}</dd><dt>Progetti</dt><dd>{TBD('400 l’anno')}</dd>
     <dt>Stabilimento</dt><dd>{TBD('6.000 m²')}</dd><dt>Reparti</dt><dd>Ufficio tecnico, stampa, fustellatura, confezionamento</dd>
     <dt>Settori</dt><dd>Cosmesi, farmacia, ottica, ferramenta, beverage, pet</dd></dl>
-  {thumbs}"""
+  {photo("B16", fr, s=170)}
+  {svg(ruler(fr, "right"))}"""
 
 
 def contatti():
     fr = (150, TOP + 3, 135, 135)
     return f"""
-  <div class="mono lbl light" style="{bx(M, TOP + 3)}">Contatti</div>
+  <div class="mono lbl" style="{bx(M, TOP + 3)}">Contatti</div>
   <div class="h1" style="{bx(M, TOP + 9, 120)}">Il prossimo progetto<br>parte da un brief.</div>
-  <dl class="cart dark" style="{bx(M, 90, 120)}"><dt>Email</dt><dd>{TBD('info@azienda.it')}</dd><dt>Telefono</dt><dd>{TBD('+39 000 000 0000')}</dd>
+  <dl class="cart" style="{bx(M, 90, 120)}"><dt>Email</dt><dd>{TBD('info@azienda.it')}</dd><dt>Telefono</dt><dd>{TBD('+39 000 000 0000')}</dd>
     <dt>Sede</dt><dd>{TBD('Via Esempio 1, Città')}</dd><dt>Web</dt><dd>{TBD('www.azienda.it')}</dd></dl>
   {photo("B17", fr, s=135, tag=False)}
   {svg(ruler(fr, "right", "#6B6E73"))}"""
@@ -300,9 +301,9 @@ def contatti():
 def piano():
     """(tipo, funzione, argomenti, codici, classe pagina, sezione)"""
     return [
-        ("copertina", None, (), [], "dark", ""),
+        ("copertina", None, (), [], "", ""),
         ("chi", None, (), [], "", ""),
-        ("ap_banco", None, (), ["B01"], "dark", BANCO),
+        ("ap_banco", None, (), ["B01"], "", BANCO),
         ("p", tav_singola, ("B02",), ["B02"], "", BANCO),
         ("p", tav_coppia, (["B03", "B04"],), ["B03", "B04"], "", BANCO),
         ("p", tav_singola, ("B06", True), ["B06"], "", BANCO),
@@ -311,12 +312,12 @@ def piano():
         ("p", tav_coppia, (["B10", "B11"],), ["B10", "B11"], "", BANCO),
         ("p", tav_singola, ("B07", True), ["B07"], "", BANCO),
         ("p", tav_sequenza, (["B12", "B14", "B15", "B16"],), ["B12", "B14", "B15", "B16"], "", BANCO),
-        ("ap_terra", None, (), ["T05"], "dark", TERRA),
+        ("ap_terra", None, (), ["T05"], "", TERRA),
         ("p", tav_verticale_coppia, (["T01", "T02"],), ["T01", "T02"], "", TERRA),
         ("p", tav_verticale_singola, ("T04",), ["T04"], "", TERRA),
         ("p", tav_verticale_coppia, (["T03", "T06"],), ["T03", "T06"], "", TERRA),
         ("p", tav_verticale_coppia, (["T07", "T08"],), ["T07", "T08"], "", TERRA),
-        ("contatti", None, (), [], "dark", ""),
+        ("contatti", None, (), [], "", ""),
     ]
 
 

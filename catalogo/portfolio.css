@@ -50,7 +50,7 @@ html, body { background: #5E6166; font-family: var(--body); color: var(--ink);
 .bignum { font: 300 118pt/.8 var(--head); letter-spacing: -.05em; color: var(--acc); }
 .body { font: 400 7.2pt/1.6 var(--body); color: var(--ink2); }
 .body.light { color: rgba(255,255,255,.72); }
-.cover-t { font: 600 50pt/.95 var(--head); letter-spacing: -.04em; color: #fff; }
+.cover-t { font: 600 50pt/.95 var(--head); letter-spacing: -.04em; color: var(--ink); }
 .cover-t span { font-weight: 300; color: var(--acc); }
 .tbd { background: rgba(255,196,0,.4); }
 .dark .tbd { background: rgba(255,196,0,.35); color: #fff; }
@@ -81,7 +81,7 @@ html, body { background: #5E6166; font-family: var(--body); color: var(--ink);
 .capt > span { display: block; font: 400 6.4pt/1.4 var(--body); color: var(--ink2); margin-top: .6mm; }
 .note { border-top: .25mm solid var(--ink); padding-top: 2.5mm; }
 .note .body { margin-top: 2mm; }
-.leg { list-style: none; columns: 2; column-gap: 6mm; font-size: 6.6pt; color: #fff; }
-.leg li { border-top: .2mm solid rgba(255,255,255,.2); padding: 1.2mm 0; }
+.leg { list-style: none; columns: 2; column-gap: 6mm; font-size: 6.6pt; }
+.leg li { border-top: .2mm solid var(--line); padding: 1.2mm 0; }
 .leg b { font: 500 6pt/1 var(--mono); color: var(--acc); display: inline-block; width: 7mm; }
 .dist.dense td { padding: .75mm 2mm .75mm 0; font-size: 6.2pt; }
