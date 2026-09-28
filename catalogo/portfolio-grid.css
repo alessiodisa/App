@@ -1,0 +1,71 @@
+/* Portfolio Espositori — A4 orizzontale su griglia a vista */
+@page { size: 297mm 210mm; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --paper: #F1F1F0;
+  --grid: #DCDCDA;
+  --ink: #141414;
+  --gray: #8C8C8C;
+  --num: #D2D2D0;
+  --disp: "Unbounded", "Arial Black", sans-serif;
+  --body: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+html, body { background: #7D7A76; font-family: var(--body); color: var(--ink);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.book { display: grid; grid-template-columns: repeat(2, 297mm); justify-content: center; row-gap: 14mm; padding: 14mm 0; }
+.book > .page:first-child { grid-column: 2; }
+@media screen { .book { zoom: .5; } .page.pl { box-shadow: inset -10mm 0 12mm -10mm rgba(0,0,0,.14); } .page.pr { box-shadow: inset 10mm 0 12mm -10mm rgba(0,0,0,.1); } }
+@media print { html, body { background: none; } .book { display: block; padding: 0; } .page { break-after: page; box-shadow: none !important; } }
+
+/* pagina con griglia a vista: 7 × 5 moduli */
+.page { position: relative; width: 297mm; height: 210mm; overflow: hidden; background-color: var(--paper);
+  background-image:
+    linear-gradient(to right, var(--grid) .25mm, transparent .25mm),
+    linear-gradient(to bottom, var(--grid) .25mm, transparent .25mm);
+  background-size: calc(297mm / 7) 42mm; background-position: -.12mm -.12mm; }
+.page > * { position: absolute; }
+.plus { width: 4mm; height: 4mm; }
+.plus::before, .plus::after { content: ""; position: absolute; background: #9A9A98; }
+.plus::before { left: 1.9mm; top: 0; width: .25mm; height: 4mm; }
+.plus::after { top: 1.9mm; left: 0; height: .25mm; width: 4mm; }
+.folio { bottom: 6mm; font: 600 6pt/1 var(--disp); color: var(--gray); letter-spacing: .05em; }
+.pl .folio { left: 8mm; } .pr .folio { right: 8mm; }
+
+.frame { overflow: hidden; background: #D6D6D4; }
+.frame img { position: absolute; max-width: none; }
+.cut { pointer-events: none; filter: drop-shadow(0 1.5mm 2mm rgba(0,0,0,.18)); }
+
+/* tipografia */
+.cover-t { font: 800 58pt/1 var(--disp); text-transform: uppercase; letter-spacing: -.02em; }
+.cover-t.sm { font-size: 30pt; }
+.light-t { font: 300 25pt/1 var(--disp); text-transform: uppercase; color: #9B9B99; letter-spacing: -.01em; }
+.h2 { font: 800 15pt/1.05 var(--disp); text-transform: uppercase; letter-spacing: .005em; }
+.h3 { font: 700 11pt/1.1 var(--disp); text-transform: uppercase; }
+.h5, h5 { font: 700 6.6pt/1.35 var(--disp); text-transform: uppercase; letter-spacing: .02em; }
+.h6 { font: 700 6.3pt/1.4 var(--disp); text-transform: uppercase; letter-spacing: .02em; }
+.small { font: 400 6.2pt/1.55 var(--body); text-transform: uppercase; letter-spacing: .03em; color: #6E6E6C; }
+.small.right, .h3.right { text-align: right; }
+.small.cols { column-count: 2; column-gap: 6mm; }
+.code { font: 700 7pt/1 var(--disp); color: var(--gray); letter-spacing: .08em; }
+.bignum { font: 800 56pt/1 var(--disp); color: var(--num); letter-spacing: -.02em; }
+.quote { font: 700 10pt/1.25 var(--disp); text-transform: uppercase; }
+.quote.sm { font-size: 7.4pt; }
+.quote::before { content: "\201C"; display: block; font: 800 26pt/.6 var(--disp); color: var(--num); margin-bottom: 2mm; }
+.tbd { background: rgba(255,196,0,.45); }
+
+.bullets { list-style: none; font: 400 6.2pt/1.5 var(--body); text-transform: uppercase; letter-spacing: .03em; color: #4E4E4C; }
+.bullets li { padding: 1mm 0 1mm 5mm; position: relative; }
+.bullets li::before { content: ""; position: absolute; left: 0; top: 1.9mm; width: 2mm; height: 2mm; background: var(--ink); }
+.bar { height: 2.2mm; background: var(--ink); }
+
+.index { list-style: none; font: 400 6.4pt/1.4 var(--body); text-transform: uppercase; letter-spacing: .03em; color: #4E4E4C; }
+.index li { display: flex; justify-content: space-between; padding: 1.1mm 0; }
+.index span { font-weight: 600; }
+
+.letters .li { display: flex; gap: 3mm; margin-bottom: 4mm; }
+.letters b { flex: none; width: 5.5mm; height: 5.5mm; background: var(--ink); color: #fff; font: 700 6.4pt/5.5mm var(--disp); text-align: center; }
+.letters p { font: 400 6pt/1.5 var(--body); text-transform: uppercase; letter-spacing: .03em; color: #6E6E6C; margin-top: .6mm; }
+
+.capline { font: 400 5.6pt/1.4 var(--body); text-transform: uppercase; letter-spacing: .03em; color: var(--gray); }
+.capline b { display: block; font: 700 5.8pt/1.4 var(--disp); color: var(--ink); letter-spacing: .02em; }
+.meta h5 { margin-bottom: 1.4mm; font-size: 6pt; }
