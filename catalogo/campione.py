@@ -324,6 +324,205 @@ def p_materiali_dx():
 
 
 # --------------------------------------------------------------------------
+# sezioni con foto reali
+# --------------------------------------------------------------------------
+BANCO = {  # codice: (titolo, tipologia, settore)
+    "B01": ("Oli essenziali", "Gradini con arco strutturale e header", "Erboristeria"),
+    "B02": ("Carte da gioco", "Vassoio inclinato con header", "Giochi"),
+    "B03": ("Skincare", "Vassoio con crowner sagomato", "Cosmesi"),
+    "B04": ("Outdoor", "Vassoio con fondale fotografico", "Abbigliamento"),
+    "B05": ("Oli essenziali", "Vassoio a gradini con header", "Erboristeria"),
+    "B06": ("Collagene marino", "Pedana con fondale", "Farmacia"),
+    "B07": ("Sistemi di fissaggio", "Colonna da banco con ganci", "Ferramenta"),
+    "B08": ("Integratori", "Box espositore con header", "Farmacia"),
+    "B09": ("Profumeria artistica", "Libreria a incastro", "Profumeria"),
+    "B10": ("Occhiali da sole", "Pedana curva con fondale", "Ottica"),
+    "B11": ("Occhiali", "Ripiani a sbalzo con fondale", "Ottica"),
+    "B12": ("Occhiali", "Fondale con nicchie", "Ottica"),
+    "B13": ("Cosmesi naturale", "Pedana con fondale", "Cosmesi"),
+    "B14": ("Fragranze", "Pedana con fondale", "Profumeria"),
+    "B15": ("Calzature", "Box con fondale doppio", "Abbigliamento"),
+    "B16": ("Vino", "Pedana monobottiglia con fondale", "Beverage"),
+    "B17": ("Skincare", "Gradini con header", "Cosmesi"),
+}
+TERRA = {
+    "T01": ("Pet care", "Colonna con vaschette e header", "Pet"),
+    "T02": ("Cerotti", "Colonna con ganci e header", "Farmacia"),
+    "T03": ("Tisane", "Colonna con mensole a sbalzo", "Erboristeria"),
+    "T04": ("Igiene intima", "Colonna a ripiani colorati", "Farmacia"),
+    "T05": ("Sistemi di fissaggio", "Colonna a 5 ripiani con header", "Ferramenta"),
+    "T06": ("Integratori", "Colonna a ripiani con crowner", "Farmacia"),
+    "T07": ("Eyewear", "Podio con fondale", "Ottica"),
+    "T08": ("Occhiali da sole", "Totem a nicchie", "Ottica"),
+}
+MAT = '<span class="tbd">[materiale]</span>'
+
+
+def img(code, x, y, w, h, marks=True):
+    return (f'<div class="ph" style="left:{x}mm;top:{y}mm;width:{w}mm;height:{h}mm"><img src="img/{code}.jpg" alt=""></div>'
+            + (svg(crop_marks(x, y, w, h, "#9A978F", 2, 3)) if marks else ""))
+
+
+def plate(code, data, x, y, w, h, below=True, capw=None):
+    t, tip, sett = data[code]
+    cid = f"{code[0]}.{code[1:]}"
+    cx, cy = (x, y + h + 3.5) if below else (x + w + 6, y)
+    cw = capw or (w if below else 60)
+    return img(code, x, y, w, h, marks=False) + (
+        f'<div class="plate-cap" style="{at(cx, cy, cw)}"><div class="mono"><span class="acc">{cid}</span>'
+        f'<span class="dim">&nbsp;&nbsp;{sett}</span></div><div class="pt">{t}</div>'
+        f'<div class="pd">{tip} · {MAT}</div></div>')
+
+
+def indice(data, cols):
+    rows = "".join(f'<div class="row"><span class="acc">{c[0]}.{c[1:]}</span><span>{t}</span></div>'
+                   for c, (t, _, _) in data.items())
+    return f'<div class="idx" style="column-count:{cols}">{rows}</div>'
+
+
+def callouts_on(x, y, w, h, iw, ih, pts):
+    """pts: (n, px, py, lx, ly) in pixel dell'immagine."""
+    sx, sy = w / iw, h / ih
+    return "".join(callout(n, x + px * sx, y + py * sy, x + lx * sx, y + ly * sy) for n, px, py, lx, ly in pts)
+
+
+def legenda(items):
+    return '<div class="idx" style="column-count:1">' + "".join(
+        f'<div class="row"><span class="acc">{i + 1:02d}</span><span>{t}</span></div>' for i, t in enumerate(items)) + "</div>"
+
+
+# ---------- espositori da banco ----------
+def banco_apertura():
+    ox, oy = M + 8, 138
+    front = (f'<path d="M{ox},{oy + 62} L{ox},{oy + 30} L{ox + 70},{oy + 30} L{ox + 70},{oy + 62} Z" fill="none" stroke="{INK}" stroke-width=".35"/>'
+             f'<path d="M{ox + 4},{oy + 30} L{ox + 4},{oy + 6} Q{ox + 35},{oy - 8} {ox + 66},{oy + 6} L{ox + 66},{oy + 30}" fill="none" stroke="{INK}" stroke-width=".35"/>')
+    for i in range(4):
+        front += f'<rect x="{ox + 7 + i * 15}" y="{oy + 20}" width="11" height="34" fill="none" stroke="#8A877F" stroke-width=".25" stroke-dasharray="1 .8"/>'
+    front += line(ox, oy + 50, ox + 70, oy + 50, INK, .3)
+    front += dim_h(ox, ox + 70, oy + 72, "300", ext_from=oy + 62) + dim_v(ox - 8, oy - 1.5, oy + 62, "450", ext_from=ox)
+    sx = ox + 100
+    side = (f'<path d="M{sx},{oy + 62} L{sx},{oy + 1} L{sx + 5},{oy + 1} L{sx + 5},{oy + 30} L{sx + 48},{oy + 44} L{sx + 48},{oy + 62} Z" '
+            f'fill="none" stroke="{INK}" stroke-width=".35"/>' + line(sx + 5, oy + 50, sx + 48, oy + 50, INK, .3))
+    side += dim_h(sx, sx + 48, oy + 72, "200", ext_from=oy + 62) + dim_v(sx + 58, oy + 44, oy + 62, "80", ext_from=sx + 48)
+    labels = text(ox, oy - 14, "SCHEMA TIPOLOGICO — PROSPETTO FRONTALE", 2, "start", "#77746E") + text(sx, oy - 14, "PROSPETTO LATERALE", 2, "start", "#77746E")
+    sx_page = ("paper grid", f"""
+  {head("Sezione 01", "Espositori da banco")}
+  <div class="abs outline-num" style="{at(M - 2, 22)}">01</div>
+  <div class="abs" style="{at(M, 90, 200)}"><div class="t-xl">Espositori<br>da banco</div></div>
+  <div class="abs" style="{at(140, 92, 75)}"><p class="body">Il punto più vicino alla scelta. Strutture compatte che si montano in pochi gesti e mettono il prodotto all'altezza dello sguardo, accanto alla cassa.</p></div>
+  {svg(front + side + labels)}
+  <div class="abs" style="{at(M, 226, 200)}"><div class="mono dim" style="margin-bottom:2mm">Indice tavole — {len(BANCO)} progetti</div>{indice(BANCO, 3)}</div>
+  {foot(2, "Espositori da banco")}""")
+    x, y, w = M, 28, 200
+    pts = [(1, 640, 300, 330, 150), (2, 705, 548, 930, 440), (3, 712, 615, 930, 720), (4, 452, 706, 250, 880)]
+    ann = crop_marks(x, y, w, w, "#9A978F", 2, 3) + callouts_on(x, y, w, w, 1024, 1024, pts)
+    t, tip, sett = BANCO["B01"]
+    dx_page = ("white", f"""
+  {head(AZ, "Tav. B.01")}
+  <div class="ph" style="left:{x}mm;top:{y}mm;width:{w}mm;height:{w}mm"><img src="img/B01.jpg" alt=""></div>
+  {svg(ann)}
+  <div class="abs" style="{at(M, 238, 95)}"><div class="mono"><span class="acc">B.01</span><span class="dim">&nbsp;&nbsp;{sett}</span></div>
+    <div class="t-m" style="margin-top:1.5mm">{t}</div>
+    <p class="body" style="margin-top:2mm">{tip}. Il ponte ad arco sostiene il secondo gradino senza rinforzi interni: un solo foglio, piegato. <span class="tbd">[Cliente, anno]</span></p></div>
+  <div class="abs" style="{at(120, 238, 95)}">{legenda(["Header con grafica a vivo", "Gradino portaprodotto", "Arco strutturale", "Fori per tester"])}</div>
+  {foot(3, "Espositori da banco")}""")
+    return [sx_page, dx_page]
+
+
+def tavole_2x2(codes, data, sezione, n, titolo=None):
+    body = ""
+    for i, c in enumerate(codes):
+        body += plate(c, data, M + (i % 2) * 102, 28 + (i // 2) * 124, 98, 98)
+    return ("white", f"{head(AZ, sezione)}{body}{foot(n, sezione)}")
+
+
+def tavola_grande(code, data, sezione, n, testo):
+    t, tip, sett = data[code]
+    cid = f"{code[0]}.{code[1:]}"
+    return ("white", f"""
+  {head(AZ, "Tav. " + cid)}
+  {img(code, M, 28, 200, 200)}
+  <div class="abs" style="{at(M, 240, 95)}"><div class="mono"><span class="acc">{cid}</span><span class="dim">&nbsp;&nbsp;{sett}</span></div>
+    <div class="t-m" style="margin-top:1.5mm">{t}</div></div>
+  <div class="abs" style="{at(120, 240, 95)}"><dl class="kvm"><dt>Tipologia</dt><dd>{tip}</dd><dt>Materiale</dt><dd>{MAT}</dd>
+    <dt>Cliente</dt><dd><span class="tbd">[Cliente]</span></dd></dl><p class="body" style="margin-top:3mm">{testo}</p></div>
+  {foot(n, sezione)}""")
+
+
+def tavole_coppia(codes, data, sezione, n):
+    body = "".join(plate(c, data, M, 28 + i * 130, 112, 112, below=False, capw=82) for i, c in enumerate(codes))
+    return ("white", f"{head(AZ, sezione)}{body}{foot(n, sezione)}")
+
+
+def banco_tavole():
+    S = "Espositori da banco"
+    return [
+        tavola_grande("B02", BANCO, S, 4, "Vassoio inclinato a scomparti: il prodotto resta in ordine anche quando lo scaffale si svuota."),
+        tavole_2x2(["B03", "B04", "B05", "B06"], BANCO, S, 5),
+        tavole_2x2(["B07", "B08", "B09", "B10"], BANCO, S, 6),
+        tavola_grande("B11", BANCO, S, 7, "Ripiani a sbalzo agganciati al fondale: struttura leggera, lettura pulita del prodotto."),
+        tavole_2x2(["B12", "B13", "B14", "B15"], BANCO, S, 8),
+        tavole_coppia(["B16", "B17"], BANCO, S, 9),
+    ]
+
+
+# ---------- espositori da terra ----------
+def terra_apertura():
+    ox, oy = M + 30, 142
+    fw, fh = 34, 100
+    front = (f'<rect x="{ox}" y="{oy + 16}" width="{fw}" height="{fh - 16}" fill="none" stroke="{INK}" stroke-width=".35"/>'
+             f'<path d="M{ox + 3},{oy + 16} L{ox + 3},{oy + 3} Q{ox + fw / 2},{oy - 2} {ox + fw - 3},{oy + 3} L{ox + fw - 3},{oy + 16}" fill="none" stroke="{INK}" stroke-width=".35"/>')
+    for k in range(5):
+        yy = oy + 26 + k * 15
+        front += line(ox, yy, ox + fw, yy, INK, .3) + f'<rect x="{ox + 4}" y="{yy - 10}" width="{fw - 8}" height="9" fill="none" stroke="#8A877F" stroke-width=".25" stroke-dasharray="1 .8"/>'
+    front += dim_h(ox, ox + fw, oy + fh + 9, "400", ext_from=oy + fh) + dim_v(ox - 9, oy - 1, oy + fh, "1600", ext_from=ox)
+    sx = ox + 80
+    side = f'<path d="M{sx},{oy + fh} L{sx},{oy - 1} L{sx + 3},{oy - 1} L{sx + 3},{oy + 16} L{sx + 26},{oy + 16} L{sx + 26},{oy + fh} Z" fill="none" stroke="{INK}" stroke-width=".35"/>'
+    for k in range(5):
+        side += line(sx + 3, oy + 26 + k * 15, sx + 26, oy + 26 + k * 15, INK, .3)
+    side += dim_h(sx, sx + 26, oy + fh + 9, "300", ext_from=oy + fh)
+    labels = text(ox - 15, oy - 10, "SCHEMA TIPOLOGICO — PROSPETTO FRONTALE", 2, "start", "#77746E") + text(sx, oy - 10, "PROSPETTO LATERALE", 2, "start", "#77746E")
+    sx_page = ("paper grid", f"""
+  {head("Sezione 02", "Espositori da terra")}
+  <div class="abs outline-num" style="{at(M - 2, 22)}">02</div>
+  <div class="abs" style="{at(M, 90, 200)}"><div class="t-xl">Espositori<br>da terra</div></div>
+  <div class="abs" style="{at(140, 92, 75)}"><p class="body">Strutture autoportanti a più ripiani, pensate per reggere il carico e farsi vedere da lontano. Spedite piatte, montate in pochi minuti.</p></div>
+  {svg(front + side + labels)}
+  <div class="abs" style="{at(M, 258, 200)}"><div class="mono dim" style="margin-bottom:2mm">Indice tavole — {len(TERRA)} progetti</div>{indice(TERRA, 4)}</div>
+  {foot(10, "Espositori da terra")}""")
+    x, y, w, h = M, 28, 150, 225
+    pts = [(1, 385, 215, 560, 120), (2, 295, 470, 90, 400), (3, 408, 640, 600, 560), (4, 348, 858, 90, 760)]
+    ann = crop_marks(x, y, w, h, "#9A978F", 2, 3) + callouts_on(x, y, w, h, 683, 1024, pts)
+    t, tip, sett = TERRA["T05"]
+    dx_page = ("white", f"""
+  {head(AZ, "Tav. T.05")}
+  <div class="ph" style="left:{x}mm;top:{y}mm;width:{w}mm;height:{h}mm"><img src="img/T05.jpg" alt=""></div>
+  {svg(ann)}
+  <div class="abs" style="{at(172, 28, 43)}"><div class="mono"><span class="acc">T.05</span></div><div class="mono dim">{sett}</div>
+    <div class="t-m" style="margin-top:2mm">{t}</div>
+    <p class="body" style="margin-top:3mm">{tip}. Fianchi portanti stampati a tutta altezza, ripiani con fascia frontale per il marchio. <span class="tbd">[Cliente, anno]</span></p>
+    <div style="margin-top:6mm">{legenda(["Header sagomato", "Ripiano con fascia", "Fianco portante", "Piedini a incastro"])}</div></div>
+  {foot(11, "Espositori da terra")}""")
+    return [sx_page, dx_page]
+
+
+def terra_tavole():
+    S = "Espositori da terra"
+    codes = ["T01", "T02", "T03", "T04", "T06", "T07"]
+    body = "".join(plate(c, TERRA, M + (i % 3) * 68, 28 + (i // 3) * 126, 64, 96) for i, c in enumerate(codes))
+    sx = ("white", f"{head(AZ, S)}{body}{foot(12, S)}")
+    t, tip, sett = TERRA["T08"]
+    dx = ("white", f"""
+  {head(AZ, "Tav. T.08")}
+  {img("T08", M, 28, 150, 225)}
+  <div class="abs" style="{at(172, 28, 43)}"><div class="mono"><span class="acc">T.08</span></div><div class="mono dim">{sett}</div>
+    <div class="t-m" style="margin-top:2mm">{t}</div>
+    <dl class="kvm" style="margin-top:4mm"><dt>Tipologia</dt><dd>{tip}</dd><dt>Materiale</dt><dd>{MAT}</dd><dt>Cliente</dt><dd><span class="tbd">[Cliente]</span></dd></dl></div>
+  {foot(13, S)}""")
+    return [sx, dx]
+
+
+# --------------------------------------------------------------------------
 CSS = f"""
 @page {{ size: 230mm 300mm; margin: 0; }}
 * {{ box-sizing: border-box; margin: 0; padding: 0; }}
@@ -371,6 +570,12 @@ html, body {{ background: #CFCDC8; font-family: "Inter", sans-serif; font-size: 
 .mrow .t-m {{ color: #fff; }}
 .mrow .dim2 {{ grid-column: 2; margin-top: 1.5mm; }}
 .tbd {{ background: rgba(255,196,0,.35); }}
+.plate-cap {{ position: absolute; }}
+.plate-cap .pt {{ font-family: "Inter Tight", sans-serif; font-weight: 600; font-size: 10.5pt; letter-spacing: -.02em; margin-top: 1mm; line-height: 1.15; }}
+.plate-cap .pd {{ font-size: 7pt; color: #77746E; margin-top: .6mm; line-height: 1.4; }}
+.kvm {{ display: grid; grid-template-columns: 20mm 1fr; }}
+.kvm > * {{ border-top: .2mm solid rgba(0,0,0,.2); padding: 1.5mm 0 1.8mm; font-size: 7.4pt; }}
+.kvm dt {{ font-family: "IBM Plex Mono", monospace; font-size: 6pt; text-transform: uppercase; letter-spacing: .08em; color: #8A877F; padding-top: 1.9mm; }}
 .ph {{ background: linear-gradient(155deg, #E2E0DB, #CAC7C0); overflow: hidden; }}
 .ph img {{ width: 100%; height: 100%; object-fit: cover; display: block; }}
 .ph .code {{ position: absolute; top: 3mm; left: 3mm; font: 500 6pt/1 "IBM Plex Mono", monospace; background: {INK}; color: #fff; padding: 1.2mm 1.5mm; }}
@@ -380,7 +585,7 @@ html, body {{ background: #CFCDC8; font-family: "Inter", sans-serif; font-size: 
 
 
 def build():
-    pages = [p_copertina(), p_sezione_sx(), p_sezione_dx(), p_progetto_sx(), p_progetto_dx(), p_materiali_sx(), p_materiali_dx()]
+    pages = [p_copertina(), *banco_apertura(), *banco_tavole(), *terra_apertura(), *terra_tavole(), p_materiali_sx(), p_materiali_dx()]
     html = "\n".join(f'<section class="page {c}">{b}\n</section>' for c, b in pages)
     doc = f"""<!DOCTYPE html>
 <html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
