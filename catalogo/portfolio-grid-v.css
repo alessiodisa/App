@@ -1,0 +1,5 @@
+/* Variante A4 verticale: si carica dopo portfolio-grid.css */
+@page { size: 210mm 297mm; margin: 0; }
+.book { grid-template-columns: repeat(2, 210mm); }
+.page { width: 210mm; height: 297mm; background-size: 42mm calc(297mm / 7); }
+.cover-t { font-size: 50pt; }
