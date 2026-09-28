@@ -243,7 +243,7 @@ def main():
                 continue
             palmares.append({
                 "count": int(m.group(1)),
-                "title": m.group(2).strip(),
+                "title": m.group(2).strip().title(),
                 "year": int(m.group(3)),
             })
         palmares.sort(key=lambda x: x["year"], reverse=True)
