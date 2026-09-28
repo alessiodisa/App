@@ -221,6 +221,29 @@ def main():
     upcoming.sort(key=lambda m: m["date"])
     upcoming = upcoming[:6]
 
+    # --- Palmares (team achievements/outcomes), if SportsPress has any for
+    # this team on calciotto.tv. Best-effort: the "outcomes" endpoint isn't
+    # used elsewhere in this script and its exact shape hasn't been verified
+    # against this site, so any failure here must not break the rest of the
+    # scrape. Debug output left in on purpose to inspect via Action logs.
+    palmares = []
+    try:
+        outcomes_raw = get_all("outcomes", {"teams": team_id})
+        print(f"outcomes raw count: {len(outcomes_raw)}", flush=True)
+        if outcomes_raw:
+            print("sample outcome:", json.dumps(outcomes_raw[0], ensure_ascii=False)[:2000], flush=True)
+        for o in outcomes_raw:
+            if team_id not in (o.get("teams") or []):
+                continue
+            palmares.append({
+                "title": clean_text((o.get("title") or {}).get("rendered", "")),
+                "date": o.get("date"),
+            })
+        palmares.sort(key=lambda x: x.get("date") or "", reverse=True)
+    except Exception as e:
+        print(f"outcomes fetch failed: {e}", flush=True)
+        palmares = []
+
     output = {
         "generated_at": now.isoformat(),
         "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
@@ -231,6 +254,7 @@ def main():
         "standings": standings,
         "players": players,
         "upcoming_matches": upcoming,
+        "palmares": palmares,
     }
 
     os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
@@ -238,7 +262,7 @@ def main():
         json.dump(output, f, ensure_ascii=False, indent=2)
 
     print(f"wrote {OUT_PATH}")
-    print(f"standings rows: {len(standings)}, players: {len(players)} (scanned {len(all_players_slim)} total), upcoming: {len(upcoming)}")
+    print(f"standings rows: {len(standings)}, players: {len(players)} (scanned {len(all_players_slim)} total), upcoming: {len(upcoming)}, palmares: {len(palmares)}")
 
 
 if __name__ == "__main__":
