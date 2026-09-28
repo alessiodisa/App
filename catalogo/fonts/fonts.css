@@ -53,3 +53,5 @@
   font-weight: 700;
   src: url(InterTight-700.ttf) format('truetype');
 }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; src: url(IBMPlexMono-400.ttf) format('truetype'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; src: url(IBMPlexMono-500.ttf) format('truetype'); }
