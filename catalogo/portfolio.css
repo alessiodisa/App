@@ -1,0 +1,87 @@
+/* Portfolio Espositori — impostazione tecnica, 297 × 210 mm */
+@page { size: 297mm 210mm; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --paper: #F3F3F1;
+  --graphite: #1F2124;
+  --ink: #1F2124;
+  --ink2: #5C5F64;
+  --mute: #8A8D91;
+  --line: #C9CBCD;
+  --acc: #E8541E;
+  --head: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+html, body { background: #5E6166; font-family: var(--body); color: var(--ink);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.book { display: flex; flex-direction: column; align-items: center; gap: 12mm; padding: 14mm 0; }
+@media screen { .book { zoom: .75; } .page { box-shadow: 0 3mm 10mm rgba(0,0,0,.3); } }
+@media print { html, body { background: none; } .book { display: block; padding: 0; } .page { break-after: page; } }
+
+.page { position: relative; width: 297mm; height: 210mm; overflow: hidden; background: var(--paper); }
+.page.dark { background: var(--graphite); color: #F3F3F1; }
+.page > * { position: absolute; }
+.ov { pointer-events: none; overflow: visible; }
+.mono { font-family: var(--mono); font-weight: 500; }
+
+/* testata e piè di pagina fissi */
+.hd, .ft { display: flex; justify-content: space-between; font: 500 5.8pt/1 var(--mono); letter-spacing: .08em;
+  text-transform: uppercase; color: var(--mute); }
+.hd { padding-bottom: 2.4mm; border-bottom: .25mm solid var(--ink); }
+.ft { padding-top: 2mm; border-top: .25mm solid var(--line); }
+.dark .hd { border-color: rgba(255,255,255,.6); color: rgba(255,255,255,.6); }
+.dark .ft { border-color: rgba(255,255,255,.2); color: rgba(255,255,255,.55); }
+
+/* foto */
+.frame { overflow: hidden; background: #D5D6D6; }
+.frame img { position: absolute; max-width: none; }
+.cut { position: absolute; pointer-events: none; }
+.tag { font: 500 5.6pt/1 var(--mono); letter-spacing: .06em; background: var(--graphite); color: #fff; padding: 1mm 1.4mm; }
+
+/* tipografia */
+.lbl { font: 500 6pt/1.2 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--mute); }
+.lbl.light { color: rgba(255,255,255,.6); }
+.code { font: 300 34pt/1 var(--head); letter-spacing: -.03em; color: var(--acc); }
+.code.sm { font-size: 20pt; }
+.h1 { font: 600 30pt/1 var(--head); letter-spacing: -.035em; }
+.h1.ink { color: var(--ink); }
+.h2 { font: 600 17pt/1.05 var(--head); letter-spacing: -.02em; }
+.bignum { font: 300 118pt/.8 var(--head); letter-spacing: -.05em; color: var(--acc); }
+.body { font: 400 7.2pt/1.6 var(--body); color: var(--ink2); }
+.body.light { color: rgba(255,255,255,.72); }
+.cover-t { font: 600 50pt/.95 var(--head); letter-spacing: -.04em; color: #fff; }
+.cover-t span { font-weight: 300; color: var(--acc); }
+.tbd { background: rgba(255,196,0,.4); }
+.dark .tbd { background: rgba(255,196,0,.35); color: #fff; }
+
+/* cartiglio tecnico */
+.cart { display: grid; grid-template-columns: 24mm 1fr; border: .25mm solid var(--ink); }
+.cart dt, .cart dd { padding: 1.5mm 2mm 1.7mm; border-bottom: .2mm solid var(--line); font-size: 6.8pt; line-height: 1.35; }
+.cart dt { font: 500 5.4pt/1.35 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--mute);
+  border-right: .2mm solid var(--line); padding-top: 1.9mm; }
+.cart dt:nth-last-of-type(1), .cart dd:last-child { border-bottom: 0; }
+.cart.two { grid-template-columns: 22mm 1fr; }
+.cart.dark { border-color: rgba(255,255,255,.6); }
+.cart.dark dt, .cart.dark dd { border-color: rgba(255,255,255,.2); color: #fff; }
+.cart.dark dt { color: rgba(255,255,255,.55); }
+
+/* distinta / indice */
+.dist { border-collapse: collapse; font-size: 6.6pt; }
+.dist th { font: 500 5.4pt/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--mute);
+  text-align: left; padding: 0 2mm 1.6mm 0; border-bottom: .25mm solid var(--ink); }
+.dist td { padding: 1.3mm 2mm 1.3mm 0; border-bottom: .2mm solid var(--line); vertical-align: top; }
+.dist td.c { font: 500 6pt/1.3 var(--mono); color: var(--acc); white-space: nowrap; }
+.dist td.p { font: 400 6pt/1.3 var(--mono); text-align: right; padding-right: 0; }
+.dist.dark th { color: rgba(255,255,255,.55); border-color: rgba(255,255,255,.6); }
+.dist.dark td { border-color: rgba(255,255,255,.15); color: #fff; }
+
+.capt { font: 600 7.4pt/1.35 var(--head); }
+.capt b { font: 500 6.2pt/1 var(--mono); color: var(--acc); margin-right: 1mm; }
+.capt > span { display: block; font: 400 6.4pt/1.4 var(--body); color: var(--ink2); margin-top: .6mm; }
+.note { border-top: .25mm solid var(--ink); padding-top: 2.5mm; }
+.note .body { margin-top: 2mm; }
+.leg { list-style: none; columns: 2; column-gap: 6mm; font-size: 6.6pt; color: #fff; }
+.leg li { border-top: .2mm solid rgba(255,255,255,.2); padding: 1.2mm 0; }
+.leg b { font: 500 6pt/1 var(--mono); color: var(--acc); display: inline-block; width: 7mm; }
+.dist.dense td { padding: .75mm 2mm .75mm 0; font-size: 6.2pt; }

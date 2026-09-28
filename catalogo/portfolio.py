@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """
-Portfolio Espositori — formato orizzontale 297 × 210 mm.
+Portfolio Espositori — impostazione tecnica, formato orizzontale 297 × 210 mm.
 
 Immagini (in img/):
-  sq/CODICE.jpg      foto quadrata originale
-  cut/CODICE.webp    stesso scatto scontornato (per gli espositori che escono dal riquadro)
-  bbox.json          ingombro dell'espositore nella foto (px su 1024)
+  sq/CODICE.jpg           foto quadrata originale
+  scontornate/CODICE.png  (facoltativo) scontorno fornito dall'azienda: se presente,
+                          nelle tavole singole l'espositore esce dal riquadro
+  bbox.json               ingombro dell'espositore nella foto (px su 1024)
 
     python3 portfolio.py      ->  portfolio.html
 """
@@ -13,9 +14,11 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-W, H, M = 297, 210, 14
-BB = json.loads((ROOT / "img" / "bbox.json").read_text())
+W, H, M = 297, 210, 12
+TOP, BOT = 20, 193           # area utile
+ACC = "#E8541E"
 AZ = '<span class="tbd">[Nome Azienda]</span>'
+BB = json.loads((ROOT / "img" / "bbox.json").read_text())
 
 PROGETTI = {  # codice: (titolo, tipologia, settore)
     "B01": ("Oli essenziali", "Espositore a gradini con arco strutturale e header", "Erboristeria"),
@@ -44,14 +47,25 @@ PROGETTI = {  # codice: (titolo, tipologia, settore)
     "T07": ("Eyewear", "Podio con fondale", "Ottica"),
     "T08": ("Occhiali da sole", "Totem a nicchie", "Ottica"),
 }
-MAT = '<span class="tbd">[materiale]</span>'
-CLI = '<span class="tbd">[cliente]</span>'
+DESCR = {
+    "B01": "Il ponte ad arco sostiene il secondo gradino senza rinforzi interni: un solo foglio, piegato.",
+    "B02": "Vassoio inclinato a scomparti: il prodotto resta ordinato anche quando l'espositore si svuota.",
+    "B06": "Pedana e fondale a incastro: il fondale diventa superficie di comunicazione a tutta altezza.",
+    "B07": "Colonna da banco con ganci per blister e vaschetta alla base per i prodotti sfusi.",
+    "B09": "Montanti e ripiani a incastro, senza colla né ferramenta: si monta in pochi secondi.",
+    "T04": "Ripiani a colori alterni che segmentano la gamma e guidano la scelta a colpo d'occhio.",
+    "T05": "Fianchi portanti stampati a tutta altezza, ripiani con fascia frontale per il marchio.",
+}
+
+
+def TBD(s):
+    return f'<span class="tbd">{s}</span>'
 
 
 # --------------------------------------------------------------------------
 # helper
 # --------------------------------------------------------------------------
-def box(x, y, w=None, h=None):
+def bx(x, y, w=None, h=None):
     s = f"left:{x:.2f}mm;top:{y:.2f}mm"
     if w is not None:
         s += f";width:{w:.2f}mm"
@@ -60,327 +74,296 @@ def box(x, y, w=None, h=None):
     return s
 
 
-def place(code, cx, bottom, h):
-    """Posiziona la foto quadrata in modo che l'espositore sia alto h mm,
-    centrato su cx e appoggiato a quota bottom. Ritorna (ix, iy, lato)."""
-    x1, y1, x2, y2 = BB[code]
-    s = h / ((y2 - y1) / 1024)
-    ix = cx - (x1 + x2) / 2 / 1024 * s
-    iy = bottom - y2 / 1024 * s
-    return ix, iy, s
-
-
-def obj_w(code, h):
-    x1, y1, x2, y2 = BB[code]
-    return h * (x2 - x1) / (y2 - y1)
-
-
-def photo(code, pos, frame, pop=False):
-    """Foto vista attraverso un riquadro; con pop=True l'espositore scontornato
-    esce dal riquadro."""
-    ix, iy, s = pos
-    fx, fy, fw, fh = frame
-    out = (f'<div class="frame" style="{box(fx, fy, fw, fh)}">'
-           f'<img src="img/sq/{code}.jpg" style="{box(ix - fx, iy - fy, s, s)}" alt=""></div>')
-    if pop:
-        out += f'<img class="cut" src="img/cut/{code}.webp" style="{box(ix, iy, s, s)}" alt="">'
-    return out
-
-
-def title(t, sub=""):
-    return (f'<div class="ptitle" style="{box(M, M)}">{t}</div>'
-            + (f'<div class="psub" style="{box(M, M + 7)}">{sub}</div>' if sub else ""))
-
-
-def pnum(n):
-    return f'<div class="pnum">{n:02d}</div>'
-
-
-def foot(sezione):
-    return f'<div class="pfoot"><span>{sezione}</span></div>'
-
-
-def code_id(c):
+def cid(c):
     return f"{c[0]}.{c[1:]}"
 
 
-def data(code, extra=()):
-    t, tip, sett = PROGETTI[code]
-    rows = [("Tipologia", tip), ("Settore", sett), ("Materiale", MAT), ("Cliente", CLI), *extra]
-    return '<dl class="data">' + "".join(f"<dt>{k}</dt><dd>{v}</dd>" for k, v in rows) + "</dl>"
+def scontornata(code):
+    f = ROOT / "img" / "scontornate" / f"{code}.png"
+    return f if f.exists() else None
 
 
-def cap(code, x, y, w, extra=""):
-    t, tip, sett = PROGETTI[code]
-    return (f'<div class="cap" style="{box(x, y, w)}"><b>{code_id(code)}</b>&ensp;{t}'
-            f'<span>{tip}{extra}</span></div>')
+def photo(code, frame, s=None, ax=.5, ay=.5, img_pos=None, pop=False, tag=True):
+    """Foto quadrata vista attraverso un riquadro. s = lato della foto in mm
+    (default: copre il riquadro). ax/ay = quale parte tenere quando si ritaglia."""
+    fx, fy, fw, fh = frame
+    s = s or max(fw, fh)
+    ix, iy = img_pos or (fx - (s - fw) * ax, fy - (s - fh) * ay)
+    out = (f'<div class="frame" style="{bx(fx, fy, fw, fh)}">'
+           f'<img src="img/sq/{code}.jpg" style="{bx(ix - fx, iy - fy, s, s)}" alt=""></div>')
+    if pop and scontornata(code):
+        out += f'<img class="cut" src="img/scontornate/{code}.png" style="{bx(ix, iy, s, s)}" alt="">'
+    if tag:
+        out += f'<div class="tag" style="{bx(fx + 2.5, fy + 2.5)}">{cid(code)}</div>'
+    return out
 
 
-def vline(x, y1, y2):
-    return f'<div class="vline" style="{box(x, y1, None, y2 - y1)}"></div>'
+def svg(body):
+    return f'<svg class="ov" viewBox="0 0 {W} {H}" style="{bx(0, 0, W, H)}">{body}</svg>'
 
 
-def text(html, x, y, w, cls="body"):
-    return f'<div class="{cls}" style="{box(x, y, w)}">{html}</div>'
+def line(x1, y1, x2, y2, c="#9A9DA1", sw=.2, dash=None):
+    d = f' stroke-dasharray="{dash}"' if dash else ""
+    return f'<line x1="{x1:.2f}" y1="{y1:.2f}" x2="{x2:.2f}" y2="{y2:.2f}" stroke="{c}" stroke-width="{sw}"{d}/>'
+
+
+def t(x, y, s, size=1.9, anchor="start", c="#8A8D91", rot=None):
+    r = f' transform="rotate({rot} {x:.2f} {y:.2f})"' if rot is not None else ""
+    return f'<text x="{x:.2f}" y="{y:.2f}" font-size="{size}" text-anchor="{anchor}" fill="{c}" class="mono"{r}>{s}</text>'
+
+
+def ruler(frame, side="left", c="#A4A7AB"):
+    """Righello tecnico sul bordo superiore e su un lato del riquadro."""
+    fx, fy, fw, fh = frame
+    o = ""
+    for i in range(0, int(fw) + 1, 5):
+        L = 2.2 if i % 50 == 0 else (1.4 if i % 10 == 0 else .8)
+        o += line(fx + i, fy - 1.2, fx + i, fy - 1.2 - L, c, .18)
+        if i % 50 == 0:
+            o += t(fx + i + .6, fy - 3.2, str(i), 1.6, "start", c)
+    ex = fx - 1.2 if side == "left" else fx + fw + 1.2
+    sg = -1 if side == "left" else 1
+    for i in range(0, int(fh) + 1, 5):
+        L = 2.2 if i % 50 == 0 else (1.4 if i % 10 == 0 else .8)
+        o += line(ex, fy + i, ex + sg * L, fy + i, c, .18)
+    return o
+
+
+def callouts(frame, s, pts, img_pos=None):
+    """pts: (n, px, py, lx, ly) in pixel della foto 1024×1024."""
+    fx, fy, fw, fh = frame
+    ix, iy = img_pos or (fx - (s - fw) / 2, fy - (s - fh) / 2)
+    k = s / 1024
+    o = ""
+    for n, px, py, lx, ly in pts:
+        ax, ay, bx_, by = ix + px * k, iy + py * k, ix + lx * k, iy + ly * k
+        o += line(ax, ay, bx_, by, ACC, .25) + f'<circle cx="{ax:.2f}" cy="{ay:.2f}" r=".7" fill="{ACC}"/>'
+        o += f'<circle cx="{bx_:.2f}" cy="{by:.2f}" r="2.8" fill="{ACC}"/>' + t(bx_, by + .7, f"{n:02d}", 2, "middle", "#fff")
+    return o
+
+
+def cartiglio(code, x, y, w, extra=()):
+    tt, tip, sett = PROGETTI[code]
+    rows = [("Progetto", tt), ("Codice", cid(code)), ("Tipologia", tip), ("Settore", sett),
+            ("Materiale", TBD("[materiale]")), ("Cliente", TBD("[cliente]")), ("Anno", TBD("[anno]")), *extra]
+    r = "".join(f"<dt>{k}</dt><dd>{v}</dd>" for k, v in rows)
+    return f'<dl class="cart" style="{bx(x, y, w)}">{r}</dl>'
+
+
+def head(sezione, tav=""):
+    return (f'<div class="hd" style="{bx(M, 9, W - 2 * M)}"><span>{AZ} / Portfolio espositori 2026</span>'
+            f'<span>{sezione}</span><span>{tav}</span></div>')
+
+
+def foot(n, tot, sezione=""):
+    return f'<div class="ft" style="{bx(M, 199, W - 2 * M)}"><span>{sezione}</span><span>{n:02d} / {tot:02d}</span></div>'
 
 
 # --------------------------------------------------------------------------
-# pagine
+# schemi di pagina
 # --------------------------------------------------------------------------
-BANCO, TERRA = "Espositori da banco", "Espositori da terra"
+BANCO, TERRA = "Sez. 01 — Espositori da banco", "Sez. 02 — Espositori da terra"
+
+
+def tav_singola(code, mirror=False):
+    """Una foto grande quadrata + colonna tecnica con cartiglio."""
+    tt, tip, sett = PROGETTI[code]
+    fx = M if not mirror else W - M - 176
+    tx = 198 if not mirror else M
+    pop = scontornata(code) is not None
+    frame = (fx, TOP + 36, 176, BOT - TOP - 36) if pop else (fx, TOP + 3, 176, BOT - TOP - 3)
+    img_pos = (fx, TOP + 3) if pop else None
+    body = photo(code, frame, s=176, img_pos=img_pos, pop=True)
+    body += svg(ruler(frame, "left" if not mirror else "right"))
+    body += f"""
+  <div class="mono lbl" style="{bx(tx, TOP + 3)}">Tavola</div>
+  <div class="code" style="{bx(tx, TOP + 7)}">{cid(code)}</div>
+  <div class="h2" style="{bx(tx, TOP + 30, 87)}">{tt}</div>
+  <p class="body" style="{bx(tx, TOP + 44, 87)}">{DESCR.get(code) or tip + '. ' + TBD('[Descrizione del progetto: esigenza, soluzione, risultato.]')}</p>
+  {cartiglio(code, tx, 122, 87)}"""
+    return body
+
+
+def tav_coppia(codes):
+    body = ""
+    for i, c in enumerate(codes):
+        x = M + i * 139
+        fr = (x, TOP + 3, 134, 134)
+        body += photo(c, fr) + (svg(ruler(fr)) if i == 0 else "")
+        tt, tip, sett = PROGETTI[c]
+        body += (f'<dl class="cart two" style="{bx(x, 162, 134)}"><dt>Progetto</dt><dd>{tt}</dd><dt>Tipologia</dt><dd>{tip}</dd>'
+                 f'<dt>Settore</dt><dd>{sett}</dd><dt>Materiale</dt><dd>{TBD("[materiale]")}</dd></dl>')
+    return body
+
+
+def tav_sequenza(codes):
+    a, b, c, d = codes
+    fa = (M, TOP + 3, 120, 120)
+    body = photo(a, fa) + svg(ruler(fa))
+    body += photo(b, (137, TOP + 3, 72, 72)) + photo(c, (213, TOP + 3, 72, 72)) + photo(d, (137, 100, 72, 72))
+    rows = "".join(f"<tr><td class='c'>{cid(x)}</td><td>{PROGETTI[x][0]}</td><td>{PROGETTI[x][1]}</td><td>{TBD('[materiale]')}</td></tr>"
+                   for x in codes)
+    body += f'<table class="dist" style="{bx(M, 150, 120)}"><tr><th>Cod.</th><th>Progetto</th><th>Tipologia</th><th>Materiale</th></tr>{rows}</table>'
+    body += (f'<div style="{bx(213, 100, 72, 72)}" class="note"><div class="mono lbl">Nota</div>'
+             f'<p class="body">Quattro soluzioni da banco con lo stesso principio: una base stabile e un fondale che porta la comunicazione. '
+             f'Cambiano proporzioni, materiali e finiture.</p></div>')
+    return body
+
+
+def tav_verticale_coppia(codes):
+    """Due espositori da terra in formato 2:3."""
+    body = ""
+    for i, c in enumerate(codes):
+        x = M + i * 105
+        fr = (x, TOP + 3, 100, 150)
+        body += photo(c, fr, s=150) + (svg(ruler(fr)) if i == 0 else "")
+        tt, tip, sett = PROGETTI[c]
+        body += f'<div class="capt" style="{bx(x, 176, 100)}"><b>{cid(c)}</b> {tt}<span>{tip} · {TBD("[materiale]")}</span></div>'
+    a, b = codes
+    body += f"""<div style="{bx(225, TOP + 3, 60)}">
+    <div class="mono lbl">Tavole</div><div class="code sm">{cid(a)} · {cid(b)}</div>
+    <p class="body" style="margin-top:4mm">Colonne autoportanti con header: la comunicazione sale sopra il prodotto e si legge da lontano, anche dal fondo della corsia.</p></div>"""
+    return body
+
+
+def tav_verticale_singola(code):
+    tt, tip, sett = PROGETTI[code]
+    fr = (M, TOP + 3, 116, 170)
+    body = photo(code, fr, s=170) + svg(ruler(fr))
+    body += f"""
+  <div class="mono lbl" style="{bx(140, TOP + 3)}">Tavola</div>
+  <div class="code" style="{bx(140, TOP + 7)}">{cid(code)}</div>
+  <div class="h2" style="{bx(140, TOP + 30, 90)}">{tt}</div>
+  <p class="body" style="{bx(140, TOP + 44, 90)}">{DESCR.get(code) or tip + '.'}</p>
+  {cartiglio(code, 140, 122, 145)}"""
+    return body
+
+
+def apertura(num, titolo, testo, sezione_codes, pages, hero, pts, legenda):
+    idx = "".join(f"<tr><td class='c'>{cid(c)}</td><td>{PROGETTI[c][0]}</td><td class='p'>p. {pages[c]:02d}</td></tr>"
+                  for c in sezione_codes)
+    fr = (137, TOP + 3, 148, 148)
+    leg = "".join(f"<li><b>{i + 1:02d}</b>{x}</li>" for i, x in enumerate(legenda))
+    return f"""
+  <div class="mono lbl light" style="{bx(M, TOP + 3)}">Sezione</div>
+  <div class="bignum" style="{bx(M - 1, TOP + 5)}">{num}</div>
+  <div class="h1" style="{bx(M, 70, 115)}">{titolo}</div>
+  <p class="body light" style="{bx(M, 92, 110)}">{testo}</p>
+  <table class="dist dark dense" style="{bx(M, 112, 115)}"><tr><th>Cod.</th><th>Progetto</th><th>Pag.</th></tr>{idx}</table>
+  {photo(hero, fr, s=148, tag=False)}
+  {svg(ruler(fr, "right", "#6B6E73") + callouts(fr, 148, pts))}
+  <div class="mono lbl light" style="{bx(137, 175)}">Tav. {cid(hero)} — {PROGETTI[hero][0]}</div>
+  <ul class="leg" style="{bx(137, 180, 148)}">{leg}</ul>"""
 
 
 def copertina():
-    pos = place("B01", 205, 184, 122)
-    return ("", f"""
-  {photo("B01", pos, (130, 104, 153, 92), pop=True)}
-  {text("Progettazione, prototipazione e produzione di espositori per il punto vendita.", M + 1, 92, 95, "lead")}
-  <ul class="idx one" style="{box(M + 1, 150, 95)}"><li><b>01</b>Espositori da banco</li><li><b>02</b>Espositori da terra</li></ul>
-  <div class="cover-t" style="{box(M, 26)}">Portfolio</div>
-  <div class="cover-s" style="{box(M + 1, 50)}">Espositori · Cartotecnica · Materiali durevoli</div>
-  <div class="cover-az" style="{box(M + 1, 57)}">{AZ}</div>
-  <div class="vtext" style="left:{W - 10}mm;top:{24}mm">2026</div>""")
+    fr = (125, TOP + 3, 160, 160)
+    return f"""
+  <div class="mono lbl light" style="{bx(M, TOP + 3)}">{AZ}</div>
+  <div class="cover-t" style="{bx(M - 1, 62)}">Portfolio<br><span>Espositori</span></div>
+  <p class="body light" style="{bx(M, 112, 95)}">Progettazione, prototipazione e produzione di espositori in cartotecnica e materiali durevoli.</p>
+  <table class="dist dark" style="{bx(M, 150, 95)}"><tr><th>Sez.</th><th>Contenuto</th><th>Tavole</th></tr>
+    <tr><td class="c">01</td><td>Espositori da banco</td><td class="p">17</td></tr>
+    <tr><td class="c">02</td><td>Espositori da terra</td><td class="p">8</td></tr></table>
+  {photo("B06", fr, s=160, tag=False)}
+  {svg(ruler(fr, "right", "#6B6E73"))}
+  <div class="mono lbl light" style="{bx(125, 187)}">Ed. 2026 — Rev. 00</div>"""
 
 
 def chi_siamo():
-    return ("taupe", f"""
-  {title("Chi siamo", "Progettazione · Prototipazione · Produzione")}
-  {pnum(1)}
-  {vline(104, 40, 190)}{vline(196, 40, 190)}
-  {text('Progettiamo e produciamo espositori in cartotecnica e materiali durevoli: dal primo schizzo al bancale pronto a partire.', M, 42, 80, "lead")}
-  {photo("B05", place("B05", M + 40, 182, 56), (M, 110, 80, 80))}
-  {text('Dal <span class="tbd">[anno]</span> a <span class="tbd">[città]</span> seguiamo ogni progetto internamente: ufficio tecnico, campionatura, stampa, fustellatura e confezionamento.<br><br>Ogni espositore nasce da una domanda semplice: dove verrà visto, da chi, per quanto tempo. Da lì scegliamo struttura, materiale e finiture, prototipiamo, testiamo e solo allora produciamo.', 114, 42, 72)}
-  {text('<dl class="data light"><dt>Esperienza</dt><dd><span class="tbd">35+ anni</span></dd><dt>Progetti</dt><dd><span class="tbd">400 l’anno</span></dd><dt>Stabilimento</dt><dd><span class="tbd">6.000 m²</span></dd><dt>Settori</dt><dd>Cosmesi, farmacia, alimentare, ottica, ferramenta, beverage, pet</dd></dl>', 206, 42, 77, "")}
-  <div class="vtext light" style="left:{W - 10}mm;top:120mm">Contatti · <span class="tbd">info@azienda.it</span></div>
-  {foot("Portfolio 2026")}""")
-
-
-def apertura_banco():
-    pos = place("B06", 102, 192, 150)
-    idx = "".join(f'<li><b>{code_id(c)}</b>{PROGETTI[c][0]}</li>' for c in PROGETTI if c[0] == "B")
-    return ("", f"""
-  {photo("B06", pos, (0, 0, 160, H), pop=True)}
-  <div class="bignum" style="{box(198, 12)}">01</div>
-  <div class="h1" style="{box(198, 58, 88)}">Espositori<br>da banco</div>
-  {text("Il punto più vicino alla scelta. Strutture compatte che si montano in pochi gesti e mettono il prodotto all'altezza dello sguardo, accanto alla cassa.", 198, 82, 86)}
-  <ul class="idx" style="{box(198, 112, 86)}">{idx}</ul>
-  {foot(BANCO)}""")
-
-
-def overview(code, n, sez, mirror=False):
-    t, tip, sett = PROGETTI[code]
-    h = {"B02": 150, "B17": 160}.get(code, 138)
-    if not mirror:
-        pos = place(code, 202, 186, h)
-        frame, bx = (122, 58, 161, 138), M
-    else:
-        pos = place(code, 95, 186, h)
-        frame, bx = (M, 58, 161, 138), 187
-    info = f"""<div class="ovbox" style="{box(bx, 58, 96, 138)}">
-      <div class="ov-t">{t}</div><div class="ov-s">{code_id(code)} · {sett}</div>
-      <div class="ov-h">Il progetto</div><p>{tip}. <span class="tbd">[Obiettivo del cliente, soluzione, risultato: 2–3 righe.]</span></p>
-      <div class="ov-h">Dati</div>{data(code)}</div>"""
-    return ("", f"""{title("Progetto in evidenza", sez)}{pnum(n)}{photo(code, pos, frame, pop=True)}{info}{foot(sez)}""")
-
-
-def mosaico(codes, n, sez):
-    a, b, c, d, e = codes
-    body = (
-        photo(a, place(a, 70, 150, 98), (M, 34, 112, 124)) + cap(a, M, 161, 112)
-        + photo(b, place(b, 207, 102, 64), (132, 34, 151, 74)) + cap(b, 132, 111, 151)
-        + photo(c, place(c, 155, 160, 38), (132, 124, 46, 46)) + cap(c, 132, 173, 46)
-        + photo(d, place(d, 207, 160, 38), (184, 124, 46, 46)) + cap(d, 184, 173, 46)
-        + photo(e, place(e, 260, 160, 38), (236, 124, 47, 46)) + cap(e, 236, 173, 47)
-    )
-    return ("", f"""{title("Selezione progetti", sez)}{pnum(n)}{body}{foot(sez)}""")
-
-
-def laterale(code, n, sez, mirror=False, pos=None):
-    """Foto al vivo su un lato, espositore che sconfina verso il testo."""
-    t, tip, sett = PROGETTI[code]
-    if not mirror:
-        frame, tx = (0, 0, 165, H), 180
-    else:
-        frame, tx = (132, 0, 165, H), M
-    return ("", f"""
-  {photo(code, pos, frame, pop=True)}
-  {pnum(n) if not mirror else ''}
-  <div class="ov-s" style="{box(tx, 24)}">{code_id(code)} · {sett}</div>
-  <div class="h2" style="{box(tx, 30, 100)}">{t}</div>
-  {text(f'{tip}. <span class="tbd">[Descrizione del progetto: esigenza, soluzione strutturale, risultato.]</span>', tx, 50, 92)}
-  {text(data(code), tx, 78, 92, "")}
-  {foot(sez)}""")
-
-
-def tavola_scontornati(codes, n, sez, heights, floor=170, taupe=True):
-    """Fila di riquadri di altezze diverse sulla stessa linea di terra;
-    ogni espositore esce dal bordo superiore del suo riquadro."""
-    xs = [M + 30 + i * ((W - 2 * M - 60) / (len(codes) - 1)) for i in range(len(codes))]
-    body = ""
-    for c, cx, h in zip(codes, xs, heights):
-        fw = min(obj_w(c, h) + 16, (W - 2 * M) / len(codes) - 12)
-        fh = h * .62 + 8
-        body += photo(c, place(c, cx, floor - 7, h), (cx - fw / 2, floor - fh, fw, fh), pop=True)
-        t, tip, sett = PROGETTI[c]
-        body += (f'<div class="cap center" style="{box(cx - 30, floor + 4, 60)}"><b>{code_id(c)}</b>&ensp;{t}'
-                 f'<span>{tip}</span></div>')
-    return ("taupe" if taupe else "", f"""{title("Selezione", sez)}{pnum(n)}{body}{foot(sez)}""")
-
-
-def dettagli(codes, n, sez):
-    a, b, c = codes
-    return ("white", f"""
-  {title("Dettagli di progetto", sez)}{pnum(n)}
-  {vline(104, 36, 192)}{vline(196, 36, 192)}
-  {photo(a, place(a, 55, 118, 68), (M, 36, 82, 92))}
-  {text(f'<b>{code_id(a)} — {PROGETTI[a][0]}</b><br>{PROGETTI[a][1]}. Ripiani a sbalzo agganciati al fondale: struttura leggera, lettura pulita del prodotto.', M, 136, 82)}
-  {text(f'<b>{code_id(b)} — {PROGETTI[b][0]}</b><br>{PROGETTI[b][1]}. Nicchie ricavate nello spessore del fondale, senza parti aggiunte.', 114, 36, 72)}
-  {photo(b, place(b, 150, 180, 84), (114, 66, 72, 126))}
-  {photo(c, place(c, 245, 150, 70), (206, 58, 77, 84), pop=True)}
-  {text(f'<b>{code_id(c)} — {PROGETTI[c][0]}</b><br>{PROGETTI[c][1]}. Due fondali sfalsati creano profondità e raccontano il prodotto in due scene.', 206, 150, 77)}
-  {foot(sez)}""")
-
-
-def coppia(big, small, n, sez, big_h=120, frame_big=(160, 40, 123, 150), pop_big=True):
-    tb, tipb, settb = PROGETTI[big]
-    ts, tips, setts = PROGETTI[small]
-    fx, fy, fw, fh = frame_big
-    pos = place(big, fx + fw / 2 - 6, fy + fh - 12, big_h)
-    return ("", f"""
-  {title(ts, code_id(small) + " · " + setts)}{pnum(n)}
-  {photo(small, place(small, 76, 104, 50), (40, 38, 84, 72))}
-  <div class="meta" style="{box(40, 113, 84)}"><span>Settore: {setts}</span><span>Cliente: {CLI}</span></div>
-  {text(f'{tips}. <span class="tbd">[Breve descrizione del progetto.]</span>', 40, 124, 84)}
-  {vline(140, 40, 190)}
-  {photo(big, pos, frame_big, pop=pop_big)}
-  <div class="cap" style="{box(fx, fy + fh + 3, fw)}"><b>{code_id(big)}</b>&ensp;{tb}<span>{tipb}</span></div>
-  {foot(sez)}""")
-
-
-def apertura_terra():
-    pos = place("T05", 136, 200, 186)
-    idx = "".join(f'<li><b>{code_id(c)}</b>{PROGETTI[c][0]}</li>' for c in PROGETTI if c[0] == "T")
-    return ("", f"""
-  {photo("T05", pos, (0, 0, 150, H), pop=True)}
-  <div class="bignum" style="{box(190, 12)}">02</div>
-  <div class="h1" style="{box(190, 58, 95)}">Espositori<br>da terra</div>
-  {text("Strutture autoportanti a più ripiani, pensate per reggere il carico e farsi vedere da lontano. Spedite piatte, montate in pochi minuti.", 190, 82, 90)}
-  <ul class="idx" style="{box(190, 112, 95)}">{idx}</ul>
-  {foot(TERRA)}""")
+    thumbs = "".join(photo(c, (M + i * 69, 136, 64, 57), s=64) for i, c in enumerate(["B03", "B11", "T02", "B16"]))
+    return f"""
+  <div class="mono lbl" style="{bx(M, TOP + 3)}">00 — Chi siamo</div>
+  <div class="h1 ink" style="{bx(M, TOP + 9, 110)}">Dal disegno<br>al bancale.</div>
+  <p class="body" style="{bx(128, TOP + 3, 75)}">Dal {TBD('[anno]')} a {TBD('[città]')} progettiamo e produciamo espositori in cartotecnica e materiali durevoli. Seguiamo ogni progetto internamente: ufficio tecnico, campionatura, stampa, fustellatura, incollaggio e confezionamento.</p>
+  <p class="body" style="{bx(128, 62, 75)}">Ogni espositore parte da una domanda semplice: dove verrà visto, da chi, per quanto tempo. Da lì scegliamo struttura, materiale e finiture, prototipiamo, testiamo e solo allora produciamo.</p>
+  <dl class="cart" style="{bx(210, TOP + 3, 75)}"><dt>Esperienza</dt><dd>{TBD('35+ anni')}</dd><dt>Progetti</dt><dd>{TBD('400 l’anno')}</dd>
+    <dt>Stabilimento</dt><dd>{TBD('6.000 m²')}</dd><dt>Reparti</dt><dd>Ufficio tecnico, stampa, fustellatura, confezionamento</dd>
+    <dt>Settori</dt><dd>Cosmesi, farmacia, ottica, ferramenta, beverage, pet</dd></dl>
+  {thumbs}"""
 
 
 def contatti():
-    return ("taupe", f"""
-  {title("Contatti", "Parliamo del prossimo progetto")}
-  {pnum(99).replace("99", "")}
-  {photo("B01", place("B01", 214, 178, 100), (158, 96, 113, 90), pop=True)}
-  {text('Ogni progetto di questo portfolio è nato da un brief. Il prossimo può essere il tuo.', M, 42, 110, "lead")}
-  {text('<dl class="data light"><dt>Email</dt><dd><span class="tbd">info@azienda.it</span></dd><dt>Telefono</dt><dd><span class="tbd">+39 000 000 0000</span></dd><dt>Sede</dt><dd><span class="tbd">Via Esempio 1, Città</span></dd><dt>Web</dt><dd><span class="tbd">www.azienda.it</span></dd></dl>', M, 100, 110, "")}
-  <div class="vtext light" style="left:{W - 10}mm;top:150mm">Portfolio 2026</div>""")
-
-
-def pagine():
-    p = [copertina(), chi_siamo(), apertura_banco()]
-    p.append(overview("B02", 3, BANCO))
-    p.append(mosaico(["B03", "B04", "B05", "B08", "B13"], 4, BANCO))
-    p.append(laterale("B09", 5, BANCO, pos=(-30, -4, 232)))
-    p.append(tavola_scontornati(["B07", "B10", "B16"], 6, BANCO, [118, 82, 92]))
-    p.append(dettagli(["B11", "B12", "B15"], 7, BANCO))
-    p.append(coppia("B01", "B14", 8, BANCO))
-    p.append(overview("B17", 9, BANCO, mirror=True))
-    p.append(apertura_terra())
-    p.append(tavola_scontornati(["T01", "T02", "T03", "T06"], 11, TERRA, [120, 138, 112, 146], floor=172))
-    p.append(coppia("T04", "T07", 12, TERRA, big_h=160, frame_big=(170, 52, 113, 136)))
-    p.append(laterale("T08", 13, TERRA, mirror=True, pos=place("T08", 150, 196, 178)))
-    p.append(contatti())
-    return p
+    fr = (150, TOP + 3, 135, 135)
+    return f"""
+  <div class="mono lbl light" style="{bx(M, TOP + 3)}">Contatti</div>
+  <div class="h1" style="{bx(M, TOP + 9, 120)}">Il prossimo progetto<br>parte da un brief.</div>
+  <dl class="cart dark" style="{bx(M, 90, 120)}"><dt>Email</dt><dd>{TBD('info@azienda.it')}</dd><dt>Telefono</dt><dd>{TBD('+39 000 000 0000')}</dd>
+    <dt>Sede</dt><dd>{TBD('Via Esempio 1, Città')}</dd><dt>Web</dt><dd>{TBD('www.azienda.it')}</dd></dl>
+  {photo("B17", fr, s=135, tag=False)}
+  {svg(ruler(fr, "right", "#6B6E73"))}"""
 
 
 # --------------------------------------------------------------------------
-CSS = f"""
-@page {{ size: 297mm 210mm; margin: 0; }}
-* {{ box-sizing: border-box; margin: 0; padding: 0; }}
-:root {{ --bg: #F1F0ED; --white: #F8F8F6; --taupe: #BAB0A3; --ink: #1E1D1B; --ink2: #5A554E; --line: #CBC5BC; --tbd: rgba(255,196,0,.4); }}
-html, body {{ background: #8C857C; font-family: "Montserrat", sans-serif; color: var(--ink);
-  -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
-.book {{ display: flex; flex-direction: column; align-items: center; gap: 12mm; padding: 14mm 0; }}
-@media screen {{ .book {{ zoom: .75; }} .page {{ box-shadow: 0 3mm 10mm rgba(0,0,0,.28); }} }}
-@media print {{ html, body {{ background: none; }} .book {{ display: block; padding: 0; }} .page {{ break-after: page; }} }}
-.page {{ position: relative; width: 297mm; height: 210mm; overflow: hidden; background: var(--bg); }}
-.page.white {{ background: var(--white); }}
-.page.taupe {{ background: var(--taupe); color: #fff; }}
-.page > * {{ position: absolute; }}
-
-.frame {{ overflow: hidden; background: #D6D6D4; }}
-.frame img {{ position: absolute; max-width: none; }}
-.cut {{ position: absolute; pointer-events: none; filter: drop-shadow(0 1.2mm 1.6mm rgba(0,0,0,.16)); }}
-
-.ptitle {{ font-weight: 700; font-size: 12.5pt; text-transform: uppercase; letter-spacing: .01em; line-height: 1; }}
-.psub {{ font-weight: 400; font-size: 6.4pt; text-transform: uppercase; letter-spacing: .12em; color: var(--ink2); }}
-.taupe .psub {{ color: rgba(255,255,255,.8); }}
-.pnum {{ right: 12mm; top: 5mm; font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: 50pt; line-height: 1; color: rgba(0,0,0,.14); }}
-.taupe .pnum {{ color: rgba(255,255,255,.75); }}
-.pfoot {{ left: {M}mm; bottom: 7mm; font-size: 5.6pt; text-transform: uppercase; letter-spacing: .14em; color: var(--ink2); }}
-.taupe .pfoot {{ color: rgba(255,255,255,.75); }}
-.vline {{ border-left: .25mm solid var(--line); }}
-.taupe .vline {{ border-color: rgba(255,255,255,.55); }}
-.vtext {{ transform: rotate(90deg); transform-origin: left top; font-size: 8pt; letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; }}
-.vtext.light {{ color: #fff; }}
-
-.body {{ font-weight: 300; font-size: 7.3pt; line-height: 1.6; color: var(--ink2); }}
-.body b {{ font-weight: 600; color: var(--ink); }}
-.taupe .body {{ color: #fff; }}
-.lead {{ font-weight: 400; font-size: 13pt; line-height: 1.35; letter-spacing: -.005em; }}
-.h1 {{ font-weight: 700; font-size: 25pt; line-height: 1.02; text-transform: uppercase; letter-spacing: -.005em; }}
-.h2 {{ font-weight: 700; font-size: 17pt; line-height: 1.05; text-transform: uppercase; }}
-.bignum {{ font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: 96pt; line-height: 1; color: rgba(0,0,0,.16); }}
-
-.cover-t {{ font-weight: 700; font-size: 54pt; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }}
-.cover-s {{ font-weight: 500; font-size: 8pt; text-transform: uppercase; letter-spacing: .2em; }}
-.cover-az {{ font-weight: 400; font-size: 8pt; letter-spacing: .06em; color: var(--ink2); }}
-
-.idx {{ list-style: none; column-count: 2; column-gap: 6mm; font-size: 6.8pt; }}
-.idx li {{ border-top: .25mm solid var(--line); padding: 1.3mm 0 1.5mm; break-inside: avoid; }}
-.idx.one {{ column-count: 1; font-size: 7.5pt; }}
-.idx b {{ display: inline-block; width: 11mm; font-weight: 600; color: var(--ink2); }}
-
-.ovbox {{ border: .3mm solid var(--ink); padding: 7mm 6mm; }}
-.ov-t {{ font-weight: 700; font-size: 15pt; text-transform: uppercase; line-height: 1.05; }}
-.ov-s {{ font-weight: 400; font-size: 6.4pt; text-transform: uppercase; letter-spacing: .12em; color: var(--ink2); margin-top: 1.5mm; }}
-.ov-h {{ font-weight: 600; font-size: 8.5pt; text-transform: uppercase; margin-top: 7mm; margin-bottom: 1.5mm; }}
-.ovbox p {{ font-weight: 300; font-size: 7.2pt; line-height: 1.6; color: var(--ink2); }}
-
-.data {{ display: grid; grid-template-columns: 22mm 1fr; }}
-.data > * {{ border-top: .25mm solid var(--line); padding: 1.4mm 0 1.6mm; font-size: 6.8pt; line-height: 1.4; }}
-.data dt {{ font-weight: 600; text-transform: uppercase; font-size: 5.6pt; letter-spacing: .1em; color: var(--ink2); padding-top: 1.8mm; }}
-.data dd {{ font-weight: 400; }}
-.data.light > * {{ border-color: rgba(255,255,255,.5); color: #fff; }}
-.data.light dd {{ font-size: 8pt; }}
-
-.cap {{ font-size: 6.6pt; line-height: 1.35; font-weight: 500; }}
-.cap b {{ font-weight: 700; }}
-.cap span {{ display: block; font-weight: 300; color: var(--ink2); font-size: 6.2pt; }}
-.taupe .cap span {{ color: rgba(255,255,255,.85); }}
-.cap.center {{ text-align: center; }}
-.meta {{ display: flex; justify-content: space-between; font-size: 6pt; color: var(--ink2); }}
-.tbd {{ background: var(--tbd); }}
-"""
+# sequenza delle pagine
+# --------------------------------------------------------------------------
+def piano():
+    """(tipo, funzione, argomenti, codici, classe pagina, sezione)"""
+    return [
+        ("copertina", None, (), [], "dark", ""),
+        ("chi", None, (), [], "", ""),
+        ("ap_banco", None, (), ["B01"], "dark", BANCO),
+        ("p", tav_singola, ("B02",), ["B02"], "", BANCO),
+        ("p", tav_coppia, (["B03", "B04"],), ["B03", "B04"], "", BANCO),
+        ("p", tav_singola, ("B06", True), ["B06"], "", BANCO),
+        ("p", tav_sequenza, (["B05", "B08", "B13", "B17"],), ["B05", "B08", "B13", "B17"], "", BANCO),
+        ("p", tav_singola, ("B09",), ["B09"], "", BANCO),
+        ("p", tav_coppia, (["B10", "B11"],), ["B10", "B11"], "", BANCO),
+        ("p", tav_singola, ("B07", True), ["B07"], "", BANCO),
+        ("p", tav_sequenza, (["B12", "B14", "B15", "B16"],), ["B12", "B14", "B15", "B16"], "", BANCO),
+        ("ap_terra", None, (), ["T05"], "dark", TERRA),
+        ("p", tav_verticale_coppia, (["T01", "T02"],), ["T01", "T02"], "", TERRA),
+        ("p", tav_verticale_singola, ("T04",), ["T04"], "", TERRA),
+        ("p", tav_verticale_coppia, (["T03", "T06"],), ["T03", "T06"], "", TERRA),
+        ("p", tav_verticale_coppia, (["T07", "T08"],), ["T07", "T08"], "", TERRA),
+        ("contatti", None, (), [], "dark", ""),
+    ]
 
 
 def build():
-    pages = pagine()
-    html = "\n".join(f'<section class="page {c}">{b}\n</section>' for c, b in pages)
+    pl = piano()
+    tot = len(pl)
+    pages = {}
+    for i, (_, _, _, codes, _, _) in enumerate(pl, start=1):
+        for c in codes:
+            pages[c] = i
+    out = []
+    for i, (kind, fn, args, codes, cls, sez) in enumerate(pl, start=1):
+        if kind == "copertina":
+            body = copertina()
+        elif kind == "chi":
+            body = head("Chi siamo") + chi_siamo() + foot(i, tot)
+        elif kind == "ap_banco":
+            body = head(BANCO) + apertura(
+                "01", "Espositori<br>da banco",
+                "Il punto più vicino alla scelta. Strutture compatte che si montano in pochi gesti e portano il prodotto all'altezza dello sguardo, accanto alla cassa.",
+                [c for c in PROGETTI if c[0] == "B"], pages, "B01",
+                [(1, 640, 300, 330, 150), (2, 705, 548, 930, 440), (3, 712, 615, 930, 720), (4, 452, 706, 250, 880)],
+                ["Header con grafica a vivo", "Gradino portaprodotto", "Arco strutturale", "Fori per tester"]) + foot(i, tot, BANCO)
+        elif kind == "ap_terra":
+            body = head(TERRA) + apertura(
+                "02", "Espositori<br>da terra",
+                "Strutture autoportanti a più ripiani, pensate per reggere il carico e farsi vedere da lontano. Spedite piatte, montate in pochi minuti.",
+                [c for c in PROGETTI if c[0] == "T"], pages, "T05",
+                [(1, 555, 215, 780, 150), (2, 465, 470, 250, 420), (3, 578, 640, 800, 600), (4, 518, 858, 300, 900)],
+                ["Header sagomato", "Ripiano con fascia", "Fianco portante", "Piedini a incastro"]) + foot(i, tot, TERRA)
+        elif kind == "contatti":
+            body = contatti() + foot(i, tot)
+        else:
+            tav = "Tav. " + " · ".join(cid(c) for c in codes)
+            body = head(sez, tav) + fn(*args) + foot(i, tot, sez)
+        out.append(f'<section class="page {cls}">{body}\n</section>')
     doc = f"""<!DOCTYPE html>
 <html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio Espositori</title>
 <link rel="stylesheet" href="fonts/fonts.css">
-<style>{CSS}</style></head>
-<body><main class="book">
-{html}
+<link rel="stylesheet" href="portfolio.css">
+</head><body><main class="book">
+{chr(10).join(out)}
 </main></body></html>
 """
     (ROOT / "portfolio.html").write_text(doc, encoding="utf-8")
-    print("portfolio.html:", len(pages), "pagine")
+    print("portfolio.html:", tot, "pagine")
 
 
 if __name__ == "__main__":
