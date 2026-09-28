@@ -19,3 +19,4 @@
 .index-t { font: 800 15pt/1.1 var(--disp); text-transform: uppercase; }
 .index-p { font: 700 15pt/1.1 var(--disp); color: var(--gray); text-align: right; }
 .rule { height: 0; border-top: .3mm solid var(--ink); }
+.bignum.right { text-align: right; line-height: .8; }

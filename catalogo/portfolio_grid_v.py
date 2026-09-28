@@ -11,7 +11,23 @@ from portfolio_grid import PROGETTI, TBD, AZ, cid, cap, testo, lista_lettere, RO
 W, H = 210, 297
 PG.W, PG.H, PG.C, PG.R = W, H, W / 5, H / 7        # i componenti condivisi leggono queste misure
 C, R = PG.C, PG.R
-el, photo, plus, scontornata, quote, g = PG.el, PG.photo, PG.plus, PG.scontornata, PG.quote, PG.g
+MARG = 15                                           # margine uguale su tutti i lati (mm)
+_g_griglia = PG.g
+
+
+def _g_area(col, row):
+    """Coordinate di impaginazione -> mm dentro l'area utile 15 mm (col .35–4.65, riga .6–6.6)."""
+    return MARG + (col - .35) * (W - 2 * MARG) / 4.3, MARG + (row - .6) * (H - 2 * MARG) / 6
+
+
+PG.g = _g_area
+el, photo, scontornata, quote, g = PG.el, PG.photo, PG.scontornata, PG.quote, PG.g
+
+
+def plus(col, row):
+    """Crocetta sempre su un incrocio reale della griglia di sfondo."""
+    x, y = col * C, row * R
+    return f'<div class="plus" style="left:{x - 2:.2f}mm;top:{y - 2:.2f}mm"></div>'
 
 
 def meta(code):
@@ -24,17 +40,17 @@ def meta(code):
 # pagine
 # --------------------------------------------------------------------------
 def copertina():
-    x, y = g(2.35, .75)
-    return (el("small", "Vol. 01 — 2026", .35, .45)
-            + el("small right", "Progettato e prodotto da", 2.5, .45, 2.15) + el("h3 right", AZ, 2.5, .62, 2.15)
-            + f'<img class="drawing" src="img/esploso-terra.svg" style="left:{x:.1f}mm;top:{y:.1f}mm;height:190mm" alt="">'
+    x, y = g(4.65, .95)
+    return (el("small", "Vol. 01 — 2026", .35, .6)
+            + el("small right", "Progettato e prodotto da", 2.5, .6, 2.15) + el("h3 right", AZ, 2.5, .77, 2.15)
+            + f'<img class="drawing" src="img/esploso-terra.svg" style="right:{W - x:.1f}mm;top:{y:.1f}mm;height:185mm" alt="">'
             + el("small", "Cartotecnica ed espositori per il punto vendita: progettazione, prototipazione e produzione. "
                  "Cartone, cartoncino e materiali durevoli.", .35, 1.3, 1.9)
             + el("capline", "<b>Fig. 01</b>Espositore da terra — vista esplosa", .35, 4.2, 1.9)
-            + el("light-t xl", "Espositori", .35, 4.85) + el("cover-t", "Portfolio", .3, 5.15)
-            + el("h5", "Telefono", .35, 6.15) + el("small", TBD("+39 000 000 0000"), .35, 6.3)
-            + el("h5", "Email", 1.8, 6.15) + el("small", TBD("info@azienda.it"), 1.8, 6.3)
-            + el("h5", "Indirizzo", 3.2, 6.15) + el("small", TBD("Via Esempio 1, Città"), 3.2, 6.3, 1.45)
+            + el("light-t xl", "Espositori", .35, 4.85) + el("cover-t", "Portfolio", .35, 5.15)
+            + el("h5", "Telefono", .35, 6.3) + el("small", TBD("+39 000 000 0000"), .35, 6.5)
+            + el("h5", "Email", 1.8, 6.3) + el("small", TBD("info@azienda.it"), 1.8, 6.5)
+            + el("h5", "Indirizzo", 3.2, 6.3) + el("small", TBD("Via Esempio 1, Città"), 3.2, 6.5, 1.45)
             + plus(1, 1) + plus(1, 4) + plus(4, 6))
 
 
@@ -48,8 +64,8 @@ def introduzione():
             + el("bullets big", "".join(f"<li>{x}</li>" for x in [
                 "Progettazione strutturale e grafica", "Prototipi in tempi brevi", "Stampa offset e digitale",
                 "Fustellatura e incollaggio interni", "Cartone, forex, plexi, legno", "Spedizione piatta o premontata"]), .35, 3.65, 2.6)
-            + el("bar", "", .35, 5.6, 4.3)
-            + el("small", "Un unico interlocutore, dal primo disegno al bancale pronto a partire.", .35, 5.85, 2.6)
+            + el("bar", "", .35, 6.2, 4.3)
+            + el("small", "Un unico interlocutore, dal primo disegno al bancale pronto a partire.", .35, 6.52, 2.6)
             + plus(4, 1) + plus(4, 3))
 
 
@@ -60,7 +76,7 @@ def indice():
             + voce("01", "Espositori da banco", 6, 1.5)
             + voce("02", "Espositori da terra", 20, 2.9)
             + voce("03", "Contatti", 28, 4.3)
-            + el("small", "Una selezione di progetti realizzati per brand della cosmesi, della farmacia, dell'ottica, della ferramenta e del beverage.", .35, 6.1, 3))
+            + el("small", "Una selezione di progetti realizzati per brand della cosmesi, della farmacia, dell'ottica, della ferramenta e del beverage.", .35, 6.47, 3))
 
 
 def chi_siamo():
@@ -73,8 +89,8 @@ def chi_siamo():
                 ("Prototipazione", "Campioni bianchi e stampati per testare carico e montaggio."),
                 ("Produzione", "Stampa, fustellatura, incollaggio e confezionamento interni."),
                 ("Logistica", "Spedizione piatta o premontata, in Italia e all'estero.")]), .35, 2.8, 3.2)
-            + el("bignum", "01", 3.6, 5.3)
-            + el("stats", f'<div><b>{TBD("35+")}</b>Anni</div><div><b>{TBD("400")}</b>Progetti l’anno</div><div><b>100%</b>Interno</div>', .35, 5.55, 3))
+            + el("bignum", "01", 3.55, 6.1)
+            + el("stats", f'<div><b>{TBD("35+")}</b>Anni</div><div><b>{TBD("400")}</b>Progetti l’anno</div><div><b>100%</b>Interno</div>', .35, 6.25, 3))
 
 
 def citazione():
@@ -92,7 +108,7 @@ def sezione(titolo, codes, num):
           + el("small", "Ogni progetto parte dal prodotto e dal punto vendita: dimensioni, peso, numero di facing, tempo di permanenza. "
                "Da lì scegliamo struttura e materiale, prototipiamo e produciamo.", .35, 4.7, 2.05)
           + el("small", "Nelle pagine che seguono, una selezione di progetti realizzati.", 2.6, 4.7, 2)
-          + el("bignum", num, 2.6, 5.5))
+          + el("bignum", num, 2.6, 6.15))
     dx = (photo(c, .35, .6, 4.65, 4.0)
           + el("capline", cap(c), .35, 4.06, 4)
           + photo(d, .35, 4.45, 2.4, 6.4) + photo(e, 2.6, 4.45, 4.65, 6.4)
@@ -107,29 +123,29 @@ def progetto(num, main, small, sq, tall, cut=None):
           + el("h6", "Il progetto", .35, 5.0)
           + el("small", testo(main), .35, 5.2, 2.05)
           + el("small", "Struttura, materiali e finiture definiti con il cliente e verificati su prototipo prima della produzione.", .35, 5.85, 2.05)
-          + photo(small, 2.6, 4.2, 4.65, 6.3)
-          + el("capline", cap(small), 2.6, 6.36, 2))
+          + photo(small, 2.6, 4.25, 4.65, 6.4)
+          + el("capline", cap(small), 2.6, 6.46, 2))
     dx = (el("h2", t, .35, .6, 2) + el("code", cid(main), .35, 1.05)
           + el("h6", "Panoramica", .35, 1.45)
           + el("small", f"{tip}. " + TBD("[Esigenza del cliente e soluzione adottata.]"), .35, 1.65, 2)
           + el("meta", meta(main), .35, 2.4, 2)
-          + photo(tall, 2.5, .6, 4.65, 3.6) + el("capline", cap(tall), 2.5, 3.66, 2.1))
+          + photo(tall, 2.45, .6, 4.65, 3.6) + el("capline", cap(tall), 2.45, 3.66, 2.2))
     if cut:
         dx += (scontornata(cut, 1.35, 6.4, 95, max_w=88) + el("capline", cap(cut), .35, 6.46, 2)
-               + photo(sq, 2.5, 4.1, 4.65, 6.3) + el("capline", cap(sq), 2.5, 6.36, 2.1))
+               + photo(sq, 2.45, 4.1, 4.65, 6.4) + el("capline", cap(sq), 2.45, 6.46, 2.2))
     else:
         dx += (el("quote sm", "Il prodotto al centro, la struttura al suo servizio.", .35, 4.4, 1.9)
-               + photo(sq, 2.5, 4.1, 4.65, 6.3) + el("capline", cap(sq), 2.5, 6.36, 2.1))
+               + photo(sq, 2.45, 4.1, 4.65, 6.4) + el("capline", cap(sq), 2.45, 6.46, 2.2))
     return [sx, dx]
 
 
 def progetto_terra(num, a, b, main):
     t, tip, sett = PROGETTI[main]
-    sx = (photo(a, .35, .6, 2.4, 4.6) + photo(b, 2.6, .6, 4.65, 4.6)
-          + el("capline", cap(a), .35, 4.66, 2) + el("capline", cap(b), 2.6, 4.66, 2)
-          + el("bignum", num, .35, 5.2)
-          + el("h6", "Panoramica", 2.6, 5.3)
-          + el("small", "Colonne autoportanti con header: la comunicazione sale sopra il prodotto e si legge anche dal fondo della corsia.", 2.6, 5.5, 2))
+    sx = (photo(a, .35, .6, 2.45, 5.15) + photo(b, 2.55, .6, 4.65, 5.15)
+          + el("capline", cap(a), .35, 5.21, 2) + el("capline", cap(b), 2.55, 5.21, 2)
+          + el("bignum", num, .35, 6.15)
+          + el("h6", "Panoramica", 2.6, 5.9)
+          + el("small", "Colonne autoportanti con header: la comunicazione sale sopra il prodotto e si legge anche dal fondo della corsia.", 2.6, 6.1, 2))
     dx = (el("h2", t, .35, .6, 2) + el("code", cid(main), .35, 1.05)
           + el("h6", "Panoramica", .35, 1.45) + el("small", testo(main), .35, 1.65, 1.9)
           + el("meta", meta(main), .35, 2.4, 1.9)
@@ -143,13 +159,13 @@ def tavole_v(titolo, gruppi):
     pages = []
     tot = len(gruppi)
     for k, codes in enumerate(gruppi):
-        body = el("h6", f"{titolo} — tav. {k + 1}/{tot}", .35, .45) + el("bignum sm", f"{k + 1:02d}", 3.6, .3)
+        body = el("h6", f"{titolo} — tav. {k + 1}/{tot}", .35, .6) + el("bignum sm right", f"{k + 1:02d}", 3.4, .6, 1.25)
         n = len(codes)
         if codes[0][0] == "T":
-            righe, basi, hs = [codes], [6.0], [205]
+            righe, basi, hs = [codes], [6.08], [205]
         else:
             righe = [codes[:2], codes[2:]] if n == 4 else [codes[:1], codes[1:]]
-            basi, hs = [3.35, 6.3], [80 if n == 4 else 92, 78]
+            basi, hs = [3.3, 6.08], [80 if n == 4 else 90, 78]
         for riga, base, h in zip(righe, basi, hs):
             span = 4.3 / len(riga)
             for i, c in enumerate(riga):
@@ -172,13 +188,13 @@ def contatti():
             + el("h5", "Email", 2.6, 3.9) + el("contact", TBD("info@azienda.it"), 2.6, 4.05, 2)
             + el("h5", "Indirizzo", .35, 4.7) + el("contact", TBD("Via Esempio 1, 00000 Città (XX)"), .35, 4.85, 2.1)
             + el("h5", "Web", 2.6, 4.7) + el("contact", TBD("www.azienda.it"), 2.6, 4.85, 2)
-            + el("bar", "", .35, 6.0, 4.3)
-            + el("small", AZ + " — Portfolio Espositori 2026", .35, 6.2, 3)
+            + el("bar", "", .35, 6.2, 4.3)
+            + el("small", AZ + " — Portfolio Espositori 2026", .35, 6.52, 3)
             + plus(4, 1) + plus(4, 2))
 
 
 def retro():
-    return (el("cover-t sm", "Portfolio", .35, 5.6) + el("small", AZ + " — Espositori 2026", .4, 6.2, 3)
+    return (el("cover-t sm", "Portfolio", .35, 5.85) + el("small", AZ + " — Espositori 2026", .35, 6.52, 3)
             + plus(1, 1) + plus(4, 1) + plus(1, 6) + plus(4, 6))
 
 
