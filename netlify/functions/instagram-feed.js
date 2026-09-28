@@ -1,4 +1,4 @@
-// Serves the latest United Instagram posts to the site's carousel.
+// Serves the latest UnitedHub Instagram posts to the site's carousel.
 // Reads the access token from the IG_ACCESS_TOKEN environment variable
 // (set in Netlify site settings, never committed to the repo).
 exports.handler = async function () {

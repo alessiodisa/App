@@ -1,4 +1,4 @@
-/* United — dizionario traduzioni IT/EN */
+/* UnitedHub — dizionario traduzioni IT/EN */
 const I18N = {
   it: {
     "nav.shop": "Shop",
@@ -10,23 +10,23 @@ const I18N = {
 
     "hero.title1": "Vivi lo sport.",
     "hero.title2": "Vivi in equilibrio.",
-    "hero.sub": "United è il brand e la community di chi trasforma lo sport in uno stile di vita: passione, energia ed equilibrio, ogni giorno.",
-    "hero.cta1": "Scopri United",
+    "hero.sub": "UnitedHub è il brand e la community di chi trasforma lo sport in uno stile di vita: passione, energia ed equilibrio, ogni giorno.",
+    "hero.cta1": "Scopri UnitedHub",
     "hero.cta2": "Unisciti alla community",
     "hero.scroll": "Scorri",
 
     "partners.label": "Collaborazioni",
 
-    "about.eyebrow": "United",
+    "about.eyebrow": "UnitedHub",
     "about.title": "Chi siamo",
-    "about.text": "United è il brand e la community di chi vive lo sport come stile di vita. La nostra storia, i nostri valori e le persone dietro il progetto arrivano presto in questa pagina.",
+    "about.text": "UnitedHub è il brand e la community di chi vive lo sport come stile di vita. La nostra storia, i nostri valori e le persone dietro il progetto arrivano presto in questa pagina.",
 
     "page.placeholder": "Stiamo costruendo questa pagina passo dopo passo — nuovi contenuti in arrivo presto.",
     "page.back": "Torna alla home",
 
     "shop.eyebrow": "Shop",
-    "shop.title": "L'abbigliamento United, per ogni giorno",
-    "shop.text": "Felpe, t-shirt e capi tecnici pensati per chi vive lo sport come stile di vita: materiali di qualità, design essenziale e lo spirito United in ogni dettaglio.",
+    "shop.title": "L'abbigliamento UnitedHub, per ogni giorno",
+    "shop.text": "Felpe, t-shirt e capi tecnici pensati per chi vive lo sport come stile di vita: materiali di qualità, design essenziale e lo spirito UnitedHub in ogni dettaglio.",
     "shop.link": "Scopri la collezione",
 
     "servizi.eyebrow": "Servizi",
@@ -36,17 +36,17 @@ const I18N = {
 
     "sport.eyebrow": "Sport",
     "sport.title": "La passione per lo sport, senza confini",
-    "sport.text": "Dalla corsa al fitness, dal basket all'outdoor: United accompagna ogni disciplina con contenuti, eventi e prodotti pensati per chi non si ferma mai.",
+    "sport.text": "Dalla corsa al fitness, dal basket all'outdoor: UnitedHub accompagna ogni disciplina con contenuti, eventi e prodotti pensati per chi non si ferma mai.",
     "sport.link": "Esplora le discipline",
 
     "squad.title": "Treviso United",
-    "squad.text": "Treviso United è la squadra di calcio a 8 che porta in campo lo spirito del brand: energia, appartenenza e voglia di vincere insieme. Un gruppo di amici e atleti che ogni settimana scende in campo con la maglia United, portando la community dagli spalti al terreno di gioco.",
+    "squad.text": "Treviso United è la squadra di calcio a 8 che porta in campo lo spirito del brand: energia, appartenenza e voglia di vincere insieme. Un gruppo di amici e atleti che ogni settimana scende in campo con la maglia UnitedHub, portando la community dagli spalti al terreno di gioco.",
     "squad.sponsor.label": "Sponsor ufficiale",
     "squad.social.label": "Seguici",
 
     "map.eyebrow": "Mappa",
-    "map.title": "La mappa United",
-    "map.text": "Scopri i posti United: cibo, esperienze, sport e tanto altro. Una mappa interattiva per orientarti tra i luoghi del nostro mondo.",
+    "map.title": "La mappa UnitedHub",
+    "map.text": "Scopri i posti UnitedHub: cibo, esperienze, sport e tanto altro. Una mappa interattiva per orientarti tra i luoghi del nostro mondo.",
     "map.search.placeholder": "Cerca un posto…",
     "map.filter.all": "Tutti",
     "map.filter.food": "Cibo",
@@ -79,16 +79,16 @@ const I18N = {
     "campionato.error": "Dati non disponibili al momento.",
 
     "product.eyebrow": "Drop 01",
-    "product.title": "Long Sleeve United",
+    "product.title": "Long Sleeve UnitedHub",
     "product.text": "Manica lunga in cotone pesante, girocollo e logo a tre stelle. Il primo drop è andato esaurito in poche ore.",
     "product.notify": "Avvisami alla prossima uscita",
     "product.badge": "Sold Out",
 
     "product2.eyebrow": "Drop 02",
-    "product2.title": "Hoodie United",
+    "product2.title": "Hoodie UnitedHub",
     "product2.text": "Felpa con cappuccio in cotone pesante, tasca a marsupio e logo a tre stelle. Anche questo drop è andato esaurito in poche ore.",
 
-    "join.title": "Unisciti al movimento United",
+    "join.title": "Unisciti al movimento UnitedHub",
     "join.text": "Iscriviti alla newsletter per contenuti esclusivi, eventi della community e le ultime novità del brand.",
     "join.placeholder": "La tua email",
     "join.submit": "Iscriviti",
@@ -117,7 +117,7 @@ const I18N = {
     "footer.company.l1": "Chi siamo",
     "footer.company.l2": "Contatti",
     "footer.company.l3": "Lavora con noi",
-    "footer.copy": "© 2026 United. Tutti i diritti riservati."
+    "footer.copy": "© 2026 UnitedHub. Tutti i diritti riservati."
   },
   en: {
     "nav.shop": "Shop",
@@ -129,23 +129,23 @@ const I18N = {
 
     "hero.title1": "Live sport.",
     "hero.title2": "Live in balance.",
-    "hero.sub": "United is the brand and community for people who turn sport into a lifestyle: passion, energy and balance, every day.",
-    "hero.cta1": "Discover United",
+    "hero.sub": "UnitedHub is the brand and community for people who turn sport into a lifestyle: passion, energy and balance, every day.",
+    "hero.cta1": "Discover UnitedHub",
     "hero.cta2": "Join the community",
     "hero.scroll": "Scroll",
 
     "partners.label": "Collaborations",
 
-    "about.eyebrow": "United",
+    "about.eyebrow": "UnitedHub",
     "about.title": "About us",
-    "about.text": "United is the brand and community for people who live sport as a lifestyle. Our story, our values and the people behind the project are coming soon to this page.",
+    "about.text": "UnitedHub is the brand and community for people who live sport as a lifestyle. Our story, our values and the people behind the project are coming soon to this page.",
 
     "page.placeholder": "We're building this page step by step — new content coming soon.",
     "page.back": "Back to home",
 
     "shop.eyebrow": "Shop",
-    "shop.title": "United apparel, for every day",
-    "shop.text": "Hoodies, t-shirts and technical pieces made for people who live sport as a lifestyle: quality materials, essential design and the United spirit in every detail.",
+    "shop.title": "UnitedHub apparel, for every day",
+    "shop.text": "Hoodies, t-shirts and technical pieces made for people who live sport as a lifestyle: quality materials, essential design and the UnitedHub spirit in every detail.",
     "shop.link": "Discover the collection",
 
     "servizi.eyebrow": "Services",
@@ -155,17 +155,17 @@ const I18N = {
 
     "sport.eyebrow": "Sport",
     "sport.title": "A passion for sport, without limits",
-    "sport.text": "From running to fitness, from basketball to the outdoors: United supports every discipline with content, events and products made for those who never stop.",
+    "sport.text": "From running to fitness, from basketball to the outdoors: UnitedHub supports every discipline with content, events and products made for those who never stop.",
     "sport.link": "Explore the disciplines",
 
     "squad.title": "Treviso United",
-    "squad.text": "Treviso United is the eight-a-side football team that brings the brand's spirit onto the pitch: energy, belonging and the drive to win together. A group of friends and athletes who take the field every week wearing the United shirt, bringing the community from the stands to the pitch.",
+    "squad.text": "Treviso United is the eight-a-side football team that brings the brand's spirit onto the pitch: energy, belonging and the drive to win together. A group of friends and athletes who take the field every week wearing the UnitedHub shirt, bringing the community from the stands to the pitch.",
     "squad.sponsor.label": "Official sponsor",
     "squad.social.label": "Follow us",
 
     "map.eyebrow": "Map",
-    "map.title": "The United map",
-    "map.text": "Discover United's spots: food, experiences, sport and much more. An interactive map to find your way around our world.",
+    "map.title": "The UnitedHub map",
+    "map.text": "Discover UnitedHub's spots: food, experiences, sport and much more. An interactive map to find your way around our world.",
     "map.search.placeholder": "Search a place…",
     "map.filter.all": "All",
     "map.filter.food": "Food",
@@ -198,16 +198,16 @@ const I18N = {
     "campionato.error": "Data unavailable right now.",
 
     "product.eyebrow": "Drop 01",
-    "product.title": "Long Sleeve United",
+    "product.title": "Long Sleeve UnitedHub",
     "product.text": "Heavyweight cotton long sleeve, crewneck, three-star embroidered logo. The first drop sold out in hours.",
     "product.notify": "Notify me for the next release",
     "product.badge": "Sold Out",
 
     "product2.eyebrow": "Drop 02",
-    "product2.title": "Hoodie United",
+    "product2.title": "Hoodie UnitedHub",
     "product2.text": "Heavyweight cotton hoodie, kangaroo pocket, three-star logo. This drop sold out in hours too.",
 
-    "join.title": "Join the United movement",
+    "join.title": "Join the UnitedHub movement",
     "join.text": "Sign up for the newsletter for exclusive content, community events and the latest brand news.",
     "join.placeholder": "Your email",
     "join.submit": "Subscribe",
@@ -236,6 +236,6 @@ const I18N = {
     "footer.company.l1": "About us",
     "footer.company.l2": "Contact",
     "footer.company.l3": "Careers",
-    "footer.copy": "© 2026 United. All rights reserved."
+    "footer.copy": "© 2026 UnitedHub. All rights reserved."
   }
 };
