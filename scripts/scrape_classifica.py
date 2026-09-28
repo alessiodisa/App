@@ -106,6 +106,12 @@ def main():
         raise RuntimeError(f"team not found: {TEAM_SLUG}")
     team = teams[0]
     team_id = team["id"]
+    print("team keys:", list(team.keys()), flush=True)
+    print("team content/excerpt/meta:", json.dumps({
+        "content": team.get("content"),
+        "excerpt": team.get("excerpt"),
+        "meta": team.get("meta"),
+    }, ensure_ascii=False)[:3000], flush=True)
 
     # --- Standings table for the league ---
     tables = get("tables", {"leagues": league_id})
