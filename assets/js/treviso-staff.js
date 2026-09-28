@@ -1,8 +1,8 @@
 // Dirigenza e staff Treviso United — dati inseriti a mano, non presi da calciotto.tv.
 window.TREVISO_DIRIGENZA = [
   { name: "Guido Borso", role: "Presidente" },
-  { name: "Jonatas Zanucco", role: "Vice Allenatore" },
-  { name: "Francesco Sama", role: "Allenatore" }
+  { name: "Francesco Sama", role: "Allenatore" },
+  { name: "Jonatas Zanucco", role: "Vice Allenatore" }
 ];
 
 window.TREVISO_STAFF = [
