@@ -72,3 +72,8 @@ html, body { background: #7D7A76; font-family: var(--body); color: var(--ink);
 .capline.center { text-align: center; }
 .frame.studio { background: radial-gradient(ellipse at 50% 35%, #E9E9E7 0%, #D4D4D2 75%); }
 .frame.studio img { filter: drop-shadow(0 1.2mm 1.5mm rgba(0,0,0,.16)); }
+.bignum.sm { font-size: 40pt; }
+.gcode { font: 800 16pt/1 var(--disp); color: var(--ink); letter-spacing: -.01em; }
+.ov { pointer-events: none; overflow: visible; }
+.dim { font: 600 2.1px var(--disp); fill: #8C8C8C; letter-spacing: .1px; }
+.frame.det { outline: .25mm solid #BDBDBB; }

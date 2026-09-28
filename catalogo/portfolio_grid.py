@@ -67,7 +67,7 @@ def photo(code, c0, r0, c1, r1, zoom=1.0, fy=.5, fx=.5):
             f'<img src="img/sq/{code}.jpg" style="{bx(ix - x0, iy - y0, s, s)}" alt=""></div>')
 
 
-def studio(code, x0, y0, fw, fh, fill=.82):
+def studio(code, x0, y0, fw, fh, fill=.92):
     """Riquadro con fondo da studio e l'espositore scontornato intero, appoggiato in basso."""
     a1, b1, a2, b2, n = CB[code]
     ow, oh = (a2 - a1) / n, (b2 - b1) / n
@@ -145,8 +145,8 @@ def introduzione():
     idx = lambda cs: "".join(f"<li>{PROGETTI[c][0]}<span>{p:02d}</span></li>" for c, p in cs)
     dx = (el("h2", "Indice", .5, .95)
           + el("h5", "Espositori da banco", .5, 1.4) + el("index", idx([("B01", 6), ("B02", 8), ("B11", 10), ("B10", 12)]) + "<li>Gamma completa<span>14</span></li>", .5, 1.55, 2.4)
-          + el("h5", "Espositori da terra", .5, 2.75) + el("index", idx([("T05", 16), ("T04", 18)]) + "<li>Gamma completa<span>20</span></li>", .5, 2.9, 2.4)
-          + el("h5", "Contatti", .5, 3.7) + el("index", "<li>Parliamone<span>22</span></li>", .5, 3.85, 2.4)
+          + el("h5", "Espositori da terra", .5, 2.75) + el("index", idx([("T05", 22), ("T04", 24)]) + "<li>Gamma completa<span>26</span></li>", .5, 2.9, 2.4)
+          + el("h5", "Contatti", .5, 3.7) + el("index", "<li>Parliamone<span>30</span></li>", .5, 3.85, 2.4)
           + photo("T05", 4.2, .45, 6.55, 4.55, fy=.45))
     return sx, dx
 
@@ -170,40 +170,41 @@ def chi_siamo():
 
 def sezione(titolo, codes):
     a, b, c, d, e = codes
-    sx = (el("h2", titolo, .5, .95)
-          + photo(a, .5, 1.6, 1.95, 3.7) + photo(b, 2.05, 1.6, 3.5, 3.7)
-          + el("h6", "Panoramica", 3.9, 2.35)
+    sx = (el("h2", titolo, .5, .75)
+          + photo(a, .5, 1.3, 2.1, 3.85) + photo(b, 2.2, 1.3, 3.8, 3.85)
+          + el("h6", "Panoramica", 4.1, 1.35)
           + el("small", "Ogni progetto parte dal prodotto e dal punto vendita: dimensioni, peso, numero di facing, tempo di permanenza. "
-               "Da lì scegliamo struttura e materiale, prototipiamo e produciamo.", 3.9, 2.55, 2.1)
-          + el("small", "Nelle pagine che seguono, una selezione di progetti realizzati.", 3.9, 3.2, 2.1)
-          + el("capline", cap(a), .5, 3.78, 1.45) + el("capline", cap(b), 2.05, 3.78, 1.45))
-    dx = (photo(c, .5, .45, 3.6, 4.1)
-          + photo(d, 3.85, .45, 5.95, 2.25) + photo(e, 3.85, 2.35, 5.95, 4.1)
-          + el("capline", cap(c), .5, 4.18, 3) + el("capline", f"{cid(d)} · {cid(e)} — {PROGETTI[d][0]}, {PROGETTI[e][0]}", 3.85, 4.18, 2.1))
+               "Da lì scegliamo struttura e materiale, prototipiamo e produciamo.", 4.1, 1.55, 2.4)
+          + el("small", "Nelle pagine che seguono, una selezione di progetti realizzati.", 4.1, 2.2, 2.4)
+          + el("bignum", "", 4.1, 3)
+          + el("capline", cap(a), .5, 3.92, 1.6) + el("capline", cap(b), 2.2, 3.92, 1.6))
+    dx = (photo(c, .5, .4, 4.0, 4.2)
+          + photo(d, 4.15, .4, 6.5, 2.25) + photo(e, 4.15, 2.35, 6.5, 4.2)
+          + el("capline", cap(c), .5, 4.27, 3.4) + el("capline", f"{cid(d)} · {cid(e)} — {PROGETTI[d][0]}, {PROGETTI[e][0]}", 4.15, 4.27, 2.3))
     return sx, dx
 
 
 def progetto(num, main, small, sq, tall, cut=None):
     t, tip, sett = PROGETTI[main]
-    sx = (photo(main, .5, .75, 3.6, 2.45)
-          + el("bignum", num, 3.8, 1.2)
-          + photo(small, 3.85, 2.55, 4.85, 3.55)
-          + el("capline", cap(small), 3.85, 3.6, 1.6)
-          + el("h6", "Il progetto", .5, 2.75)
-          + el("small", testo(main), .5, 2.95, 2.9)
-          + el("small", "Struttura, materiali e finiture sono stati definiti insieme al cliente e verificati su prototipo prima della produzione.", .5, 3.45, 2.9))
+    sx = (photo(main, .5, .5, 4.5, 3.1)
+          + el("bignum", num, 4.72, .5)
+          + photo(small, 4.72, 1.5, 6.5, 3.3)
+          + el("capline", cap(small), 4.72, 3.36, 1.8)
+          + el("h6", "Il progetto", .5, 3.3)
+          + el("small", testo(main), .5, 3.5, 2)
+          + el("small", "Struttura, materiali e finiture definiti con il cliente e verificati su prototipo prima della produzione.", 2.6, 3.5, 1.9))
     meta = (f'<h5>Tipologia: {tip}</h5><h5>Settore: {sett}</h5><h5>Materiale: {TBD("[materiale]")}</h5>'
             f'<h5>Cliente: {TBD("[cliente]")} — {TBD("[anno]")}</h5>')
-    dx = (el("h2", t, .5, .95, 3.3) + el("code", cid(main), .5, 1.35)
-          + el("h6", "Panoramica", .5, 1.75)
-          + el("small", f"{tip}. " + TBD("[Esigenza del cliente e soluzione adottata.]"), .5, 1.95, 1.9)
-          + el("meta", meta, .5, 2.7, 1.9))
+    dx = (el("h2", t, .5, .6, 2) + el("code", cid(main), .5, 1.25)
+          + el("h6", "Panoramica", .5, 1.65)
+          + el("small", f"{tip}. " + TBD("[Esigenza del cliente e soluzione adottata.]"), .5, 1.85, 1.9)
+          + el("meta", meta, .5, 2.65, 1.9)
+          + el("quote sm", "Il prodotto al centro, la struttura al suo servizio.", .5, 3.55, 1.9))
     if cut:
-        dx += scontornata(cut, 3.3, 3.95, 118) + el("capline", cap(cut), 2.55, 4.05, 1.6)
+        dx += scontornata(cut, 3.6, 3.85, 125, max_w=2.1 * C) + el("capline", cap(cut), 2.6, 3.95, 2)
     else:
-        dx += photo(sq, 2.55, 1.6, 3.95, 3.0) + el("capline", cap(sq), 2.55, 3.05, 1.4)
-    dx += photo(tall, 4.2, 1.6, 5.05, 3.45) + el("capline", cap(tall), 4.2, 3.5, 1.2)
-    dx += el("quote sm", "Il prodotto al centro, la struttura al suo servizio.", 5.3, 1.6, 1.3)
+        dx += photo(sq, 2.6, .6, 4.6, 2.9) + el("capline", cap(sq), 2.6, 2.96, 2)
+    dx += photo(tall, 4.8, .6, 6.5, 3.6) + el("capline", cap(tall), 4.8, 3.66, 1.7)
     return sx, dx
 
 
@@ -222,18 +223,74 @@ def progetto_terra(num, a, b, cut):
     return sx, dx
 
 
-def gamma(titolo, codes, per_riga, righe, h, sub):
-    """Tavola di gamma: espositori scontornati appoggiati sulla griglia, con codice e nome."""
+def dettaglio(code, x, y, w, h, fy=.12, zoom=2.6):
+    """Ingrandimento di una parte dell'espositore (dalla scontornata), su fondo da studio."""
+    a1, b1, a2, b2, n = CB[code]
+    s = (w / ((a2 - a1) / n)) * zoom / 1.6
+    ix = w / 2 - (a1 + a2) / 2 / n * s
+    iy = h * .45 - (b1 + (b2 - b1) * fy) / n * s
+    return (f'<div class="frame studio det" style="{bx(x, y, w, h)}">'
+            f'<img src="img/scontornate/{code}.png" style="{bx(ix, iy, s, s)}" alt=""></div>')
+
+
+def quote(code, cx_col, bottom_row, h, max_w):
+    """Espositore scontornato con quote di altezza e larghezza (valori da completare).
+    Ritorna (html, sinistra, destra, alto) in mm."""
+    a1, b1, a2, b2, n = CB[code]
+    if h * (a2 - a1) / (b2 - b1) > max_w:
+        h = max_w * (b2 - b1) / (a2 - a1)
+    w = h * (a2 - a1) / (b2 - b1)
+    x, y = g(cx_col, bottom_row)
+    l, r, t = x - w / 2, x + w / 2, y - h
+    q = (f'<svg class="ov" viewBox="0 0 {W} {H}" style="{bx(0, 0, W, H)}">'
+         f'<g stroke="#8C8C8C" stroke-width=".22" fill="none">'
+         f'<line x1="{l - 5:.1f}" y1="{t:.1f}" x2="{l - 5:.1f}" y2="{y:.1f}"/><line x1="{l - 7:.1f}" y1="{t:.1f}" x2="{l - 3:.1f}" y2="{t:.1f}"/>'
+         f'<line x1="{l - 7:.1f}" y1="{y:.1f}" x2="{l - 3:.1f}" y2="{y:.1f}"/>'
+         f'<line x1="{l:.1f}" y1="{y + 4:.1f}" x2="{r:.1f}" y2="{y + 4:.1f}"/><line x1="{l:.1f}" y1="{y + 2:.1f}" x2="{l:.1f}" y2="{y + 6:.1f}"/>'
+         f'<line x1="{r:.1f}" y1="{y + 2:.1f}" x2="{r:.1f}" y2="{y + 6:.1f}"/></g>'
+         f'<text x="{l - 6.5:.1f}" y="{(t + y) / 2:.1f}" transform="rotate(-90 {l - 6.5:.1f} {(t + y) / 2:.1f})" class="dim" text-anchor="middle">H — mm</text>'
+         f'<text x="{(l + r) / 2:.1f}" y="{y + 8.4:.1f}" class="dim" text-anchor="middle">L — mm</text></svg>')
+    return scontornata(code, cx_col, bottom_row, h) + q, l, r, t
+
+
+def tavole(titolo, gruppi, h, max_top=34):
+    """Tavole di gamma: 2 o 3 espositori grandi per pagina, con quote, dettaglio ingrandito e dati."""
     pages = []
-    per_pag = per_riga * righe
-    for p in range(0, len(codes), per_pag):
-        body = el("h2", titolo if p == 0 else "", .5, .6) + el("small", sub if p == 0 else "", 3.4, .62, 3)
-        step = 6 / per_riga
-        for i, c in enumerate(codes[p:p + per_pag]):
-            col = .5 + step * (i % per_riga) + step / 2
-            row = (4.35 if righe == 1 else [2.55, 4.3][i // per_riga])
-            body += scontornata(c, col, row - .1, h, max_w=step * C - 6)
-            body += el("capline center", f"<b>{cid(c)}</b>{PROGETTI[c][0]}", col - step / 2, row, step)
+    tot = len(gruppi)
+    base = 3.25
+    for k, codes in enumerate(gruppi):
+        n = len(codes)
+        span = 6 / n
+        body = el("h6", f"{titolo} — tav. {k + 1}/{tot}", .5, .45) + el("bignum sm", f"{k + 1:02d}", 5.4, .3)
+        for i, c in enumerate(codes):
+            c0 = .5 + i * span
+            cx = c0 + span / 2
+            hh = min(h if n == 2 else h * .85, base * R - max_top)
+            a1, b1, a2, b2, nn = CB[c]
+            tall = n == 2 and (b2 - b1) / (a2 - a1) > 1.8
+            if tall:
+                cx = c0 + span * .3
+            html, l, r, t = quote(c, cx, base, hh, span * C - 18)
+            body += html
+            t_, tip, sett = PROGETTI[c]
+            x0 = g(c0, 0)[0]
+            if tall:
+                # espositore alto: dettaglio grande a fianco, collegato con una linea
+                dw = 50
+                dx_ = x0 + span * C - dw - 8
+                dy_ = t + 6
+                body += dettaglio(c, dx_, dy_, dw, dw * 1.1, zoom=1.9)
+                body += (f'<svg class="ov" viewBox="0 0 {W} {H}" style="{bx(0, 0, W, H)}"><line x1="{r - 4:.1f}" y1="{t + 14:.1f}" '
+                         f'x2="{dx_:.1f}" y2="{dy_ + dw * .55:.1f}" stroke="#8C8C8C" stroke-width=".22"/>'
+                         f'<circle cx="{r - 4:.1f}" cy="{t + 14:.1f}" r=".8" fill="#141414"/></svg>')
+                body += el("gcode", cid(c), c0 + .12, 3.55)
+                body += el("capline", f"<b>{t_}</b>{tip}<br>{sett} · {TBD('[materiale]')}", c0 + .12, 3.78, span * .9)
+            else:
+                dw = min(span * C * .34, 40)
+                body += dettaglio(c, x0 + span * C - dw - 6, g(0, 3.52)[1], dw, dw * .8)
+                body += el("gcode", cid(c), c0 + .12, 3.55)
+                cw = (span * C - dw - 16) / C
+                body += el("capline", f"<b>{t_}</b>{tip}<br>{sett} · {TBD('[materiale]')}", c0 + .12, 3.78, cw)
         pages.append(body)
     return pages
 
@@ -263,10 +320,11 @@ def build():
                progetto("01", "B02", "B13", "B09", "B07"),
                progetto("02", "B11", "B12", "B14", "B16"),
                progetto("03", "B10", "B15", "B05", "B05", cut="B06"),
-               tuple(gamma("Gamma da banco", banco, 5, 2, 44, "Tutti i progetti della sezione, in scala relativa sulla griglia.")),
+               *zip(*[iter(tavole("Gamma da banco", [["B01", "B05", "B17"], ["B02", "B08"], ["B03", "B13", "B06"], ["B04", "B15"],
+                                                   ["B10", "B11", "B12"], ["B14", "B16"], ["B07", "B09", "B18"], ["B19", "B20"]], 118))] * 2),
                sezione("Espositori da terra", ["T01", "T02", "T05", "T03", "T06"]),
                progetto_terra("04", "T07", "T08", "T04"),
-               tuple(gamma("Gamma da terra", terra, 4, 1, 128, "Colonne, totem e podi: altezze e ingombri a confronto."))]
+               *zip(*[iter(tavole("Gamma da terra", [["T01", "T02"], ["T03", "T04"], ["T05", "T06"], ["T07", "T08"]], 108))] * 2)]
     for a, b in spreads:
         pages += [a, b]
     pages += [contatti(), photo_page("B04"), retro()]
