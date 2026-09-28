@@ -101,7 +101,6 @@ const I18N = {
     "instagram.note": "Anteprima: i post live arriveranno collegando l'account. Nel frattempo ogni riquadro porta già al profilo vero.",
     "instagram.treviso.eyebrow": "@trevisounited",
     "instagram.treviso.title": "Segui il Treviso United su Instagram",
-    "instagram.treviso.note": "Una selezione di scatti dal campo — ogni foto porta al profilo Instagram ufficiale.",
 
     "footer.blurb": "Il brand e la community di chi vive lo sport come stile di vita.",
     "footer.shop.title": "Shop",
@@ -223,7 +222,6 @@ const I18N = {
     "instagram.note": "Preview: live posts will show up once the account is connected. Each tile already links to the real profile.",
     "instagram.treviso.eyebrow": "@trevisounited",
     "instagram.treviso.title": "Follow Treviso United on Instagram",
-    "instagram.treviso.note": "A selection of shots from the pitch — every photo links to the official Instagram profile.",
 
     "footer.blurb": "The brand and community for people who live sport as a lifestyle.",
     "footer.shop.title": "Shop",

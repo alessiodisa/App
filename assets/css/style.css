@@ -522,7 +522,7 @@ ul { margin: 0; padding: 0; list-style: none; }
    ========================================================================== */
 .squad{
   background: var(--gray-100);
-  padding: 110px 0 130px;
+  padding: 110px 0 40px;
 }
 .squad-hero{
   position: relative;
@@ -861,6 +861,7 @@ ul { margin: 0; padding: 0; list-style: none; }
    Instagram carousel
    ========================================================================== */
 .instagram{ padding:110px 0 64px; }
+#instagram-treviso{ padding-top:40px; }
 .instagram .container{ margin-bottom:40px; }
 .instagram .eyebrow{ display:block; }
 .instagram-head{
