@@ -33,7 +33,7 @@ def clean_text(s):
     return html.unescape(s) if isinstance(s, str) else s
 
 BASE = "https://calciotto.tv/wp-json/sportspress/v2"
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; UnitedHubSiteBot/1.0)"}
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; UnitedSiteBot/1.0)"}
 TEAM_SLUG = "treviso-united-c8"
 LEAGUE_SLUG = "serie-a-2026-2027"
 SEASON_SLUG = "2026-2027"
