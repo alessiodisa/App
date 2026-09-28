@@ -357,11 +357,13 @@
         }).slice(0, 5);
         scorers.innerHTML = topScorers.map(function (p, i) {
           var goals = (p.stats && p.stats.goals) || 0;
+          var motm = (p.stats && p.stats.motm) || 0;
           var goalLabel = lang === "en" ? (goals === 1 ? "goal" : "goals") : "gol";
+          var statLine = goals + " " + goalLabel + " · " + motm + " MVP";
           return '<div class="campionato-player"><span class="campionato-num">' + (i + 1) +
             '</span><span class="campionato-info"><span class="campionato-name">' + escapeHtml(p.name) +
             '</span><span class="campionato-pos">' + escapeHtml(p.position_label || "") +
-            '</span></span><span class="campionato-stats">' + goals + " " + goalLabel + "</span></div>";
+            '</span></span><span class="campionato-stats">' + statLine + "</span></div>";
         }).join("");
       } else {
         scorers.innerHTML = "";
