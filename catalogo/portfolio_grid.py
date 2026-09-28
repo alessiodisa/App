@@ -145,8 +145,8 @@ def introduzione():
     idx = lambda cs: "".join(f"<li>{PROGETTI[c][0]}<span>{p:02d}</span></li>" for c, p in cs)
     dx = (el("h2", "Indice", .5, .95)
           + el("h5", "Espositori da banco", .5, 1.4) + el("index", idx([("B01", 6), ("B02", 8), ("B11", 10), ("B10", 12)]) + "<li>Gamma completa<span>14</span></li>", .5, 1.55, 2.4)
-          + el("h5", "Espositori da terra", .5, 2.75) + el("index", idx([("T05", 22), ("T04", 24)]) + "<li>Gamma completa<span>26</span></li>", .5, 2.9, 2.4)
-          + el("h5", "Contatti", .5, 3.7) + el("index", "<li>Parliamone<span>30</span></li>", .5, 3.85, 2.4)
+          + el("h5", "Espositori da terra", .5, 2.75) + el("index", idx([("T05", 20), ("T04", 22)]) + "<li>Gamma completa<span>24</span></li>", .5, 2.9, 2.4)
+          + el("h5", "Contatti", .5, 3.7) + el("index", "<li>Parliamone<span>28</span></li>", .5, 3.85, 2.4)
           + photo("T05", 4.2, .45, 6.55, 4.55, fy=.45))
     return sx, dx
 
@@ -223,16 +223,6 @@ def progetto_terra(num, a, b, cut):
     return sx, dx
 
 
-def dettaglio(code, x, y, w, h, fy=.12, zoom=2.6):
-    """Ingrandimento di una parte dell'espositore (dalla scontornata), su fondo da studio."""
-    a1, b1, a2, b2, n = CB[code]
-    s = (w / ((a2 - a1) / n)) * zoom / 1.6
-    ix = w / 2 - (a1 + a2) / 2 / n * s
-    iy = h * .45 - (b1 + (b2 - b1) * fy) / n * s
-    return (f'<div class="frame studio det" style="{bx(x, y, w, h)}">'
-            f'<img src="img/scontornate/{code}.png" style="{bx(ix, iy, s, s)}" alt=""></div>')
-
-
 def quote(code, cx_col, bottom_row, h, max_w):
     """Espositore scontornato con quote di altezza e larghezza (valori da completare).
     Ritorna (html, sinistra, destra, alto) in mm."""
@@ -253,11 +243,11 @@ def quote(code, cx_col, bottom_row, h, max_w):
     return scontornata(code, cx_col, bottom_row, h) + q, l, r, t
 
 
-def tavole(titolo, gruppi, h, max_top=34):
-    """Tavole di gamma: 2 o 3 espositori grandi per pagina, con quote, dettaglio ingrandito e dati."""
+def tavole(titolo, gruppi, h, max_top=30):
+    """Tavole di gamma: espositori scontornati grandi appoggiati sulla griglia, con quote e dati."""
     pages = []
     tot = len(gruppi)
-    base = 3.25
+    base = 3.35
     for k, codes in enumerate(gruppi):
         n = len(codes)
         span = 6 / n
@@ -265,32 +255,12 @@ def tavole(titolo, gruppi, h, max_top=34):
         for i, c in enumerate(codes):
             c0 = .5 + i * span
             cx = c0 + span / 2
-            hh = min(h if n == 2 else h * .85, base * R - max_top)
-            a1, b1, a2, b2, nn = CB[c]
-            tall = n == 2 and (b2 - b1) / (a2 - a1) > 1.8
-            if tall:
-                cx = c0 + span * .3
-            html, l, r, t = quote(c, cx, base, hh, span * C - 18)
+            hh = min(h * {2: 1, 3: .9, 4: .75}[n], base * R - max_top)
+            html, l, r, t = quote(c, cx, base, hh, span * C - 16)
             body += html
             t_, tip, sett = PROGETTI[c]
-            x0 = g(c0, 0)[0]
-            if tall:
-                # espositore alto: dettaglio grande a fianco, collegato con una linea
-                dw = 50
-                dx_ = x0 + span * C - dw - 8
-                dy_ = t + 6
-                body += dettaglio(c, dx_, dy_, dw, dw * 1.1, zoom=1.9)
-                body += (f'<svg class="ov" viewBox="0 0 {W} {H}" style="{bx(0, 0, W, H)}"><line x1="{r - 4:.1f}" y1="{t + 14:.1f}" '
-                         f'x2="{dx_:.1f}" y2="{dy_ + dw * .55:.1f}" stroke="#8C8C8C" stroke-width=".22"/>'
-                         f'<circle cx="{r - 4:.1f}" cy="{t + 14:.1f}" r=".8" fill="#141414"/></svg>')
-                body += el("gcode", cid(c), c0 + .12, 3.55)
-                body += el("capline", f"<b>{t_}</b>{tip}<br>{sett} · {TBD('[materiale]')}", c0 + .12, 3.78, span * .9)
-            else:
-                dw = min(span * C * .34, 40)
-                body += dettaglio(c, x0 + span * C - dw - 6, g(0, 3.52)[1], dw, dw * .8)
-                body += el("gcode", cid(c), c0 + .12, 3.55)
-                cw = (span * C - dw - 16) / C
-                body += el("capline", f"<b>{t_}</b>{tip}<br>{sett} · {TBD('[materiale]')}", c0 + .12, 3.78, cw)
+            body += el("gcode", cid(c), c0 + .12, 3.62)
+            body += el("capline", f"<b>{t_}</b>{tip}<br>{sett} · {TBD('[materiale]')}", c0 + .12, 3.85, span - .3)
         pages.append(body)
     return pages
 
@@ -320,11 +290,11 @@ def build():
                progetto("01", "B02", "B13", "B09", "B07"),
                progetto("02", "B11", "B12", "B14", "B16"),
                progetto("03", "B10", "B15", "B05", "B05", cut="B06"),
-               *zip(*[iter(tavole("Gamma da banco", [["B01", "B05", "B17"], ["B02", "B08"], ["B03", "B13", "B06"], ["B04", "B15"],
-                                                   ["B10", "B11", "B12"], ["B14", "B16"], ["B07", "B09", "B18"], ["B19", "B20"]], 118))] * 2),
+               *zip(*[iter(tavole("Gamma da banco", [["B01", "B05", "B17"], ["B02", "B08", "B03"], ["B13", "B06", "B16"], ["B04", "B15", "B19"],
+                                                   ["B10", "B11", "B12", "B14"], ["B07", "B09", "B18", "B20"]], 128))] * 2),
                sezione("Espositori da terra", ["T01", "T02", "T05", "T03", "T06"]),
                progetto_terra("04", "T07", "T08", "T04"),
-               *zip(*[iter(tavole("Gamma da terra", [["T01", "T02"], ["T03", "T04"], ["T05", "T06"], ["T07", "T08"]], 108))] * 2)]
+               *zip(*[iter(tavole("Gamma da terra", [["T01", "T02"], ["T03", "T04"], ["T05", "T06"], ["T07", "T08"]], 128))] * 2)]
     for a, b in spreads:
         pages += [a, b]
     pages += [contatti(), photo_page("B04"), retro()]

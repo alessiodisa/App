@@ -76,4 +76,3 @@ html, body { background: #7D7A76; font-family: var(--body); color: var(--ink);
 .gcode { font: 800 16pt/1 var(--disp); color: var(--ink); letter-spacing: -.01em; }
 .ov { pointer-events: none; overflow: visible; }
 .dim { font: 600 2.1px var(--disp); fill: #8C8C8C; letter-spacing: .1px; }
-.frame.det { outline: .25mm solid #BDBDBB; }
