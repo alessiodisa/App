@@ -1,0 +1,12 @@
+/* Variante A4 verticale: si carica dopo portfolio.css */
+@page { size: 210mm 297mm; margin: 0; }
+.page { width: 210mm; height: 297mm; }
+.book { display: grid; grid-template-columns: repeat(2, 210mm); justify-content: center; gap: 12mm; }
+@media print { .book { display: block; } }
+.h3 { font: 600 11pt/1.15 var(--head); letter-spacing: -.015em; margin-top: 1mm; }
+.cart.narrow { grid-template-columns: 14mm 1fr; }
+.cart.narrow dt, .cart.narrow dd { font-size: 6.2pt; }
+.idx3 { list-style: none; columns: 3; column-gap: 5mm; font-size: 6pt; }
+.idx3 li { display: flex; gap: 1.5mm; border-top: .2mm solid var(--line); padding: .8mm 0; break-inside: avoid; }
+.idx3 b { font: 500 5.6pt/1.4 var(--mono); color: var(--acc); width: 8mm; }
+.idx3 span { margin-left: auto; font: 400 5.6pt/1.4 var(--mono); color: var(--mute); }
