@@ -24,15 +24,18 @@ def meta(code):
 # pagine
 # --------------------------------------------------------------------------
 def copertina():
+    x, y = g(2.35, .75)
     return (el("small", "Vol. 01 — 2026", .35, .45)
             + el("small right", "Progettato e prodotto da", 2.5, .45, 2.15) + el("h3 right", AZ, 2.5, .62, 2.15)
-            + el("light-t xl", "Espositori", .35, 2.55) + el("cover-t", "Portfolio", .3, 2.95)
+            + f'<img class="drawing" src="img/esploso-terra.svg" style="left:{x:.1f}mm;top:{y:.1f}mm;height:190mm" alt="">'
             + el("small", "Cartotecnica ed espositori per il punto vendita: progettazione, prototipazione e produzione. "
-                 "Cartone, cartoncino e materiali durevoli.", .35, 3.75, 2.6)
+                 "Cartone, cartoncino e materiali durevoli.", .35, 1.3, 1.9)
+            + el("capline", "<b>Fig. 01</b>Espositore da terra — vista esplosa", .35, 4.2, 1.9)
+            + el("light-t xl", "Espositori", .35, 4.85) + el("cover-t", "Portfolio", .3, 5.15)
             + el("h5", "Telefono", .35, 6.15) + el("small", TBD("+39 000 000 0000"), .35, 6.3)
             + el("h5", "Email", 1.8, 6.15) + el("small", TBD("info@azienda.it"), 1.8, 6.3)
             + el("h5", "Indirizzo", 3.2, 6.15) + el("small", TBD("Via Esempio 1, Città"), 3.2, 6.3, 1.45)
-            + plus(1, 1) + plus(4, 1) + plus(1, 5) + plus(4, 5))
+            + plus(1, 1) + plus(1, 4) + plus(4, 6))
 
 
 def introduzione():
