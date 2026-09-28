@@ -8,551 +8,356 @@
 <link rel="stylesheet" href="catalogo.css">
 </head>
 <body>
-<!--
-  COME SOSTITUIRE UNA FOTO:
-  <div class="ph" data-label="..."><span class="n">F01</span></div>
-  diventa
-  <div class="ph"><img src="img/nome-file.jpg" alt=""></div>
-  Le parti evidenziate (class="tbd") sono testi/dati da confermare.
--->
+<!-- File generato da build.py: modificare i contenuti lì, non qui. -->
 <main class="book">
-
-<!-- ============ 01 · COPERTINA ============ -->
-<section class="page cover kraft">
-  <div class="brand">
-    <span class="logo tbd">[Nome Azienda]</span>
-    <span class="eyebrow">Portfolio · Vol. 01 · 2026</span>
-  </div>
-
-  <svg class="dieline" viewBox="0 0 200 212" preserveAspectRatio="xMidYMid meet">
-    <g fill="none" stroke-linejoin="round">
-      <!-- taglio -->
-      <path stroke="#151515" stroke-width=".7"
-        d="M60,40 Q100,14 140,40 L140,110 L170,110 L170,125 L182,125 L182,160 L170,160 L170,170 L140,170 L140,192 L60,192 L60,170 L30,170 L30,160 L18,160 L18,125 L30,125 L30,110 L60,110 Z"/>
-      <rect x="82" y="52" width="36" height="22" rx="3" stroke="#151515" stroke-width=".7"/>
-      <!-- cordonatura -->
-      <path stroke="#E5412D" stroke-width=".7" stroke-dasharray="3 2"
-        d="M60,110 H140 M60,170 H140 M60,110 V170 M140,110 V170 M30,125 V160 M170,125 V160 M60,40 V110 M140,40 V110"/>
-      <!-- quote -->
-      <g stroke="#151515" stroke-width=".3">
-        <path d="M60,200 H140 M60,197 V203 M140,197 V203"/>
-        <path d="M192,40 V192 M189,40 H195 M189,192 H195"/>
-      </g>
-    </g>
-    <g font-family="IBM Plex Mono, monospace" font-size="3.6" fill="#151515" letter-spacing=".3">
-      <text x="100" y="206" text-anchor="middle">400 mm</text>
-      <text x="197" y="118" transform="rotate(90 197 118)" text-anchor="middle">760 mm</text>
-      <text x="100" y="142" text-anchor="middle">BASE</text>
-      <text x="100" y="98" text-anchor="middle">HEADER</text>
-      <text x="44" y="144" text-anchor="middle">FIANCO</text>
-      <text x="156" y="144" text-anchor="middle">FIANCO</text>
-      <text x="100" y="183" text-anchor="middle">FRONTALE</text>
-    </g>
-  </svg>
-
-  <div class="title">
-    <div class="eyebrow" style="margin-bottom:4mm">Cartotecnica · Espositori · Materiali durevoli</div>
-    <div class="display">Ogni prodotto<br>merita un palco.</div>
-  </div>
-  <div class="bottom mono">
-    <span>— taglio &nbsp;&nbsp; <span class="red">- - -</span> cordonatura</span>
-    <span>Scala 1:5</span>
-  </div>
-</section>
-
-<!-- ============ 02 · MANIFESTO ============ -->
-<section class="page dark">
-  <div class="run"><span class="tbd">[Nome Azienda]</span><span>Manifesto</span></div>
-  <div class="pad" style="display:flex;flex-direction:column;justify-content:center;">
-    <div class="eyebrow red" style="margin-bottom:8mm">00 — Manifesto</div>
-    <div class="h1" style="font-size:44pt">Uno scaffale<br>è solo uno<br>scaffale.<br><span class="red">Finché non<br>arriviamo noi.</span></div>
-    <p class="lead" style="margin-top:12mm;max-width:150mm">Progettiamo, prototipiamo e produciamo espositori in cartotecnica e materiali durevoli che trasformano il punto vendita in un momento di scelta. Dall'idea al pallet pronto a partire, tutto sotto lo stesso tetto.</p>
-  </div>
-  <div class="folio"><span>02</span><span>Portfolio 2026</span></div>
-</section>
-
-<!-- ============ 03 · INDICE ============ -->
-<section class="page">
-  <div class="run"><span class="tbd">[Nome Azienda]</span><span>Indice</span></div>
-  <div class="pad" style="top:30mm">
-    <div class="h1">Indice</div>
-    <ul class="toc">
-      <li><span class="mono">04</span><span class="t">Chi siamo</span><span class="mono">In numeri</span></li>
-      <li><span class="mono">06</span><span class="t">Il processo</span><span class="mono">5 fasi</span></li>
-      <li><span class="mono">08</span><span class="t">Materiali &amp; finiture</span><span class="mono">7 + 8</span></li>
-      <li><span class="mono">10</span><span class="t">Tipologie</span><span class="mono">8 formati</span></li>
-      <li><span class="mono">12</span><span class="t"><i class="dot" style="background:var(--cosmetica)"></i>Cosmetica</span><span class="mono">Sez. 01</span></li>
-      <li><span class="mono">16</span><span class="t"><i class="dot" style="background:var(--farma)"></i>Farmaceutica</span><span class="mono">Sez. 02</span></li>
-      <li><span class="mono">20</span><span class="t"><i class="dot" style="background:var(--alimentare)"></i>Alimentare</span><span class="mono">Sez. 03</span></li>
-      <li><span class="mono">24</span><span class="t"><i class="dot" style="background:var(--oggettistica)"></i>Oggettistica</span><span class="mono">Sez. 04</span></li>
-      <li><span class="mono">28</span><span class="t">Sostenibilità</span><span class="mono">Filiera</span></li>
-      <li><span class="mono">29</span><span class="t">Altri settori</span><span class="mono">+6</span></li>
-      <li><span class="mono">30</span><span class="t">Su misura &amp; contatti</span><span class="mono">Brief</span></li>
-    </ul>
-  </div>
-  <div class="folio"><span>03</span><span>Portfolio 2026</span></div>
-</section>
-
-<!-- ============ 04 · CHI SIAMO ============ -->
-<section class="page">
-  <div class="run"><span class="tbd">[Nome Azienda]</span><span>Chi siamo</span></div>
-  <div class="ph" style="position:absolute;left:0;right:0;top:0;height:170mm" data-label="Foto stabilimento / reparto produzione — ampia, luce naturale, macchine in funzione"><span class="n">F01</span></div>
-  <div class="pad" style="top:182mm">
-    <div class="eyebrow red">01 — Chi siamo</div>
-    <div class="h2" style="margin:4mm 0 5mm">Mani esperte, macchine precise, idee su misura.</div>
-    <p class="small" style="column-count:2;column-gap:8mm">Dal <span class="tbd">[anno]</span> a <span class="tbd">[città]</span> realizziamo cartotecnica ed espositori per il punto vendita. Seguiamo ogni progetto internamente: ufficio tecnico, campionatura, stampa, fustellatura, incollaggio e confezionamento. Lavoriamo con brand della cosmetica, della farmaceutica, dell'alimentare e dell'oggettistica, in Italia e all'estero, con la stessa cura per la tiratura da cento pezzi e per quella da diecimila.</p>
-  </div>
-  <div class="folio"><span>04</span><span>Portfolio 2026</span></div>
-</section>
-
-<!-- ============ 05 · NUMERI ============ -->
-<section class="page kraft">
-  <div class="run"><span class="tbd">[Nome Azienda]</span><span>In numeri</span></div>
-  <div class="pad" style="top:30mm">
-    <div class="h1">In numeri</div>
-    <div class="stats">
-      <div><b class="tbd">35+</b><span class="mono">Anni di esperienza</span></div>
-      <div><b class="tbd">400</b><span class="mono">Progetti all'anno</span></div>
-      <div><b class="tbd">6.000</b><span class="mono">m² di stabilimento</span></div>
-      <div><b>100%</b><span class="mono">Progettato e prodotto internamente</span></div>
-      <div><b class="tbd">5 gg</b><span class="mono">Dal brief al primo prototipo</span></div>
-      <div><b class="tbd">12</b><span class="mono">Paesi in cui arrivano i nostri espositori</span></div>
-    </div>
-  </div>
-  <div class="folio"><span>05</span><span>Portfolio 2026</span></div>
-</section>
-
-<!-- ============ 06–07 · PROCESSO ============ -->
-<section class="page">
-  <div class="run"><span class="tbd">[Nome Azienda]</span><span>Il processo</span></div>
-  <div class="pad" style="top:30mm">
-    <div class="eyebrow red">02 — Il processo</div>
-    <div class="h1" style="margin-top:4mm">Dall'idea<br>al pallet.</div>
-    <p class="lead" style="margin-top:8mm;max-width:120mm">Un unico interlocutore per tutta la filiera. Meno passaggi, meno tempi morti, più controllo sul risultato.</p>
-  </div>
-  <div class="ph" style="position:absolute;left:var(--m);right:0;top:128mm;height:90mm" data-label="Foto: tavolo tecnico con prototipi bianchi, tracciati CAD, plotter da taglio"><span class="n">F02</span></div>
-  <div class="steps" style="bottom:22mm">
-    <div class="step"><div class="num">01</div><div class="bar"></div><div class="h3">Brief</div><p class="small muted">Obiettivi, prodotto, punto vendita, budget e tempi.</p></div>
-    <div class="step"><div class="num">02</div><div class="bar"></div><div class="h3">Concept 3D</div><p class="small muted">Progetto strutturale e grafico, render e tracciati.</p></div>
-    <div class="step"><div class="num">03</div><div class="bar"></div><div class="h3">Prototipo</div><p class="small muted">Campione bianco e stampato, test di carico e montaggio.</p></div>
-  </div>
-  <div class="folio"><span>06</span><span>Portfolio 2026</span></div>
-</section>
-
-<section class="page">
-  <div class="run"><span></span><span>Il processo</span></div>
-  <div class="ph" style="position:absolute;left:0;right:var(--m);top:var(--m);height:202mm" data-label="Foto: linea di produzione — fustellatrice / incollatrice / pallet pronti"><span class="n">F03</span></div>
-  <div class="steps" style="bottom:22mm;grid-template-columns:repeat(2,1fr) 1fr;left:0">
-    <div class="step" style="padding-left:6mm"><div class="num">04</div><div class="bar"></div><div class="h3">Produzione</div><p class="small muted">Stampa, fustellatura, accoppiatura, incollaggio: tutto in casa.</p></div>
-    <div class="step"><div class="num">05</div><div class="bar"></div><div class="h3">Consegna</div><p class="small muted">Confezionamento, spedizione piatta o premontata, allestimento.</p></div>
-    <div class="step"><p class="mono" style="margin-top:14mm">Tempo medio<br>brief → consegna<br><b class="tbd" style="font-size:14pt;font-family:var(--sans)">3–5 settimane</b></p></div>
-  </div>
-  <div class="folio"><span>07</span><span>Portfolio 2026</span></div>
-</section>
-
-<!-- ============ 08 · MATERIALI ============ -->
-<section class="page">
-  <div class="run"><span class="tbd">[Nome Azienda]</span><span>Materiali</span></div>
-  <div class="pad" style="top:30mm">
-    <div class="eyebrow red">03 — Materiali</div>
-    <div class="h1" style="margin-top:4mm">Carta, e oltre.</div>
-  </div>
-  <div class="mats">
-    <div class="mat"><div class="ph" data-label="Macro: sezione cartone ondulato"><span class="n">F04</span></div><div><h4>Cartone ondulato</h4><p class="mono muted">Onda E · B · BC — leggero, resistente, riciclabile</p></div></div>
-    <div class="mat"><div class="ph" data-label="Macro: cartoncino teso stampato"><span class="n">F05</span></div><div><h4>Cartoncino teso</h4><p class="mono muted">Da 300 a 600 g/m² — resa di stampa premium</p></div></div>
-    <div class="mat"><div class="ph" data-label="Macro: pannello alveolare"><span class="n">F06</span></div><div><h4>Cartone alveolare</h4><p class="mono muted">Honeycomb — strutture portanti a basso peso</p></div></div>
-    <div class="mat"><div class="ph" data-label="Macro: forex / PVC espanso"><span class="n">F07</span></div><div><h4>Forex &amp; PVC</h4><p class="mono muted">Espositori semi-permanenti, stampa diretta UV</p></div></div>
-    <div class="mat"><div class="ph" data-label="Macro: plexiglass trasparente / colorato"><span class="n">F08</span></div><div><h4>Plexiglass</h4><p class="mono muted">PMMA trasparente, satinato, colorato</p></div></div>
-    <div class="mat"><div class="ph" data-label="Macro: legno / MDF / metallo"><span class="n">F09</span></div><div><h4>Legno, MDF &amp; metallo</h4><p class="mono muted">Per il permanente e l'arredo negozio</p></div></div>
-  </div>
-  <div class="folio"><span>08</span><span>Portfolio 2026</span></div>
-</section>
-
-<!-- ============ 09 · FINITURE ============ -->
-<section class="page dark">
-  <div class="run"><span></span><span>Finiture</span></div>
-  <div class="ph" style="position:absolute;left:0;right:0;top:0;height:150mm;--ph:#3A3833" data-label="Macro: dettaglio lamina a caldo oro + UV a rilievo su soft-touch nero"><span class="n">F10</span></div>
-  <div class="pad" style="top:162mm">
-    <div class="h2">La differenza si vede<br>(e si tocca).</div>
-    <div class="pillars" style="position:static;margin-top:8mm;grid-template-columns:1fr 1fr 1fr 1fr;column-gap:5mm">
-      <div><div class="h3">Offset</div><p class="mono muted">Fino a 6 colori + vernice</p></div>
-      <div><div class="h3">Digitale</div><p class="mono muted">Tirature brevi e personalizzate</p></div>
-      <div><div class="h3">Serigrafia</div><p class="mono muted">Colori pieni, supporti rigidi</p></div>
-      <div><div class="h3">UV selettiva</div><p class="mono muted">Lucido/opaco, effetto rilievo</p></div>
-      <div><div class="h3">Lamina a caldo</div><p class="mono muted">Oro, argento, olografica</p></div>
-      <div><div class="h3">Soft-touch</div><p class="mono muted">Plastificazione vellutata</p></div>
-      <div><div class="h3">Rilievo a secco</div><p class="mono muted">Goffratura e debossing</p></div>
-      <div><div class="h3">Fustelle speciali</div><p class="mono muted">Sagome, finestre, incastri</p></div>
-    </div>
-  </div>
-  <div class="folio"><span>09</span><span>Portfolio 2026</span></div>
-</section>
-
-<!-- ============ 10–11 · TIPOLOGIE ============ -->
-<section class="page">
-  <div class="run"><span class="tbd">[Nome Azienda]</span><span>Tipologie</span></div>
-  <div class="pad" style="top:30mm">
-    <div class="eyebrow red">04 — Tipologie</div>
-    <div class="h1" style="margin-top:4mm">Otto modi<br>di farsi notare.</div>
-  </div>
-  <div class="types" style="grid-template-rows:repeat(2,1fr);top:104mm;right:6mm">
-    <div class="type">
-      <svg viewBox="0 0 60 74"><path d="M14,40 V14 Q30,6 46,14 V40"/><path d="M10,40 H50 V66 H10 Z"/><rect class="d" x="15" y="46" width="8" height="20"/><rect class="d" x="26" y="46" width="8" height="20"/><rect class="d" x="37" y="46" width="8" height="20"/></svg>
-      <div><div class="h3">Da banco</div><p class="small muted">Vicino alla cassa, dove si decide d'impulso. Compatti, stampabili su ogni lato.</p></div>
-    </div>
-    <div class="type">
-      <svg viewBox="0 0 60 74"><path d="M14,4 Q30,-2 46,4 V70 H14 Z"/><path class="d" d="M14,24 H46 M14,40 H46 M14,56 H46"/></svg>
-      <div><div class="h3">Da terra</div><p class="small muted">Multipiano, con header e crowner. Il classico che funziona.</p></div>
-    </div>
-    <div class="type">
-      <svg viewBox="0 0 60 74"><path d="M22,4 H38 V68 H22 Z"/><path d="M14,68 H46 V72 H14 Z"/><path class="d" d="M22,20 H38"/></svg>
-      <div><div class="h3">Totem</div><p class="small muted">Comunicazione verticale per ingressi, vetrine, eventi.</p></div>
-    </div>
-    <div class="type">
-      <svg viewBox="0 0 60 74"><path d="M8,28 H52 V62 H8 Z"/><path d="M6,62 H54 V68 H6 Z M12,68 V72 M30,68 V72 M48,68 V72"/><path class="d" d="M8,40 H52 M8,51 H52"/></svg>
-      <div><div class="h3">Pallet display</div><p class="small muted">Isole promozionali per la GDO, pronte all'uso su bancale.</p></div>
-    </div>
-  </div>
-  <div class="folio"><span>10</span><span>Portfolio 2026</span></div>
-</section>
-
-<section class="page">
-  <div class="run"><span></span><span>Tipologie</span></div>
-  <div class="pad" style="top:30mm;left:6mm"><p class="lead" style="margin-top:14mm">Ogni formato è un punto di partenza: forma, misura, materiale e grafica si adattano al prodotto e al punto vendita.</p></div>
-  <div class="types" style="grid-template-rows:repeat(2,1fr);top:104mm;left:6mm">
-    <div class="type">
-      <svg viewBox="0 0 60 74"><path d="M10,26 L14,68 H46 L50,26"/><path class="d" d="M10,26 H50"/><circle class="d" cx="22" cy="22" r="5"/><circle class="d" cx="34" cy="20" r="5"/><circle class="d" cx="42" cy="24" r="4"/></svg>
-      <div><div class="h3">Cestone</div><p class="small muted">Prodotti sfusi, promozioni, fuori banco.</p></div>
-    </div>
-    <div class="type">
-      <svg viewBox="0 0 60 74"><path d="M6,44 H54 V64 H6 Z"/><path class="d" d="M6,52 L16,44 M54,52 L44,44"/><rect x="12" y="30" width="9" height="14"/><rect x="25" y="30" width="9" height="14"/><rect x="38" y="30" width="9" height="14"/></svg>
-      <div><div class="h3">Shelf-ready</div><p class="small muted">Imballo che diventa espositore: si apre e va a scaffale.</p></div>
-    </div>
-    <div class="type">
-      <svg viewBox="0 0 60 74"><path d="M8,26 Q30,4 52,26 Z"/><path d="M10,26 H50 V70 H10 Z"/><path class="d" d="M10,40 H50 M10,55 H50"/></svg>
-      <div><div class="h3">Testate &amp; crowner</div><p class="small muted">Vestizione di gondole e scaffali esistenti.</p></div>
-    </div>
-    <div class="type">
-      <svg viewBox="0 0 60 74"><circle cx="30" cy="24" r="16"/><path d="M30,40 V62"/><rect x="24" y="62" width="12" height="6"/><path class="d" d="M20,24 H40"/></svg>
-      <div><div class="h3">Wobbler &amp; sagome</div><p class="small muted">Piccoli formati che fanno rumore: cartelli, sagome, stopper.</p></div>
-    </div>
-  </div>
-  <div class="folio"><span>11</span><span>Portfolio 2026</span></div>
-</section>
-
-<!-- ======================================================
-     SEZIONE 01 · COSMETICA (12–15)
-     ====================================================== -->
-<section class="page divider" style="background:var(--cosmetica)">
-  <div class="run"><span>Sezione 01</span><span>Cosmetica</span></div>
-  <div class="big">01</div>
-  <div class="tab" style="top:40mm"></div>
-  <div class="name">
-    <div class="display">Cosmetica</div>
-    <p class="lead" style="margin-top:5mm">Superfici che si toccano con gli occhi. Finiture preziose, dettagli millimetrici, colori fedeli al brand.</p>
-  </div>
-  <ul class="apps">
-    <li>Espositori da banco profumeria</li><li>Tester e make-up stand</li>
-    <li>Kit lancio &amp; PR box</li><li>Vetrine e allestimenti stagionali</li>
-  </ul>
-  <div class="folio"><span>12</span><span>Portfolio 2026</span></div>
-</section>
-
-<section class="page hero">
-  <div class="ph" data-label="Foto hero progetto cosmetica — ambientata nel punto vendita o still-life su fondo colore"><span class="n">C01</span></div>
-  <div class="card">
-    <div class="eyebrow red">Progetto in evidenza</div>
-    <div class="h2" style="margin:2mm 0 4mm"><span class="tbd">[Brand]</span> — lancio <span class="tbd">[linea]</span></div>
-    <dl class="spec">
-      <dt>Tipologia</dt><dd>Espositore da banco con tester</dd>
-      <dt>Materiale</dt><dd>Cartoncino teso 450 g + plexi</dd>
-      <dt>Finiture</dt><dd>Soft-touch, lamina oro</dd>
-      <dt>Formato</dt><dd><span class="tbd">40 × 30 × 45 cm</span></dd>
-    </dl>
-  </div>
-</section>
-
-<section class="page">
-  <div class="grid-a">
-    <div class="ph p1" data-label="Progetto 02 — vista frontale"><span class="n">C02</span></div>
-    <div class="ph" data-label="Progetto 02 — dettaglio finitura"><span class="n">C03</span></div>
-    <div class="ph" data-label="Progetto 03 — vista 3/4"><span class="n">C04</span></div>
-    <div class="captions">
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Espositore da terra 4 ripiani</dd><dt>Materiale</dt><dd>Microonda E, stampa offset</dd></dl>
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Totem con vano prodotto</dd><dt>Materiale</dt><dd>Forex 5 mm, stampa UV</dd></dl>
-    </div>
-  </div>
-  <div class="folio"><span>14</span><span>Cosmetica</span></div>
-</section>
-
-<section class="page">
-  <div class="grid-b">
-    <div class="ph p1" data-label="Progetto 04 — verticale, prodotto caricato"><span class="n">C05</span></div>
-    <div class="ph" data-label="Progetto 05 — still-life"><span class="n">C06</span></div>
-    <div class="ph" data-label="Progetto 05 — dettaglio"><span class="n">C07</span></div>
-    <div class="captions">
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Espositore da banco</dd><dt>Materiale</dt><dd>Plexiglass + cartoncino</dd></dl>
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>PR box con inserto sagomato</dd><dt>Materiale</dt><dd>Cartone rivestito, lamina</dd></dl>
-    </div>
-  </div>
-  <div class="folio"><span>15</span><span>Cosmetica</span></div>
-</section>
-
-<!-- ======================================================
-     SEZIONE 02 · FARMACEUTICA (16–19)
-     ====================================================== -->
-<section class="page divider" style="background:var(--farma)">
-  <div class="run"><span>Sezione 02</span><span>Farmaceutica</span></div>
-  <div class="big">02</div>
-  <div class="tab" style="top:78mm"></div>
-  <div class="name">
-    <div class="display">Farmaceutica</div>
-    <p class="lead" style="margin-top:5mm">Chiarezza, ordine, fiducia. Espositori pensati per il banco e la vetrina della farmacia, dove ogni centimetro conta.</p>
-  </div>
-  <ul class="apps">
-    <li>Espositori da banco farmacia</li><li>Vetrine stagionali</li>
-    <li>Da terra per parafarmacia</li><li>Materiali informativi &amp; leaflet holder</li>
-  </ul>
-  <div class="folio"><span>16</span><span>Portfolio 2026</span></div>
-</section>
-
-<section class="page hero">
-  <div class="ph" data-label="Foto hero progetto farmaceutica — banco farmacia o vetrina"><span class="n">P01</span></div>
-  <div class="card">
-    <div class="eyebrow red">Progetto in evidenza</div>
-    <div class="h2" style="margin:2mm 0 4mm"><span class="tbd">[Brand]</span> — vetrina <span class="tbd">[campagna]</span></div>
-    <dl class="spec">
-      <dt>Tipologia</dt><dd>Allestimento vetrina modulare</dd>
-      <dt>Materiale</dt><dd>Cartone alveolare + forex</dd>
-      <dt>Finiture</dt><dd>Stampa digitale UV</dd>
-      <dt>Formato</dt><dd><span class="tbd">120 × 40 × 180 cm</span></dd>
-    </dl>
-  </div>
-</section>
-
-<section class="page">
-  <div class="grid-a">
-    <div class="ph p1" data-label="Progetto 02 — vista frontale"><span class="n">P02</span></div>
-    <div class="ph" data-label="Progetto 02 — dettaglio"><span class="n">P03</span></div>
-    <div class="ph" data-label="Progetto 03 — vista 3/4"><span class="n">P04</span></div>
-    <div class="captions">
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Espositore da banco a gradini</dd><dt>Materiale</dt><dd>Microonda E, stampa offset</dd></dl>
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Da terra con header</dd><dt>Materiale</dt><dd>Onda BC, stampa digitale</dd></dl>
-    </div>
-  </div>
-  <div class="folio"><span>18</span><span>Farmaceutica</span></div>
-</section>
-
-<section class="page">
-  <div class="grid-b">
-    <div class="ph p1" data-label="Progetto 04 — verticale"><span class="n">P05</span></div>
-    <div class="ph" data-label="Progetto 05 — still-life"><span class="n">P06</span></div>
-    <div class="ph" data-label="Progetto 05 — dettaglio"><span class="n">P07</span></div>
-    <div class="captions">
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Totem informativo</dd><dt>Materiale</dt><dd>Forex, plexi</dd></dl>
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Leaflet holder da banco</dd><dt>Materiale</dt><dd>Cartoncino teso 400 g</dd></dl>
-    </div>
-  </div>
-  <div class="folio"><span>19</span><span>Farmaceutica</span></div>
-</section>
-
-<!-- ======================================================
-     SEZIONE 03 · ALIMENTARE (20–23)
-     ====================================================== -->
-<section class="page divider" style="background:var(--alimentare)">
-  <div class="run"><span>Sezione 03</span><span>Alimentare</span></div>
-  <div class="big">03</div>
-  <div class="tab" style="top:116mm"></div>
-  <div class="name">
-    <div class="display">Alimentare</div>
-    <p class="lead" style="margin-top:5mm">Reggere il carico, conquistare lo sguardo. Strutture robuste per la GDO, veloci da montare e da rifornire.</p>
-  </div>
-  <ul class="apps">
-    <li>Pallet &amp; half-pallet display</li><li>Testate di gondola</li>
-    <li>Shelf-ready packaging</li><li>Cestoni promozionali</li>
-  </ul>
-  <div class="folio"><span>20</span><span>Portfolio 2026</span></div>
-</section>
-
-<section class="page hero">
-  <div class="ph" data-label="Foto hero progetto alimentare — isola promozionale in GDO"><span class="n">A01</span></div>
-  <div class="card">
-    <div class="eyebrow red">Progetto in evidenza</div>
-    <div class="h2" style="margin:2mm 0 4mm"><span class="tbd">[Brand]</span> — promo <span class="tbd">[stagione]</span></div>
-    <dl class="spec">
-      <dt>Tipologia</dt><dd>Pallet display 4 lati</dd>
-      <dt>Materiale</dt><dd>Onda BC rinforzata</dd>
-      <dt>Portata</dt><dd><span class="tbd">250 kg</span></dd>
-      <dt>Formato</dt><dd><span class="tbd">80 × 120 × 160 cm</span></dd>
-    </dl>
-  </div>
-</section>
-
-<section class="page">
-  <div class="grid-a">
-    <div class="ph p1" data-label="Progetto 02 — vista frontale"><span class="n">A02</span></div>
-    <div class="ph" data-label="Progetto 02 — dettaglio"><span class="n">A03</span></div>
-    <div class="ph" data-label="Progetto 03 — vista 3/4"><span class="n">A04</span></div>
-    <div class="captions">
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Testata di gondola</dd><dt>Materiale</dt><dd>Onda B, stampa offset</dd></dl>
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Shelf-ready tray</dd><dt>Materiale</dt><dd>Microonda E, flexo</dd></dl>
-    </div>
-  </div>
-  <div class="folio"><span>22</span><span>Alimentare</span></div>
-</section>
-
-<section class="page">
-  <div class="grid-b">
-    <div class="ph p1" data-label="Progetto 04 — verticale"><span class="n">A05</span></div>
-    <div class="ph" data-label="Progetto 05 — still-life"><span class="n">A06</span></div>
-    <div class="ph" data-label="Progetto 05 — dettaglio"><span class="n">A07</span></div>
-    <div class="captions">
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Cestone promozionale</dd><dt>Materiale</dt><dd>Onda BC, stampa digitale</dd></dl>
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Espositore da banco cassa</dd><dt>Materiale</dt><dd>Cartoncino teso, offset</dd></dl>
-    </div>
-  </div>
-  <div class="folio"><span>23</span><span>Alimentare</span></div>
-</section>
-
-<!-- ======================================================
-     SEZIONE 04 · OGGETTISTICA (24–27)
-     ====================================================== -->
-<section class="page divider" style="background:var(--oggettistica)">
-  <div class="run"><span>Sezione 04</span><span>Oggettistica</span></div>
-  <div class="big">04</div>
-  <div class="tab" style="top:154mm"></div>
-  <div class="name">
-    <div class="display">Oggettistica</div>
-    <p class="lead" style="margin-top:5mm">Ogni oggetto, il suo spazio. Soluzioni flessibili per forme e dimensioni diverse, dal gadget al giocattolo.</p>
-  </div>
-  <ul class="apps">
-    <li>Espositori con ganci &amp; barre</li><li>Cartoleria &amp; regalo</li>
-    <li>Giocattoli &amp; licensing</li><li>Accessori &amp; piccola elettronica</li>
-  </ul>
-  <div class="folio"><span>24</span><span>Portfolio 2026</span></div>
-</section>
-
-<section class="page hero">
-  <div class="ph" data-label="Foto hero progetto oggettistica — espositore carico, colori forti"><span class="n">O01</span></div>
-  <div class="card">
-    <div class="eyebrow red">Progetto in evidenza</div>
-    <div class="h2" style="margin:2mm 0 4mm"><span class="tbd">[Brand]</span> — <span class="tbd">[collezione]</span></div>
-    <dl class="spec">
-      <dt>Tipologia</dt><dd>Da terra con ganci e crowner</dd>
-      <dt>Materiale</dt><dd>Onda B + barre metalliche</dd>
-      <dt>Finiture</dt><dd>Stampa offset, plastificazione</dd>
-      <dt>Formato</dt><dd><span class="tbd">60 × 40 × 175 cm</span></dd>
-    </dl>
-  </div>
-</section>
-
-<section class="page">
-  <div class="grid-a">
-    <div class="ph p1" data-label="Progetto 02 — vista frontale"><span class="n">O02</span></div>
-    <div class="ph" data-label="Progetto 02 — dettaglio"><span class="n">O03</span></div>
-    <div class="ph" data-label="Progetto 03 — vista 3/4"><span class="n">O04</span></div>
-    <div class="captions">
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Espositore girevole da banco</dd><dt>Materiale</dt><dd>Cartoncino teso + base MDF</dd></dl>
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Sagoma a grandezza naturale</dd><dt>Materiale</dt><dd>Alveolare, stampa digitale</dd></dl>
-    </div>
-  </div>
-  <div class="folio"><span>26</span><span>Oggettistica</span></div>
-</section>
-
-<section class="page">
-  <div class="grid-b">
-    <div class="ph p1" data-label="Progetto 04 — verticale"><span class="n">O05</span></div>
-    <div class="ph" data-label="Progetto 05 — still-life"><span class="n">O06</span></div>
-    <div class="ph" data-label="Progetto 05 — dettaglio"><span class="n">O07</span></div>
-    <div class="captions">
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Totem con ripiani</dd><dt>Materiale</dt><dd>Legno + forex</dd></dl>
-      <dl class="spec"><dt>Progetto</dt><dd class="tbd">[Brand] · [nome]</dd><div class="fold"></div><dt>Tipologia</dt><dd>Box regalo con finestra</dd><dt>Materiale</dt><dd>Cartoncino teso, PET</dd></dl>
-    </div>
-  </div>
-  <div class="folio"><span>27</span><span>Oggettistica</span></div>
-</section>
-
-<!-- ============ 28 · SOSTENIBILITÀ ============ -->
-<section class="page kraft">
-  <div class="run"><span class="tbd">[Nome Azienda]</span><span>Sostenibilità</span></div>
-  <div class="pad" style="top:30mm">
-    <div class="eyebrow">05 — Sostenibilità</div>
-    <div class="h1" style="margin-top:4mm">Leggero<br>sul pianeta.</div>
-    <p class="lead" style="margin-top:8mm">La carta è il materiale da espositore più riciclato al mondo. Noi la progettiamo perché consumi meno, viaggi piatta e torni in circolo.</p>
-  </div>
-  <div class="pillars">
-    <div><div class="h3">Monomateriale</div><p class="small">Espositori 100% carta, riciclabili senza separazione.</p></div>
-    <div><div class="h3">Carte certificate</div><p class="small"><span class="tbd">FSC® / PEFC</span> su richiesta, filiera tracciata.</p></div>
-    <div><div class="h3">Meno sfridi</div><p class="small">Tracciati ottimizzati per il minimo scarto in fustellatura.</p></div>
-    <div><div class="h3">Spedizione piatta</div><p class="small">Meno volume, meno viaggi, meno CO<sub>2</sub>.</p></div>
-  </div>
-  <div class="folio"><span>28</span><span>Portfolio 2026</span></div>
-</section>
-
-<!-- ============ 29 · ALTRI SETTORI ============ -->
-<section class="page">
-  <div class="run"><span></span><span>Altri settori</span></div>
-  <div class="pad" style="top:30mm">
-    <div class="eyebrow red">06 — Altri settori</div>
-    <div class="h1" style="margin-top:4mm">E poi tutto il resto.</div>
-  </div>
-  <div class="sectors">
-    <div class="ph" data-label="Foto progetto"><span class="lbl">Beverage</span></div>
-    <div class="ph" data-label="Foto progetto"><span class="lbl">Elettronica</span></div>
-    <div class="ph" data-label="Foto progetto"><span class="lbl">Pet care</span></div>
-    <div class="ph" data-label="Foto progetto"><span class="lbl">Editoria</span></div>
-    <div class="ph" data-label="Foto progetto"><span class="lbl">Moda &amp; accessori</span></div>
-    <div class="ph" data-label="Foto progetto"><span class="lbl">Brico &amp; casa</span></div>
-  </div>
-  <div class="folio"><span>29</span><span>Portfolio 2026</span></div>
-</section>
-
-<!-- ============ 30 · SU MISURA ============ -->
-<section class="page dark">
-  <div class="run"><span class="tbd">[Nome Azienda]</span><span>Su misura</span></div>
-  <div class="pad" style="display:flex;flex-direction:column;justify-content:space-between;top:30mm;bottom:24mm">
+<section class="page pr " data-p="1">
+  <div class="ph " style="left:0mm;top:0mm;width:230mm;height:300mm"><span class="code">GEN-01</span><span class="what">Copertina: il vostro espositore più iconico, foto verticale d'impatto (still-life o dettaglio materico)</span></div>
+  <div class="cover-panel">
+    <div class="logo"><span class="tbd">[Nome Azienda]</span></div>
     <div>
-      <div class="eyebrow red">07 — Su misura</div>
-      <div class="display" style="margin-top:6mm">Hai un<br>prodotto?<br><span class="red">Noi il suo<br>palco.</span></div>
-    </div>
-    <div>
-      <p class="lead" style="margin-bottom:8mm">Ogni progetto di questo catalogo è nato da un brief. Il prossimo può essere il tuo.</p>
-      <div class="pillars" style="position:static;grid-template-columns:1fr 1fr 1fr">
-        <div><div class="h3">1. Scrivici</div><p class="mono muted">Prodotto, quantità, punto vendita, tempi.</p></div>
-        <div><div class="h3">2. Progettiamo</div><p class="mono muted">Concept e render in pochi giorni.</p></div>
-        <div><div class="h3">3. Tocchi con mano</div><p class="mono muted">Prototipo fisico prima della produzione.</p></div>
-      </div>
+      <div class="xl light" style="color:#fff">Portfolio</div>
+      <div class="xl" style="color:#fff">Espositori</div>
+      <div class="label" style="margin-top:6mm;color:rgba(255,255,255,.6)">Cartotecnica · Espositori · Materiali durevoli</div>
     </div>
   </div>
-  <div class="folio"><span>30</span><span>Portfolio 2026</span></div>
+  <div class="cover-year">/&thinsp;2026</div>
 </section>
-
-<!-- ============ 31 · CONTATTI ============ -->
-<section class="page">
-  <div class="run"><span></span><span>Contatti</span></div>
-  <div class="ph" style="position:absolute;left:0;right:0;top:0;height:140mm" data-label="Foto team / ufficio tecnico — persone al lavoro"><span class="n">F11</span></div>
-  <div class="pad" style="top:152mm">
-    <div class="h1">Parliamone.</div>
-  </div>
-  <div class="contacts">
-    <div><span class="mono muted">Email</span><div class="v tbd">info@azienda.it</div></div>
-    <div><span class="mono muted">Telefono</span><div class="v tbd">+39 000 000 0000</div></div>
-    <div><span class="mono muted">Sede &amp; stabilimento</span><div class="v tbd">Via Esempio 1, 00000 Città (XX)</div></div>
-    <div><span class="mono muted">Web &amp; social</span><div class="v tbd">azienda.it · @azienda</div></div>
-  </div>
-  <div class="folio"><span>31</span><span>Portfolio 2026</span></div>
+<section class="page pl dark" data-p="2">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Indice</span></div>
+  <div class="abs" style="left:15mm;top:30mm;width:70mm"><div class="l">Indice</div>
+    <p class="body" style="margin-top:6mm">Chi siamo · 03<br>Manifesto · 04<br>Il processo · 06<br>Materiali &amp; finiture · 08</p></div>
+  <div class="abs" style="left:92mm;top:30mm;width:123mm"><ul class="toc"><li><span class="p">10</span><span class="t">Espositori da banco</span><span class="k">/01</span></li><li><span class="p">14</span><span class="t">Espositori da terra</span><span class="k">/02</span></li><li><span class="p">18</span><span class="t">Pallet display & isole</span><span class="k">/03</span></li><li><span class="p">22</span><span class="t">Espositori durevoli</span><span class="k">/04</span></li><li><span class="p">26</span><span class="t">Totem & display verticali</span><span class="k">/05</span></li><li><span class="p">28</span><span class="t">Cestoni & dump bin</span><span class="k">/06</span></li><li><span class="p">30</span><span class="t">Allestimento scaffale</span><span class="k">/07</span></li><li><span class="p">32</span><span class="t">Vetrofanie & vetrine</span><span class="k">/08</span></li><li><span class="p">34</span><span class="t">Sagome & cartonati</span><span class="k">/09</span></li><li><span class="p">36</span><span class="t">Packaging speciale</span><span class="k">/10</span></li><li><span class="p">38</span><span class="t">Grafica punto vendita</span><span class="k">/11</span></li><li><span class="p">40</span><span class="t">Cartotecnica per il marketing</span><span class="k">/12</span></li><li><span class="p">42</span><span class="t">Sostenibilità</span><span class="k"></span></li><li><span class="p">44</span><span class="t">Settori &amp; clienti</span><span class="k"></span></li><li><span class="p">46</span><span class="t">Su misura &amp; contatti</span><span class="k"></span></li></ul></div>
+  <div class="folio"><span>02</span><span>Portfolio Espositori 2026</span></div>
 </section>
-
-<!-- ============ 32 · RETRO ============ -->
-<section class="page kraft">
-  <div class="pad" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
-    <svg viewBox="0 0 60 74" style="width:28mm;height:34mm;stroke:#151515;fill:none;stroke-width:1.2"><path d="M14,40 V14 Q30,6 46,14 V40"/><path d="M10,40 H50 V66 H10 Z"/><path stroke="#E5412D" stroke-dasharray="3 2.5" d="M10,40 H50"/></svg>
-    <div class="logo" style="font-weight:800;font-stretch:75%;font-size:22pt;text-transform:uppercase;margin-top:8mm"><span class="tbd">[Nome Azienda]</span></div>
-    <p class="mono" style="margin-top:3mm">Cartotecnica · Espositori · Materiali durevoli</p>
+<section class="page pr " data-p="3">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Chi siamo</span></div>
+  <div class="ph " style="left:15mm;top:28mm;width:92mm;height:132mm"><span class="code">GEN-02</span><span class="what">Stabilimento o reparto produzione: ampia, luce naturale</span></div>
+  <div class="abs" style="left:115mm;top:28mm;width:100mm">
+    <div class="l">Chi<br>siamo</div>
+    <p class="statement sm" style="margin-top:8mm">Dal <span class="tbd">[anno]</span> progettiamo e produciamo cartotecnica ed espositori per il punto vendita. Tutto sotto lo stesso tetto.</p>
   </div>
-  <div class="folio" style="justify-content:center"><span>Stampato su carta riciclabile · <span class="tbd">FSC®</span></span></div>
+  <div class="abs" style="left:115mm;top:128mm;width:100mm"><dl class="kv narrow"><dt>Sede</dt><dd><span class="tbd">[Città, Provincia]</span></dd><dt>Stabilimento</dt><dd><span class="tbd">[6.000] m²</span></dd><dt>Persone</dt><dd><span class="tbd">[40]</span> tra ufficio tecnico, grafica e produzione</dd></dl></div>
+  <div class="abs body cols2" style="left:15mm;top:176mm;width:200mm">
+    Seguiamo ogni progetto internamente, dal primo schizzo all'ultimo bancale: ufficio tecnico e grafico, campionatura, stampa, fustellatura, incollaggio e confezionamento. Un unico interlocutore significa tempi più rapidi, meno passaggi e un controllo costante sulla qualità.
+    Lavoriamo con brand e agenzie della cosmetica, della farmaceutica, dell'alimentare e dell'oggettistica, in Italia e all'estero, con la stessa cura per la tiratura da cento pezzi e per quella da diecimila.
+  </div>
+  <div class="abs" style="left:15mm;top:222mm;width:200mm"><div class="stats">
+    <div><b class="tbd">35+</b><span class="label">Anni di esperienza</span></div>
+    <div><b class="tbd">400</b><span class="label">Progetti all'anno</span></div>
+    <div><b>100%</b><span class="label">Progettato e prodotto internamente</span></div>
+  </div></div>
+  <div class="folio"><span>03</span><span>Portfolio Espositori 2026</span></div>
 </section>
-
+<section class="page pl " data-p="4">
+  <div class="ph " style="left:0mm;top:0mm;width:230mm;height:300mm"><span class="code">GEN-03</span><span class="what">Foto d'atmosfera: mani al lavoro su un prototipo, luce forte e ombre nette</span></div>
+  <div class="run on-photo"><b><span class="tbd">[Nome Azienda]</span></b><span>Manifesto</span></div>
+</section>
+<section class="page pr " data-p="5">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Manifesto</span></div>
+  <div class="abs label" style="left:15mm;top:28mm;width:60mm"><span class="tbd">[Città]</span>, Italia<br>Portfolio 2026</div>
+  <div class="ph " style="left:95mm;top:28mm;width:58mm;height:78mm"><span class="code">GEN-04</span><span class="what">Dettaglio: cordonatura / fustella</span></div>
+  <div class="ph " style="left:157mm;top:28mm;width:58mm;height:78mm"><span class="code">GEN-05</span><span class="what">Dettaglio: stampa / finitura</span></div>
+  <div class="abs" style="left:15mm;top:128mm"><svg class="star" viewBox="0 0 24 24"><path d="M12 1v22M1 12h22M4.2 4.2l15.6 15.6M19.8 4.2 4.2 19.8"/></svg></div>
+  <div class="abs" style="left:95mm;top:126mm;width:120mm">
+    <p class="statement">Crediamo che un buon espositore nasca dall'incontro tra ingegneria della carta, cura artigianale e conoscenza del punto vendita.</p>
+    <p class="body" style="margin-top:6mm">Ogni progetto parte da una domanda semplice: dove verrà visto, da chi, per quanto tempo. Da lì scegliamo struttura, materiale e finiture, prototipiamo, testiamo e solo allora produciamo. Il risultato sono espositori che si montano in fretta, reggono il carico e fanno il loro lavoro: vendere.</p>
+  </div>
+  <div class="abs big-num" style="left:15mm;top:238mm">/00</div>
+  <div class="abs" style="left:95mm;top:226mm;width:56mm"><div class="label" style="margin-bottom:2mm">Servizi</div>
+    <ul class="list"><li>Progettazione strutturale</li><li>Grafica &amp; render 3D</li><li>Prototipazione</li><li>Stampa &amp; produzione</li></ul></div>
+  <div class="abs" style="left:159mm;top:226mm;width:56mm"><div class="label" style="margin-bottom:2mm">In numeri</div>
+    <ul class="list"><li><span class="tbd">400</span> progetti l'anno</li><li><span class="tbd">150</span> clienti attivi</li><li><span class="tbd">12</span> Paesi serviti</li><li><span class="tbd">5 gg</span> per un prototipo</li></ul></div>
+  <div class="folio"><span>05</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pl " data-p="6">
+  <div class="ph spread-l" style="left:0mm;top:0mm;width:230mm;height:300mm"><span class="code">GEN-06</span><span class="what">Foto orizzontale sulle due pagine: reparto produzione / fustellatrice in funzione</span></div>
+  <div class="run on-photo"><b><span class="tbd">[Nome Azienda]</span></b><span>Il processo</span></div>
+  <div class="folio on-photo"><span>06</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pr " data-p="7">
+  <div class="ph spread-r" style="left:0mm;top:0mm;width:230mm;height:300mm"><span class="code">GEN-06</span><span class="what"></span></div>
+  <div class="abs" style="left:0mm;top:30mm;width:230mm;height:240mm;background:rgba(38,37,36,.9);color:#fff;padding:12mm 15mm 0">
+    <div class="l" style="color:#fff">Il processo</div>
+    <p class="statement sm" style="margin-top:6mm;max-width:150mm;color:rgba(255,255,255,.85)">Dal brief al bancale con un unico interlocutore. Tempo medio: <span class="tbd">3–5 settimane</span>.</p>
+  </div>
+  <div class="steps" style="left:15mm;top:150mm;width:200mm;height:110mm"><div><div class="big-num">01</div><div><div class="s" style="margin-bottom:1.5mm">Brief</div><p class="body">Prodotto, punto vendita, quantità, budget e tempi.</p></div></div><div><div class="big-num">02</div><div><div class="s" style="margin-bottom:1.5mm">Concept</div><p class="body">Studio strutturale e grafico, render 3D e tracciati.</p></div></div><div><div class="big-num">03</div><div><div class="s" style="margin-bottom:1.5mm">Prototipo</div><p class="body">Campione bianco e stampato, test di carico e montaggio.</p></div></div><div><div class="big-num">04</div><div><div class="s" style="margin-bottom:1.5mm">Produzione</div><p class="body">Stampa, fustellatura, accoppiatura e incollaggio in casa.</p></div></div><div><div class="big-num">05</div><div><div class="s" style="margin-bottom:1.5mm">Consegna</div><p class="body">Confezionamento, spedizione piatta o premontata, allestimento.</p></div></div></div>
+  <div class="folio on-photo"><span>07</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pl " data-p="8">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Materiali &amp; finiture</span></div>
+  <div class="abs" style="left:15mm;top:28mm;width:200mm"><div class="xl">Materiali<br><span class="light">&amp; finiture</span></div></div>
+  <div class="abs" style="left:15mm;top:100mm;width:200mm"><dl class="kv "><dt>Cartone ondulato</dt><dd>Onda E, B, BC: leggero, resistente, riciclabile.</dd><dt>Cartoncino teso</dt><dd>Da 300 a 600 g/m², resa di stampa premium.</dd><dt>Cartone alveolare</dt><dd>Honeycomb: strutture portanti a basso peso.</dd><dt>Forex &amp; PVC</dt><dd>Semi-permanente, stampa diretta UV.</dd><dt>Plexiglass</dt><dd>Trasparente, satinato, colorato, fumé.</dd><dt>Legno &amp; MDF</dt><dd>Per l'espositore permanente e l'arredo.</dd><dt>Metallo</dt><dd>Barre, ganci, strutture e basi.</dd></dl></div>
+  <div class="abs" style="left:15mm;top:208mm;width:110mm"><p class="statement sm">Scegliamo il materiale in base a quanto deve durare l'espositore, a quanto deve reggere e a dove andrà.</p></div>
+  <div class="ph " style="left:135mm;top:208mm;width:80mm;height:72mm"><span class="code">MAT-01</span><span class="what">Macro: sezione del cartone ondulato</span></div>
+  <div class="folio"><span>08</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pr " data-p="9">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Materiali &amp; finiture</span></div>
+  <div class="ph " style="left:15mm;top:28mm;width:98mm;height:78mm"><span class="code">MAT-02</span><span class="what">Macro: cartoncino teso stampato</span></div><div class="ph " style="left:117mm;top:28mm;width:98mm;height:78mm"><span class="code">MAT-03</span><span class="what">Macro: pannello alveolare</span></div><div class="ph " style="left:15mm;top:110mm;width:98mm;height:78mm"><span class="code">MAT-04</span><span class="what">Macro: plexiglass</span></div><div class="ph " style="left:117mm;top:110mm;width:98mm;height:78mm"><span class="code">MAT-05</span><span class="what">Macro: legno / MDF</span></div>
+  <div class="abs" style="left:15mm;top:204mm;width:200mm"><div class="m" style="margin-bottom:5mm">Finiture</div><div class="fin"><div><b>Offset</b><span class='label'>Fino a 6 colori + vernice</span></div><div><b>Digitale</b><span class='label'>Tirature brevi e varianti</span></div><div><b>Serigrafia</b><span class='label'>Colori pieni su rigidi</span></div><div><b>UV selettiva</b><span class='label'>Lucido/opaco, a rilievo</span></div><div><b>Lamina a caldo</b><span class='label'>Oro, argento, olografica</span></div><div><b>Soft-touch</b><span class='label'>Plastificazione vellutata</span></div><div><b>Rilievo a secco</b><span class='label'>Goffratura e debossing</span></div><div><b>Fustelle speciali</b><span class='label'>Sagome, finestre, incastri</span></div></div></div>
+  <div class="folio"><span>09</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pl " data-p="10"><div class="ph " style="left:0mm;top:0mm;width:230mm;height:300mm"><span class="code">BAN-01</span><span class="what">foto principale: espositore da banco carico di prodotto, still-life su fondo neutro</span></div><div class="run on-photo"><b><span class="tbd">[Nome Azienda]</span></b><span>Espositori da banco</span></div>
+</section>
+<section class="page pr " data-p="11">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Espositori da banco</span></div>
+  <div class="ph " style="left:15mm;top:28mm;width:98mm;height:84mm"><span class="code">BAN-02</span><span class="what">Dettaglio</span></div>
+  <div class="ph " style="left:117mm;top:28mm;width:98mm;height:84mm"><span class="code">BAN-03</span><span class="what">Dettaglio / montaggio</span></div>
+  <div class="abs" style="left:15mm;top:126mm;width:200mm">
+    <div class="label" style="margin-bottom:4mm">Sezione /01</div>
+    <div class="xl">Espositori<br>da banco</div>
+    <p class="statement sm" style="margin-top:7mm"><b style="font-weight:600">Piccoli formati, grande impatto.</b> Nascono per stare accanto alla cassa, dove la scelta si fa in un attimo. Compatti, stabili, stampabili su ogni superficie visibile e pronti da montare in pochi secondi.</p>
+  </div>
+  <div class="abs" style="left:15mm;top:226mm;width:200mm"><dl class="kv "><dt>Materiali</dt><dd>Cartoncino teso, microonda E/B, plexiglass, forex</dd><dt>Formati</dt><dd><span class="tbd">Da 20 × 15 cm a 60 × 40 cm</span></dd><dt>Varianti</dt><dd>Con header, a gradini, girevoli, con tester, porta-leaflet</dd><dt>Finiture</dt><dd>Offset, digitale, UV selettiva, lamina a caldo, soft-touch</dd></dl></div>
+  <div class="folio"><span>11</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pl " data-p="12"><div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Espositori da banco</span></div><div class="abs" style="left:15mm;top:28mm;width:120mm"><div class="l">Progetti</div></div><div class="abs label" style="left:160mm;top:30mm;width:55mm">Una selezione di progetti realizzati per brand di settori diversi.</div><div class="ph " style="left:15mm;top:64mm;width:64mm;height:150mm"><span class="code">BAN-04</span><span class="what">Progetto: foto verticale</span></div><div class="cap" style="left:15mm;top:219mm;width:62mm"><div class="t"><span class="n">/01</span><span class="tbd">[Brand]</span> — A gradini con header</div><div class="d">Microonda E, stampa offset</div></div><div class="ph " style="left:83mm;top:64mm;width:64mm;height:150mm"><span class="code">BAN-05</span><span class="what">Progetto: foto verticale</span></div><div class="cap" style="left:83mm;top:219mm;width:62mm"><div class="t"><span class="n">/02</span><span class="tbd">[Brand]</span> — Con vano tester</div><div class="d">Cartoncino teso + plexi</div></div><div class="ph " style="left:151mm;top:64mm;width:64mm;height:150mm"><span class="code">BAN-06</span><span class="what">Progetto: foto verticale</span></div><div class="cap" style="left:151mm;top:219mm;width:62mm"><div class="t"><span class="n">/03</span><span class="tbd">[Brand]</span> — Girevole</div><div class="d">Cartoncino teso, base MDF</div></div><div class="folio"><span>12</span><span>Espositori da banco</span></div>
+</section>
+<section class="page pr " data-p="13"><div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Espositori da banco</span></div><div class="abs" style="left:15mm;top:28mm;width:200mm"><p class="statement sm" style="max-width:150mm">Ogni progetto è studiato sul prodotto: dimensioni, peso, numero di facing e tempo di permanenza a scaffale.</p></div><div class="ph " style="left:15mm;top:64mm;width:64mm;height:150mm"><span class="code">BAN-07</span><span class="what">Progetto: foto verticale</span></div><div class="cap" style="left:15mm;top:219mm;width:62mm"><div class="t"><span class="n">/04</span><span class="tbd">[Brand]</span> — Porta-leaflet</div><div class="d">Cartoncino 400 g</div></div><div class="ph " style="left:83mm;top:64mm;width:64mm;height:150mm"><span class="code">BAN-08</span><span class="what">Progetto: foto verticale</span></div><div class="cap" style="left:83mm;top:219mm;width:62mm"><div class="t"><span class="n">/05</span><span class="tbd">[Brand]</span> — Espositore cassa</div><div class="d">Microonda E, stampa digitale</div></div><div class="ph " style="left:151mm;top:64mm;width:64mm;height:150mm"><span class="code">BAN-09</span><span class="what">Progetto: foto verticale</span></div><div class="cap" style="left:151mm;top:219mm;width:62mm"><div class="t"><span class="n">/06</span><span class="tbd">[Brand]</span> — Edizione limitata</div><div class="d">Soft-touch + lamina oro</div></div><div class="folio"><span>13</span><span>Espositori da banco</span></div>
+</section>
+<section class="page pl carta" data-p="14">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Espositori da terra</span></div>
+  <div class="abs" style="left:15mm;top:28mm;width:200mm">
+    <div class="label" style="margin-bottom:4mm">Sezione /02</div>
+    <div class="xl">Espositori<br>da terra</div>
+    <p class="statement sm" style="margin-top:7mm"><b style="font-weight:600">Il classico che funziona.</b> Strutture multipiano autoportanti con header, crowner e ripiani rinforzati: portano il prodotto all'altezza dello sguardo, in qualsiasi punto del negozio.</p>
+  </div>
+  <div class="ph " style="left:15mm;top:122mm;width:200mm;height:96mm"><span class="code">TER-02</span><span class="what">Dettaglio orizzontale</span></div>
+  <div class="abs" style="left:15mm;top:226mm;width:200mm"><dl class="kv "><dt>Materiali</dt><dd>Ondulato onda B e BC, alveolare, rinforzi interni</dd><dt>Portata</dt><dd><span class="tbd">Fino a 15 kg per ripiano</span></dd><dt>Varianti</dt><dd>A ripiani, con ganci, bifacciali, 1/4 pallet, con vasca</dd><dt>Consegna</dt><dd>Spedizione piatta o premontata</dd></dl></div>
+  <div class="folio"><span>14</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pr " data-p="15"><div class="ph " style="left:0mm;top:0mm;width:230mm;height:300mm"><span class="code">TER-03</span><span class="what">foto principale: espositore da terra ambientato nel punto vendita, verticale</span></div><div class="run on-photo"><b><span class="tbd">[Nome Azienda]</span></b><span>Espositori da terra</span></div>
+</section>
+<section class="page pl " data-p="16">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Espositori da terra</span></div>
+  <div class="ph " style="left:15mm;top:28mm;width:128mm;height:150mm"><span class="code">TER-04</span><span class="what">Progetto 1: vista principale</span></div>
+  <div class="ph " style="left:147mm;top:28mm;width:68mm;height:72mm"><span class="code">TER-05</span><span class="what">Progetto 1: dettaglio</span></div>
+  <div class="ph " style="left:147mm;top:106mm;width:68mm;height:72mm"><span class="code">TER-06</span><span class="what">Progetto 1: dettaglio</span></div>
+  <div class="abs" style="left:15mm;top:196mm;width:125mm"><div class="l"><span class="tbd">[Brand]</span><span class="num">/01</span></div>
+    <p class="label" style="margin-top:2mm">4 ripiani con header</p></div>
+  <div class="abs" style="left:147mm;top:196mm;width:68mm"><p class="body">Breve descrizione del progetto: obiettivo del cliente, soluzione strutturale, risultato.</p></div>
+  <div class="abs" style="left:15mm;top:240mm;width:200mm"><dl class="kv narrow"><dt>Materiale</dt><dd>Onda BC, stampa offset</dd><dt>Formato</dt><dd><span class="tbd">60 × 40 × 170 cm</span></dd><dt>Tiratura</dt><dd><span class="tbd">500 pz</span></dd></dl></div>
+  <div class="folio"><span>16</span><span>Espositori da terra</span></div>
+</section>
+<section class="page pr " data-p="17">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Espositori da terra</span></div>
+  <div class="ph " style="left:15mm;top:28mm;width:90mm;height:170mm"><span class="code">TER-07</span><span class="what">Progetto 2: foto verticale</span></div>
+  <div class="ph " style="left:109mm;top:28mm;width:106mm;height:82mm"><span class="code">TER-08</span><span class="what">Progetto 2: ambientata</span></div>
+  <div class="ph " style="left:109mm;top:116mm;width:106mm;height:82mm"><span class="code">TER-09</span><span class="what">Progetto 2: dettaglio</span></div>
+  <div class="abs" style="left:15mm;top:212mm;width:90mm"><div class="l"><span class="tbd">[Brand]</span><span class="num">/02</span></div>
+    <p class="label" style="margin-top:2mm">Con ganci e barre</p></div>
+  <div class="abs" style="left:109mm;top:212mm;width:106mm"><dl class="kv narrow"><dt>Materiale</dt><dd>Onda B + barre metalliche</dd><dt>Formato</dt><dd><span class="tbd">120 × 80 × 160 cm</span></dd><dt>Tiratura</dt><dd><span class="tbd">200 pz</span></dd></dl>
+    <p class="body" style="margin-top:4mm">Breve descrizione del progetto: obiettivo del cliente, soluzione strutturale, risultato.</p></div>
+  <div class="folio"><span>17</span><span>Espositori da terra</span></div>
+</section>
+<section class="page pl " data-p="18"><div class="ph " style="left:0mm;top:0mm;width:230mm;height:300mm"><span class="code">PAL-01</span><span class="what">foto principale: isola promozionale in GDO, vista 3/4 con prodotto</span></div><div class="run on-photo"><b><span class="tbd">[Nome Azienda]</span></b><span>Pallet display & isole</span></div>
+</section>
+<section class="page pr " data-p="19">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Pallet display & isole</span></div>
+  <div class="ph " style="left:15mm;top:28mm;width:98mm;height:84mm"><span class="code">PAL-02</span><span class="what">Dettaglio</span></div>
+  <div class="ph " style="left:117mm;top:28mm;width:98mm;height:84mm"><span class="code">PAL-03</span><span class="what">Dettaglio / montaggio</span></div>
+  <div class="abs" style="left:15mm;top:126mm;width:200mm">
+    <div class="label" style="margin-bottom:4mm">Sezione /03</div>
+    <div class="xl">Pallet display<br>&amp; isole</div>
+    <p class="statement sm" style="margin-top:7mm"><b style="font-weight:600">Il prodotto al centro della scena.</b> Isole a 360° per la grande distribuzione: si caricano in magazzino, viaggiano sul bancale e sono pronte a vendere appena tolto il film.</p>
+  </div>
+  <div class="abs" style="left:15mm;top:226mm;width:200mm"><dl class="kv "><dt>Formati</dt><dd>Pallet 80 × 120, half 80 × 60, quarter 60 × 40</dd><dt>Materiali</dt><dd>Onda BC rinforzata, alveolare, base in legno o cartone</dd><dt>Varianti</dt><dd>A ripiani, a vasca, con header, fasce e skirt per pallet</dd><dt>Portata</dt><dd><span class="tbd">Fino a 250 kg</span></dd></dl></div>
+  <div class="folio"><span>19</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pl " data-p="20">
+  <div class="ph " style="left:0mm;top:0mm;width:230mm;height:300mm"><span class="code">PAL-04</span><span class="what">Progetto in evidenza: foto a piena pagina</span></div>
+  <div class="run on-photo"><b><span class="tbd">[Nome Azienda]</span></b><span>Pallet display & isole</span></div>
+  <div class="abs" style="left:15mm;top:232mm;width:100mm;height:50mm;background:#fff;padding:5mm">
+    <div class="s"><span class="tbd">[Brand]</span> — Isola 4 lati</div><p class="label" style="margin-top:1.5mm">Onda BC, stampa offset · <span class="tbd">80 × 120 × 160 cm</span></p>
+  </div>
+</section>
+<section class="page pr " data-p="21"><div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Pallet display & isole</span></div><div class="ph " style="left:15mm;top:28mm;width:98mm;height:98mm"><span class="code">PAL-05</span><span class="what">Progetto: foto quadrata</span></div><div class="ph " style="left:117mm;top:28mm;width:98mm;height:98mm"><span class="code">PAL-06</span><span class="what">Progetto: foto quadrata</span></div><div class="ph " style="left:15mm;top:130mm;width:98mm;height:98mm"><span class="code">PAL-07</span><span class="what">Progetto: foto quadrata</span></div><div class="ph " style="left:117mm;top:130mm;width:98mm;height:98mm"><span class="code">PAL-08</span><span class="what">Progetto: foto quadrata</span></div><div class="cap" style="left:15mm;top:232mm;width:98mm"><div class="t"><span class="n">/01</span><span class="tbd">[Brand]</span> — Isola 4 lati</div><div class="d">Onda BC, stampa offset</div></div><div class="cap" style="left:117mm;top:232mm;width:98mm"><div class="t"><span class="n">/02</span><span class="tbd">[Brand]</span> — Half pallet a vasca</div><div class="d">Onda BC, stampa digitale</div></div><div class="cap" style="left:15mm;top:248mm;width:98mm"><div class="t"><span class="n">/03</span><span class="tbd">[Brand]</span> — Quarter con header</div><div class="d">Onda B, stampa offset</div></div><div class="cap" style="left:117mm;top:248mm;width:98mm"><div class="t"><span class="n">/04</span><span class="tbd">[Brand]</span> — Skirt per pallet</div><div class="d">Microonda E, stampa digitale</div></div><div class="folio"><span>21</span><span>Pallet display & isole</span></div>
+</section>
+<section class="page pl carta" data-p="22">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Espositori durevoli</span></div>
+  <div class="abs" style="left:15mm;top:28mm;width:200mm">
+    <div class="label" style="margin-bottom:4mm">Sezione /04</div>
+    <div class="xl">Espositori<br>durevoli</div>
+    <p class="statement sm" style="margin-top:7mm"><b style="font-weight:600">Fatti per restare.</b> Quando l'espositore deve durare stagioni e non settimane: plexiglass, legno, forex e metallo, lavorati e assemblati con la stessa precisione della carta.</p>
+  </div>
+  <div class="ph " style="left:15mm;top:122mm;width:200mm;height:96mm"><span class="code">DUR-02</span><span class="what">Dettaglio orizzontale</span></div>
+  <div class="abs" style="left:15mm;top:226mm;width:200mm"><dl class="kv "><dt>Materiali</dt><dd>Plexiglass, legno e MDF, forex, dibond, metallo</dd><dt>Lavorazioni</dt><dd>Taglio laser, fresatura CNC, piegatura a caldo, stampa UV diretta</dd><dt>Varianti</dt><dd>Da banco, da terra, corner, shop-in-shop, arredo negozio</dd><dt>Ideale per</dt><dd>Allestimenti permanenti e semi-permanenti</dd></dl></div>
+  <div class="folio"><span>22</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pr " data-p="23"><div class="ph " style="left:0mm;top:0mm;width:230mm;height:300mm"><span class="code">DUR-03</span><span class="what">foto principale: espositore permanente in plexi/legno, luce morbida, dettaglio materico</span></div><div class="run on-photo"><b><span class="tbd">[Nome Azienda]</span></b><span>Espositori durevoli</span></div>
+</section>
+<section class="page pl " data-p="24"><div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Espositori durevoli</span></div><div class="abs" style="left:15mm;top:28mm;width:120mm"><div class="l">Progetti</div></div><div class="abs label" style="left:160mm;top:30mm;width:55mm">Una selezione di progetti realizzati per brand di settori diversi.</div><div class="ph " style="left:15mm;top:64mm;width:64mm;height:150mm"><span class="code">DUR-04</span><span class="what">Progetto: foto verticale</span></div><div class="cap" style="left:15mm;top:219mm;width:62mm"><div class="t"><span class="n">/01</span><span class="tbd">[Brand]</span> — Corner in plexi e legno</div><div class="d">PMMA 5 mm + rovere</div></div><div class="ph " style="left:83mm;top:64mm;width:64mm;height:150mm"><span class="code">DUR-05</span><span class="what">Progetto: foto verticale</span></div><div class="cap" style="left:83mm;top:219mm;width:62mm"><div class="t"><span class="n">/02</span><span class="tbd">[Brand]</span> — Espositore luminoso</div><div class="d">Plexi satinato, LED</div></div><div class="ph " style="left:151mm;top:64mm;width:64mm;height:150mm"><span class="code">DUR-06</span><span class="what">Progetto: foto verticale</span></div><div class="cap" style="left:151mm;top:219mm;width:62mm"><div class="t"><span class="n">/03</span><span class="tbd">[Brand]</span> — Shop-in-shop</div><div class="d">MDF laccato + dibond</div></div><div class="folio"><span>24</span><span>Espositori durevoli</span></div>
+</section>
+<section class="page pr " data-p="25"><div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Espositori durevoli</span></div><div class="abs" style="left:15mm;top:28mm;width:200mm"><p class="statement sm" style="max-width:150mm">Ogni progetto è studiato sul prodotto: dimensioni, peso, numero di facing e tempo di permanenza a scaffale.</p></div><div class="ph " style="left:15mm;top:64mm;width:64mm;height:150mm"><span class="code">DUR-07</span><span class="what">Progetto: foto verticale</span></div><div class="cap" style="left:15mm;top:219mm;width:62mm"><div class="t"><span class="n">/04</span><span class="tbd">[Brand]</span> — Da banco premium</div><div class="d">Plexi fumé, stampa UV</div></div><div class="ph " style="left:83mm;top:64mm;width:64mm;height:150mm"><span class="code">DUR-08</span><span class="what">Progetto: foto verticale</span></div><div class="cap" style="left:83mm;top:219mm;width:62mm"><div class="t"><span class="n">/05</span><span class="tbd">[Brand]</span> — Parete attrezzata</div><div class="d">Legno + metallo</div></div><div class="ph " style="left:151mm;top:64mm;width:64mm;height:150mm"><span class="code">DUR-09</span><span class="what">Progetto: foto verticale</span></div><div class="cap" style="left:151mm;top:219mm;width:62mm"><div class="t"><span class="n">/06</span><span class="tbd">[Brand]</span> — Testata permanente</div><div class="d">Forex + plexi</div></div><div class="folio"><span>25</span><span>Espositori durevoli</span></div>
+</section>
+<section class="page pl " data-p="26">
+  <div class="ph " style="left:0mm;top:0mm;width:230mm;height:160mm"><span class="code">TOT-01</span><span class="what">totem in ambiente (ingresso negozio o fiera)</span></div>
+  <div class="run on-photo"><b><span class="tbd">[Nome Azienda]</span></b><span>Totem & display verticali</span></div>
+  <div class="abs" style="left:15mm;top:172mm;width:110mm"><div class="label" style="margin-bottom:3mm">Sezione /05</div><div class="l">Totem &amp;<br>display verticali</div></div>
+  <div class="abs" style="left:130mm;top:172mm;width:85mm"><p class="body"><b style="color:var(--nero)">Comunicare in verticale.</b> Totem monofacciali, bifacciali, a tre e quattro lati: comunicazione e segnaletica per ingressi, vetrine, fiere ed eventi.</p></div>
+  <div class="abs" style="left:15mm;top:240mm;width:200mm"><dl class="kv "><dt>Materiali</dt><dd>Alveolare, onda BC, forex</dd><dt>Varianti</dt><dd>2, 3 e 4 facce, con vano prodotto, porta-depliant</dd></dl></div>
+  <div class="folio"><span>26</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pr " data-p="27">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Totem & display verticali</span></div>
+  <div class="ph " style="left:15mm;top:28mm;width:200mm;height:150mm"><span class="code">TOT-02</span><span class="what">Progetto: vista principale</span></div>
+  <div class="ph " style="left:15mm;top:184mm;width:98mm;height:76mm"><span class="code">TOT-03</span><span class="what">Progetto: dettaglio</span></div>
+  <div class="ph " style="left:117mm;top:184mm;width:98mm;height:76mm"><span class="code">TOT-04</span><span class="what">Progetto: dettaglio</span></div>
+  <div class="cap" style="left:15mm;top:264mm;width:98mm"><div class="t"><span class="n">/01</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="cap" style="left:117mm;top:264mm;width:98mm"><div class="t"><span class="n">/02</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="folio"><span>27</span><span>Totem & display verticali</span></div>
+</section>
+<section class="page pl " data-p="28"><div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Cestoni & dump bin</span></div><div class="ph " style="left:15mm;top:28mm;width:98mm;height:112mm"><span class="code">CES-01</span><span class="what">Progetto: foto verticale</span></div><div class="ph " style="left:117mm;top:28mm;width:98mm;height:112mm"><span class="code">CES-02</span><span class="what">Progetto: foto verticale</span></div><div class="ph " style="left:15mm;top:144mm;width:98mm;height:112mm"><span class="code">CES-03</span><span class="what">Progetto: foto verticale</span></div><div class="ph " style="left:117mm;top:144mm;width:98mm;height:112mm"><span class="code">CES-04</span><span class="what">Progetto: foto verticale</span></div>
+  <div class="cap" style="left:15mm;top:264mm;width:98mm"><div class="t"><span class="n">/01</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="cap" style="left:117mm;top:264mm;width:98mm"><div class="t"><span class="n">/02</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="folio"><span>28</span><span>Cestoni & dump bin</span></div>
+</section>
+<section class="page pr carta" data-p="29">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Cestoni & dump bin</span></div>
+  <div class="abs" style="left:15mm;top:28mm;width:120mm"><div class="label" style="margin-bottom:3mm">Sezione /06</div><div class="l">Cestoni &amp;<br>dump bin</div></div>
+  <div class="abs" style="left:145mm;top:30mm;width:70mm"><p class="body"><b style="color:var(--nero)">Prendere senza pensarci.</b> Contenitori per prodotto sfuso e promozioni, robusti e veloci da montare. Tondi, quadrati, ottagonali, con o senza header.</p></div>
+  <div class="ph " style="left:15mm;top:108mm;width:200mm;height:128mm"><span class="code">CES-05</span><span class="what">cestone carico di prodotto, vista dall'alto 3/4</span></div>
+  <div class="abs" style="left:15mm;top:244mm;width:200mm"><dl class="kv "><dt>Materiali</dt><dd>Onda BC, onda doppia rinforzata</dd><dt>Varianti</dt><dd>Tondi, quadrati, ottagonali, con divisori</dd></dl></div>
+  <div class="folio"><span>29</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pl " data-p="30">
+  <div class="ph " style="left:0mm;top:0mm;width:230mm;height:160mm"><span class="code">SCA-01</span><span class="what">testata di gondola allestita in supermercato</span></div>
+  <div class="run on-photo"><b><span class="tbd">[Nome Azienda]</span></b><span>Allestimento scaffale</span></div>
+  <div class="abs" style="left:15mm;top:172mm;width:110mm"><div class="label" style="margin-bottom:3mm">Sezione /07</div><div class="l">Allestimento<br>scaffale</div></div>
+  <div class="abs" style="left:130mm;top:172mm;width:85mm"><p class="body"><b style="color:var(--nero)">Lo scaffale diventa comunicazione.</b> Testate di gondola, crowner, shelf-ready packaging e piccoli formati che fanno rumore: wobbler, stopper, shelf-talker, fasce ripiano e divisori.</p></div>
+  <div class="abs" style="left:15mm;top:240mm;width:200mm"><dl class="kv "><dt>Prodotti</dt><dd>Testate, crowner, SRP, wobbler, stopper, strip</dd><dt>Materiali</dt><dd>Cartoncino, microonda, PVC, PET</dd></dl></div>
+  <div class="folio"><span>30</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pr " data-p="31">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Allestimento scaffale</span></div>
+  <div class="ph " style="left:15mm;top:28mm;width:200mm;height:150mm"><span class="code">SCA-02</span><span class="what">Progetto: vista principale</span></div>
+  <div class="ph " style="left:15mm;top:184mm;width:98mm;height:76mm"><span class="code">SCA-03</span><span class="what">Progetto: dettaglio</span></div>
+  <div class="ph " style="left:117mm;top:184mm;width:98mm;height:76mm"><span class="code">SCA-04</span><span class="what">Progetto: dettaglio</span></div>
+  <div class="cap" style="left:15mm;top:264mm;width:98mm"><div class="t"><span class="n">/01</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="cap" style="left:117mm;top:264mm;width:98mm"><div class="t"><span class="n">/02</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="folio"><span>31</span><span>Allestimento scaffale</span></div>
+</section>
+<section class="page pl " data-p="32"><div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Vetrofanie & vetrine</span></div><div class="ph " style="left:15mm;top:28mm;width:98mm;height:112mm"><span class="code">VET-01</span><span class="what">Progetto: foto verticale</span></div><div class="ph " style="left:117mm;top:28mm;width:98mm;height:112mm"><span class="code">VET-02</span><span class="what">Progetto: foto verticale</span></div><div class="ph " style="left:15mm;top:144mm;width:98mm;height:112mm"><span class="code">VET-03</span><span class="what">Progetto: foto verticale</span></div><div class="ph " style="left:117mm;top:144mm;width:98mm;height:112mm"><span class="code">VET-04</span><span class="what">Progetto: foto verticale</span></div>
+  <div class="cap" style="left:15mm;top:264mm;width:98mm"><div class="t"><span class="n">/01</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="cap" style="left:117mm;top:264mm;width:98mm"><div class="t"><span class="n">/02</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="folio"><span>32</span><span>Vetrofanie & vetrine</span></div>
+</section>
+<section class="page pr carta" data-p="33">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Vetrofanie & vetrine</span></div>
+  <div class="abs" style="left:15mm;top:28mm;width:120mm"><div class="label" style="margin-bottom:3mm">Sezione /08</div><div class="l">Vetrofanie<br>&amp; vetrine</div></div>
+  <div class="abs" style="left:145mm;top:30mm;width:70mm"><p class="body"><b style="color:var(--nero)">La prima cosa che si vede.</b> Vetrofanie adesive ed elettrostatiche, allestimenti vetrina in cartone e forex, fondali, pedane ed elementi sospesi: la vetrina come primo espositore del negozio.</p></div>
+  <div class="ph " style="left:15mm;top:108mm;width:200mm;height:128mm"><span class="code">VET-05</span><span class="what">vetrina allestita vista dall'esterno, con vetrofanie</span></div>
+  <div class="abs" style="left:15mm;top:244mm;width:200mm"><dl class="kv "><dt>Prodotti</dt><dd>Vetrofanie mono e bifacciali, elettrostatiche, calpestabili, allestimenti vetrina</dd><dt>Stampa</dt><dd>Digitale UV, bianco coprente, retro-stampa</dd></dl></div>
+  <div class="folio"><span>33</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pl " data-p="34">
+  <div class="ph " style="left:0mm;top:0mm;width:230mm;height:160mm"><span class="code">SAG-01</span><span class="what">sagoma a grandezza naturale in ambiente</span></div>
+  <div class="run on-photo"><b><span class="tbd">[Nome Azienda]</span></b><span>Sagome & cartonati</span></div>
+  <div class="abs" style="left:15mm;top:172mm;width:110mm"><div class="label" style="margin-bottom:3mm">Sezione /09</div><div class="l">Sagome<br>&amp; cartonati</div></div>
+  <div class="abs" style="left:130mm;top:172mm;width:85mm"><p class="body"><b style="color:var(--nero)">A grandezza naturale.</b> Sagome autoportanti, standee, cartonati con piede e sagome da banco: personaggi, prodotti fuori scala e photo-opportunity per eventi e lanci.</p></div>
+  <div class="abs" style="left:15mm;top:240mm;width:200mm"><dl class="kv "><dt>Materiali</dt><dd>Alveolare, onda BC, forex</dd><dt>Varianti</dt><dd>Autoportanti, da banco, con vano, fotocartonati</dd></dl></div>
+  <div class="folio"><span>34</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pr " data-p="35">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Sagome & cartonati</span></div>
+  <div class="ph " style="left:15mm;top:28mm;width:200mm;height:150mm"><span class="code">SAG-02</span><span class="what">Progetto: vista principale</span></div>
+  <div class="ph " style="left:15mm;top:184mm;width:98mm;height:76mm"><span class="code">SAG-03</span><span class="what">Progetto: dettaglio</span></div>
+  <div class="ph " style="left:117mm;top:184mm;width:98mm;height:76mm"><span class="code">SAG-04</span><span class="what">Progetto: dettaglio</span></div>
+  <div class="cap" style="left:15mm;top:264mm;width:98mm"><div class="t"><span class="n">/01</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="cap" style="left:117mm;top:264mm;width:98mm"><div class="t"><span class="n">/02</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="folio"><span>35</span><span>Sagome & cartonati</span></div>
+</section>
+<section class="page pl " data-p="36"><div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Packaging speciale</span></div><div class="ph " style="left:15mm;top:28mm;width:98mm;height:112mm"><span class="code">PKG-01</span><span class="what">Progetto: foto verticale</span></div><div class="ph " style="left:117mm;top:28mm;width:98mm;height:112mm"><span class="code">PKG-02</span><span class="what">Progetto: foto verticale</span></div><div class="ph " style="left:15mm;top:144mm;width:98mm;height:112mm"><span class="code">PKG-03</span><span class="what">Progetto: foto verticale</span></div><div class="ph " style="left:117mm;top:144mm;width:98mm;height:112mm"><span class="code">PKG-04</span><span class="what">Progetto: foto verticale</span></div>
+  <div class="cap" style="left:15mm;top:264mm;width:98mm"><div class="t"><span class="n">/01</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="cap" style="left:117mm;top:264mm;width:98mm"><div class="t"><span class="n">/02</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="folio"><span>36</span><span>Packaging speciale</span></div>
+</section>
+<section class="page pr carta" data-p="37">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Packaging speciale</span></div>
+  <div class="abs" style="left:15mm;top:28mm;width:120mm"><div class="label" style="margin-bottom:3mm">Sezione /10</div><div class="l">Packaging<br>speciale</div></div>
+  <div class="abs" style="left:145mm;top:30mm;width:70mm"><p class="body"><b style="color:var(--nero)">La scatola è già un messaggio.</b> PR box, kit lancio, cofanetti rigidi, scatole con finestra e inserti sagomati. Quando l'apertura fa parte dell'esperienza.</p></div>
+  <div class="ph " style="left:15mm;top:108mm;width:200mm;height:128mm"><span class="code">PKG-05</span><span class="what">PR box aperto con prodotti, still-life dall'alto</span></div>
+  <div class="abs" style="left:15mm;top:244mm;width:200mm"><dl class="kv "><dt>Prodotti</dt><dd>PR box, cofanetti, calendari dell'avvento, kit campioni</dd><dt>Finiture</dt><dd>Carte rivestite, lamina, rilievo, inserti in cartone o EVA</dd></dl></div>
+  <div class="folio"><span>37</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pl " data-p="38">
+  <div class="ph " style="left:0mm;top:0mm;width:230mm;height:160mm"><span class="code">GRA-01</span><span class="what">negozio con grafiche sospese e adesivi a pavimento</span></div>
+  <div class="run on-photo"><b><span class="tbd">[Nome Azienda]</span></b><span>Grafica punto vendita</span></div>
+  <div class="abs" style="left:15mm;top:172mm;width:110mm"><div class="label" style="margin-bottom:3mm">Sezione /11</div><div class="l">Grafica<br>punto vendita</div></div>
+  <div class="abs" style="left:130mm;top:172mm;width:85mm"><p class="body"><b style="color:var(--nero)">Ogni superficie parla.</b> Pannelli in forex e dibond, adesivi da pavimento, cartelli, soffittature ed elementi sospesi, bandiere e roll-up: l'identità del brand su tutto il punto vendita.</p></div>
+  <div class="abs" style="left:15mm;top:240mm;width:200mm"><dl class="kv "><dt>Prodotti</dt><dd>Pannelli, floor graphic, pendenti, cartelli prezzo, roll-up</dd><dt>Materiali</dt><dd>Forex, dibond, PVC, tessuto, carta sintetica</dd></dl></div>
+  <div class="folio"><span>38</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pr " data-p="39">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Grafica punto vendita</span></div>
+  <div class="ph " style="left:15mm;top:28mm;width:200mm;height:150mm"><span class="code">GRA-02</span><span class="what">Progetto: vista principale</span></div>
+  <div class="ph " style="left:15mm;top:184mm;width:98mm;height:76mm"><span class="code">GRA-03</span><span class="what">Progetto: dettaglio</span></div>
+  <div class="ph " style="left:117mm;top:184mm;width:98mm;height:76mm"><span class="code">GRA-04</span><span class="what">Progetto: dettaglio</span></div>
+  <div class="cap" style="left:15mm;top:264mm;width:98mm"><div class="t"><span class="n">/01</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="cap" style="left:117mm;top:264mm;width:98mm"><div class="t"><span class="n">/02</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="folio"><span>39</span><span>Grafica punto vendita</span></div>
+</section>
+<section class="page pl " data-p="40"><div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Cartotecnica per il marketing</span></div><div class="ph " style="left:15mm;top:28mm;width:98mm;height:112mm"><span class="code">CAR-01</span><span class="what">Progetto: foto verticale</span></div><div class="ph " style="left:117mm;top:28mm;width:98mm;height:112mm"><span class="code">CAR-02</span><span class="what">Progetto: foto verticale</span></div><div class="ph " style="left:15mm;top:144mm;width:98mm;height:112mm"><span class="code">CAR-03</span><span class="what">Progetto: foto verticale</span></div><div class="ph " style="left:117mm;top:144mm;width:98mm;height:112mm"><span class="code">CAR-04</span><span class="what">Progetto: foto verticale</span></div>
+  <div class="cap" style="left:15mm;top:264mm;width:98mm"><div class="t"><span class="n">/01</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="cap" style="left:117mm;top:264mm;width:98mm"><div class="t"><span class="n">/02</span><span class="tbd">[Brand]</span> — [Nome progetto]</div><div class="d">Materiale · formato</div></div>
+  <div class="folio"><span>40</span><span>Cartotecnica per il marketing</span></div>
+</section>
+<section class="page pr carta" data-p="41">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Cartotecnica per il marketing</span></div>
+  <div class="abs" style="left:15mm;top:28mm;width:120mm"><div class="label" style="margin-bottom:3mm">Sezione /12</div><div class="l">Cartotecnica<br>per il marketing</div></div>
+  <div class="abs" style="left:145mm;top:30mm;width:70mm"><p class="body"><b style="color:var(--nero)">La carta che accompagna la vendita.</b> Cartelle, campionari, cataloghi, porta-listini, blocchi e calendari: strumenti per la rete vendita e per il cliente finale, curati come un espositore.</p></div>
+  <div class="ph " style="left:15mm;top:108mm;width:200mm;height:128mm"><span class="code">CAR-05</span><span class="what">campionario / cartella aperta su tavolo, dettaglio carta</span></div>
+  <div class="abs" style="left:15mm;top:244mm;width:200mm"><dl class="kv "><dt>Prodotti</dt><dd>Cartelle, campionari, cataloghi, calendari, blocchi</dd><dt>Finiture</dt><dd>Fustelle, tasche, plastificazione, rilegature speciali</dd></dl></div>
+  <div class="folio"><span>41</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pl " data-p="42">
+  <div class="ph spread-l" style="left:0mm;top:0mm;width:230mm;height:150mm"><span class="code">GEN-07</span><span class="what">Foto orizzontale sulle due pagine: materia prima, bobine di carta o bancali di cartone</span></div>
+  <div class="run on-photo"><b><span class="tbd">[Nome Azienda]</span></b><span>Sostenibilità</span></div>
+  <div class="abs" style="left:15mm;top:166mm;width:200mm"><div class="xl">Leggeri<br><span class="light">sul pianeta.</span></div></div>
+  <div class="abs" style="left:15mm;top:226mm;width:150mm"><p class="statement sm">La carta è il materiale da espositore più riciclato al mondo. Noi la progettiamo perché consumi meno, viaggi piatta e torni in circolo.</p></div>
+  <div class="folio"><span>42</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pr " data-p="43">
+  <div class="ph spread-r" style="left:0mm;top:0mm;width:230mm;height:150mm"><span class="code">GEN-07</span><span class="what"></span></div>
+  <div class="abs" style="left:15mm;top:170mm;width:200mm"><div class="pillars"><div><div class="s">Monomateriale</div><p class="body" style="margin-top:1.5mm">Espositori 100% carta, riciclabili senza separare i componenti.</p></div><div><div class="s">Carte certificate</div><p class="body" style="margin-top:1.5mm"><span class="tbd">FSC® / PEFC</span> su richiesta, filiera tracciata.</p></div><div><div class="s">Meno sfridi</div><p class="body" style="margin-top:1.5mm">Tracciati ottimizzati per il minimo scarto in fustellatura.</p></div><div><div class="s">Spedizione piatta</div><p class="body" style="margin-top:1.5mm">Meno volume, meno viaggi, meno emissioni.</p></div></div></div>
+  <div class="folio"><span>43</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pl " data-p="44">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Settori</span></div>
+  <div class="abs" style="left:15mm;top:28mm;width:200mm"><div class="xl">Settori</div>
+    <p class="statement sm" style="margin-top:7mm;max-width:160mm">Ogni settore ha le sue regole: normative, tempi, canali. Le conosciamo.</p></div>
+  <div class="abs" style="left:15mm;top:118mm;width:200mm"><ul class="sectors"><li>Cosmetica &amp; profumeria<span>/01</span></li><li>Farmaceutica &amp; parafarmacia<span>/02</span></li><li>Alimentare &amp; GDO<span>/03</span></li><li>Beverage<span>/04</span></li><li>Oggettistica &amp; regalo<span>/05</span></li><li>Elettronica<span>/06</span></li><li>Pet care<span>/07</span></li><li>Editoria &amp; cartoleria<span>/08</span></li><li>Moda &amp; accessori<span>/09</span></li></ul></div>
+  <div class="folio"><span>44</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pr " data-p="45">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Clienti</span></div>
+  <div class="abs" style="left:15mm;top:28mm;width:200mm"><div class="xl">Hanno scelto<br><span class="light">di farsi notare.</span></div></div>
+  <div class="abs" style="left:15mm;top:128mm;width:200mm"><div class="logos"><div>Logo cliente</div><div>Logo cliente</div><div>Logo cliente</div><div>Logo cliente</div><div>Logo cliente</div><div>Logo cliente</div><div>Logo cliente</div><div>Logo cliente</div><div>Logo cliente</div><div>Logo cliente</div><div>Logo cliente</div><div>Logo cliente</div></div></div>
+  <div class="folio"><span>45</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pl dark2" data-p="46">
+  <div class="run"><b><span class="tbd">[Nome Azienda]</span></b><span>Su misura</span></div>
+  <div class="abs" style="left:15mm;top:28mm"><svg class="star" viewBox="0 0 24 24"><path d="M12 1v22M1 12h22M4.2 4.2l15.6 15.6M19.8 4.2 4.2 19.8"/></svg></div>
+  <div class="abs" style="left:15mm;top:96mm;width:200mm"><div class="xl" style="font-size:58pt">Hai un prodotto?<br><span class="light">Noi il suo palco.</span></div></div>
+  <div class="abs" style="left:15mm;top:196mm;width:200mm"><p class="statement sm" style="color:rgba(255,255,255,.85)">Ogni progetto di questo portfolio è nato da un brief. Il prossimo può essere il tuo.</p></div>
+  <div class="abs" style="left:15mm;top:240mm;width:200mm"><div class="pillars" style="grid-template-columns:1fr 1fr 1fr"><div><div class="s" style="color:#fff">1. Scrivici</div><p class="body" style="margin-top:1.5mm">Prodotto, quantità, punto vendita e tempi.</p></div><div><div class="s" style="color:#fff">2. Progettiamo</div><p class="body" style="margin-top:1.5mm">Concept e render in pochi giorni.</p></div><div><div class="s" style="color:#fff">3. Tocchi con mano</div><p class="body" style="margin-top:1.5mm">Prototipo fisico prima della produzione.</p></div></div></div>
+  <div class="folio"><span>46</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pr " data-p="47">
+  <div class="ph " style="left:0mm;top:0mm;width:230mm;height:150mm"><span class="code">GEN-08</span><span class="what">Foto del team / ufficio tecnico: persone al lavoro</span></div>
+  <div class="run on-photo"><b><span class="tbd">[Nome Azienda]</span></b><span>Contatti</span></div>
+  <div class="abs" style="left:15mm;top:164mm;width:200mm"><div class="xl">Parliamone.</div></div>
+  <div class="abs" style="left:15mm;top:214mm;width:200mm"><dl class="kv "><dt>Email</dt><dd><span class="tbd">info@azienda.it</span></dd><dt>Telefono</dt><dd><span class="tbd">+39 000 000 0000</span></dd><dt>Sede &amp; stabilimento</dt><dd><span class="tbd">Via Esempio 1, 00000 Città (XX)</span></dd><dt>Web</dt><dd><span class="tbd">www.azienda.it</span></dd><dt>Social</dt><dd><span class="tbd">@azienda</span></dd></dl></div>
+  <div class="folio"><span>47</span><span>Portfolio Espositori 2026</span></div>
+</section>
+<section class="page pl dark2" data-p="48">
+  <div class="abs" style="left:15mm;top:136mm;width:200mm;text-align:center">
+    <div class="logo" style="font-size:18pt"><span class="tbd">[Nome Azienda]</span></div>
+    <p class="label" style="margin-top:3mm">Cartotecnica · Espositori · Materiali durevoli</p>
+  </div>
+  <div class="abs" style="left:0mm;top:266mm;width:80mm;height:34mm;background:#6E6B66"></div>
+  <div class="folio" style="justify-content:flex-end"><span>Stampato su carta riciclabile · <span class="tbd">FSC®</span></span></div>
+</section>
 </main>
 </body>
 </html>
