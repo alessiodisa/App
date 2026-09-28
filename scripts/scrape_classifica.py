@@ -18,10 +18,16 @@ Notes on the API (learned by probing, since it isn't documented):
   players are found by fully paginating /players and filtering
   client-side on `current_teams`.
 - Per-player season stats live at statistics[str(league_id)][str(season_id)].
+- There's no SportsPress "outcomes" endpoint on this site (404) and no
+  structured trophies field. The team's palmares instead lives as plain
+  text inside a <pre> block in the team's own `content.rendered` HTML,
+  formatted as one "<count> <title> TREVISO [<year>]" line per entry —
+  parsed with a regex below.
 """
 import html
 import json
 import os
+import re
 import sys
 from datetime import datetime, timezone
 
@@ -106,12 +112,6 @@ def main():
         raise RuntimeError(f"team not found: {TEAM_SLUG}")
     team = teams[0]
     team_id = team["id"]
-    print("team keys:", list(team.keys()), flush=True)
-    print("team content/excerpt/meta:", json.dumps({
-        "content": team.get("content"),
-        "excerpt": team.get("excerpt"),
-        "meta": team.get("meta"),
-    }, ensure_ascii=False)[:3000], flush=True)
 
     # --- Standings table for the league ---
     tables = get("tables", {"leagues": league_id})
@@ -227,27 +227,28 @@ def main():
     upcoming.sort(key=lambda m: m["date"])
     upcoming = upcoming[:6]
 
-    # --- Palmares (team achievements/outcomes), if SportsPress has any for
-    # this team on calciotto.tv. Best-effort: the "outcomes" endpoint isn't
-    # used elsewhere in this script and its exact shape hasn't been verified
-    # against this site, so any failure here must not break the rest of the
-    # scrape. Debug output left in on purpose to inspect via Action logs.
+    # --- Palmares: free text inside a <pre> block in the team's own content,
+    # one "<count> <title> TREVISO [<year>]" line per trophy. Best-effort
+    # parse — any line that doesn't match the pattern is skipped rather than
+    # breaking the whole scrape.
     palmares = []
     try:
-        outcomes_raw = get_all("outcomes", {"teams": team_id})
-        print(f"outcomes raw count: {len(outcomes_raw)}", flush=True)
-        if outcomes_raw:
-            print("sample outcome:", json.dumps(outcomes_raw[0], ensure_ascii=False)[:2000], flush=True)
-        for o in outcomes_raw:
-            if team_id not in (o.get("teams") or []):
+        team_content = clean_text((team.get("content") or {}).get("rendered", ""))
+        pre_match = re.search(r"<pre>(.*?)</pre>", team_content, re.DOTALL)
+        pre_text = pre_match.group(1) if pre_match else ""
+        line_re = re.compile(r"^\s*(\d+)\s+(.+?)\s+TREVISO\s*\[(\d{4})\]\s*$")
+        for line in pre_text.splitlines():
+            m = line_re.match(line)
+            if not m:
                 continue
             palmares.append({
-                "title": clean_text((o.get("title") or {}).get("rendered", "")),
-                "date": o.get("date"),
+                "count": int(m.group(1)),
+                "title": m.group(2).strip(),
+                "year": int(m.group(3)),
             })
-        palmares.sort(key=lambda x: x.get("date") or "", reverse=True)
+        palmares.sort(key=lambda x: x["year"], reverse=True)
     except Exception as e:
-        print(f"outcomes fetch failed: {e}", flush=True)
+        print(f"palmares parse failed: {e}", flush=True)
         palmares = []
 
     output = {
