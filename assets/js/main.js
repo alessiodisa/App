@@ -274,7 +274,7 @@
         matches.innerHTML = nextMatches.map(function (m, i) {
           var d = new Date(m.date);
           var dateStr = isNaN(d) ? "" :
-            d.toLocaleDateString(locale, { day: "2-digit", month: "short" }) + ", " +
+            d.toLocaleDateString(locale, { weekday: "short", day: "2-digit", month: "short" }) + ", " +
             d.toLocaleTimeString(locale, { hour: "2-digit", minute: "2-digit" });
           var isNext = i === 0 && !isNaN(d);
           var row = isNext ?
