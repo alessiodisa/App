@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=30">
+<link rel="stylesheet" href="assets/css/style.css?v=31">
 </head>
 <body>
 
@@ -187,10 +187,13 @@
           <div class="campionato-roster" id="campionatoScorers"></div>
         </div>
 
-        <div class="campionato-card campionato-card-wide">
-          <h3 data-i18n="campionato.roster.title">Rosa e statistiche</h3>
+        <details class="campionato-card campionato-card-wide campionato-section-toggle">
+          <summary>
+            <h3 data-i18n="campionato.roster.title">Rosa e statistiche</h3>
+            <span class="campionato-chevron" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          </summary>
           <div class="campionato-roster" id="campionatoRoster"></div>
-        </div>
+        </details>
       </div>
 
       <p class="campionato-source">
