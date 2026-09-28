@@ -54,14 +54,12 @@ def introduzione():
 
 
 def indice():
-    idx = lambda cs: "".join(f"<li>{PROGETTI[c][0]}<span>{p:02d}</span></li>" for c, p in cs)
+    voce = lambda n, t, p, r: (el("bignum", n, .35, r) + el("index-t", t, 1.75, r + .22, 2.3)
+                               + el("index-p", f"{p:02d}", 4.1, r + .22, .55) + el("rule", "", .35, r + .78, 4.3))
     return (el("h2", "Indice", .35, .6)
-            + el("bignum", "01", .35, 1.2) + el("h5", "Espositori da banco", 1.6, 1.45)
-            + el("index big", idx([("B02", 8), ("B11", 10), ("B10", 12)]) + "<li>Gamma completa<span>14</span></li>", 1.6, 1.65, 3.05)
-            + el("bignum", "02", .35, 3.2) + el("h5", "Espositori da terra", 1.6, 3.45)
-            + el("index big", idx([("T04", 22)]) + "<li>Gamma completa<span>24</span></li>", 1.6, 3.65, 3.05)
-            + el("bignum", "03", .35, 4.7) + el("h5", "Contatti", 1.6, 4.95)
-            + el("index big", "<li>Parliamone<span>28</span></li>", 1.6, 5.15, 3.05)
+            + voce("01", "Espositori da banco", 6, 1.5)
+            + voce("02", "Espositori da terra", 20, 2.9)
+            + voce("03", "Contatti", 28, 4.3)
             + el("small", "Una selezione di progetti realizzati per brand della cosmesi, della farmacia, dell'ottica, della ferramenta e del beverage.", .35, 6.1, 3))
 
 
