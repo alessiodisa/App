@@ -87,18 +87,6 @@ def photo(code, pos, frame, pop=False):
     return out
 
 
-def cutout(code, pos, shadow=True):
-    ix, iy, s = pos
-    x1, y1, x2, y2 = BB[code]
-    sh = ""
-    if shadow:
-        cx = ix + (x1 + x2) / 2 / 1024 * s
-        w = (x2 - x1) / 1024 * s * 1.1
-        by = iy + y2 / 1024 * s
-        sh = f'<div class="ground" style="{box(cx - w / 2, by - 3, w, 6)}"></div>'
-    return sh + f'<img class="cut free" src="img/cut/{code}.webp" style="{box(ix, iy, s, s)}" alt="">'
-
-
 def title(t, sub=""):
     return (f'<div class="ptitle" style="{box(M, M)}">{t}</div>'
             + (f'<div class="psub" style="{box(M, M + 7)}">{sub}</div>' if sub else ""))
@@ -145,8 +133,7 @@ BANCO, TERRA = "Espositori da banco", "Espositori da terra"
 def copertina():
     pos = place("B01", 205, 184, 122)
     return ("", f"""
-  <div class="block" style="{box(128, 104, 155, 92)}"></div>
-  {cutout("B01", pos, shadow=False)}
+  {photo("B01", pos, (130, 104, 153, 92), pop=True)}
   {text("Progettazione, prototipazione e produzione di espositori per il punto vendita.", M + 1, 92, 95, "lead")}
   <ul class="idx one" style="{box(M + 1, 150, 95)}"><li><b>01</b>Espositori da banco</li><li><b>02</b>Espositori da terra</li></ul>
   <div class="cover-t" style="{box(M, 26)}">Portfolio</div>
@@ -226,14 +213,18 @@ def laterale(code, n, sez, mirror=False, pos=None):
 
 
 def tavola_scontornati(codes, n, sez, heights, floor=170, taupe=True):
+    """Fila di riquadri di altezze diverse sulla stessa linea di terra;
+    ogni espositore esce dal bordo superiore del suo riquadro."""
     xs = [M + 30 + i * ((W - 2 * M - 60) / (len(codes) - 1)) for i in range(len(codes))]
-    body = f'<div class="floor" style="{box(M, floor, W - 2 * M)}"></div>'
+    body = ""
     for c, cx, h in zip(codes, xs, heights):
-        body += cutout(c, place(c, cx, floor, h))
+        fw = min(obj_w(c, h) + 16, (W - 2 * M) / len(codes) - 12)
+        fh = h * .62 + 8
+        body += photo(c, place(c, cx, floor - 7, h), (cx - fw / 2, floor - fh, fw, fh), pop=True)
         t, tip, sett = PROGETTI[c]
         body += (f'<div class="cap center" style="{box(cx - 30, floor + 4, 60)}"><b>{code_id(c)}</b>&ensp;{t}'
                  f'<span>{tip}</span></div>')
-    return ("taupe" if taupe else "", f"""{title("Silhouette", sez)}{pnum(n)}{body}{foot(sez)}""")
+    return ("taupe" if taupe else "", f"""{title("Selezione", sez)}{pnum(n)}{body}{foot(sez)}""")
 
 
 def dettagli(codes, n, sez):
@@ -282,7 +273,7 @@ def contatti():
     return ("taupe", f"""
   {title("Contatti", "Parliamo del prossimo progetto")}
   {pnum(99).replace("99", "")}
-  {cutout("B01", place("B01", 212, 176, 112))}
+  {photo("B01", place("B01", 214, 178, 100), (158, 96, 113, 90), pop=True)}
   {text('Ogni progetto di questo portfolio è nato da un brief. Il prossimo può essere il tuo.', M, 42, 110, "lead")}
   {text('<dl class="data light"><dt>Email</dt><dd><span class="tbd">info@azienda.it</span></dd><dt>Telefono</dt><dd><span class="tbd">+39 000 000 0000</span></dd><dt>Sede</dt><dd><span class="tbd">Via Esempio 1, Città</span></dd><dt>Web</dt><dd><span class="tbd">www.azienda.it</span></dd></dl>', M, 100, 110, "")}
   <div class="vtext light" style="left:{W - 10}mm;top:150mm">Portfolio 2026</div>""")
@@ -323,10 +314,6 @@ html, body {{ background: #8C857C; font-family: "Montserrat", sans-serif; color:
 .frame {{ overflow: hidden; background: #D6D6D4; }}
 .frame img {{ position: absolute; max-width: none; }}
 .cut {{ position: absolute; pointer-events: none; filter: drop-shadow(0 1.2mm 1.6mm rgba(0,0,0,.16)); }}
-.cut.free {{ filter: none; }}
-.ground {{ border-radius: 50%; background: radial-gradient(closest-side, rgba(0,0,0,.28), rgba(0,0,0,0)); }}
-.block {{ background: var(--taupe); }}
-.floor {{ border-top: .25mm solid rgba(255,255,255,.7); }}
 
 .ptitle {{ font-weight: 700; font-size: 12.5pt; text-transform: uppercase; letter-spacing: .01em; line-height: 1; }}
 .psub {{ font-weight: 400; font-size: 6.4pt; text-transform: uppercase; letter-spacing: .12em; color: var(--ink2); }}
