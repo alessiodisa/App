@@ -59,3 +59,27 @@
   font-weight: 600;
   src: url(InterTight-600.ttf) format('truetype');
 }
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 300;
+  src: url(Unbounded-300.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  src: url(Unbounded-600.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  src: url(Unbounded-700.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 800;
+  src: url(Unbounded-800.ttf) format('truetype');
+}

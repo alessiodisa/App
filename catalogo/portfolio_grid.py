@@ -7,7 +7,16 @@ Immagini: img/sq/CODICE.jpg (foto) e img/scontornate/CODICE.png (scontornate for
 
     python3 portfolio_grid.py   ->  portfolio-grid.html
 """
-from portfolio import PROGETTI, DESCR, BB, ROOT
+import json
+from portfolio import PROGETTI as _P, DESCR, BB, ROOT
+
+PROGETTI = dict(_P)
+PROGETTI.update({
+    "B18": ("Confezioni regalo", "Fondale sagomato con vetrina in plexiglas", "Regalo"),
+    "B19": ("Calzature sportive", "Pedana con fondali sfalsati", "Sport"),
+    "B20": ("Serramenti", "Espositore campionario con fondale ambientato", "Edilizia"),
+})
+CB = json.loads((ROOT / "img" / "cbbox.json").read_text())   # ingombro nelle scontornate
 
 W, H = 297, 210
 C, R = W / 7, H / 5            # modulo di griglia: 42,43 × 42 mm
@@ -46,6 +55,8 @@ def photo(code, c0, r0, c1, r1, zoom=1.0, fy=.5, fx=.5):
     x0, y0 = g(c0, r0)
     x1, y1 = g(c1, r1)
     fw, fh = x1 - x0, y1 - y0
+    if code in CB and zoom == 1.0 and not .8 <= fw / fh <= 1.25:
+        return studio(code, x0, y0, fw, fh)
     s = max(fw, fh) * zoom
     a1, b1, a2, b2 = BB[code]
     cx = (a1 + (a2 - a1) * fx) / 1024 * s
@@ -56,18 +67,28 @@ def photo(code, c0, r0, c1, r1, zoom=1.0, fy=.5, fx=.5):
             f'<img src="img/sq/{code}.jpg" style="{bx(ix - x0, iy - y0, s, s)}" alt=""></div>')
 
 
-def scontornata(code, cx_col, bottom_row, h):
+def studio(code, x0, y0, fw, fh, fill=.82):
+    """Riquadro con fondo da studio e l'espositore scontornato intero, appoggiato in basso."""
+    a1, b1, a2, b2, n = CB[code]
+    ow, oh = (a2 - a1) / n, (b2 - b1) / n
+    s = min(fw * fill / ow, fh * fill / oh)
+    ix = fw / 2 - (a1 + a2) / 2 / n * s
+    iy = fh - (fh - oh * s) * .42 - b2 / n * s
+    return (f'<div class="frame studio" style="{bx(x0, y0, fw, fh)}">'
+            f'<img src="img/scontornate/{code}.png" style="{bx(ix, iy, s, s)}" alt=""></div>')
+
+
+def scontornata(code, cx_col, bottom_row, h, max_w=None):
     """Espositore scontornato appoggiato sulla griglia: centrato sulla colonna cx_col,
-    base sulla riga bottom_row, alto h mm."""
-    f = cut_file(code)
-    if not f:
-        return photo(code, cx_col - 1, bottom_row - 2, cx_col + 1, bottom_row)
-    a1, b1, a2, b2 = BB[code]
-    s = h / ((b2 - b1) / 1024)
+    base sulla riga bottom_row, alto h mm (ridotto se supera max_w mm di larghezza)."""
+    a1, b1, a2, b2, n = CB[code]
+    if max_w and h * (a2 - a1) / (b2 - b1) > max_w:
+        h = max_w * (b2 - b1) / (a2 - a1)
+    s = h / ((b2 - b1) / n)
     x, y = g(cx_col, bottom_row)
-    ix = x - (a1 + a2) / 2 / 1024 * s
-    iy = y - b2 / 1024 * s
-    return f'<img class="cut" src="{f}" style="{bx(ix, iy, s, s)}" alt="">'
+    ix = x - (a1 + a2) / 2 / n * s
+    iy = y - b2 / n * s
+    return f'<img class="cut" src="img/scontornate/{code}.png" style="{bx(ix, iy, s, s)}" alt="">'
 
 
 def el(cls, html, col, row, w_cols=None):
@@ -106,7 +127,7 @@ def copertina():
             + el("h5", "Telefono", .35, 3.35) + el("small", TBD("+39 000 000 0000"), .35, 3.5)
             + el("h5", "Email", 1.6, 3.35) + el("small", TBD("info@azienda.it"), 1.6, 3.5)
             + el("h5", "Indirizzo", .35, 3.95) + el("small", TBD("Via Esempio 1, 00000 Città (XX)"), .35, 4.1, 2.5)
-            + photo("B01", 3.2, 3.1, 6.6, 4.6, zoom=1.9, fy=.35)
+            + photo("B01", 3.2, 3.1, 6.6, 4.6)
             + plus(1, 1) + plus(6, 1) + plus(1, 4) + plus(6, 4))
 
 
@@ -123,9 +144,9 @@ def introduzione():
           + el("bar", "", 3.35, 3.55, 2.6))
     idx = lambda cs: "".join(f"<li>{PROGETTI[c][0]}<span>{p:02d}</span></li>" for c, p in cs)
     dx = (el("h2", "Indice", .5, .95)
-          + el("h5", "Espositori da banco", .5, 1.4) + el("index", idx([("B01", 6), ("B02", 8), ("B11", 10), ("B10", 12)]), .5, 1.55, 2.4)
-          + el("h5", "Espositori da terra", .5, 2.75) + el("index", idx([("T05", 14), ("T04", 16)]), .5, 2.9, 2.4)
-          + el("h5", "Contatti", .5, 3.7) + el("index", "<li>Parliamone<span>18</span></li>", .5, 3.85, 2.4)
+          + el("h5", "Espositori da banco", .5, 1.4) + el("index", idx([("B01", 6), ("B02", 8), ("B11", 10), ("B10", 12)]) + "<li>Gamma completa<span>14</span></li>", .5, 1.55, 2.4)
+          + el("h5", "Espositori da terra", .5, 2.75) + el("index", idx([("T05", 16), ("T04", 18)]) + "<li>Gamma completa<span>20</span></li>", .5, 2.9, 2.4)
+          + el("h5", "Contatti", .5, 3.7) + el("index", "<li>Parliamone<span>22</span></li>", .5, 3.85, 2.4)
           + photo("T05", 4.2, .45, 6.55, 4.55, fy=.45))
     return sx, dx
 
@@ -164,7 +185,7 @@ def sezione(titolo, codes):
 
 def progetto(num, main, small, sq, tall, cut=None):
     t, tip, sett = PROGETTI[main]
-    sx = (photo(main, .5, .75, 3.6, 2.45, zoom=1.15)
+    sx = (photo(main, .5, .75, 3.6, 2.45)
           + el("bignum", num, 3.8, 1.2)
           + photo(small, 3.85, 2.55, 4.85, 3.55)
           + el("capline", cap(small), 3.85, 3.6, 1.6)
@@ -201,6 +222,22 @@ def progetto_terra(num, a, b, cut):
     return sx, dx
 
 
+def gamma(titolo, codes, per_riga, righe, h, sub):
+    """Tavola di gamma: espositori scontornati appoggiati sulla griglia, con codice e nome."""
+    pages = []
+    per_pag = per_riga * righe
+    for p in range(0, len(codes), per_pag):
+        body = el("h2", titolo if p == 0 else "", .5, .6) + el("small", sub if p == 0 else "", 3.4, .62, 3)
+        step = 6 / per_riga
+        for i, c in enumerate(codes[p:p + per_pag]):
+            col = .5 + step * (i % per_riga) + step / 2
+            row = (4.35 if righe == 1 else [2.55, 4.3][i // per_riga])
+            body += scontornata(c, col, row - .1, h, max_w=step * C - 6)
+            body += el("capline center", f"<b>{cid(c)}</b>{PROGETTI[c][0]}", col - step / 2, row, step)
+        pages.append(body)
+    return pages
+
+
 def contatti():
     sx = (el("h2", "Contatti", .5, .95)
           + el("quote", "Il prossimo progetto parte da un brief.", .5, 1.4, 2.5)
@@ -218,16 +255,21 @@ def retro():
 
 
 def build():
+    banco = [c for c in PROGETTI if c[0] == "B"]
+    terra = [c for c in PROGETTI if c[0] == "T"]
     pages = [copertina()]
-    for a, b in [introduzione(), chi_siamo(),
-                 sezione("Espositori da banco", ["B01", "B17", "B03", "B04", "B08"]),
-                 progetto("01", "B02", "B13", "B09", "B07"),
-                 progetto("02", "B11", "B12", "B14", "B16"),
-                 progetto("03", "B10", "B15", "B05", "B06" if False else "B05", cut="B06"),
-                 sezione("Espositori da terra", ["T01", "T02", "T05", "T03", "T06"]),
-                 progetto_terra("04", "T07", "T08", "T04")]:
+    spreads = [introduzione(), chi_siamo(),
+               sezione("Espositori da banco", ["B01", "B17", "B03", "B04", "B08"]),
+               progetto("01", "B02", "B13", "B09", "B07"),
+               progetto("02", "B11", "B12", "B14", "B16"),
+               progetto("03", "B10", "B15", "B05", "B05", cut="B06"),
+               tuple(gamma("Gamma da banco", banco, 5, 2, 44, "Tutti i progetti della sezione, in scala relativa sulla griglia.")),
+               sezione("Espositori da terra", ["T01", "T02", "T05", "T03", "T06"]),
+               progetto_terra("04", "T07", "T08", "T04"),
+               tuple(gamma("Gamma da terra", terra, 4, 1, 128, "Colonne, totem e podi: altezze e ingombri a confronto."))]
+    for a, b in spreads:
         pages += [a, b]
-    pages += [contatti(), retro()]
+    pages += [contatti(), photo_page("B04"), retro()]
     tot = len(pages)
     html = []
     for i, body in enumerate(pages, start=1):
@@ -245,6 +287,10 @@ def build():
 """
     (ROOT / "portfolio-grid.html").write_text(doc, encoding="utf-8")
     print("portfolio-grid.html:", tot, "pagine")
+
+
+def photo_page(code):
+    return photo(code, .5, .45, 6.5, 4.55) + plus(.5, .45) + plus(6.5, 4.55)
 
 
 if __name__ == "__main__":

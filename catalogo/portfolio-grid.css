@@ -69,3 +69,6 @@ html, body { background: #7D7A76; font-family: var(--body); color: var(--ink);
 .capline { font: 400 5.6pt/1.4 var(--body); text-transform: uppercase; letter-spacing: .03em; color: var(--gray); }
 .capline b { display: block; font: 700 5.8pt/1.4 var(--disp); color: var(--ink); letter-spacing: .02em; }
 .meta h5 { margin-bottom: 1.4mm; font-size: 6pt; }
+.capline.center { text-align: center; }
+.frame.studio { background: radial-gradient(ellipse at 50% 35%, #E9E9E7 0%, #D4D4D2 75%); }
+.frame.studio img { filter: drop-shadow(0 1.2mm 1.5mm rgba(0,0,0,.16)); }
