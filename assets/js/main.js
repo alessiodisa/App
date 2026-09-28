@@ -473,6 +473,7 @@
     initJoinForm();
     initAutoScroll(document.getElementById("marqueeTrack"), ".marquee-group", "--mq-w", 76);
     initAutoScroll(document.getElementById("igTrack"), ".ig-group", "--ig-w", 20);
+    initAutoScroll(document.getElementById("igTrackTreviso"), ".ig-group", "--ig-w", 20);
     initInstagramFeed();
     initVideoAutoplay();
     initTrevisoData();
