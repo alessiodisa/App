@@ -3,3 +3,14 @@
 .book { grid-template-columns: repeat(2, 210mm); }
 .page { width: 210mm; height: 297mm; background-size: 42mm calc(297mm / 7); }
 .cover-t { font-size: 50pt; }
+.light-t.xl { font-size: 30pt; }
+.bullets.big { font-size: 7.4pt; }
+.bullets.big li { padding: 1.6mm 0 1.6mm 6mm; }
+.index.big { font-size: 8pt; }
+.index.big li { padding: 1.8mm 0; border-bottom: .25mm solid #D6D6D4; }
+.letters.big h5 { font-size: 7.6pt; }
+.letters.big p { font-size: 6.8pt; }
+.letters.big .li { margin-bottom: 5.5mm; }
+.stats { display: flex; gap: 10mm; }
+.stats div { font: 400 6.2pt/1.4 var(--body); text-transform: uppercase; letter-spacing: .03em; color: #6E6E6C; }
+.stats b { display: block; font: 800 22pt/1.1 var(--disp); color: var(--ink); }

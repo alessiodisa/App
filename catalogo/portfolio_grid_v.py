@@ -26,55 +26,54 @@ def meta(code):
 def copertina():
     return (el("small", "Vol. 01 — 2026", .35, .45)
             + el("small right", "Progettato e prodotto da", 2.5, .45, 2.15) + el("h3 right", AZ, 2.5, .62, 2.15)
-            + el("light-t", "Espositori", .35, 1.3) + el("cover-t", "Portfolio", .3, 1.62)
+            + el("light-t xl", "Espositori", .35, 2.55) + el("cover-t", "Portfolio", .3, 2.95)
             + el("small", "Cartotecnica ed espositori per il punto vendita: progettazione, prototipazione e produzione. "
-                 "Cartone, cartoncino e materiali durevoli.", .35, 2.35, 2.6)
-            + photo("B01", .35, 3.0, 4.65, 5.9)
+                 "Cartone, cartoncino e materiali durevoli.", .35, 3.75, 2.6)
             + el("h5", "Telefono", .35, 6.15) + el("small", TBD("+39 000 000 0000"), .35, 6.3)
             + el("h5", "Email", 1.8, 6.15) + el("small", TBD("info@azienda.it"), 1.8, 6.3)
             + el("h5", "Indirizzo", 3.2, 6.15) + el("small", TBD("Via Esempio 1, Città"), 3.2, 6.3, 1.45)
-            + plus(1, 1) + plus(4, 1) + plus(1, 6) + plus(4, 6))
+            + plus(1, 1) + plus(4, 1) + plus(1, 5) + plus(4, 5))
 
 
 def introduzione():
     return (el("h2", "Introduzione", .35, .6)
-            + el("h6", "Ogni prodotto merita il suo spazio: struttura, materiale e grafica pensati insieme.", .35, .95, 2.6)
+            + el("quote", "Ogni prodotto merita il suo spazio: struttura, materiale e grafica pensati insieme.", .35, 1.1, 3.6)
             + el("small cols", "Progettiamo e produciamo espositori da banco e da terra, pedane, totem e allestimenti per il punto vendita. "
                  "Ogni progetto nasce in ufficio tecnico, viene prototipato, testato e poi prodotto internamente, "
-                 "dalla stampa alla fustellatura fino al confezionamento.", .35, 1.55, 4.3)
-            + photo("B03", .35, 2.5, 2.4, 4.6)
-            + el("bullets", "".join(f"<li>{x}</li>" for x in [
+                 "dalla stampa alla fustellatura fino al confezionamento.", .35, 2.0, 4.3)
+            + el("h6", "Cosa facciamo", .35, 3.4)
+            + el("bullets big", "".join(f"<li>{x}</li>" for x in [
                 "Progettazione strutturale e grafica", "Prototipi in tempi brevi", "Stampa offset e digitale",
-                "Fustellatura e incollaggio interni", "Cartone, forex, plexi, legno", "Spedizione piatta o premontata"]), 2.6, 2.5, 2.05)
-            + el("bar", "", 2.6, 4.45, 2.05)
-            + el("small", "Un unico interlocutore, dal primo disegno al bancale pronto a partire.", .35, 5.0, 2)
-            + photo("B04", 2.6, 4.9, 4.65, 6.6))
+                "Fustellatura e incollaggio interni", "Cartone, forex, plexi, legno", "Spedizione piatta o premontata"]), .35, 3.65, 2.6)
+            + el("bar", "", .35, 5.6, 4.3)
+            + el("small", "Un unico interlocutore, dal primo disegno al bancale pronto a partire.", .35, 5.85, 2.6)
+            + plus(4, 1) + plus(4, 3))
 
 
 def indice():
     idx = lambda cs: "".join(f"<li>{PROGETTI[c][0]}<span>{p:02d}</span></li>" for c, p in cs)
     return (el("h2", "Indice", .35, .6)
-            + el("h5", "Espositori da banco", .35, 1.1)
-            + el("index", idx([("B02", 8), ("B11", 10), ("B10", 12)]) + "<li>Gamma completa<span>14</span></li>", .35, 1.25, 1.95)
-            + el("h5", "Espositori da terra", .35, 2.35)
-            + el("index", idx([("T04", 22)]) + "<li>Gamma completa<span>24</span></li>", .35, 2.5, 1.95)
-            + el("h5", "Contatti", .35, 3.15) + el("index", "<li>Parliamone<span>28</span></li>", .35, 3.3, 1.95)
-            + photo("T05", 2.75, .6, 4.65, 4.6)
-            + el("small", "Una selezione di progetti realizzati per brand della cosmesi, della farmacia, dell'ottica, della ferramenta e del beverage.", .35, 4.9, 2.2)
-            + photo("B09", 2.75, 4.8, 4.65, 6.6))
+            + el("bignum", "01", .35, 1.2) + el("h5", "Espositori da banco", 1.6, 1.45)
+            + el("index big", idx([("B02", 8), ("B11", 10), ("B10", 12)]) + "<li>Gamma completa<span>14</span></li>", 1.6, 1.65, 3.05)
+            + el("bignum", "02", .35, 3.2) + el("h5", "Espositori da terra", 1.6, 3.45)
+            + el("index big", idx([("T04", 22)]) + "<li>Gamma completa<span>24</span></li>", 1.6, 3.65, 3.05)
+            + el("bignum", "03", .35, 4.7) + el("h5", "Contatti", 1.6, 4.95)
+            + el("index big", "<li>Parliamone<span>28</span></li>", 1.6, 5.15, 3.05)
+            + el("small", "Una selezione di progetti realizzati per brand della cosmesi, della farmacia, dell'ottica, della ferramenta e del beverage.", .35, 6.1, 3))
 
 
 def chi_siamo():
     return (el("h2", "Chi siamo", .35, .6)
+            + el("quote", "Dal disegno al bancale, sotto lo stesso tetto.", .35, 1.05, 3.4)
             + el("small", f"Dal {TBD('[anno]')} a {TBD('[città]')} progettiamo e produciamo espositori in cartotecnica e materiali durevoli. "
-                 "Un unico interlocutore, dal disegno al bancale.", .35, .95, 2.6)
-            + el("letters", lista_lettere([
+                 "Un unico interlocutore significa tempi più rapidi, meno passaggi e un controllo costante sulla qualità.", .35, 1.85, 2.6)
+            + el("letters big", lista_lettere([
                 ("Ufficio tecnico", "Studio strutturale, render e tracciati di fustella."),
                 ("Prototipazione", "Campioni bianchi e stampati per testare carico e montaggio."),
-                ("Produzione", "Stampa, fustellatura, incollaggio e confezionamento interni.")]), .35, 1.75, 2.6)
-            + photo("B07", 3.2, .6, 4.65, 3.1)
-            + el("bignum", "01", .35, 3.3)
-            + photo("B16", .35, 4.2, 2.4, 6.6) + photo("B10", 2.6, 4.2, 4.65, 6.6))
+                ("Produzione", "Stampa, fustellatura, incollaggio e confezionamento interni."),
+                ("Logistica", "Spedizione piatta o premontata, in Italia e all'estero.")]), .35, 2.8, 3.2)
+            + el("bignum", "01", 3.6, 5.3)
+            + el("stats", f'<div><b>{TBD("35+")}</b>Anni</div><div><b>{TBD("400")}</b>Progetti l’anno</div><div><b>100%</b>Interno</div>', .35, 5.55, 3))
 
 
 def citazione():
