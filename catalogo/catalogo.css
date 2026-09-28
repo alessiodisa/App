@@ -1,0 +1,221 @@
+/* ==========================================================================
+   Catalogo espositori — formato 230 × 300 mm (verticale, vista a doppia pagina)
+   Concept: il catalogo come un tracciato di fustella.
+   — linea continua = taglio · linea tratteggiata = cordonatura
+   ========================================================================== */
+
+:root {
+  --carta: #F1EDE4;
+  --carta-2: #E7E1D5;
+  --kraft: #C9A77C;
+  --inchiostro: #151515;
+  --grigio: #6E6A62;
+  --fustella: #E5412D;
+
+  /* colori di sezione */
+  --cosmetica: #E8C8BF;
+  --farma: #CBDDD6;
+  --alimentare: #EFB548;
+  --oggettistica: #B8C2E4;
+
+  --W: 230mm;
+  --H: 300mm;
+  --m: 16mm;             /* margine */
+  --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@page { size: 230mm 300mm; margin: 0; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #2A2926;
+  color: var(--inchiostro);
+  font-family: var(--sans);
+  font-size: 9.5pt;
+  line-height: 1.45;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ---------- vista a schermo: doppie pagine affiancate ---------- */
+.book {
+  display: grid;
+  grid-template-columns: repeat(2, var(--W));
+  row-gap: 14mm;
+  justify-content: center;
+  padding: 14mm 0;
+  zoom: 0.62;
+}
+.book > .page:first-child { grid-column: 2; }
+.book > .page:nth-child(even) { box-shadow: -1px 0 0 rgba(0,0,0,.08) inset; }
+
+@media print {
+  html, body { background: none; }
+  .book { display: block; padding: 0; zoom: 1; }
+  .page { break-after: page; box-shadow: none !important; }
+}
+
+/* ---------- pagina ---------- */
+.page {
+  position: relative;
+  width: var(--W);
+  height: var(--H);
+  overflow: hidden;
+  background: var(--carta);
+}
+.page.dark { background: var(--inchiostro); color: var(--carta); }
+.page.kraft { background: var(--kraft); }
+.pad { position: absolute; inset: var(--m); }
+
+/* testatina e folio */
+.run {
+  position: absolute; top: 9mm; left: var(--m); right: var(--m);
+  display: flex; justify-content: space-between;
+  font: 500 6.5pt/1 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  opacity: .7;
+}
+.folio {
+  position: absolute; bottom: 9mm; left: var(--m); right: var(--m);
+  display: flex; justify-content: space-between; align-items: center;
+  font: 500 6.5pt/1 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  opacity: .7;
+}
+.page:nth-child(odd) .folio { flex-direction: row-reverse; }
+
+/* ---------- tipografia ---------- */
+.eyebrow {
+  font: 500 7pt/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase;
+}
+.display {
+  font-weight: 800; font-stretch: 75%;
+  font-size: 58pt; line-height: .9; letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+.h1 { font-weight: 800; font-stretch: 80%; font-size: 38pt; line-height: .95; letter-spacing: -.015em; text-transform: uppercase; }
+.h2 { font-weight: 700; font-stretch: 85%; font-size: 20pt; line-height: 1.02; letter-spacing: -.01em; }
+.h3 { font-weight: 700; font-size: 11pt; line-height: 1.15; }
+.lead { font-size: 13pt; line-height: 1.35; font-weight: 400; max-width: 125mm; }
+.small { font-size: 8pt; line-height: 1.45; }
+.mono { font-family: var(--mono); font-size: 7pt; line-height: 1.5; letter-spacing: .02em; }
+.muted { color: var(--grigio); }
+.dark .muted { color: #A8A399; }
+.red { color: var(--fustella); }
+
+/* testo da confermare / completare */
+.tbd {
+  background: linear-gradient(transparent 62%, rgba(229,65,45,.28) 62%);
+  padding: 0 .5mm;
+}
+
+/* ---------- linee "fustella" ---------- */
+.cut  { border-top: .35mm solid currentColor; }
+.fold { border-top: .35mm dashed currentColor; }
+.rule-v { border-left: .35mm dashed currentColor; }
+
+/* ---------- segnaposto immagine ---------- */
+.ph {
+  position: relative;
+  background:
+    repeating-linear-gradient(135deg, rgba(0,0,0,.035) 0 2mm, transparent 2mm 4mm),
+    var(--ph, #D8D2C6);
+  overflow: hidden;
+}
+.ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ph::after {
+  content: attr(data-label);
+  position: absolute; left: 3mm; bottom: 3mm; right: 3mm;
+  font: 500 6pt/1.35 var(--mono); letter-spacing: .06em; text-transform: uppercase;
+  color: rgba(0,0,0,.55);
+}
+.ph:has(img)::after { content: none; }
+.ph .n {
+  position: absolute; top: 3mm; left: 3mm;
+  font: 600 6pt/1 var(--mono); padding: 1mm 1.4mm; background: var(--inchiostro); color: var(--carta);
+}
+.ph:has(img) .n { display: none; }
+
+/* scheda progetto (didascalia tecnica) */
+.spec { display: grid; grid-template-columns: 20mm 1fr; column-gap: 3mm; font: 400 6.8pt/1.55 var(--mono); }
+.spec dt { text-transform: uppercase; letter-spacing: .08em; opacity: .6; }
+.spec dd { }
+.spec .fold { grid-column: 1 / -1; margin: 1.2mm 0; opacity: .5; }
+
+/* ======================= COPERTINA ======================= */
+.cover .dieline { position: absolute; left: 22mm; right: 22mm; top: 42mm; height: 170mm; }
+.cover .brand { position: absolute; top: var(--m); left: var(--m); right: var(--m); display: flex; justify-content: space-between; }
+.cover .logo { font-weight: 800; font-stretch: 75%; font-size: 13pt; letter-spacing: .02em; text-transform: uppercase; }
+.cover .title { position: absolute; left: var(--m); right: var(--m); bottom: 30mm; }
+.cover .title .display { font-size: 64pt; }
+.cover .bottom { position: absolute; left: var(--m); right: var(--m); bottom: var(--m); display: flex; justify-content: space-between; }
+
+/* ======================= INDICE ======================= */
+.toc { list-style: none; margin-top: 18mm; }
+.toc li { display: grid; grid-template-columns: 14mm 1fr auto; align-items: baseline; padding: 3.2mm 0; border-top: .35mm dashed currentColor; }
+.toc li:last-child { border-bottom: .35mm dashed currentColor; }
+.toc .t { font-weight: 700; font-stretch: 85%; font-size: 17pt; line-height: 1; text-transform: uppercase; }
+.toc .dot { display: inline-block; width: 3mm; height: 3mm; border-radius: 50%; margin-right: 2.5mm; vertical-align: .6mm; }
+
+/* ======================= NUMERI ======================= */
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 16mm; }
+.stats > div { padding: 7mm 0 8mm; border-top: .35mm dashed currentColor; }
+.stats > div:nth-child(odd) { padding-right: 6mm; }
+.stats > div:nth-child(even) { padding-left: 6mm; border-left: .35mm dashed currentColor; }
+.stats b { display: block; font-weight: 800; font-stretch: 75%; font-size: 54pt; line-height: .9; letter-spacing: -.02em; }
+
+/* ======================= PROCESSO ======================= */
+.steps { position: absolute; left: var(--m); right: 0; bottom: 30mm; display: grid; grid-template-columns: repeat(5, 1fr); }
+.step { padding: 0 4mm 0 0; }
+.step .num { font-weight: 800; font-stretch: 75%; font-size: 44pt; line-height: 1; color: var(--fustella); }
+.step .bar { height: 0; border-top: .35mm dashed currentColor; margin: 3mm 0 4mm; position: relative; }
+.step .bar::before { content: ""; position: absolute; left: 0; top: -1.6mm; width: 2.8mm; height: 2.8mm; border-radius: 50%; background: currentColor; }
+
+/* ======================= MATERIALI ======================= */
+.mats { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 5mm; position: absolute; left: var(--m); right: var(--m); top: 62mm; bottom: 24mm; }
+.mat { display: grid; grid-template-rows: 1fr auto; gap: 2.5mm; }
+.mat .ph { --ph: #D3CCBE; }
+.mat h4 { font-weight: 700; font-size: 10pt; line-height: 1.1; }
+
+/* ======================= TIPOLOGIE ======================= */
+.types { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; position: absolute; left: var(--m); right: var(--m); top: 62mm; bottom: 24mm; }
+.type { border-top: .35mm dashed currentColor; padding: 5mm 4mm 4mm 0; display: grid; grid-template-rows: 1fr auto; gap: 3mm; }
+.type:nth-child(even) { padding-left: 5mm; border-left: .35mm dashed currentColor; }
+.type svg { width: 100%; height: 100%; max-height: 62mm; stroke: currentColor; fill: none; stroke-width: 1.3; }
+.type svg * { vector-effect: non-scaling-stroke; stroke-width: 1.4; }
+.type svg .d { stroke-dasharray: 5 4; }
+
+/* ======================= DIVISORE SEZIONE ======================= */
+.divider .big { position: absolute; left: calc(var(--m) - 3mm); top: 20mm; font-weight: 800; font-stretch: 62%; font-size: 300pt; line-height: .8; letter-spacing: -.04em; }
+.divider .name { position: absolute; left: var(--m); right: var(--m); bottom: 70mm; }
+.divider .name .display { font-size: 72pt; }
+.divider .apps { position: absolute; left: var(--m); right: var(--m); bottom: 24mm; display: grid; grid-template-columns: 1fr 1fr; column-gap: 8mm; }
+.divider .apps li { list-style: none; padding: 1.6mm 0; border-top: .35mm dashed currentColor; font: 500 7.5pt/1.3 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+.divider .tab { position: absolute; left: 0; width: 8mm; height: 34mm; background: var(--inchiostro); }
+
+/* ======================= PROGETTO HERO ======================= */
+.hero .ph { position: absolute; inset: 0; --ph: #CFC8BA; }
+.hero .card { position: absolute; left: var(--m); bottom: var(--m); width: 92mm; background: var(--carta); padding: 6mm; }
+.page:nth-child(odd).hero .card { left: auto; right: var(--m); }
+
+/* ======================= GRIGLIA PROGETTI ======================= */
+.grid-a { position: absolute; left: var(--m); right: 0; top: var(--m); bottom: 24mm; display: grid; gap: 4mm;
+  grid-template-columns: 1fr 1fr; grid-template-rows: 1.4fr 1fr auto; }
+.grid-a .p1 { grid-column: 1 / -1; }
+.grid-b { position: absolute; left: 0; right: var(--m); top: var(--m); bottom: 24mm; display: grid; gap: 4mm;
+  grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr auto; }
+.grid-b .p1 { grid-row: 1 / 3; }
+.captions { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; padding-top: 1mm; }
+
+/* ======================= SOSTENIBILITÀ / ALTRI SETTORI ======================= */
+.pillars { position: absolute; left: var(--m); right: var(--m); bottom: 24mm; display: grid; grid-template-columns: 1fr 1fr; column-gap: 8mm; row-gap: 6mm; }
+.pillars > div { border-top: .35mm dashed currentColor; padding-top: 3mm; }
+.sectors { position: absolute; left: var(--m); right: var(--m); top: 70mm; bottom: 24mm; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 4mm; }
+.sectors .ph { --ph: #D3CCBE; }
+.sectors .ph .lbl { position: absolute; left: 3mm; top: 3mm; background: var(--carta); padding: 1.2mm 2mm; font-weight: 700; font-size: 9pt; }
+.sectors .ph:has(img) .lbl { display: block; }
+
+/* ======================= CONTATTI ======================= */
+.contacts { position: absolute; left: var(--m); right: var(--m); bottom: 30mm; display: grid; grid-template-columns: 1fr 1fr; column-gap: 8mm; row-gap: 7mm; }
+.contacts > div { border-top: .35mm dashed currentColor; padding-top: 3mm; }
+.contacts .v { font-size: 12pt; font-weight: 600; margin-top: 1.5mm; }
