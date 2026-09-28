@@ -113,15 +113,15 @@
     window.addEventListener("resize", fillAndMeasure);
   }
 
-  // Tries to load the real Instagram posts from the Netlify function. If it
+  // Tries to load the real Instagram posts from a Netlify function. If it
   // is not configured yet (no token) or unreachable (e.g. local file preview,
   // or the site isn't deployed to Netlify), the static placeholder tiles
   // already in the HTML stay untouched.
-  function initInstagramFeed() {
-    var track = document.getElementById("igTrack");
+  function initInstagramFeed(trackId, endpoint, fallbackLabel) {
+    var track = document.getElementById(trackId);
     if (!track) return;
 
-    fetch("/.netlify/functions/instagram-feed")
+    fetch(endpoint)
       .then(function (res) {
         if (!res.ok) throw new Error("feed unavailable");
         return res.json();
@@ -147,7 +147,7 @@
 
           var label = document.createElement("span");
           label.className = "ig-label";
-          label.textContent = post.caption || "@unitedcultureee";
+          label.textContent = post.caption || fallbackLabel;
           tile.appendChild(label);
 
           group.appendChild(tile);
@@ -474,7 +474,8 @@
     initAutoScroll(document.getElementById("marqueeTrack"), ".marquee-group", "--mq-w", 76);
     initAutoScroll(document.getElementById("igTrack"), ".ig-group", "--ig-w", 20);
     initAutoScroll(document.getElementById("igTrackTreviso"), ".ig-group", "--ig-w", 20);
-    initInstagramFeed();
+    initInstagramFeed("igTrack", "/.netlify/functions/instagram-feed", "@unitedcultureee");
+    initInstagramFeed("igTrackTreviso", "/.netlify/functions/instagram-feed-treviso", "@trevisounited");
     initVideoAutoplay();
     initTrevisoData();
     renderStaticStaff();
