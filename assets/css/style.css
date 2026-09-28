@@ -751,6 +751,40 @@ ul { margin: 0; padding: 0; list-style: none; }
   flex-shrink: 0;
 }
 
+.campionato-player-expandable{ display: block; padding: 0; }
+.campionato-player-expandable summary{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  list-style: none;
+}
+.campionato-player-expandable summary::-webkit-details-marker{ display: none; }
+.campionato-player-expandable summary::marker{ content: ""; }
+.campionato-chevron{
+  flex-shrink: 0;
+  display: flex;
+  color: var(--gray-400);
+  transition: transform .2s var(--ease);
+}
+.campionato-player-expandable[open] .campionato-chevron{ transform: rotate(180deg); }
+.campionato-player-detail{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  padding: 2px 12px 12px 48px;
+  border-top: 1px solid var(--gray-100);
+}
+.campionato-player-detail-item{ display: flex; flex-direction: column; gap: 2px; }
+.campionato-player-detail-item span{
+  font-size: .6rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--gray-500);
+}
+.campionato-player-detail-item strong{ font-size: .8rem; font-weight: 800; color: var(--ink); }
+
 .campionato-source{
   margin-top: 28px;
   font-size: .78rem;

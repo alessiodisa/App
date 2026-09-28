@@ -253,13 +253,27 @@
     var roster = document.getElementById("campionatoRoster");
     if (roster) {
       if (data.players && data.players.length) {
+        var t = I18N[lang];
         roster.innerHTML = data.players.map(function (p) {
           var stats = p.stats || {};
           var statLine = (stats.appearances || 0) + "PG · " + (stats.goals || 0) + "G";
-          return '<div class="campionato-player"><span class="campionato-num">' + escapeHtml(p.number || "-") +
+          var detailItems = [
+            [t["campionato.stat.appearances"], stats.appearances || 0],
+            [t["campionato.stat.goals"], stats.goals || 0],
+            [t["campionato.stat.yellow"], stats.yellow_cards || 0],
+            [t["campionato.stat.red"], stats.red_cards || 0],
+            [t["campionato.stat.motm"], stats.motm || 0]
+          ].map(function (pair) {
+            return '<div class="campionato-player-detail-item"><span>' + escapeHtml(pair[0]) +
+              "</span><strong>" + escapeHtml(pair[1]) + "</strong></div>";
+          }).join("");
+          return '<details class="campionato-player campionato-player-expandable">' +
+            '<summary><span class="campionato-num">' + escapeHtml(p.number || "-") +
             '</span><span class="campionato-info"><span class="campionato-name">' + escapeHtml(p.name) +
             '</span><span class="campionato-pos">' + escapeHtml(p.position_label || "") +
-            '</span></span><span class="campionato-stats">' + escapeHtml(statLine) + "</span></div>";
+            '</span></span><span class="campionato-stats">' + escapeHtml(statLine) +
+            '</span><span class="campionato-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>' +
+            '<div class="campionato-player-detail">' + detailItems + "</div></details>";
         }).join("");
       } else {
         roster.innerHTML = "";
