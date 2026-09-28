@@ -211,6 +211,74 @@
     });
   }
 
+  // Animates <details> open/close with a real height transition instead of
+  // the native instant snap. Uses the Web Animations API so it degrades
+  // gracefully (falls back to the native toggle) if unsupported.
+  function initSmoothDetails(selector) {
+    if (!("animate" in document.documentElement)) return;
+    document.querySelectorAll(selector).forEach(function (details) {
+      if (details.dataset.smoothBound) return;
+      details.dataset.smoothBound = "1";
+
+      var summary = details.querySelector(":scope > summary");
+      var content = summary && summary.nextElementSibling;
+      if (!summary || !content) return;
+
+      var animation = null;
+      var isClosing = false;
+      var isExpanding = false;
+      var duration = 280;
+      var easing = "cubic-bezier(0.4, 0, 0.2, 1)";
+
+      summary.addEventListener("click", function (e) {
+        e.preventDefault();
+        details.style.overflow = "hidden";
+        if (isClosing || !details.open) {
+          details.classList.add("is-rotated");
+          openDetails();
+        } else if (isExpanding || details.open) {
+          details.classList.remove("is-rotated");
+          shrinkDetails();
+        }
+      });
+
+      function shrinkDetails() {
+        isClosing = true;
+        var startHeight = details.offsetHeight + "px";
+        var endHeight = summary.offsetHeight + "px";
+        if (animation) animation.cancel();
+        animation = details.animate({ height: [startHeight, endHeight] }, { duration: duration, easing: easing });
+        animation.onfinish = function () { onFinish(false); };
+        animation.oncancel = function () { isClosing = false; };
+      }
+
+      function openDetails() {
+        details.style.height = details.offsetHeight + "px";
+        details.open = true;
+        window.requestAnimationFrame(function () { expandDetails(); });
+      }
+
+      function expandDetails() {
+        isExpanding = true;
+        var startHeight = details.offsetHeight + "px";
+        var endHeight = summary.offsetHeight + content.offsetHeight + "px";
+        if (animation) animation.cancel();
+        animation = details.animate({ height: [startHeight, endHeight] }, { duration: duration, easing: easing });
+        animation.onfinish = function () { onFinish(true); };
+        animation.oncancel = function () { isExpanding = false; };
+      }
+
+      function onFinish(open) {
+        details.open = open;
+        animation = null;
+        isClosing = false;
+        isExpanding = false;
+        details.style.height = "";
+        details.style.overflow = "";
+      }
+    });
+  }
+
   function initTrevisoData() {
     var root = document.getElementById("campionato");
     if (!root) return;
@@ -275,6 +343,7 @@
             '</span><span class="campionato-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>' +
             '<div class="campionato-player-detail">' + detailItems + "</div></details>";
         }).join("");
+        initSmoothDetails(".campionato-player-expandable");
       } else {
         roster.innerHTML = "";
       }
@@ -405,5 +474,6 @@
     initVideoAutoplay();
     initTrevisoData();
     renderStaticStaff();
+    initSmoothDetails(".campionato-section-toggle");
   });
 })();

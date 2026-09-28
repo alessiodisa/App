@@ -655,7 +655,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--gray-400);
   transition: transform .2s var(--ease);
 }
-.campionato-section-toggle[open] > summary .campionato-chevron{ transform: rotate(180deg); }
+.campionato-section-toggle[open] > summary .campionato-chevron,
+.campionato-section-toggle.is-rotated > summary .campionato-chevron{ transform: rotate(180deg); }
 .campionato-section-toggle > .campionato-roster{ padding: 0 28px 26px; }
 
 .campionato-list{ list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
@@ -789,7 +790,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--gray-400);
   transition: transform .2s var(--ease);
 }
-.campionato-player-expandable[open] .campionato-chevron{ transform: rotate(180deg); }
+.campionato-player-expandable[open] .campionato-chevron,
+.campionato-player-expandable.is-rotated .campionato-chevron{ transform: rotate(180deg); }
 .campionato-player-detail{
   display: flex;
   flex-wrap: wrap;
