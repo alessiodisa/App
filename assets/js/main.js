@@ -224,7 +224,7 @@
       .catch(function () {
         var lang = document.documentElement.getAttribute("lang") || "it";
         var msg = escapeHtml(I18N[lang]["campionato.error"]);
-        ["campionatoMatches"].forEach(function (id) {
+        ["campionatoMatches", "campionatoScorers"].forEach(function (id) {
           var el = document.getElementById(id);
           if (el) el.innerHTML = "<li>" + msg + "</li>";
         });
@@ -263,6 +263,23 @@
         }).join("");
       } else {
         roster.innerHTML = "";
+      }
+    }
+
+    var scorers = document.getElementById("campionatoScorers");
+    if (scorers) {
+      if (data.players && data.players.length) {
+        var topScorers = data.players.slice().sort(function (a, b) {
+          return ((b.stats && b.stats.goals) || 0) - ((a.stats && a.stats.goals) || 0);
+        }).slice(0, 5);
+        scorers.innerHTML = topScorers.map(function (p, i) {
+          var goals = (p.stats && p.stats.goals) || 0;
+          var goalLabel = lang === "en" ? (goals === 1 ? "goal" : "goals") : "gol";
+          return '<li><span>' + (i + 1) + ". " + escapeHtml(p.name) +
+            '</span><span class="campionato-role">' + goals + " " + goalLabel + "</span></li>";
+        }).join("");
+      } else {
+        scorers.innerHTML = "";
       }
     }
 
