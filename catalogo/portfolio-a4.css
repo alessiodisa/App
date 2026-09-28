@@ -1,12 +1,78 @@
-/* Variante A4 verticale: si carica dopo portfolio.css */
+/* Portfolio Espositori — A4 verticale a doppia pagina */
 @page { size: 210mm 297mm; margin: 0; }
-.page { width: 210mm; height: 297mm; }
-.book { display: grid; grid-template-columns: repeat(2, 210mm); justify-content: center; gap: 12mm; }
-@media print { .book { display: block; } }
-.h3 { font: 600 11pt/1.15 var(--head); letter-spacing: -.015em; margin-top: 1mm; }
-.cart.narrow { grid-template-columns: 14mm 1fr; }
-.cart.narrow dt, .cart.narrow dd { font-size: 6.2pt; }
-.idx3 { list-style: none; columns: 3; column-gap: 5mm; font-size: 6pt; }
-.idx3 li { display: flex; gap: 1.5mm; border-top: .2mm solid var(--line); padding: .8mm 0; break-inside: avoid; }
-.idx3 b { font: 500 5.6pt/1.4 var(--mono); color: var(--acc); width: 8mm; }
-.idx3 span { margin-left: auto; font: 400 5.6pt/1.4 var(--mono); color: var(--mute); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --paper: #FAFAF8;
+  --light: #E9E8E5;
+  --mid: #8C877F;
+  --dark: #57534D;
+  --ink: #1C1C1B;
+  --ink2: #5F5C57;
+  --line: #D3D1CC;
+  --head: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --body: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+html, body { background: #CFCDC9; font-family: var(--body); color: var(--ink);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.book { display: grid; grid-template-columns: repeat(2, 210mm); justify-content: center; row-gap: 14mm; padding: 14mm 0; }
+.book > .page:first-child { grid-column: 2; }
+@media screen { .book { zoom: .5; } .page.pl { box-shadow: inset -8mm 0 10mm -8mm rgba(0,0,0,.12); } .page.pr { box-shadow: inset 8mm 0 10mm -8mm rgba(0,0,0,.12); } }
+@media print { html, body { background: none; } .book { display: block; padding: 0; } .page { break-after: page; box-shadow: none !important; } }
+
+.page { position: relative; width: 210mm; height: 297mm; overflow: hidden; background: var(--paper); }
+.page > * { position: absolute; }
+
+/* testata e folio discreti, come nelle riviste */
+.hd { display: flex; justify-content: space-between; font: 500 5.6pt/1 var(--body); color: var(--ink2); letter-spacing: .02em; }
+.ft { font: 500 6pt/1 var(--body); color: var(--ink2); }
+.pr .ft { text-align: right; }
+
+.frame { overflow: hidden; background: #D8D8D6; }
+.frame img { position: absolute; max-width: none; }
+.circle { border-radius: 50%; overflow: hidden; }
+.circle .frame { position: absolute; }
+
+.panel { padding: 16mm 15mm; }
+.panel.light { background: var(--light); padding: 0; }
+.panel.mid { background: var(--mid); }
+.panel.dark { background: var(--dark); display: flex; flex-direction: column; justify-content: space-between; color: #fff; }
+.cover-t { font: 300 40pt/1 var(--head); letter-spacing: -.035em; color: #fff; }
+.cover-t b { font-weight: 700; }
+.year { font: 300 20pt/1 var(--head); color: #fff; position: absolute; left: 12mm; bottom: 12mm; }
+
+/* tipografia */
+.lbl { font: 600 5.8pt/1.3 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--ink2); }
+.lbl.w { color: rgba(255,255,255,.85); }
+.t1 { font: 700 30pt/1 var(--head); letter-spacing: -.035em; }
+.t1.big { font-size: 42pt; }
+.t1.sm { font-size: 20pt; }
+.t1.right { text-align: right; }
+.t1 .n { font: 400 .36em/1 var(--head); letter-spacing: 0; vertical-align: top; margin-left: 1.5mm; position: relative; top: .25em; color: var(--ink2); }
+.bignum { font: 200 110pt/1 var(--head); letter-spacing: -.05em; color: #C9C6C0; }
+.lead { font: 400 12pt/1.35 var(--head); letter-spacing: -.01em; }
+.body { font: 400 7.3pt/1.6 var(--body); color: var(--ink2); }
+.quote { font: 300 15pt/1.3 var(--head); letter-spacing: -.015em; color: var(--ink); }
+.cap { font: 600 7pt/1.35 var(--head); }
+.cap b { font-weight: 700; color: var(--ink2); }
+.cap span { display: block; font: 400 6.3pt/1.4 var(--body); color: var(--ink2); margin-top: .5mm; }
+.cap-s { font: 400 6.3pt/1.4 var(--body); color: var(--ink2); }
+.tbd { background: rgba(255,196,0,.4); }
+
+.spec { display: grid; grid-template-columns: repeat(4, auto); column-gap: 5mm; row-gap: 0; border-top: .25mm solid var(--ink); padding-top: 2mm; }
+.spec { grid-template-columns: 1fr 1fr 1fr 1fr; grid-auto-flow: column; grid-template-rows: auto auto; }
+.spec dt { font: 600 5.6pt/1.3 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--ink2); }
+.spec dd { font: 400 7pt/1.4 var(--body); margin-top: .8mm; }
+.spec.big { grid-template-columns: 1fr 1fr; grid-auto-flow: row; row-gap: 4mm; }
+.spec.big dd { font-size: 9pt; }
+
+.idx { list-style: none; columns: 2; column-gap: 8mm; font: 400 7.2pt/1.3 var(--body); }
+.idx li { display: flex; gap: 2mm; border-top: .2mm solid var(--line); padding: 1.6mm 0; break-inside: avoid; }
+.idx b { font-weight: 600; width: 9mm; color: var(--ink2); }
+.idx span { margin-left: auto; color: var(--ink2); }
+.idx.big { columns: 1; font: 500 13pt/1.2 var(--head); }
+.idx.big li { padding: 3mm 0; border-color: #BDBAB4; }
+.idx.big b { width: 12mm; font-weight: 400; }
+
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6mm; }
+.stats > div { border-top: .25mm solid var(--ink); padding-top: 3mm; font: 400 6.8pt/1.4 var(--body); color: var(--ink2); }
+.stats b { display: block; font: 600 26pt/1 var(--head); letter-spacing: -.03em; color: var(--ink); margin-bottom: 2mm; }
