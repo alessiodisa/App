@@ -14,3 +14,4 @@
 .stats { display: flex; gap: 10mm; }
 .stats div { font: 400 6.2pt/1.4 var(--body); text-transform: uppercase; letter-spacing: .03em; color: #6E6E6C; }
 .stats b { display: block; font: 800 22pt/1.1 var(--disp); color: var(--ink); }
+.contact { font: 700 9pt/1.3 var(--disp); text-transform: uppercase; }

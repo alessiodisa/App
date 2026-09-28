@@ -164,12 +164,16 @@ def tavole_v(titolo, gruppi):
 
 def contatti():
     return (el("h2", "Contatti", .35, .6)
-            + el("quote", "Il prossimo progetto parte da un brief.", .35, 1.0, 3.5)
-            + el("h5", "Telefono", .35, 1.9) + el("small", TBD("+39 000 000 0000"), .35, 2.05)
-            + el("h5", "Email", 1.8, 1.9) + el("small", TBD("info@azienda.it"), 1.8, 2.05)
-            + el("h5", "Indirizzo", .35, 2.4) + el("small", TBD("Via Esempio 1, 00000 Città (XX)"), .35, 2.55, 1.9)
-            + el("h5", "Web", 1.8, 2.4) + el("small", TBD("www.azienda.it"), 1.8, 2.55)
-            + photo("B14", .35, 3.0, 4.65, 6.6))
+            + el("quote", "Il prossimo progetto parte da un brief.", .35, 1.05, 3.6)
+            + el("small", "Raccontaci il prodotto, il punto vendita, le quantità e i tempi: ti rispondiamo con un concept e un prototipo.", .35, 1.8, 2.8)
+            + el("bignum", "03", .35, 2.6)
+            + el("h5", "Telefono", .35, 3.9) + el("contact", TBD("+39 000 000 0000"), .35, 4.05, 2)
+            + el("h5", "Email", 2.6, 3.9) + el("contact", TBD("info@azienda.it"), 2.6, 4.05, 2)
+            + el("h5", "Indirizzo", .35, 4.7) + el("contact", TBD("Via Esempio 1, 00000 Città (XX)"), .35, 4.85, 2.1)
+            + el("h5", "Web", 2.6, 4.7) + el("contact", TBD("www.azienda.it"), 2.6, 4.85, 2)
+            + el("bar", "", .35, 6.0, 4.3)
+            + el("small", AZ + " — Portfolio Espositori 2026", .35, 6.2, 3)
+            + plus(4, 1) + plus(4, 2))
 
 
 def retro():
@@ -188,7 +192,7 @@ def build():
     pages += sezione("Espositori da terra", ["T01", "T02", "T05", "T03", "T06"], "02")
     pages += progetto_terra("04", "T07", "T08", "T04")
     pages += tavole_v("Gamma da terra", [["T01", "T02"], ["T03", "T04"], ["T05", "T06"], ["T07", "T08"]])
-    pages += [contatti(), photo("B07", .35, .6, 4.65, 6.6) + plus(.35, .6) + plus(4.65, 6.6), retro()]
+    pages += [contatti(), retro()]
     tot = len(pages)
     html = []
     for i, body in enumerate(pages, start=1):
