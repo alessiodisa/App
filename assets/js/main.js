@@ -294,8 +294,6 @@
         var msg = escapeHtml(I18N[lang]["campionato.error"]);
         var matchesEl = document.getElementById("campionatoMatches");
         if (matchesEl) matchesEl.innerHTML = "<li>" + msg + "</li>";
-        var palmaresEl = document.getElementById("campionatoPalmares");
-        if (palmaresEl) palmaresEl.innerHTML = "<li>" + msg + "</li>";
         var table = document.getElementById("campionatoTable");
         if (table) table.innerHTML = "";
         ["campionatoRoster", "campionatoScorers"].forEach(function (id) {
@@ -372,17 +370,6 @@
       }
     }
 
-    var palmares = document.getElementById("campionatoPalmares");
-    if (palmares) {
-      if (data.palmares && data.palmares.length) {
-        palmares.innerHTML = data.palmares.map(function (p) {
-          var label = (p.count > 1 ? p.count + "× " : "") + escapeHtml(p.title);
-          return "<li><span>" + label + '</span><span class="campionato-date">' + p.year + "</span></li>";
-        }).join("");
-      } else {
-        palmares.innerHTML = "";
-      }
-    }
 
     var matches = document.getElementById("campionatoMatches");
     if (matches) {

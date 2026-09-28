@@ -635,27 +635,5 @@
       "opponent": "CARMELITEAM",
       "league": "serie-a-2026-2027"
     }
-  ],
-  "palmares": [
-    {
-      "count": 1,
-      "title": "Campionato Serie A",
-      "year": 2025
-    },
-    {
-      "count": 1,
-      "title": "Coppa Italia",
-      "year": 2025
-    },
-    {
-      "count": 1,
-      "title": "Supercup",
-      "year": 2024
-    },
-    {
-      "count": 1,
-      "title": "Campionato Serie B",
-      "year": 2023
-    }
   ]
 }

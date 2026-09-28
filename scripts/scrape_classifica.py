@@ -18,16 +18,10 @@ Notes on the API (learned by probing, since it isn't documented):
   players are found by fully paginating /players and filtering
   client-side on `current_teams`.
 - Per-player season stats live at statistics[str(league_id)][str(season_id)].
-- There's no SportsPress "outcomes" endpoint on this site (404) and no
-  structured trophies field. The team's palmares instead lives as plain
-  text inside a <pre> block in the team's own `content.rendered` HTML,
-  formatted as one "<count> <title> TREVISO [<year>]" line per entry —
-  parsed with a regex below.
 """
 import html
 import json
 import os
-import re
 import sys
 from datetime import datetime, timezone
 
@@ -227,30 +221,6 @@ def main():
     upcoming.sort(key=lambda m: m["date"])
     upcoming = upcoming[:6]
 
-    # --- Palmares: free text inside a <pre> block in the team's own content,
-    # one "<count> <title> TREVISO [<year>]" line per trophy. Best-effort
-    # parse — any line that doesn't match the pattern is skipped rather than
-    # breaking the whole scrape.
-    palmares = []
-    try:
-        team_content = clean_text((team.get("content") or {}).get("rendered", ""))
-        pre_match = re.search(r"<pre>(.*?)</pre>", team_content, re.DOTALL)
-        pre_text = pre_match.group(1) if pre_match else ""
-        line_re = re.compile(r"^\s*(\d+)\s+(.+?)\s+TREVISO\s*\[(\d{4})\]\s*$")
-        for line in pre_text.splitlines():
-            m = line_re.match(line)
-            if not m:
-                continue
-            palmares.append({
-                "count": int(m.group(1)),
-                "title": m.group(2).strip().title(),
-                "year": int(m.group(3)),
-            })
-        palmares.sort(key=lambda x: x["year"], reverse=True)
-    except Exception as e:
-        print(f"palmares parse failed: {e}", flush=True)
-        palmares = []
-
     output = {
         "generated_at": now.isoformat(),
         "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
@@ -261,7 +231,6 @@ def main():
         "standings": standings,
         "players": players,
         "upcoming_matches": upcoming,
-        "palmares": palmares,
     }
 
     os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
@@ -269,7 +238,7 @@ def main():
         json.dump(output, f, ensure_ascii=False, indent=2)
 
     print(f"wrote {OUT_PATH}")
-    print(f"standings rows: {len(standings)}, players: {len(players)} (scanned {len(all_players_slim)} total), upcoming: {len(upcoming)}, palmares: {len(palmares)}")
+    print(f"standings rows: {len(standings)}, players: {len(players)} (scanned {len(all_players_slim)} total), upcoming: {len(upcoming)}")
 
 
 if __name__ == "__main__":
