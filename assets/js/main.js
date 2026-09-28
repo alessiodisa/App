@@ -224,14 +224,14 @@
       .catch(function () {
         var lang = document.documentElement.getAttribute("lang") || "it";
         var msg = escapeHtml(I18N[lang]["campionato.error"]);
-        ["campionatoMatches", "campionatoScorers"].forEach(function (id) {
-          var el = document.getElementById(id);
-          if (el) el.innerHTML = "<li>" + msg + "</li>";
-        });
+        var matchesEl = document.getElementById("campionatoMatches");
+        if (matchesEl) matchesEl.innerHTML = "<li>" + msg + "</li>";
         var table = document.getElementById("campionatoTable");
         if (table) table.innerHTML = "";
-        var roster = document.getElementById("campionatoRoster");
-        if (roster) roster.innerHTML = "<p>" + msg + "</p>";
+        ["campionatoRoster", "campionatoScorers"].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) el.innerHTML = "<p>" + msg + "</p>";
+        });
       });
   }
 
@@ -275,8 +275,10 @@
         scorers.innerHTML = topScorers.map(function (p, i) {
           var goals = (p.stats && p.stats.goals) || 0;
           var goalLabel = lang === "en" ? (goals === 1 ? "goal" : "goals") : "gol";
-          return '<li><span>' + (i + 1) + ". " + escapeHtml(p.name) +
-            '</span><span class="campionato-role">' + goals + " " + goalLabel + "</span></li>";
+          return '<div class="campionato-player"><span class="campionato-num">' + (i + 1) +
+            '</span><span class="campionato-info"><span class="campionato-name">' + escapeHtml(p.name) +
+            '</span><span class="campionato-pos">' + escapeHtml(p.position_label || "") +
+            '</span></span><span class="campionato-stats">' + goals + " " + goalLabel + "</span></div>";
         }).join("");
       } else {
         scorers.innerHTML = "";

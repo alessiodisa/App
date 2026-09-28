@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=28">
+<link rel="stylesheet" href="assets/css/style.css?v=29">
 </head>
 <body>
 
@@ -173,11 +173,6 @@
         </div>
 
         <div class="campionato-card">
-          <h3 data-i18n="campionato.scorers.title">Classifica marcatori</h3>
-          <ul class="campionato-list" id="campionatoScorers"></ul>
-        </div>
-
-        <div class="campionato-card">
           <h3 data-i18n="campionato.staff.title">Dirigenza</h3>
           <ul class="campionato-list" id="campionatoDirigenza"></ul>
         </div>
@@ -185,6 +180,11 @@
         <div class="campionato-card campionato-card-wide">
           <h3 data-i18n="campionato.crew.title">Staff</h3>
           <ul class="campionato-list" id="campionatoStaffTeam"></ul>
+        </div>
+
+        <div class="campionato-card campionato-card-wide">
+          <h3 data-i18n="campionato.scorers.title">Classifica marcatori</h3>
+          <div class="campionato-roster" id="campionatoScorers"></div>
         </div>
 
         <div class="campionato-card campionato-card-wide">
@@ -263,6 +263,6 @@
 
 <script src="assets/js/i18n.js?v=15"></script>
 <script src="assets/js/treviso-staff.js?v=3"></script>
-<script src="assets/js/main.js?v=9"></script>
+<script src="assets/js/main.js?v=10"></script>
 </body>
 </html>
