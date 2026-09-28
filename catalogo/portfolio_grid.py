@@ -55,8 +55,10 @@ def photo(code, c0, r0, c1, r1, zoom=1.0, fy=.5, fx=.5):
     x0, y0 = g(c0, r0)
     x1, y1 = g(c1, r1)
     fw, fh = x1 - x0, y1 - y0
-    if code in CB and zoom == 1.0 and not .8 <= fw / fh <= 1.25:
-        return studio(code, x0, y0, fw, fh)
+    a1_, b1_, a2_, b2_ = BB[code]
+    ss = max(fw, fh) * zoom
+    if (a2_ - a1_) / 1024 * ss > fw + .5 or (b2_ - b1_) / 1024 * ss > fh + .5:
+        print(f"  ! {code}: espositore tagliato nel riquadro {fw:.0f}x{fh:.0f} mm")
     s = max(fw, fh) * zoom
     a1, b1, a2, b2 = BB[code]
     cx = (a1 + (a2 - a1) * fx) / 1024 * s
@@ -65,17 +67,6 @@ def photo(code, c0, r0, c1, r1, zoom=1.0, fy=.5, fx=.5):
     iy = min(max(y0 + fh / 2 - cy, y0 + fh - s), y0)
     return (f'<div class="frame" style="{bx(x0, y0, fw, fh)}">'
             f'<img src="img/sq/{code}.jpg" style="{bx(ix - x0, iy - y0, s, s)}" alt=""></div>')
-
-
-def studio(code, x0, y0, fw, fh, fill=.92):
-    """Riquadro con fondo da studio e l'espositore scontornato intero, appoggiato in basso."""
-    a1, b1, a2, b2, n = CB[code]
-    ow, oh = (a2 - a1) / n, (b2 - b1) / n
-    s = min(fw * fill / ow, fh * fill / oh)
-    ix = fw / 2 - (a1 + a2) / 2 / n * s
-    iy = fh - (fh - oh * s) * .42 - b2 / n * s
-    return (f'<div class="frame studio" style="{bx(x0, y0, fw, fh)}">'
-            f'<img src="img/scontornate/{code}.png" style="{bx(ix, iy, s, s)}" alt=""></div>')
 
 
 def scontornata(code, cx_col, bottom_row, h, max_w=None):
@@ -127,14 +118,14 @@ def copertina():
             + el("h5", "Telefono", .35, 3.35) + el("small", TBD("+39 000 000 0000"), .35, 3.5)
             + el("h5", "Email", 1.6, 3.35) + el("small", TBD("info@azienda.it"), 1.6, 3.5)
             + el("h5", "Indirizzo", .35, 3.95) + el("small", TBD("Via Esempio 1, 00000 Città (XX)"), .35, 4.1, 2.5)
-            + photo("B01", 3.2, 3.1, 6.6, 4.6)
+            + photo("B01", 3.2, 2.35, 6.6, 4.6)
             + plus(1, 1) + plus(6, 1) + plus(1, 4) + plus(6, 4))
 
 
 def introduzione():
     sx = (el("h2", "Introduzione", .5, .95)
           + el("h6", "Ogni prodotto merita il suo spazio: struttura, materiale e grafica pensati insieme.", .5, 1.3, 2.3)
-          + photo("B03", .5, 2.0, 2.2, 3.7, zoom=1.35)
+          + photo("B03", .5, 2.0, 2.2, 3.7)
           + el("small cols", "Progettiamo e produciamo espositori da banco e da terra, pedane, totem e allestimenti per il punto vendita. "
                "Ogni progetto nasce in ufficio tecnico, viene prototipato, testato e poi prodotto internamente, "
                "dalla stampa alla fustellatura fino al confezionamento.", 3.35, .95, 3.2)
@@ -156,7 +147,7 @@ def chi_siamo():
           + el("small", f"Dal {TBD('[anno]')} a {TBD('[città]')} progettiamo e produciamo espositori in cartotecnica e materiali durevoli. "
                "Un unico interlocutore, dal disegno al bancale.", .5, 1.9, 2.4)
           + photo("B09", 3.6, .45, 5.4, 2.05)
-          + photo("B16", .5, 2.5, 1.6, 4.55)
+          + photo("B07", .5, 2.5, 1.7, 4.55)
           + el("letters", lista_lettere([
               ("Ufficio tecnico", "Studio strutturale, render e tracciati di fustella."),
               ("Prototipazione", "Campioni bianchi e stampati per testare carico e montaggio."),
@@ -186,13 +177,13 @@ def sezione(titolo, codes):
 
 def progetto(num, main, small, sq, tall, cut=None):
     t, tip, sett = PROGETTI[main]
-    sx = (photo(main, .5, .5, 4.5, 3.1)
-          + el("bignum", num, 4.72, .5)
-          + photo(small, 4.72, 1.5, 6.5, 3.3)
-          + el("capline", cap(small), 4.72, 3.36, 1.8)
+    sx = (photo(main, .5, .5, 4.0, 3.2)
+          + el("bignum", num, 4.25, .5)
+          + photo(small, 4.25, 1.45, 6.5, 3.2)
+          + el("capline", cap(small), 4.25, 3.26, 2.2)
           + el("h6", "Il progetto", .5, 3.3)
-          + el("small", testo(main), .5, 3.5, 2)
-          + el("small", "Struttura, materiali e finiture definiti con il cliente e verificati su prototipo prima della produzione.", 2.6, 3.5, 1.9))
+          + el("small", testo(main), .5, 3.5, 1.6)
+          + el("small", "Struttura, materiali e finiture definiti con il cliente e verificati su prototipo prima della produzione.", 2.25, 3.5, 1.75))
     meta = (f'<h5>Tipologia: {tip}</h5><h5>Settore: {sett}</h5><h5>Materiale: {TBD("[materiale]")}</h5>'
             f'<h5>Cliente: {TBD("[cliente]")} — {TBD("[anno]")}</h5>')
     dx = (el("h2", t, .5, .6, 2) + el("code", cid(main), .5, 1.25)
@@ -204,7 +195,7 @@ def progetto(num, main, small, sq, tall, cut=None):
         dx += scontornata(cut, 3.6, 3.85, 125, max_w=2.1 * C) + el("capline", cap(cut), 2.6, 3.95, 2)
     else:
         dx += photo(sq, 2.6, .6, 4.6, 2.9) + el("capline", cap(sq), 2.6, 2.96, 2)
-    dx += photo(tall, 4.8, .6, 6.5, 3.6) + el("capline", cap(tall), 4.8, 3.66, 1.7)
+    dx += photo(tall, 4.8, .6, 6.5, 3.0) + el("capline", cap(tall), 4.8, 3.06, 1.7)
     return sx, dx
 
 
@@ -272,7 +263,7 @@ def contatti():
           + el("h5", "Email", 2, 2.6) + el("small", TBD("info@azienda.it"), 2, 2.75)
           + el("h5", "Indirizzo", .5, 3.2) + el("small", TBD("Via Esempio 1, 00000 Città (XX)"), .5, 3.35, 2.5)
           + el("h5", "Web", 2, 3.2) + el("small", TBD("www.azienda.it"), 2, 3.35)
-          + photo("B17", 3.85, .45, 6.55, 4.55))
+          + photo("B14", 3.85, .45, 6.55, 4.55))
     return sx
 
 
@@ -286,10 +277,10 @@ def build():
     terra = [c for c in PROGETTI if c[0] == "T"]
     pages = [copertina()]
     spreads = [introduzione(), chi_siamo(),
-               sezione("Espositori da banco", ["B01", "B17", "B03", "B04", "B08"]),
-               progetto("01", "B02", "B13", "B09", "B07"),
+               sezione("Espositori da banco", ["B14", "B13", "B03", "B04", "B08"]),
+               progetto("01", "B02", "B17", "B09", "B07"),
                progetto("02", "B11", "B12", "B14", "B16"),
-               progetto("03", "B10", "B15", "B05", "B05", cut="B06"),
+               progetto("03", "B10", "B15", "B05", "B08", cut="B06"),
                *zip(*[iter(tavole("Gamma da banco", [["B01", "B05", "B17"], ["B02", "B08", "B03"], ["B13", "B06", "B16"], ["B04", "B15", "B19"],
                                                    ["B10", "B11", "B12", "B14"], ["B07", "B09", "B18", "B20"]], 128))] * 2),
                sezione("Espositori da terra", ["T01", "T02", "T05", "T03", "T06"]),
