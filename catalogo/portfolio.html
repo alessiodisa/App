@@ -21,7 +21,6 @@ html, body { background: #8C857C; font-family: "Montserrat", sans-serif; color: 
 .cut { position: absolute; pointer-events: none; filter: drop-shadow(0 1.2mm 1.6mm rgba(0,0,0,.16)); }
 .cut.free { filter: none; }
 .ground { border-radius: 50%; background: radial-gradient(closest-side, rgba(0,0,0,.28), rgba(0,0,0,0)); }
-.sketch { height: auto; mix-blend-mode: multiply; }
 .block { background: var(--taupe); }
 .floor { border-top: .25mm solid rgba(255,255,255,.7); }
 
@@ -51,6 +50,7 @@ html, body { background: #8C857C; font-family: "Montserrat", sans-serif; color: 
 
 .idx { list-style: none; column-count: 2; column-gap: 6mm; font-size: 6.8pt; }
 .idx li { border-top: .25mm solid var(--line); padding: 1.3mm 0 1.5mm; break-inside: avoid; }
+.idx.one { column-count: 1; font-size: 7.5pt; }
 .idx b { display: inline-block; width: 11mm; font-weight: 600; color: var(--ink2); }
 
 .ovbox { border: .3mm solid var(--ink); padding: 7mm 6mm; }
@@ -72,15 +72,14 @@ html, body { background: #8C857C; font-family: "Montserrat", sans-serif; color: 
 .taupe .cap span { color: rgba(255,255,255,.85); }
 .cap.center { text-align: center; }
 .meta { display: flex; justify-content: space-between; font-size: 6pt; color: var(--ink2); }
-.sk-label { font-size: 5.6pt; text-transform: uppercase; letter-spacing: .14em; color: var(--ink2); }
 .tbd { background: var(--tbd); }
 </style></head>
 <body><main class="book">
 <section class="page ">
   <div class="block" style="left:128.00mm;top:104.00mm;width:155.00mm;height:92.00mm"></div>
   <img class="cut free" src="img/cut/B01.webp" style="left:129.39mm;top:31.32mm;width:185.90mm;height:185.90mm" alt="">
-  <img class="sketch" src="img/sketch/T05.webp" style="left:24.00mm;top:96.00mm;width:44.00mm;opacity:0.75;transform:rotate(0deg)" alt="">
-  <img class="sketch" src="img/sketch/B09.webp" style="left:70.00mm;top:128.00mm;width:50.00mm;opacity:0.55;transform:rotate(0deg)" alt="">
+  <div class="lead" style="left:15.00mm;top:92.00mm;width:95.00mm">Progettazione, prototipazione e produzione di espositori per il punto vendita.</div>
+  <ul class="idx one" style="left:15.00mm;top:150.00mm;width:95.00mm"><li><b>01</b>Espositori da banco</li><li><b>02</b>Espositori da terra</li></ul>
   <div class="cover-t" style="left:14.00mm;top:26.00mm">Portfolio</div>
   <div class="cover-s" style="left:15.00mm;top:50.00mm">Espositori · Cartotecnica · Materiali durevoli</div>
   <div class="cover-az" style="left:15.00mm;top:57.00mm"><span class="tbd">[Nome Azienda]</span></div>
@@ -91,7 +90,7 @@ html, body { background: #8C857C; font-family: "Montserrat", sans-serif; color: 
   <div class="pnum">01</div>
   <div class="vline" style="left:104.00mm;top:40.00mm;height:150.00mm"></div><div class="vline" style="left:196.00mm;top:40.00mm;height:150.00mm"></div>
   <div class="lead" style="left:14.00mm;top:42.00mm;width:80.00mm">Progettiamo e produciamo espositori in cartotecnica e materiali durevoli: dal primo schizzo al bancale pronto a partire.</div>
-  <img class="sketch" src="img/sketch/B09.webp" style="left:20.00mm;top:108.00mm;width:70.00mm;opacity:0.9;transform:rotate(0deg)" alt="">
+  <div class="frame" style="left:14.00mm;top:110.00mm;width:80.00mm;height:80.00mm"><img src="img/sq/B05.jpg" style="left:-7.47mm;top:1.60mm;width:85.21mm;height:85.21mm" alt=""></div>
   <div class="body" style="left:114.00mm;top:42.00mm;width:72.00mm">Dal <span class="tbd">[anno]</span> a <span class="tbd">[città]</span> seguiamo ogni progetto internamente: ufficio tecnico, campionatura, stampa, fustellatura e confezionamento.<br><br>Ogni espositore nasce da una domanda semplice: dove verrà visto, da chi, per quanto tempo. Da lì scegliamo struttura, materiale e finiture, prototipiamo, testiamo e solo allora produciamo.</div>
   <div class="" style="left:206.00mm;top:42.00mm;width:77.00mm"><dl class="data light"><dt>Esperienza</dt><dd><span class="tbd">35+ anni</span></dd><dt>Progetti</dt><dd><span class="tbd">400 l’anno</span></dd><dt>Stabilimento</dt><dd><span class="tbd">6.000 m²</span></dd><dt>Settori</dt><dd>Cosmesi, farmacia, alimentare, ottica, ferramenta, beverage, pet</dd></dl></div>
   <div class="vtext light" style="left:287mm;top:120mm">Contatti · <span class="tbd">info@azienda.it</span></div>
@@ -105,11 +104,10 @@ html, body { background: #8C857C; font-family: "Montserrat", sans-serif; color: 
   <ul class="idx" style="left:198.00mm;top:112.00mm;width:86.00mm"><li><b>B.01</b>Oli essenziali</li><li><b>B.02</b>Carte da gioco</li><li><b>B.03</b>Skincare</li><li><b>B.04</b>Outdoor</li><li><b>B.05</b>Oli essenziali</li><li><b>B.06</b>Collagene marino</li><li><b>B.07</b>Sistemi di fissaggio</li><li><b>B.08</b>Integratori</li><li><b>B.09</b>Profumeria artistica</li><li><b>B.10</b>Occhiali da sole</li><li><b>B.11</b>Occhiali</li><li><b>B.12</b>Occhiali</li><li><b>B.13</b>Cosmesi naturale</li><li><b>B.14</b>Fragranze</li><li><b>B.15</b>Calzature</li><li><b>B.16</b>Vino</li><li><b>B.17</b>Skincare</li></ul>
   <div class="pfoot"><span>Espositori da banco</span></div>
 </section>
-<section class="page "><div class="ptitle" style="left:14.00mm;top:14.00mm">Progetto in evidenza</div><div class="psub" style="left:14.00mm;top:21.00mm">Espositori da banco</div><div class="pnum">03</div><div class="frame" style="left:122.00mm;top:58.00mm;width:161.00mm;height:138.00mm"><img src="img/sq/B02.jpg" style="left:-34.79mm;top:-55.02mm;width:203.71mm;height:203.71mm" alt=""></div><img class="cut" src="img/cut/B02.webp" style="left:87.21mm;top:2.98mm;width:203.71mm;height:203.71mm" alt=""><div class="ovbox" style="left:14.00mm;top:40.00mm;width:96.00mm;height:156.00mm">
+<section class="page "><div class="ptitle" style="left:14.00mm;top:14.00mm">Progetto in evidenza</div><div class="psub" style="left:14.00mm;top:21.00mm">Espositori da banco</div><div class="pnum">03</div><div class="frame" style="left:122.00mm;top:58.00mm;width:161.00mm;height:138.00mm"><img src="img/sq/B02.jpg" style="left:-34.79mm;top:-55.02mm;width:203.71mm;height:203.71mm" alt=""></div><img class="cut" src="img/cut/B02.webp" style="left:87.21mm;top:2.98mm;width:203.71mm;height:203.71mm" alt=""><div class="ovbox" style="left:14.00mm;top:58.00mm;width:96.00mm;height:138.00mm">
       <div class="ov-t">Carte da gioco</div><div class="ov-s">B.02 · Giochi</div>
       <div class="ov-h">Il progetto</div><p>Vassoio inclinato con header. <span class="tbd">[Obiettivo del cliente, soluzione, risultato: 2–3 righe.]</span></p>
-      <div class="ov-h">Dati</div><dl class="data"><dt>Tipologia</dt><dd>Vassoio inclinato con header</dd><dt>Settore</dt><dd>Giochi</dd><dt>Materiale</dt><dd><span class="tbd">[materiale]</span></dd><dt>Cliente</dt><dd><span class="tbd">[cliente]</span></dd></dl></div>
-    <img class="sketch" src="img/sketch/B02.webp" style="left:22.00mm;top:142.00mm;width:80.00mm;height:48.00mm;object-fit:contain;object-position:left bottom;opacity:0.9;transform:rotate(0deg)" alt=""><div class="pfoot"><span>Espositori da banco</span></div>
+      <div class="ov-h">Dati</div><dl class="data"><dt>Tipologia</dt><dd>Vassoio inclinato con header</dd><dt>Settore</dt><dd>Giochi</dd><dt>Materiale</dt><dd><span class="tbd">[materiale]</span></dd><dt>Cliente</dt><dd><span class="tbd">[cliente]</span></dd></dl></div><div class="pfoot"><span>Espositori da banco</span></div>
 </section>
 <section class="page "><div class="ptitle" style="left:14.00mm;top:14.00mm">Selezione progetti</div><div class="psub" style="left:14.00mm;top:21.00mm">Espositori da banco</div><div class="pnum">04</div><div class="frame" style="left:14.00mm;top:34.00mm;width:112.00mm;height:124.00mm"><img src="img/sq/B03.jpg" style="left:-15.43mm;top:-3.57mm;width:134.70mm;height:134.70mm" alt=""></div><div class="cap" style="left:14.00mm;top:161.00mm;width:112.00mm"><b>B.03</b>&ensp;Skincare<span>Vassoio con crowner sagomato</span></div><div class="frame" style="left:132.00mm;top:34.00mm;width:151.00mm;height:74.00mm"><img src="img/sq/B04.jpg" style="left:24.39mm;top:-12.93mm;width:97.96mm;height:97.96mm" alt=""></div><div class="cap" style="left:132.00mm;top:111.00mm;width:151.00mm"><b>B.04</b>&ensp;Outdoor<span>Vassoio con fondale fotografico</span></div><div class="frame" style="left:132.00mm;top:124.00mm;width:46.00mm;height:46.00mm"><img src="img/sq/B05.jpg" style="left:-9.21mm;top:-11.77mm;width:57.82mm;height:57.82mm" alt=""></div><div class="cap" style="left:132.00mm;top:173.00mm;width:46.00mm"><b>B.05</b>&ensp;Oli essenziali<span>Vassoio a gradini con header</span></div><div class="frame" style="left:184.00mm;top:124.00mm;width:46.00mm;height:46.00mm"><img src="img/sq/B08.jpg" style="left:-1.35mm;top:-10.36mm;width:53.16mm;height:53.16mm" alt=""></div><div class="cap" style="left:184.00mm;top:173.00mm;width:46.00mm"><b>B.08</b>&ensp;Integratori<span>Box espositore con header</span></div><div class="frame" style="left:236.00mm;top:124.00mm;width:47.00mm;height:46.00mm"><img src="img/sq/B13.jpg" style="left:0.80mm;top:-12.87mm;width:54.04mm;height:54.04mm" alt=""></div><div class="cap" style="left:236.00mm;top:173.00mm;width:47.00mm"><b>B.13</b>&ensp;Cosmesi naturale<span>Pedana con fondale</span></div><div class="pfoot"><span>Espositori da banco</span></div>
 </section>
@@ -120,8 +118,6 @@ html, body { background: #8C857C; font-family: "Montserrat", sans-serif; color: 
   <div class="h2" style="left:180.00mm;top:30.00mm;width:100.00mm">Profumeria artistica</div>
   <div class="body" style="left:180.00mm;top:50.00mm;width:92.00mm">Libreria a incastro. <span class="tbd">[Descrizione del progetto: esigenza, soluzione strutturale, risultato.]</span></div>
   <div class="" style="left:180.00mm;top:78.00mm;width:92.00mm"><dl class="data"><dt>Tipologia</dt><dd>Libreria a incastro</dd><dt>Settore</dt><dd>Profumeria</dd><dt>Materiale</dt><dd><span class="tbd">[materiale]</span></dd><dt>Cliente</dt><dd><span class="tbd">[cliente]</span></dd></dl></div>
-  <img class="sketch" src="img/sketch/B09.webp" style="left:190.00mm;top:128.00mm;width:70.00mm;height:54.00mm;object-fit:contain;object-position:left bottom;opacity:0.9;transform:rotate(0deg)" alt="">
-  <div class="sk-label" style="left:180.00mm;top:186.00mm">Schizzo di studio</div>
   <div class="pfoot"><span>Espositori da banco</span></div>
 </section>
 <section class="page taupe"><div class="ptitle" style="left:14.00mm;top:14.00mm">Silhouette</div><div class="psub" style="left:14.00mm;top:21.00mm">Espositori da banco</div><div class="pnum">06</div><div class="floor" style="left:14.00mm;top:170.00mm;width:269.00mm"></div><div class="ground" style="left:-5.78mm;top:167.00mm;width:99.55mm;height:6.00mm"></div><img class="cut free" src="img/cut/B07.webp" style="left:-37.55mm;top:25.45mm;width:160.89mm;height:160.89mm" alt=""><div class="cap center" style="left:14.00mm;top:174.00mm;width:60.00mm"><b>B.07</b>&ensp;Sistemi di fissaggio<span>Colonna da banco con ganci</span></div><div class="ground" style="left:108.00mm;top:167.00mm;width:81.00mm;height:6.00mm"></div><img class="cut free" src="img/cut/B10.webp" style="left:87.77mm;top:69.15mm;width:120.64mm;height:120.64mm" alt=""><div class="cap center" style="left:118.50mm;top:174.00mm;width:60.00mm"><b>B.10</b>&ensp;Occhiali da sole<span>Pedana curva con fondale</span></div><div class="ground" style="left:198.84mm;top:167.00mm;width:108.33mm;height:6.00mm"></div><img class="cut free" src="img/cut/B16.webp" style="left:190.09mm;top:54.61mm;width:144.27mm;height:144.27mm" alt=""><div class="cap center" style="left:223.00mm;top:174.00mm;width:60.00mm"><b>B.16</b>&ensp;Vino<span>Pedana monobottiglia con fondale</span></div><div class="pfoot"><span>Espositori da banco</span></div>
@@ -129,15 +125,12 @@ html, body { background: #8C857C; font-family: "Montserrat", sans-serif; color: 
 <section class="page white">
   <div class="ptitle" style="left:14.00mm;top:14.00mm">Dettagli di progetto</div><div class="psub" style="left:14.00mm;top:21.00mm">Espositori da banco</div><div class="pnum">07</div>
   <div class="vline" style="left:104.00mm;top:36.00mm;height:156.00mm"></div><div class="vline" style="left:196.00mm;top:36.00mm;height:156.00mm"></div>
-  <img class="sketch" src="img/sketch/B11.webp" style="left:18.00mm;top:36.00mm;width:72.00mm;opacity:0.95;transform:rotate(0deg)" alt="">
-  <div class="body" style="left:14.00mm;top:104.00mm;width:82.00mm"><b>B.11 — Occhiali</b><br>Ripiani a sbalzo con fondale. Ripiani a sbalzo agganciati al fondale: struttura leggera, lettura pulita del prodotto.</div>
-  <div class="frame" style="left:14.00mm;top:132.00mm;width:82.00mm;height:60.00mm"><img src="img/sq/B11.jpg" style="left:7.19mm;top:-6.67mm;width:75.85mm;height:75.85mm" alt=""></div>
-  <div class="frame" style="left:114.00mm;top:36.00mm;width:72.00mm;height:76.00mm"><img src="img/sq/B12.jpg" style="left:-7.93mm;top:-13.14mm;width:104.86mm;height:104.86mm" alt=""></div>
-  <div class="body" style="left:114.00mm;top:118.00mm;width:72.00mm"><b>B.12 — Occhiali</b><br>Fondale con nicchie. Nicchie ricavate nello spessore del fondale, senza parti aggiunte.</div>
-  <img class="sketch" src="img/sketch/B12.webp" style="left:122.00mm;top:146.00mm;width:56.00mm;opacity:0.9;transform:rotate(0deg)" alt="">
-  <div class="body" style="left:206.00mm;top:36.00mm;width:77.00mm"><b>B.15 — Calzature</b><br>Box con fondale doppio. Due fondali sfalsati creano profondità e raccontano il prodotto in due scene.</div>
-  <img class="sketch" src="img/sketch/B15.webp" style="left:214.00mm;top:62.00mm;width:60.00mm;opacity:0.9;transform:rotate(0deg)" alt="">
-  <div class="frame" style="left:206.00mm;top:112.00mm;width:77.00mm;height:80.00mm"><img src="img/sq/B15.jpg" style="left:-0.13mm;top:5.39mm;width:79.19mm;height:79.19mm" alt=""></div><img class="cut" src="img/cut/B15.webp" style="left:205.87mm;top:117.39mm;width:79.19mm;height:79.19mm" alt="">
+  <div class="frame" style="left:14.00mm;top:36.00mm;width:82.00mm;height:92.00mm"><img src="img/sq/B11.jpg" style="left:-11.26mm;top:-11.76mm;width:117.23mm;height:117.23mm" alt=""></div>
+  <div class="body" style="left:14.00mm;top:136.00mm;width:82.00mm"><b>B.11 — Occhiali</b><br>Ripiani a sbalzo con fondale. Ripiani a sbalzo agganciati al fondale: struttura leggera, lettura pulita del prodotto.</div>
+  <div class="body" style="left:114.00mm;top:36.00mm;width:72.00mm"><b>B.12 — Occhiali</b><br>Fondale con nicchie. Nicchie ricavate nello spessore del fondale, senza parti aggiunte.</div>
+  <div class="frame" style="left:114.00mm;top:66.00mm;width:72.00mm;height:126.00mm"><img src="img/sq/B12.jpg" style="left:-21.66mm;top:-0.37mm;width:137.63mm;height:137.63mm" alt=""></div>
+  <div class="frame" style="left:206.00mm;top:58.00mm;width:77.00mm;height:84.00mm"><img src="img/sq/B15.jpg" style="left:-8.23mm;top:6.79mm;width:95.57mm;height:95.57mm" alt=""></div><img class="cut" src="img/cut/B15.webp" style="left:197.77mm;top:64.79mm;width:95.57mm;height:95.57mm" alt="">
+  <div class="body" style="left:206.00mm;top:150.00mm;width:77.00mm"><b>B.15 — Calzature</b><br>Box con fondale doppio. Due fondali sfalsati creano profondità e raccontano il prodotto in due scene.</div>
   <div class="pfoot"><span>Espositori da banco</span></div>
 </section>
 <section class="page ">
@@ -145,17 +138,15 @@ html, body { background: #8C857C; font-family: "Montserrat", sans-serif; color: 
   <div class="frame" style="left:40.00mm;top:38.00mm;width:84.00mm;height:72.00mm"><img src="img/sq/B14.jpg" style="left:4.00mm;top:7.52mm;width:64.32mm;height:64.32mm" alt=""></div>
   <div class="meta" style="left:40.00mm;top:113.00mm;width:84.00mm"><span>Settore: Profumeria</span><span>Cliente: <span class="tbd">[cliente]</span></span></div>
   <div class="body" style="left:40.00mm;top:124.00mm;width:84.00mm">Pedana con fondale. <span class="tbd">[Breve descrizione del progetto.]</span></div>
-  <img class="sketch" src="img/sketch/B14.webp" style="left:44.00mm;top:144.00mm;width:84.00mm;height:46.00mm;object-fit:contain;object-position:left bottom;opacity:0.85;transform:rotate(0deg)" alt="">
   <div class="vline" style="left:140.00mm;top:40.00mm;height:150.00mm"></div>
   <div class="frame" style="left:160.00mm;top:40.00mm;width:123.00mm;height:150.00mm"><img src="img/sq/B01.jpg" style="left:-18.88mm;top:-12.18mm;width:182.86mm;height:182.86mm" alt=""></div><img class="cut" src="img/cut/B01.webp" style="left:141.12mm;top:27.82mm;width:182.86mm;height:182.86mm" alt="">
   <div class="cap" style="left:160.00mm;top:193.00mm;width:123.00mm"><b>B.01</b>&ensp;Oli essenziali<span>Espositore a gradini con arco strutturale e header</span></div>
   <div class="pfoot"><span>Espositori da banco</span></div>
 </section>
-<section class="page "><div class="ptitle" style="left:14.00mm;top:14.00mm">Progetto in evidenza</div><div class="psub" style="left:14.00mm;top:21.00mm">Espositori da banco</div><div class="pnum">09</div><div class="frame" style="left:14.00mm;top:58.00mm;width:161.00mm;height:138.00mm"><img src="img/sq/B17.jpg" style="left:-36.57mm;top:-68.89mm;width:231.74mm;height:231.74mm" alt=""></div><img class="cut" src="img/cut/B17.webp" style="left:-22.57mm;top:-10.89mm;width:231.74mm;height:231.74mm" alt=""><div class="ovbox" style="left:187.00mm;top:40.00mm;width:96.00mm;height:156.00mm">
+<section class="page "><div class="ptitle" style="left:14.00mm;top:14.00mm">Progetto in evidenza</div><div class="psub" style="left:14.00mm;top:21.00mm">Espositori da banco</div><div class="pnum">09</div><div class="frame" style="left:14.00mm;top:58.00mm;width:161.00mm;height:138.00mm"><img src="img/sq/B17.jpg" style="left:-36.57mm;top:-68.89mm;width:231.74mm;height:231.74mm" alt=""></div><img class="cut" src="img/cut/B17.webp" style="left:-22.57mm;top:-10.89mm;width:231.74mm;height:231.74mm" alt=""><div class="ovbox" style="left:187.00mm;top:58.00mm;width:96.00mm;height:138.00mm">
       <div class="ov-t">Skincare</div><div class="ov-s">B.17 · Cosmesi</div>
       <div class="ov-h">Il progetto</div><p>Espositore a gradini con header. <span class="tbd">[Obiettivo del cliente, soluzione, risultato: 2–3 righe.]</span></p>
-      <div class="ov-h">Dati</div><dl class="data"><dt>Tipologia</dt><dd>Espositore a gradini con header</dd><dt>Settore</dt><dd>Cosmesi</dd><dt>Materiale</dt><dd><span class="tbd">[materiale]</span></dd><dt>Cliente</dt><dd><span class="tbd">[cliente]</span></dd></dl></div>
-    <img class="sketch" src="img/sketch/B17.webp" style="left:195.00mm;top:142.00mm;width:80.00mm;height:48.00mm;object-fit:contain;object-position:left bottom;opacity:0.9;transform:rotate(0deg)" alt=""><div class="pfoot"><span>Espositori da banco</span></div>
+      <div class="ov-h">Dati</div><dl class="data"><dt>Tipologia</dt><dd>Espositore a gradini con header</dd><dt>Settore</dt><dd>Cosmesi</dd><dt>Materiale</dt><dd><span class="tbd">[materiale]</span></dd><dt>Cliente</dt><dd><span class="tbd">[cliente]</span></dd></dl></div><div class="pfoot"><span>Espositori da banco</span></div>
 </section>
 <section class="page ">
   <div class="frame" style="left:0.00mm;top:0.00mm;width:150.00mm;height:210.00mm"><img src="img/sq/T05.jpg" style="left:9.46mm;top:-19.91mm;width:248.00mm;height:248.00mm" alt=""></div><img class="cut" src="img/cut/T05.webp" style="left:9.46mm;top:-19.91mm;width:248.00mm;height:248.00mm" alt="">
@@ -163,7 +154,6 @@ html, body { background: #8C857C; font-family: "Montserrat", sans-serif; color: 
   <div class="h1" style="left:190.00mm;top:58.00mm;width:95.00mm">Espositori<br>da terra</div>
   <div class="body" style="left:190.00mm;top:82.00mm;width:90.00mm">Strutture autoportanti a più ripiani, pensate per reggere il carico e farsi vedere da lontano. Spedite piatte, montate in pochi minuti.</div>
   <ul class="idx" style="left:190.00mm;top:112.00mm;width:95.00mm"><li><b>T.01</b>Pet care</li><li><b>T.02</b>Cerotti</li><li><b>T.03</b>Tisane</li><li><b>T.04</b>Igiene intima</li><li><b>T.05</b>Sistemi di fissaggio</li><li><b>T.06</b>Integratori</li><li><b>T.07</b>Eyewear</li><li><b>T.08</b>Occhiali da sole</li></ul>
-  <img class="sketch" src="img/sketch/T02.webp" style="left:250.00mm;top:138.00mm;width:26.00mm;opacity:0.8;transform:rotate(0deg)" alt="">
   <div class="pfoot"><span>Espositori da terra</span></div>
 </section>
 <section class="page taupe"><div class="ptitle" style="left:14.00mm;top:14.00mm">Silhouette</div><div class="psub" style="left:14.00mm;top:21.00mm">Espositori da terra</div><div class="pnum">11</div><div class="floor" style="left:14.00mm;top:172.00mm;width:269.00mm"></div><div class="ground" style="left:11.40mm;top:169.00mm;width:65.21mm;height:6.00mm"></div><img class="cut free" src="img/cut/T01.webp" style="left:-47.62mm;top:18.41mm;width:183.95mm;height:183.95mm" alt=""><div class="cap center" style="left:14.00mm;top:176.00mm;width:60.00mm"><b>T.01</b>&ensp;Pet care<span>Colonna con vaschette e header</span></div><div class="ground" style="left:81.37mm;top:169.00mm;width:64.59mm;height:6.00mm"></div><img class="cut free" src="img/cut/T02.webp" style="left:6.32mm;top:7.14mm;width:189.68mm;height:189.68mm" alt=""><div class="cap center" style="left:83.67mm;top:176.00mm;width:60.00mm"><b>T.02</b>&ensp;Cerotti<span>Colonna con ganci e header</span></div><div class="ground" style="left:150.64mm;top:169.00mm;width:65.39mm;height:6.00mm"></div><img class="cut free" src="img/cut/T03.webp" style="left:95.64mm;top:27.81mm;width:168.16mm;height:168.16mm" alt=""><div class="cap center" style="left:153.33mm;top:176.00mm;width:60.00mm"><b>T.03</b>&ensp;Tisane<span>Colonna con mensole a sbalzo</span></div><div class="ground" style="left:230.67mm;top:169.00mm;width:44.66mm;height:6.00mm"></div><img class="cut free" src="img/cut/T06.webp" style="left:155.89mm;top:-2.59mm;width:195.17mm;height:195.17mm" alt=""><div class="cap center" style="left:223.00mm;top:176.00mm;width:60.00mm"><b>T.06</b>&ensp;Integratori<span>Colonna a ripiani con crowner</span></div><div class="pfoot"><span>Espositori da terra</span></div>
@@ -173,7 +163,6 @@ html, body { background: #8C857C; font-family: "Montserrat", sans-serif; color: 
   <div class="frame" style="left:40.00mm;top:38.00mm;width:84.00mm;height:72.00mm"><img src="img/sq/T07.jpg" style="left:1.03mm;top:6.16mm;width:69.95mm;height:69.95mm" alt=""></div>
   <div class="meta" style="left:40.00mm;top:113.00mm;width:84.00mm"><span>Settore: Ottica</span><span>Cliente: <span class="tbd">[cliente]</span></span></div>
   <div class="body" style="left:40.00mm;top:124.00mm;width:84.00mm">Podio con fondale. <span class="tbd">[Breve descrizione del progetto.]</span></div>
-  <img class="sketch" src="img/sketch/T07.webp" style="left:44.00mm;top:144.00mm;width:84.00mm;height:46.00mm;object-fit:contain;object-position:left bottom;opacity:0.85;transform:rotate(0deg)" alt="">
   <div class="vline" style="left:140.00mm;top:40.00mm;height:150.00mm"></div>
   <div class="frame" style="left:170.00mm;top:52.00mm;width:113.00mm;height:136.00mm"><img src="img/sq/T04.jpg" style="left:-69.22mm;top:-69.60mm;width:227.87mm;height:227.87mm" alt=""></div><img class="cut" src="img/cut/T04.webp" style="left:100.78mm;top:-17.60mm;width:227.87mm;height:227.87mm" alt="">
   <div class="cap" style="left:170.00mm;top:191.00mm;width:113.00mm"><b>T.04</b>&ensp;Igiene intima<span>Colonna a ripiani colorati</span></div>
@@ -186,14 +175,12 @@ html, body { background: #8C857C; font-family: "Montserrat", sans-serif; color: 
   <div class="h2" style="left:14.00mm;top:30.00mm;width:100.00mm">Occhiali da sole</div>
   <div class="body" style="left:14.00mm;top:50.00mm;width:92.00mm">Totem a nicchie. <span class="tbd">[Descrizione del progetto: esigenza, soluzione strutturale, risultato.]</span></div>
   <div class="" style="left:14.00mm;top:78.00mm;width:92.00mm"><dl class="data"><dt>Tipologia</dt><dd>Totem a nicchie</dd><dt>Settore</dt><dd>Ottica</dd><dt>Materiale</dt><dd><span class="tbd">[materiale]</span></dd><dt>Cliente</dt><dd><span class="tbd">[cliente]</span></dd></dl></div>
-  <img class="sketch" src="img/sketch/T08.webp" style="left:24.00mm;top:128.00mm;width:70.00mm;height:54.00mm;object-fit:contain;object-position:left bottom;opacity:0.9;transform:rotate(0deg)" alt="">
-  <div class="sk-label" style="left:14.00mm;top:186.00mm">Schizzo di studio</div>
   <div class="pfoot"><span>Espositori da terra</span></div>
 </section>
 <section class="page taupe">
   <div class="ptitle" style="left:14.00mm;top:14.00mm">Contatti</div><div class="psub" style="left:14.00mm;top:21.00mm">Parliamo del prossimo progetto</div>
   <div class="pnum"></div>
-  <img class="sketch" src="img/sketch/B01.webp" style="left:150.00mm;top:40.00mm;width:130.00mm;opacity:0.9;transform:rotate(0deg)" alt="">
+  <div class="ground" style="left:139.12mm;top:173.00mm;width:145.75mm;height:6.00mm"></div><img class="cut free" src="img/cut/B01.webp" style="left:142.58mm;top:35.83mm;width:170.67mm;height:170.67mm" alt="">
   <div class="lead" style="left:14.00mm;top:42.00mm;width:110.00mm">Ogni progetto di questo portfolio è nato da un brief. Il prossimo può essere il tuo.</div>
   <div class="" style="left:14.00mm;top:100.00mm;width:110.00mm"><dl class="data light"><dt>Email</dt><dd><span class="tbd">info@azienda.it</span></dd><dt>Telefono</dt><dd><span class="tbd">+39 000 000 0000</span></dd><dt>Sede</dt><dd><span class="tbd">Via Esempio 1, Città</span></dd><dt>Web</dt><dd><span class="tbd">www.azienda.it</span></dd></dl></div>
   <div class="vtext light" style="left:287mm;top:150mm">Portfolio 2026</div>

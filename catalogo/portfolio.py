@@ -5,7 +5,6 @@ Portfolio Espositori — formato orizzontale 297 × 210 mm.
 Immagini (in img/):
   sq/CODICE.jpg      foto quadrata originale
   cut/CODICE.webp    stesso scatto scontornato (per gli espositori che escono dal riquadro)
-  sketch/CODICE.webp schizzo a matita ricavato dalla foto
   bbox.json          ingombro dell'espositore nella foto (px su 1024)
 
     python3 portfolio.py      ->  portfolio.html
@@ -100,12 +99,6 @@ def cutout(code, pos, shadow=True):
     return sh + f'<img class="cut free" src="img/cut/{code}.webp" style="{box(ix, iy, s, s)}" alt="">'
 
 
-def sketch(code, x, y, w, op=1.0, rot=0, h=None):
-    fit = ";object-fit:contain;object-position:left bottom" if h else ""
-    return (f'<img class="sketch" src="img/sketch/{code}.webp" style="{box(x, y, w, h)}{fit};opacity:{op};'
-            f'transform:rotate({rot}deg)" alt="">')
-
-
 def title(t, sub=""):
     return (f'<div class="ptitle" style="{box(M, M)}">{t}</div>'
             + (f'<div class="psub" style="{box(M, M + 7)}">{sub}</div>' if sub else ""))
@@ -154,8 +147,8 @@ def copertina():
     return ("", f"""
   <div class="block" style="{box(128, 104, 155, 92)}"></div>
   {cutout("B01", pos, shadow=False)}
-  {sketch("T05", 24, 96, 44, .75)}
-  {sketch("B09", 70, 128, 50, .55)}
+  {text("Progettazione, prototipazione e produzione di espositori per il punto vendita.", M + 1, 92, 95, "lead")}
+  <ul class="idx one" style="{box(M + 1, 150, 95)}"><li><b>01</b>Espositori da banco</li><li><b>02</b>Espositori da terra</li></ul>
   <div class="cover-t" style="{box(M, 26)}">Portfolio</div>
   <div class="cover-s" style="{box(M + 1, 50)}">Espositori · Cartotecnica · Materiali durevoli</div>
   <div class="cover-az" style="{box(M + 1, 57)}">{AZ}</div>
@@ -168,7 +161,7 @@ def chi_siamo():
   {pnum(1)}
   {vline(104, 40, 190)}{vline(196, 40, 190)}
   {text('Progettiamo e produciamo espositori in cartotecnica e materiali durevoli: dal primo schizzo al bancale pronto a partire.', M, 42, 80, "lead")}
-  {sketch("B09", 20, 108, 70, .9)}
+  {photo("B05", place("B05", M + 40, 182, 56), (M, 110, 80, 80))}
   {text('Dal <span class="tbd">[anno]</span> a <span class="tbd">[città]</span> seguiamo ogni progetto internamente: ufficio tecnico, campionatura, stampa, fustellatura e confezionamento.<br><br>Ogni espositore nasce da una domanda semplice: dove verrà visto, da chi, per quanto tempo. Da lì scegliamo struttura, materiale e finiture, prototipiamo, testiamo e solo allora produciamo.', 114, 42, 72)}
   {text('<dl class="data light"><dt>Esperienza</dt><dd><span class="tbd">35+ anni</span></dd><dt>Progetti</dt><dd><span class="tbd">400 l’anno</span></dd><dt>Stabilimento</dt><dd><span class="tbd">6.000 m²</span></dd><dt>Settori</dt><dd>Cosmesi, farmacia, alimentare, ottica, ferramenta, beverage, pet</dd></dl>', 206, 42, 77, "")}
   <div class="vtext light" style="left:{W - 10}mm;top:120mm">Contatti · <span class="tbd">info@azienda.it</span></div>
@@ -196,11 +189,10 @@ def overview(code, n, sez, mirror=False):
     else:
         pos = place(code, 95, 186, h)
         frame, bx = (M, 58, 161, 138), 187
-    info = f"""<div class="ovbox" style="{box(bx, 40, 96, 156)}">
+    info = f"""<div class="ovbox" style="{box(bx, 58, 96, 138)}">
       <div class="ov-t">{t}</div><div class="ov-s">{code_id(code)} · {sett}</div>
       <div class="ov-h">Il progetto</div><p>{tip}. <span class="tbd">[Obiettivo del cliente, soluzione, risultato: 2–3 righe.]</span></p>
-      <div class="ov-h">Dati</div>{data(code)}</div>
-    {sketch(code, bx + 8, 142, 80, .9, h=48)}"""
+      <div class="ov-h">Dati</div>{data(code)}</div>"""
     return ("", f"""{title("Progetto in evidenza", sez)}{pnum(n)}{photo(code, pos, frame, pop=True)}{info}{foot(sez)}""")
 
 
@@ -230,8 +222,6 @@ def laterale(code, n, sez, mirror=False, pos=None):
   <div class="h2" style="{box(tx, 30, 100)}">{t}</div>
   {text(f'{tip}. <span class="tbd">[Descrizione del progetto: esigenza, soluzione strutturale, risultato.]</span>', tx, 50, 92)}
   {text(data(code), tx, 78, 92, "")}
-  {sketch(code, tx + 10, 128, 70, .9, h=54)}
-  <div class="sk-label" style="{box(tx, 186)}">Schizzo di studio</div>
   {foot(sez)}""")
 
 
@@ -251,15 +241,12 @@ def dettagli(codes, n, sez):
     return ("white", f"""
   {title("Dettagli di progetto", sez)}{pnum(n)}
   {vline(104, 36, 192)}{vline(196, 36, 192)}
-  {sketch(a, M + 4, 36, 72, .95)}
-  {text(f'<b>{code_id(a)} — {PROGETTI[a][0]}</b><br>{PROGETTI[a][1]}. Ripiani a sbalzo agganciati al fondale: struttura leggera, lettura pulita del prodotto.', M, 104, 82)}
-  {photo(a, place(a, 55, 186, 44), (M, 132, 82, 60))}
-  {photo(b, place(b, 150, 110, 64), (114, 36, 72, 76))}
-  {text(f'<b>{code_id(b)} — {PROGETTI[b][0]}</b><br>{PROGETTI[b][1]}. Nicchie ricavate nello spessore del fondale, senza parti aggiunte.', 114, 118, 72)}
-  {sketch(b, 122, 146, 56, .9)}
-  {text(f'<b>{code_id(c)} — {PROGETTI[c][0]}</b><br>{PROGETTI[c][1]}. Due fondali sfalsati creano profondità e raccontano il prodotto in due scene.', 206, 36, 77)}
-  {sketch(c, 214, 62, 60, .9)}
-  {photo(c, place(c, 245, 188, 58), (206, 112, 77, 80), pop=True)}
+  {photo(a, place(a, 55, 118, 68), (M, 36, 82, 92))}
+  {text(f'<b>{code_id(a)} — {PROGETTI[a][0]}</b><br>{PROGETTI[a][1]}. Ripiani a sbalzo agganciati al fondale: struttura leggera, lettura pulita del prodotto.', M, 136, 82)}
+  {text(f'<b>{code_id(b)} — {PROGETTI[b][0]}</b><br>{PROGETTI[b][1]}. Nicchie ricavate nello spessore del fondale, senza parti aggiunte.', 114, 36, 72)}
+  {photo(b, place(b, 150, 180, 84), (114, 66, 72, 126))}
+  {photo(c, place(c, 245, 150, 70), (206, 58, 77, 84), pop=True)}
+  {text(f'<b>{code_id(c)} — {PROGETTI[c][0]}</b><br>{PROGETTI[c][1]}. Due fondali sfalsati creano profondità e raccontano il prodotto in due scene.', 206, 150, 77)}
   {foot(sez)}""")
 
 
@@ -273,7 +260,6 @@ def coppia(big, small, n, sez, big_h=120, frame_big=(160, 40, 123, 150), pop_big
   {photo(small, place(small, 76, 104, 50), (40, 38, 84, 72))}
   <div class="meta" style="{box(40, 113, 84)}"><span>Settore: {setts}</span><span>Cliente: {CLI}</span></div>
   {text(f'{tips}. <span class="tbd">[Breve descrizione del progetto.]</span>', 40, 124, 84)}
-  {sketch(small, 44, 144, 84, .85, h=46)}
   {vline(140, 40, 190)}
   {photo(big, pos, frame_big, pop=pop_big)}
   <div class="cap" style="{box(fx, fy + fh + 3, fw)}"><b>{code_id(big)}</b>&ensp;{tb}<span>{tipb}</span></div>
@@ -289,7 +275,6 @@ def apertura_terra():
   <div class="h1" style="{box(190, 58, 95)}">Espositori<br>da terra</div>
   {text("Strutture autoportanti a più ripiani, pensate per reggere il carico e farsi vedere da lontano. Spedite piatte, montate in pochi minuti.", 190, 82, 90)}
   <ul class="idx" style="{box(190, 112, 95)}">{idx}</ul>
-  {sketch("T02", 250, 138, 26, .8)}
   {foot(TERRA)}""")
 
 
@@ -297,7 +282,7 @@ def contatti():
     return ("taupe", f"""
   {title("Contatti", "Parliamo del prossimo progetto")}
   {pnum(99).replace("99", "")}
-  {sketch("B01", 150, 40, 130, .9)}
+  {cutout("B01", place("B01", 212, 176, 112))}
   {text('Ogni progetto di questo portfolio è nato da un brief. Il prossimo può essere il tuo.', M, 42, 110, "lead")}
   {text('<dl class="data light"><dt>Email</dt><dd><span class="tbd">info@azienda.it</span></dd><dt>Telefono</dt><dd><span class="tbd">+39 000 000 0000</span></dd><dt>Sede</dt><dd><span class="tbd">Via Esempio 1, Città</span></dd><dt>Web</dt><dd><span class="tbd">www.azienda.it</span></dd></dl>', M, 100, 110, "")}
   <div class="vtext light" style="left:{W - 10}mm;top:150mm">Portfolio 2026</div>""")
@@ -340,7 +325,6 @@ html, body {{ background: #8C857C; font-family: "Montserrat", sans-serif; color:
 .cut {{ position: absolute; pointer-events: none; filter: drop-shadow(0 1.2mm 1.6mm rgba(0,0,0,.16)); }}
 .cut.free {{ filter: none; }}
 .ground {{ border-radius: 50%; background: radial-gradient(closest-side, rgba(0,0,0,.28), rgba(0,0,0,0)); }}
-.sketch {{ height: auto; mix-blend-mode: multiply; }}
 .block {{ background: var(--taupe); }}
 .floor {{ border-top: .25mm solid rgba(255,255,255,.7); }}
 
@@ -370,6 +354,7 @@ html, body {{ background: #8C857C; font-family: "Montserrat", sans-serif; color:
 
 .idx {{ list-style: none; column-count: 2; column-gap: 6mm; font-size: 6.8pt; }}
 .idx li {{ border-top: .25mm solid var(--line); padding: 1.3mm 0 1.5mm; break-inside: avoid; }}
+.idx.one {{ column-count: 1; font-size: 7.5pt; }}
 .idx b {{ display: inline-block; width: 11mm; font-weight: 600; color: var(--ink2); }}
 
 .ovbox {{ border: .3mm solid var(--ink); padding: 7mm 6mm; }}
@@ -391,7 +376,6 @@ html, body {{ background: #8C857C; font-family: "Montserrat", sans-serif; color:
 .taupe .cap span {{ color: rgba(255,255,255,.85); }}
 .cap.center {{ text-align: center; }}
 .meta {{ display: flex; justify-content: space-between; font-size: 6pt; color: var(--ink2); }}
-.sk-label {{ font-size: 5.6pt; text-transform: uppercase; letter-spacing: .14em; color: var(--ink2); }}
 .tbd {{ background: var(--tbd); }}
 """
 
