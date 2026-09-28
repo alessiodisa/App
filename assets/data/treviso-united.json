@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T22:02:59.620684+00:00",
+  "generated_at": "2026-09-28T23:02:51.137018+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -7,8 +7,22 @@
   },
   "standings": [
     {
-      "team_id": 8310,
+      "team_id": 19325,
       "pos": 1,
+      "name": "ADELANTES",
+      "pts": "10",
+      "played": "4",
+      "wins": "3",
+      "draws": "1",
+      "losses": "0",
+      "for": "9",
+      "against": "4",
+      "gd": "5",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 8310,
+      "pos": 2,
       "name": "TREVISO UNITED",
       "pts": "9",
       "played": "3",
@@ -19,20 +33,6 @@
       "against": "3",
       "gd": "9",
       "is_treviso_united": true
-    },
-    {
-      "team_id": 19325,
-      "pos": 2,
-      "name": "ADELANTES",
-      "pts": "7",
-      "played": "3",
-      "wins": "2",
-      "draws": "1",
-      "losses": "0",
-      "for": "7",
-      "against": "4",
-      "gd": "3",
-      "is_treviso_united": false
     },
     {
       "team_id": 16523,
@@ -109,13 +109,13 @@
       "pos": 8,
       "name": "NEXT DINAMO",
       "pts": "4",
-      "played": "3",
+      "played": "4",
       "wins": "1",
       "draws": "1",
-      "losses": "1",
+      "losses": "2",
       "for": "7",
-      "against": "5",
-      "gd": "2",
+      "against": "7",
+      "gd": "0",
       "is_treviso_united": false
     },
     {
