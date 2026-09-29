@@ -14,6 +14,7 @@ PROGETTI["T09"] = ("Stand a ripiani", "Colonne con header ad arco e fianco incli
 PG.BB["T09"] = [137, 76, 877, 943]
 PG.BB["T10"] = [367, 16, 670, 1004]
 PG.BB["T11"] = [377, 32, 656, 992]
+PG.BB["T12"] = [379, 31, 678, 998]
 PG.BB["B19"] = [270, 49, 875, 915]
 PG.BB["B20"] = [195, 81, 950, 995]
 PG.BB["B21"] = [201, 169, 875, 852]

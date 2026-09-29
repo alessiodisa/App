@@ -145,6 +145,12 @@ def coppia(titolo, sez, a, b, testo):
                   + txt(testo, M + 192, TOP + 30, 73))
 
 
+def terzetto(titolo, sez, codes, testo):
+    """Tre immagini verticali affiancate, colonna di testo stretta a destra."""
+    return pagina(titolo, sez, "".join(foto(c, M + 4 + i * 70, TOP + 4, 64, 144) for i, c in enumerate(codes))
+                  + txt(testo, M + 214, TOP + 4, W - 2 * M - 214))
+
+
 def duo(titolo, sez, *codes, h=114):
     """Due o tre immagini affiancate a tutta larghezza, schede sotto."""
     n, g = len(codes), 6
@@ -270,7 +276,7 @@ def build():
         philosophy("Progetti", T, ["T01", "T02", "T03", "T06"], alto=92),
         space("Stampa e finiture", T, "T04", "T09", zt(2) + prod("T04") + prod("T09")),
         challenges("Portata", T, "T07", "T08", zt(0)),
-        coppia("Grafica e brand", T, "T10", "T11", '<div class="gap">' + GRAFICA + "</div>" + prod("T10") + prod("T11")),
+        terzetto("Grafica e brand", T, ["T10", "T11", "T12"], '<div class="gap">' + GRAFICA + "</div>" + prod("T10") + prod("T11") + prod("T12")),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1
