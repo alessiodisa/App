@@ -119,7 +119,7 @@ def space(titolo, sez, a, b, testo):
 # --------------------------------------------------------------------------
 def indice():
     voci = [("01", "Introduzione", 4), ("02", "Chi siamo", 5), ("03", "Espositori da banco", 6),
-            ("04", "Espositori da terra", 14), ("05", "Contatti", 20)]
+            ("04", "Espositori da terra", 14), ("05", "Contatti", 22)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', X0, TOP + 10, CW)
                   + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '
@@ -187,9 +187,11 @@ def build():
                       ("Spedizione", "Piatta, montaggio in pochi minuti")], zt(1)),
         overview("Logistica", T, "T05", ZONE[T][3][1], []),
         philosophy("Progetti", T, ["T01", "T02", "T03", "T06"], alto=82),
-        space("Stampa e finiture", T, "T04", "T09", zt(2) + prod("T04") + prod("T09")),
+        overview("Stampa e finiture", T, "T04", ZONE[T][2][1], []),
+        overview("Due finiture", T, "T09", "Stessa struttura, due finiture: cambia la grafica, la fustella resta la stessa.", []),
         challenges("Portata", T, "T07", "T08", zt(0)),
-        terzetto("Grafica e brand", T, ["T10", "T11", "T12"]),
+        coppia("Grafica e brand", T, "T10", "T11", '<div class="gap">' + R.GRAFICA + "</div>" + prod("T10")),
+        overview("Colonna", T, "T12", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.", [], fh=165),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1
