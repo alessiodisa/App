@@ -38,6 +38,7 @@ TIPO = {
     "B15": "Espositore da banco a box con doppio fondale",
     "B16": "Espositore da banco monoprodotto con fondale",
     "B17": "Espositore da banco a 3 gradini con header",
+    "B19": "Espositore da banco con fondale e vassoio inclinato a gradini",
     "T01": "Espositore da terra 3 ripiani con header",
     "T02": "Espositore da terra a ganci con header",
     "T03": "Espositore da terra 4 ripiani a sbalzo",

@@ -30,10 +30,11 @@ def x2(i):
 # --------------------------------------------------------------------------
 # schemi della reference in verticale
 # --------------------------------------------------------------------------
-def overview(titolo, sez, code, intro, dati, extra=""):
-    return pagina(titolo, sez, foto(code, X0, TOP + 4, CW, 150)
-                  + txt(f'<h4>{sez}</h4><p>{intro}</p>{extra}', x2(0), 200, COL)
-                  + txt(kv(dati) + prod(code), x2(1), 200, COL))
+def overview(titolo, sez, code, intro, dati, extra="", fh=150):
+    y = TOP + 14 + fh
+    return pagina(titolo, sez, foto(code, X0, TOP + 4, CW, fh)
+                  + txt(f'<h4>{sez}</h4><p>{intro}</p>{extra}', x2(0), y, COL)
+                  + txt(kv(dati) + prod(code), x2(1), y, COL))
 
 
 def overview_dwg(titolo, sez, src, intro, dati, extra=""):
@@ -96,7 +97,7 @@ def space(titolo, sez, a, b, testo):
 # --------------------------------------------------------------------------
 def indice():
     voci = [("01", "Introduzione", 4), ("02", "Chi siamo", 5), ("03", "Espositori da banco", 6),
-            ("04", "Espositori da terra", 12), ("05", "Contatti", 18)]
+            ("04", "Espositori da terra", 13), ("05", "Contatti", 19)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', X0, TOP + 10, CW)
                   + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '
@@ -157,6 +158,8 @@ def build():
         creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
         challenges("Struttura", B, "B15", "B03", zb(0)),
         academic("Materiali", B, "B08", "B04", "B07", zb(1)),
+        overview("Grafica e brand", B, "B19", "Fondale stampato e vassoio inclinato a gradini: il prodotto in primo piano, "
+                 "il messaggio del marchio alle spalle.", [], fh=160),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"),
                       ("Spedizione", "Piatta, montaggio in pochi minuti")], zt(1)),
