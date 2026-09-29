@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T19:04:33.175489+00:00",
+  "generated_at": "2026-09-29T20:04:27.008586+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -91,8 +91,22 @@
       "is_treviso_united": false
     },
     {
-      "team_id": 20421,
+      "team_id": 167,
       "pos": 7,
+      "name": "A.c. ATLETICO PAPATO",
+      "pts": "5",
+      "played": "4",
+      "wins": "1",
+      "draws": "2",
+      "losses": "1",
+      "for": "6",
+      "against": "9",
+      "gd": "-3",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 20421,
+      "pos": 8,
       "name": "TREVISO CITY",
       "pts": "4",
       "played": "3",
@@ -106,7 +120,7 @@
     },
     {
       "team_id": 20446,
-      "pos": 8,
+      "pos": 9,
       "name": "NEXT DINAMO",
       "pts": "4",
       "played": "4",
@@ -120,7 +134,7 @@
     },
     {
       "team_id": 185,
-      "pos": 9,
+      "pos": 10,
       "name": "G.S.A. MONTEBELLUNA",
       "pts": "4",
       "played": "3",
@@ -134,7 +148,7 @@
     },
     {
       "team_id": 192,
-      "pos": 10,
+      "pos": 11,
       "name": "ATHLETIC DINAMO",
       "pts": "3",
       "played": "3",
@@ -148,16 +162,16 @@
     },
     {
       "team_id": 165,
-      "pos": 11,
+      "pos": 12,
       "name": "INGARBUJATI NEXT GEN",
       "pts": "3",
-      "played": "3",
+      "played": "4",
       "wins": "1",
       "draws": "0",
-      "losses": "2",
-      "for": "4",
-      "against": "6",
-      "gd": "-2",
+      "losses": "3",
+      "for": "5",
+      "against": "8",
+      "gd": "-3",
       "is_treviso_united": false
     },
     {
@@ -176,7 +190,7 @@
     },
     {
       "team_id": 25070,
-      "pos": 13,
+      "pos": 14,
       "name": "REAL SANTA MARIA",
       "pts": "3",
       "played": "3",
@@ -190,7 +204,7 @@
     },
     {
       "team_id": 190,
-      "pos": 14,
+      "pos": 15,
       "name": "LOS BULLDOGS",
       "pts": "2",
       "played": "3",
@@ -200,20 +214,6 @@
       "for": "7",
       "against": "8",
       "gd": "-1",
-      "is_treviso_united": false
-    },
-    {
-      "team_id": 167,
-      "pos": 15,
-      "name": "A.c. ATLETICO PAPATO",
-      "pts": "2",
-      "played": "3",
-      "wins": "0",
-      "draws": "2",
-      "losses": "1",
-      "for": "4",
-      "against": "8",
-      "gd": "-4",
       "is_treviso_united": false
     },
     {
