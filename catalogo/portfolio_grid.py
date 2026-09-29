@@ -126,7 +126,7 @@ def copertina():
             + el("small", "Cartotecnica ed espositori per il punto vendita: progettazione, prototipazione e produzione. "
                  "Cartone, cartoncino e materiali durevoli.", .5, 1.35, 2.6)
             + f'<img class="drawing" src="img/esploso-terra.svg" style="right:{W - x:.1f}mm;top:{y:.1f}mm;height:{H - 2 * MARG:.1f}mm" alt="">'
-            + el("light-t", "Espositori", .5, 2.3) + el("cover-t", "Portfolio", .5, 2.62)
+            + el("light-t", "Portfolio", .5, 2.3) + el("cover-t", "Espositori", .5, 2.62)
             + el("capline", "<b>Fig. 01</b>Espositore da terra — vista esplosa", .5, 3.5, 2)
             + el("h5", "Telefono", .5, 4.2) + el("small", TBD("+39 000 000 0000"), .5, 4.38)
             + el("h5", "Email", 1.7, 4.2) + el("small", TBD("info@azienda.it"), 1.7, 4.38)
