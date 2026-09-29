@@ -80,3 +80,6 @@
 .leg2.row { column-count: 4; column-gap: 4.8mm; }
 .cellt .t2 { font-size: 20pt; }
 .cellt .meta2 { margin-top: 0; }
+.cellt.bottom { display: flex; flex-direction: column; justify-content: flex-end; }
+.cellcap2 { border-top: .25mm solid var(--ink); padding: 1.6mm 0 3mm; font: 400 6.6pt/1.45 var(--body); color: var(--txt); }
+.cellcap2 b { display: block; font: 700 7.4pt/1.35 var(--disp); color: var(--ink); }

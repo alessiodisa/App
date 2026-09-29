@@ -77,7 +77,7 @@ def introduzione():
                                + el("idx-p", f"{p:02d}", 5.8, r + .05, .7) + el("rule", "", .5, r + .55, 6))
     dx = (head("Indice") + t2("Indice", .5, .85, 3)
           + voce("01", "Chi siamo e metodo", 4, 1.45) + voce("02", "Espositori da banco", 6, 2.2)
-          + voce("03", "Espositori da terra", 16, 2.95) + voce("04", "Contatti", 24, 3.7))
+          + voce("03", "Espositori da terra", 18, 2.95) + voce("04", "Contatti", 26, 3.7))
     return sx, dx
 
 
@@ -153,42 +153,73 @@ def scheda(code):
     return '<dl class="meta2">' + "".join(f"<dt>{k}</dt><dd>{v}</dd>" for k, v in rows) + "</dl>"
 
 
-def apertura(sezione, num, testo, big, disegno_src, fig, side, terra=False):
-    """Apertura di sezione: testo + foto a sinistra; disegno tecnico + foto a destra."""
-    intro = (f'<div class="bignum2">{num}</div><div class="t2">{sezione}</div>'
-             f'<p class="txt" style="margin-top:5mm">{testo}</p>')
-    if not terra:
-        sx = head(sezione) + box("cellt", intro, 0, 0, 2, 3) + foto(big[0], 2, 0, 3, 3)
-        dx = (head("Disegni tecnici") + box("cellt", '<div class="t2">Disegno<br>tecnico</div><p class="txt" style="margin-top:5mm">'
-                                            "Assonometria con le quote d’ingombro: ogni progetto parte da un disegno come questo, "
-                                            "poi sviluppato in fustella e verificato su prototipo.</p>", 0, 0, 1, 3)
-              + disegno(disegno_src, 1, 0, 2, 3) + box("cellcap", f"<b>{fig}</b>Quote indicative", 1, 2, 2, 1)
-              + foto(side[0], 3, 0, 2, 2) + foto(side[1], 3, 2) + box("cellt small", legenda(side), 4, 2))
-    else:
-        sx = (head(sezione) + box("cellt", intro, 0, 0, 2, 2)
-              + foto(big[0], 2, 0, 1, 2) + foto(big[1], 3, 0, 1, 2) + foto(big[2], 4, 0, 1, 2)
-              + box("cellt small", f'<ul class="leg2">{legenda(big)}</ul>', 2, 2, 3, 1))
-        dx = (head("Disegni tecnici") + box("cellt", '<div class="t2">Disegno<br>tecnico</div><p class="txt" style="margin-top:5mm">'
-                                            "Colonna a quattro ripiani con zoccolo e header: fianchi portanti, ripiani a vassoio "
-                                            "agganciati con incastri, spedizione piatta.</p>", 0, 0, 1, 3)
-              + disegno(disegno_src, 1, 0, 2, 3) + box("cellcap", f"<b>{fig}</b>Quote indicative", 1, 2, 2, 1)
-              + foto(side[0], 3, 0, 1, 2) + foto(side[1], 4, 0, 1, 2)
-              + box("cellt small", f'<ul class="leg2">{legenda(side)}</ul>', 3, 2, 2, 1))
+def testo_prog(code, extra=""):
+    t, tip, sett = PROGETTI[code]
+    return (f'<div class="t2">{t}</div><div class="code2" style="margin-top:3mm">{cid(code)}</div>'
+            f'<div class="t3" style="margin-top:7mm">Panoramica</div><p class="txt">{descr(code)}</p>{extra}'
+            f'<div style="margin-top:6mm">{scheda(code)}</div>')
+
+
+def didascalia(code):
+    t, tip, sett = PROGETTI[code]
+    return f'<div class="cellcap2"><b>{cid(code)} — {t}</b>{tip}</div>'
+
+
+def apertura_banco():
+    intro = ('<div class="bignum2">02</div><div class="t2">Espositori<br>da banco</div><p class="txt" style="margin-top:5mm">'
+             "Il punto più vicino alla scelta: strutture compatte che portano il prodotto all’altezza dello sguardo, "
+             "accanto alla cassa.</p>")
+    sx = head(BANCO) + box("cellt", intro, 0, 0, 2, 3) + foto("B13", 2, 0, 3, 3)
+    dx = (head("Disegni tecnici")
+          + box("cellt", '<div class="t2">Disegno<br>tecnico</div><p class="txt" style="margin-top:5mm">Assonometria con le '
+                         "quote d’ingombro: ogni progetto parte da un disegno come questo, poi sviluppato in fustella e "
+                         "verificato su prototipo.</p>", 0, 0, 1, 3)
+          + disegno("img/disegni/banco-iso.svg", 1, 0, 2, 3)
+          + box("cellcap", "<b>Fig. 03 — Espositore da banco a gradini</b>Quote indicative", 1, 2, 2, 1)
+          + foto("B04", 3, 0, 2, 2) + box("cellt", didascalia("B04"), 3, 2, 2, 1))
     return sx, dx
 
 
-def progetto(main, s1, s2, thumbs):
-    t, tip, sett = PROGETTI[main]
-    sx = (head("Progetto") + foto(main, 0, 0, 3, 3)
-          + box("cellt", f'<div class="t2">{t}</div><div class="code2" style="margin-top:3mm">{cid(main)}</div>'
-                         f'<div class="t3" style="margin-top:8mm">Panoramica</div><p class="txt">{descr(main)}</p>', 3, 0, 2, 2)
-          + box("cellt", scheda(main), 3, 2, 2, 1))
-    dx = (head("Progetto") + foto(s1, 0, 0, 2, 2) + foto(s2, 2, 0, 2, 2)
-          + box("cellt small", f'<ul class="leg2">{legenda([s1, s2])}</ul>', 4, 0, 1, 2)
-          + box("cellt", '<div class="t3">Struttura</div><p class="txt">Pieghe e incastri progettati per il montaggio senza colla.</p>', 0, 2)
-          + box("cellt", '<div class="t3">Grafica</div><p class="txt">Stampa a vivo su tutte le superfici visibili.</p>', 1, 2)
-          + box("cellt", '<div class="t3">Prodotto</div><p class="txt">Dimensionato su peso, formato e numero di facing.</p>', 2, 2)
-          + "".join(foto(c, 3 + i, 2) for i, c in enumerate(thumbs)))
+def progetto(main, s1, s2):
+    """Sinistra: foto 3×3 + testo. Destra: due foto 2×2 in diagonale + colonna di testo."""
+    sx = head("Progetto") + foto(main, 0, 0, 3, 3) + box("cellt", testo_prog(main), 3, 0, 2, 3)
+    punti = ('<div class="t3">Struttura</div><p class="txt">Pieghe e incastri progettati per il montaggio senza colla.</p>'
+             '<div class="t3" style="margin-top:5mm">Grafica</div><p class="txt">Stampa a vivo su tutte le superfici visibili.</p>'
+             '<div class="t3" style="margin-top:5mm">Prodotto</div><p class="txt">Dimensionato su peso, formato e numero di facing.</p>')
+    dx = (head("Progetto") + foto(s1, 0, 0, 2, 2) + box("cellt", didascalia(s1), 0, 2, 2, 1)
+          + box("cellt", punti, 2, 0, 1, 3)
+          + box("cellt bottom", didascalia(s2), 3, 0, 2, 1) + foto(s2, 3, 1, 2, 2))
+    return sx, dx
+
+
+def coppia(a, b):
+    """Due progetti a tutta altezza, uno per pagina, a specchio."""
+    sx = head("Progetto") + foto(a, 0, 0, 3, 3) + box("cellt", testo_prog(a), 3, 0, 2, 3)
+    dx = head("Progetto") + box("cellt", testo_prog(b), 0, 0, 2, 3) + foto(b, 2, 0, 3, 3)
+    return sx, dx
+
+
+def apertura_terra():
+    intro = ('<div class="bignum2">03</div><div class="t2">Espositori<br>da terra</div><p class="txt" style="margin-top:5mm">'
+             "Strutture autoportanti a più ripiani, pensate per reggere il carico e farsi vedere da lontano. "
+             "Spedite piatte, montate in pochi minuti.</p>")
+    sx = (head(TERRA) + box("cellt", intro + f'<div style="margin-top:8mm">{didascalia("T01")}{didascalia("T02")}</div>', 0, 0, 1, 3)
+          + foto("T01", 1, 0, 2, 3) + foto("T02", 3, 0, 2, 3))
+    dx = (head("Disegni tecnici")
+          + box("cellt", '<div class="t2">Disegno<br>tecnico</div><p class="txt" style="margin-top:5mm">Colonna a quattro '
+                         "ripiani con zoccolo e header: fianchi portanti, ripiani a vassoio agganciati con incastri, "
+                         "spedizione piatta.</p>", 0, 0, 2, 2)
+          + box("cellcap", "<b>Fig. 04 — Espositore da terra a ripiani</b>Quote indicative", 0, 2, 2, 1)
+          + disegno("img/disegni/terra-iso.svg", 2, 0, 3, 3))
+    return sx, dx
+
+
+def coppia_terra(a, b, c, d):
+    """Due espositori da terra per pagina, 2×3 celle ciascuno, con colonna di didascalie."""
+    sx = (head(TERRA) + foto(a, 0, 0, 2, 3) + foto(b, 2, 0, 2, 3)
+          + box("cellt bottom", didascalia(a) + didascalia(b), 4, 0, 1, 3))
+    dx = (head(TERRA) + box("cellt bottom", didascalia(c) + didascalia(d), 0, 0, 1, 3)
+          + foto(c, 1, 0, 2, 3) + foto(d, 3, 0, 2, 3))
     return sx, dx
 
 
@@ -199,56 +230,8 @@ def fustelle_mockup():
                          "di taglio, tratteggi di cordonatura.</p>", 0, 0, 1, 3)
           + disegno("img/disegni/terra-fustelle.svg", 1, 0, 4, 3))
     dx = (head(TERRA) + foto("T09", 0, 0, 3, 3)
-          + box("cellt", f'<div class="t2">Stand a ripiani</div><div class="code2" style="margin-top:3mm">T.09</div>'
-                         f'<p class="txt" style="margin-top:6mm">Colonne autoportanti con header ad arco e fianco inclinato: '
-                         f'il prodotto si legge da tre lati. {TBD("[Cliente, materiale e misure da confermare.]")}</p>', 3, 0, 2, 2)
-          + box("cellt", scheda("T09"), 3, 2, 2, 1))
+          + box("cellt", testo_prog("T09", f'<p class="txt">{TBD("[Cliente, materiale e misure da confermare.]")}</p>'), 3, 0, 2, 3))
     return sx, dx
-
-
-def progetto_terra(a, b, main):
-    t, tip, sett = PROGETTI[main]
-    sx = (head(TERRA) + foto(a, 0, 0, 1, 2) + foto(b, 1, 0, 1, 2)
-          + box("cellt small", f'<ul class="leg2">{legenda([a, b])}</ul>', 0, 2, 2, 1)
-          + box("cellt", '<div class="t3">Panoramica</div><p class="txt">Colonne autoportanti con header: la comunicazione '
-                         "sale sopra il prodotto e si legge anche dal fondo della corsia.</p>", 2, 0, 1, 2)
-          + disegno("img/disegni/terra-iso.svg", 3, 0, 2, 3))
-    dx = (head("Progetto") + box("cellt", f'<div class="t2">{t}</div><div class="code2" style="margin-top:3mm">{cid(main)}</div>'
-                                          f'<div class="t3" style="margin-top:8mm">Panoramica</div><p class="txt">{descr(main)}</p>', 0, 0, 2, 2)
-          + box("cellt", scheda(main), 0, 2, 2, 1)
-          + foto(main, 2, 0, 1, 3) + foto("T06", 3, 0, 1, 3) + foto("T05", 4, 0, 1, 2)
-          + box("cellt small", f'<ul class="leg2">{legenda(["T06", "T05"])}</ul>', 4, 2))
-    return sx, dx
-
-
-def gamma_banco(codes):
-    """16 prodotti su due pagine: 1 grande + 10 piccole, poi 2 grandi + 3 piccole."""
-    a = codes[:11]
-    b = codes[11:]
-    p1 = (head("Gamma da banco")
-          + box("cellt", '<div class="t2">Gamma<br>da banco</div><p class="code2" style="margin-top:3mm">Tavola 1 / 2</p>', 0, 0)
-          + foto(a[0], 1, 0, 2, 2)
-          + "".join(foto(c, *pos) for c, pos in zip(a[1:], [(3, 0), (4, 0), (3, 1), (4, 1), (0, 1),
-                                                            (0, 2), (1, 2), (2, 2), (3, 2), (4, 2)])))
-    p2 = (head("Gamma da banco") + foto(b[0], 0, 0, 2, 2) + foto(b[1], 2, 0, 2, 2)
-          + box("cellt", '<div class="t2">Gamma<br>da banco</div><p class="code2" style="margin-top:3mm">Tavola 2 / 2</p>', 4, 0)
-          + box("cellt small", f'<ul class="leg2">{legenda(b)}</ul>', 3, 2, 2, 1)
-          + "".join(foto(c, i, 2) for i, c in enumerate(b[2:5])))
-    return [p1, p2]
-
-
-def gamma_terra(codes):
-    pages = []
-    for k in range(2):
-        cs = codes[k * 4:(k + 1) * 4]
-        body = head("Gamma da terra")
-        txtc = 0 if k == 0 else 4
-        body += box("cellt", f'<div class="t2">Gamma<br>da terra</div><p class="code2" style="margin-top:3mm">Tavola {k + 1} / 2</p>', txtc, 0)
-        cols = [1, 2, 3, 4] if k == 0 else [0, 1, 2, 3]
-        body += "".join(foto(c, col, 0, 1, 2) for c, col in zip(cs, cols))
-        body += box("cellt small", f'<ul class="leg2 row">{legenda(cs)}</ul>', cols[0], 2, 4, 1)
-        pages.append(body)
-    return pages
 
 
 def contatti():
@@ -263,23 +246,12 @@ def contatti():
 
 # --------------------------------------------------------------------------
 def build():
-    banco = [c for c in PROGETTI if c[0] == "B" and c not in ESCLUSI and (ROOT / "img" / "sq" / f"{c}.jpg").exists()]
     pages = [("grid", PG.copertina())]
-    for a, b in [introduzione(), chi_siamo(),
-                 apertura(BANCO, "02", "Il punto più vicino alla scelta: strutture compatte che portano il prodotto "
-                          "all’altezza dello sguardo, accanto alla cassa.", ["B13"],
-                          "img/disegni/banco-iso.svg", "Fig. 03 — Espositore da banco a gradini", ["B04", "B08"]),
-                 progetto("B02", "B17", "B09", ["B07", "B16"]),
-                 progetto("B11", "B12", "B16", ["B10", "B15"]),
-                 progetto("B06", "B05", "B01", ["B03", "B13"])]:
+    for a, b in [introduzione(), chi_siamo(), apertura_banco(),
+                 progetto("B02", "B17", "B09"), progetto("B11", "B12", "B16"),
+                 progetto("B06", "B05", "B01"), progetto("B10", "B15", "B03"), coppia("B07", "B08"),
+                 apertura_terra(), coppia_terra("T03", "T06", "T07", "T08"), fustelle_mockup(), coppia("T04", "T05")]:
         pages += [("", a), ("", b)]
-    pages += [("", p) for p in gamma_banco(banco)]
-    for a, b in [apertura(TERRA, "03", "Strutture autoportanti a più ripiani, pensate per reggere il carico e farsi vedere "
-                          "da lontano. Spedite piatte, montate in pochi minuti.", ["T01", "T02", "T05"],
-                          "img/disegni/terra-iso.svg", "Fig. 04 — Espositore da terra a ripiani", ["T03", "T06"], terra=True),
-                 fustelle_mockup(), progetto_terra("T07", "T08", "T04")]:
-        pages += [("", a), ("", b)]
-    pages += [("", p) for p in gamma_terra(["T01", "T02", "T03", "T04", "T05", "T06", "T07", "T08"])]
     pages += [("", contatti()), ("grid", PG.retro())]
     tot = len(pages)
     html = []
