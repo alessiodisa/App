@@ -37,11 +37,15 @@ TESTI = [(156, 1090, FLUTE, 0, "start", 9), (337, 1090, FLUTE, 0, "start", 9), (
          (919, 869, "1076mm", -90, "middle", 7), (1141, 869, "1076mm", -90, "middle", 7), (893, 1060, "400mm", -90, "middle", 7)]
 # zone da ripulire prima del ricalco (vecchie scritte): x1, y1, x2, y2
 CANC = [(150, 1080, 236, 1094), (331, 1080, 416, 1094), (508, 1080, 593, 1094),
-        (776, 783, 862, 797), (992, 783, 1078, 797), (777, 1063, 863, 1077),
+        (776, 783, 856, 797), (992, 783, 1078, 797), (777, 1063, 863, 1077),
         (128, 1124, 166, 1136), (350, 1124, 388, 1136), (572, 1124, 610, 1136),
         (795, 1001, 832, 1013), (1005, 1001, 1042, 1013), (794, 1125, 832, 1137),
         (257, 908, 268, 952), (453, 925, 464, 970), (702, 908, 713, 952),
         (913, 845, 924, 893), (1135, 845, 1146, 893), (887, 1040, 898, 1080)]
+
+
+# tratti di contorno interrotti dalla filigrana: (x1, y1, x2, y2, grigio)
+RIPARA = [(860, 826, 860, 842, 100), (896, 895, 896, 914, 100), (982, 750, 982, 763, 100), (982, 751, 987, 751, 100), (916, 778, 916, 808, 205)]
 
 
 def path_d(bitmap, scale, turd=6, alpha=1.0):
@@ -64,6 +68,8 @@ def build():
     im = cv2.imread(str(SRC))
     for x1, y1, x2, y2 in CANC:
         im[y1:y2, x1:x2] = 255
+    for x1, y1, x2, y2, v in RIPARA:
+        cv2.line(im, (x1, y1), (x2, y2), (v, v, v), 1)
     g0 = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
     b, _, r = [c.astype(int) for c in cv2.split(im)]
     sat = b - r
@@ -107,6 +113,13 @@ def build():
     for _ in range(3):
         d = cv2.dilate((reg + 1).astype(np.uint8), np.ones((3, 3), np.uint8)).astype(int) - 1
         reg = np.where(barr & (reg < 0), d, reg)
+    # tutto ciò che sta dentro il contorno di un pezzo è pieno (anche se chiuso solo da tratteggi);
+    # l'apertura toglie quote e linee sottili, che restano senza fondo
+    base = cv2.morphologyEx(((reg >= 0) | barr).astype(np.uint8), cv2.MORPH_CLOSE, np.ones((5, 5), np.uint8))
+    ff = np.pad(base * 255, 1)
+    cv2.floodFill(ff, np.zeros((h0 + 4, w0 + 4), np.uint8), (0, 0), 128)
+    pieno = cv2.morphologyEx((ff[1:-1, 1:-1] != 128).astype(np.uint8), cv2.MORPH_OPEN, np.ones((7, 7), np.uint8)) > 0
+    reg = np.where(pieno & (reg < 0), 0, reg)
     bianco = reg >= 0
     masks = [reg == i + 1 for i in range(len(FILLS))]
 
