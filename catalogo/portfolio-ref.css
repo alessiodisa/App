@@ -48,3 +48,4 @@
 .stats div { font: 400 6.6pt/1.4 var(--body); color: #5E5E5C; }
 .stats b { display: block; font: 800 22pt/1.1 var(--disp); color: #151515; letter-spacing: -.02em; }
 .blk .kv + .prod { margin-top: 7mm; }
+.dwg.mult img { mix-blend-mode: multiply; }

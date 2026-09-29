@@ -204,9 +204,9 @@ def metodo():
         ("Prototipo", "Campione fisico, test di carico e montaggio."),
         ("Produzione", "Stampa, fustellatura e confezionamento.")])
     return pagina("Dal disegno al prodotto", "Metodo",
-                  f'<div class="dwg" style="{bx(M + 4, TOP, 120, BOT - TOP)}"><img src="img/schizzo-terra.png" alt=""></div>'
-                  + dwg("img/disegni/terra-iso.svg", 140, TOP + 10, 50, BOT - TOP - 20)
-                  + txt(testo, 205, TOP + 6, 60))
+                  f'<div class="dwg" style="{bx(M + 4, TOP, 106, BOT - TOP)}"><img src="img/schizzo-terra.png" alt=""></div>'
+                  + f'<div class="dwg mult" style="{bx(128, TOP, 90, BOT - TOP)}"><img src="img/metodo-prodotto.jpg" alt=""></div>'
+                  + txt(testo, 222, TOP + 6, 43))
 
 
 def contatti():
