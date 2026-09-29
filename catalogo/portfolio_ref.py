@@ -172,8 +172,8 @@ def introduzione():
 
 
 def indice():
-    voci = [("01", "Introduzione", 4), ("02", "Chi siamo e metodo", 5), ("03", "Espositori da banco", 7),
-            ("04", "Espositori da terra", 14), ("05", "Contatti", 20)]
+    voci = [("01", "Introduzione", 4), ("02", "Chi siamo", 5), ("03", "Espositori da banco", 6),
+            ("04", "Espositori da terra", 13), ("05", "Contatti", 19)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', M + 4, TOP + 10, 150)
                   + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '
@@ -198,15 +198,19 @@ def chi_siamo():
 
 
 def metodo():
-    testo = "".join(f'<div class="gap">{blocco(t, d)}</div>' for t, d in [
-        ("Schizzo", "Proporzioni, ingombri e altezze dei ripiani fissati prima del disegno tecnico."),
+    """Introduzione: dal progetto alla realizzazione, con schizzo e prodotto finito."""
+    intro = (f'<p class="lead3">Dal {TBD("[anno]")} progettiamo e produciamo espositori in cartotecnica e materiali '
+             "durevoli: dal primo schizzo al bancale pronto a partire, tutto sotto lo stesso tetto.</p>")
+    fasi = "".join(f'<div class="fase"><span>0{i + 1}</span>{blocco(t, d)}</div>' for i, (t, d) in enumerate([
+        ("Schizzo", "Proporzioni, ingombri e altezze dei ripiani."),
         ("Disegno tecnico", "Tracciati di fustella e render 3D."),
         ("Prototipo", "Campione fisico, test di carico e montaggio."),
-        ("Produzione", "Stampa, fustellatura e confezionamento.")])
-    return pagina("Dal disegno al prodotto", "Metodo",
-                  f'<div class="dwg" style="{bx(M + 4, TOP, 106, BOT - TOP)}"><img src="img/schizzo-terra.png" alt=""></div>'
-                  + f'<div class="dwg mult" style="{bx(M + 112, TOP, 106, BOT - TOP)}"><img src="img/metodo-prodotto.jpg" alt=""></div>'
-                  + txt(testo, 222, TOP + 6, 43))
+        ("Produzione", "Stampa, fustellatura e confezionamento interni.")]))
+    return pagina("Dal progetto alla realizzazione", "Introduzione",
+                  f'<div class="dwg" style="{bx(M + 4, TOP, 96, BOT - TOP)}"><img src="img/schizzo-terra.png" alt=""></div>'
+                  + f'<div class="dwg mult" style="{bx(M + 100, TOP, 96, BOT - TOP)}"><img src="img/metodo-prodotto.jpg" alt=""></div>'
+                  + txt(intro + fasi + '<p class="note2">Espositori da banco e da terra per cosmesi, farmacia, ottica, '
+                        'ferramenta e beverage: progettazione, prototipi, stampa e fustellatura interni.</p>', 218, TOP + 2, 63))
 
 
 def contatti():
@@ -223,7 +227,7 @@ def build():
     zb = lambda i: f'<div class="gap">{zona(B, i)}</div>'
     zt = lambda i: f'<div class="gap">{zona(T, i)}</div>'
     interne = [
-        indice(), introduzione(), chi_siamo(), metodo(),
+        indice(), metodo(), chi_siamo(),
         overview("Espositori da banco", B, "B13", INTRO[B],
                  [("Formati", "Da 20 × 15 a 60 × 40 cm"), ("Materiali", "Cartone, cartoncino, forex, plexi, legno"),
                   ("Montaggio", "Pochi secondi, senza colla")]),

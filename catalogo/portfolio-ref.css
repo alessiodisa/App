@@ -50,3 +50,8 @@
 .blk .kv + .prod { margin-top: 7mm; }
 .dwg.mult img { mix-blend-mode: multiply; }
 .page.blank { background: #FFFFFF; }
+.blk p.lead3 { font: 500 9.4pt/1.4 var(--disp); color: #151515; margin: 0 0 6mm; }
+.fase { border-top: .25mm solid #BDBDBB; padding: 2mm 0 2.6mm; display: grid; grid-template-columns: 7mm 1fr; }
+.fase span { font: 600 6.4pt/1.4 var(--disp); color: #8E8E8C; }
+.fase h4 { grid-column: 2; } .fase p { grid-column: 2; margin-top: .6mm; }
+.blk p.note2 { margin-top: 6mm; font-size: 6.8pt; }
