@@ -249,12 +249,13 @@ def build():
         challenges("Progetti", T, "T07", "T08", ""),
         contatti(),
     ]
-    pages = [("grid", PG.copertina()), ("blank", "")] + [("ref", p) for p in interne] + [("grid", PG.retro())]
+    # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1
+    pages = [("blank pre", ""), ("grid", PG.copertina()), ("blank", "")] + [("ref", p) for p in interne] + [("grid", PG.retro())]
     tot = len(pages)
     html = []
-    for i, (cls, body) in enumerate(pages, start=1):
+    for i, (cls, body) in enumerate(pages, start=0):
         side = "pr" if i % 2 else "pl"
-        foot = "" if cls in ("grid", "blank") else (f'<div class="pn" style="{bx(M, 192)}">{i:02d}</div>'
+        foot = "" if cls.split()[0] in ("grid", "blank") else (f'<div class="pn" style="{bx(M, 192)}">{i:02d}</div>'
                                          f'<div class="ft" style="right:{M}mm;top:194mm">Portfolio Espositori 2026</div>')
         html.append(f'<section class="page {side} {cls}">{body}{foot}\n</section>')
     doc = f"""<!DOCTYPE html>
@@ -264,7 +265,7 @@ def build():
 <link rel="stylesheet" href="portfolio-grid.css">
 <link rel="stylesheet" href="portfolio-v2.css">
 <link rel="stylesheet" href="portfolio-ref.css">
-</head><body><main class="book">
+</head><body><main class="book pre">
 {chr(10).join(html)}
 </main></body></html>
 """
