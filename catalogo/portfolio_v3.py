@@ -47,6 +47,8 @@ TIPO = {
     "T07": "Espositore da terra a podio con fondale",
     "T08": "Espositore da terra a totem, 4 nicchie",
     "T09": "Espositore da terra 3 ripiani con header ad arco",
+    "T10": "Espositore da terra con fianco sagomato, 4 ripiani e vassoio",
+    "T11": "Espositore da terra a colonna con vano a gradini e header",
 }
 
 INTRO = {

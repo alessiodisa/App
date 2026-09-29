@@ -81,6 +81,11 @@ def technical(titolo, sez, src, sx, dx):
     return pagina(titolo, sez, dwg(src, X0, TOP, CW, 170) + txt(sx, x2(0), 214, COL) + txt(dx, x2(1), 214, COL, "blk right"))
 
 
+def coppia(titolo, sez, a, b, testo):
+    return pagina(titolo, sez, foto(a, x2(0), TOP + 4, COL, 176) + foto(b, x2(1), TOP + 4, COL, 176)
+                  + txt(testo, x2(0), TOP + 188, COL) + txt(prod(b), x2(1), TOP + 188, COL))
+
+
 def space(titolo, sez, a, b, testo):
     return pagina(titolo, sez, foto(a, x2(0), TOP + 4, COL, 176)
                   + foto(b, x2(1), TOP + 4, COL, COL) + txt(testo, x2(1), TOP + COL + 12, COL))
@@ -91,7 +96,7 @@ def space(titolo, sez, a, b, testo):
 # --------------------------------------------------------------------------
 def indice():
     voci = [("01", "Introduzione", 4), ("02", "Chi siamo", 5), ("03", "Espositori da banco", 6),
-            ("04", "Espositori da terra", 12), ("05", "Contatti", 17)]
+            ("04", "Espositori da terra", 12), ("05", "Contatti", 18)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', X0, TOP + 10, CW)
                   + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '
@@ -159,6 +164,7 @@ def build():
         philosophy("Progetti", T, ["T01", "T02", "T03", "T06"], alto=82),
         space("Stampa e finiture", T, "T04", "T09", zt(2) + prod("T04") + prod("T09")),
         challenges("Portata", T, "T07", "T08", zt(0)),
+        coppia("Grafica e brand", T, "T10", "T11", '<div class="gap">' + R.GRAFICA + "</div>" + prod("T10")),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1

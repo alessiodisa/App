@@ -12,6 +12,8 @@ from portfolio_grid import PROGETTI, TBD, AZ, cid, ROOT
 
 PROGETTI["T09"] = ("Stand a ripiani", "Colonne con header ad arco e fianco inclinato", "Nuove proposte")
 PG.BB["T09"] = [137, 76, 877, 943]
+PG.BB["T10"] = [364, 43, 662, 998]
+PG.BB["T11"] = [346, 52, 656, 1020]
 
 el, photo, scontornata, g = PG.el, PG.photo, PG.scontornata, PG.g
 W, H = PG.W, PG.H

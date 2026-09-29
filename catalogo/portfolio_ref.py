@@ -134,6 +134,16 @@ def space(titolo, sez, a, b, testo):
                   + txt(testo, M + 192, TOP + 30, 73))
 
 
+GRAFICA = blocco("Comunicazione", "Fianchi, header e frontali stampati a tutta altezza trasformano la struttura "
+                                  "in una superficie di comunicazione per il marchio.")
+
+
+def coppia(titolo, sez, a, b, testo):
+    """Due immagini verticali affiancate, colonna di testo a destra."""
+    return pagina(titolo, sez, foto(a, M + 4, TOP + 4, 86, 144) + foto(b, M + 96, TOP + 4, 86, 144)
+                  + txt(testo, M + 192, TOP + 30, 73))
+
+
 def creative(titolo, sez, codes, testo):
     """Griglia 2×2 a sinistra, colonna di testo a destra in basso (Creative Work)."""
     w, h, g = 82, 70, 6
@@ -180,7 +190,7 @@ def introduzione():
 
 def indice():
     voci = [("01", "Introduzione", 4), ("02", "Chi siamo", 5), ("03", "Espositori da banco", 6),
-            ("04", "Espositori da terra", 12), ("05", "Contatti", 17)]
+            ("04", "Espositori da terra", 12), ("05", "Contatti", 18)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', M + 4, TOP + 10, 150)
                   + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '
@@ -249,6 +259,7 @@ def build():
         philosophy("Progetti", T, ["T01", "T02", "T03", "T06"], alto=92),
         space("Stampa e finiture", T, "T04", "T09", zt(2) + prod("T04") + prod("T09")),
         challenges("Portata", T, "T07", "T08", zt(0)),
+        coppia("Grafica e brand", T, "T10", "T11", '<div class="gap">' + GRAFICA + "</div>" + prod("T10") + prod("T11")),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1
