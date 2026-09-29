@@ -83,3 +83,15 @@
   font-weight: 800;
   src: url(Unbounded-800.ttf) format('truetype');
 }
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  src: url(InterTight-700.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  src: url(InterTight-800.ttf) format('truetype');
+}
