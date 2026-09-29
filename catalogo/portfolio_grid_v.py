@@ -47,7 +47,7 @@ def copertina():
             + el("small", "Cartotecnica ed espositori per il punto vendita: progettazione, prototipazione e produzione. "
                  "Cartone, cartoncino e materiali durevoli.", .35, 1.3, 1.9)
             + el("capline", "<b>Fig. 01</b>Espositore da terra — vista esplosa", .35, 4.2, 1.9)
-            + el("light-t xl", "Espositori", .35, 4.85) + el("cover-t", "Portfolio", .35, 5.15)
+            + el("light-t xl", "Portfolio", .35, 4.85) + el("cover-t", "Espositori", .35, 5.15)
             + el("h5", "Telefono", .35, 6.3) + el("small", TBD("+39 000 000 0000"), .35, 6.5)
             + el("h5", "Email", 1.8, 6.3) + el("small", TBD("info@azienda.it"), 1.8, 6.5)
             + el("h5", "Indirizzo", 3.2, 6.3) + el("small", TBD("Via Esempio 1, Città"), 3.2, 6.5, 1.45)
