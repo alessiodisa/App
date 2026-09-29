@@ -36,6 +36,12 @@ def overview(titolo, sez, code, intro, dati, extra=""):
                   + txt(kv(dati) + prod(code), x2(1), 200, COL))
 
 
+def overview_dwg(titolo, sez, src, intro, dati, extra=""):
+    return pagina(titolo, sez, dwg(src, X0, TOP, CW, 158)
+                  + txt(f'<h4>{sez}</h4><p>{intro}</p>{extra}', x2(0), 200, COL)
+                  + txt(kv(dati), x2(1), 200, COL))
+
+
 def philosophy(titolo, sez, codes, alto=70):
     corpo = ""
     riga = alto + 40
@@ -146,11 +152,10 @@ def build():
         creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
         challenges("Struttura", B, "B15", "B03", zb(0)),
         academic("Materiali", B, "B08", "B04", "B07", zb(1)),
-        overview("Espositori da terra", T, "T05", INTRO[T],
-                 [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"),
-                  ("Spedizione", "Piatta, montaggio in pochi minuti")], zt(1)),
-        technical("Sviluppo in piano", T, "img/disegni/terra-fustelle.svg",
-                  zona(T, 3), '<p class="fig">Fig. 05 — Fianco, schienale e ripiano, scala 1:10</p>'),
+        overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
+                     [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"),
+                      ("Spedizione", "Piatta, montaggio in pochi minuti")], zt(1)),
+        overview("Logistica", T, "T05", ZONE[T][3][1], []),
         philosophy("Progetti", T, ["T01", "T02", "T03", "T06"], alto=82),
         space("Stampa e finiture", T, "T04", "T09", zt(2) + prod("T04") + prod("T09")),
         challenges("Portata", T, "T07", "T08", zt(0)),

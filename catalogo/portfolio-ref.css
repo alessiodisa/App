@@ -56,3 +56,4 @@
 .fase h4 { grid-column: 2; } .fase p { grid-column: 2; margin-top: .6mm; }
 .blk p.note2 { margin-top: 6mm; font-size: 6.8pt; }
 .book.pre > .page:first-child { grid-column: auto; }
+.blk p + .gap { margin-top: 7mm; }
