@@ -172,8 +172,8 @@ def introduzione():
 
 
 def indice():
-    voci = [("01", "Introduzione", 2), ("02", "Chi siamo e metodo", 4), ("03", "Espositori da banco", 6),
-            ("04", "Espositori da terra", 13), ("05", "Contatti", 18)]
+    voci = [("01", "Introduzione", 4), ("02", "Chi siamo e metodo", 5), ("03", "Espositori da banco", 7),
+            ("04", "Espositori da terra", 14), ("05", "Contatti", 20)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', M + 4, TOP + 10, 150)
                   + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '
@@ -223,7 +223,7 @@ def build():
     zb = lambda i: f'<div class="gap">{zona(B, i)}</div>'
     zt = lambda i: f'<div class="gap">{zona(T, i)}</div>'
     interne = [
-        introduzione(), indice(), chi_siamo(), metodo(),
+        indice(), introduzione(), chi_siamo(), metodo(),
         overview("Espositori da banco", B, "B13", INTRO[B],
                  [("Formati", "Da 20 × 15 a 60 × 40 cm"), ("Materiali", "Cartone, cartoncino, forex, plexi, legno"),
                   ("Montaggio", "Pochi secondi, senza colla")]),
@@ -245,12 +245,12 @@ def build():
         challenges("Progetti", T, "T07", "T08", ""),
         contatti(),
     ]
-    pages = [("grid", PG.copertina())] + [("ref", p) for p in interne] + [("grid", PG.retro())]
+    pages = [("grid", PG.copertina()), ("blank", "")] + [("ref", p) for p in interne] + [("grid", PG.retro())]
     tot = len(pages)
     html = []
     for i, (cls, body) in enumerate(pages, start=1):
         side = "pr" if i % 2 else "pl"
-        foot = "" if cls == "grid" else (f'<div class="pn" style="{bx(M, 192)}">{i:02d}</div>'
+        foot = "" if cls in ("grid", "blank") else (f'<div class="pn" style="{bx(M, 192)}">{i:02d}</div>'
                                          f'<div class="ft" style="right:{M}mm;top:194mm">Portfolio Espositori 2026</div>')
         html.append(f'<section class="page {side} {cls}">{body}{foot}\n</section>')
     doc = f"""<!DOCTYPE html>
