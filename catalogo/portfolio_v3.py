@@ -41,6 +41,8 @@ TIPO = {
     "B19": "Espositore da banco con fondale e vassoio inclinato a gradini",
     "B20": "Espositore da banco a 2 gradini con header ad arco",
     "B21": "Espositore da banco a vassoio alveolare con fondale",
+    "B22": "Espositore da banco a 4 vassoi su 2 livelli con fondale",
+    "B23": "Espositore da banco porta locandina a cornice con base",
     "T01": "Espositore da terra a 3 ripiani con header",
     "T02": "Espositore da terra a ganci con header",
     "T03": "Espositore da terra a 4 ripiani a sbalzo",

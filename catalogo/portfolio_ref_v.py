@@ -96,6 +96,12 @@ def duo(titolo, sez, a, b, c):
                   + txt('<div class="gap">' + R.GRAFICA + "</div>" + prod(c), x2(1), TOP + 150, COL))
 
 
+def duo2(titolo, sez, a, b):
+    """Due immagini affiancate, schede sotto."""
+    return pagina(titolo, sez, foto(a, x2(0), TOP + 4, COL, 120) + foto(b, x2(1), TOP + 4, COL, 120)
+                  + txt(prod(a), x2(0), TOP + 134, COL) + txt(prod(b), x2(1), TOP + 134, COL))
+
+
 def space(titolo, sez, a, b, testo):
     return pagina(titolo, sez, foto(a, x2(0), TOP + 4, COL, 176)
                   + foto(b, x2(1), TOP + 4, COL, COL) + txt(testo, x2(1), TOP + COL + 12, COL))
@@ -106,7 +112,7 @@ def space(titolo, sez, a, b, testo):
 # --------------------------------------------------------------------------
 def indice():
     voci = [("01", "Introduzione", 4), ("02", "Chi siamo", 5), ("03", "Espositori da banco", 6),
-            ("04", "Espositori da terra", 13), ("05", "Contatti", 19)]
+            ("04", "Espositori da terra", 14), ("05", "Contatti", 20)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', X0, TOP + 10, CW)
                   + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '
@@ -168,6 +174,7 @@ def build():
         challenges("Struttura", B, "B15", "B03", zb(0)),
         academic("Materiali", B, "B08", "B04", "B07", zb(1)),
         duo("Grafica e brand", B, "B19", "B20", "B21"),
+        duo2("Grafica e brand", B, "B22", "B23"),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"),
                       ("Spedizione", "Piatta, montaggio in pochi minuti")], zt(1)),
