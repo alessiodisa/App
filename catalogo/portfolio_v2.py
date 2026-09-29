@@ -62,7 +62,7 @@ def descr(code):
 # --------------------------------------------------------------------------
 def introduzione():
     sx = (head("Introduzione")
-          + t2("Introduzione", .5, .85, 4)
+          + t2("Introduzione", .5, .65, 4)
           + el("lead", "Ogni prodotto merita il suo spazio: struttura, materiale e grafica pensati insieme.", .5, 1.3, 3.6)
           + txt("Progettiamo e produciamo espositori da banco e da terra, pedane, totem e allestimenti per il punto vendita. "
                 "Ogni progetto nasce in ufficio tecnico, viene prototipato, testato e poi prodotto internamente, "
@@ -75,7 +75,7 @@ def introduzione():
               "Fustellatura e incollaggio interni", "Cartone, forex, plexi, legno", "Spedizione piatta o premontata"]), .5, 3.55, 6))
     voce = lambda n, t, p, r: (el("idx-n", n, .5, r) + el("idx-t", t, 1.5, r + .05, 3.8)
                                + el("idx-p", f"{p:02d}", 5.8, r + .05, .7) + el("rule", "", .5, r + .55, 6))
-    dx = (head("Indice") + t2("Indice", .5, .85, 3)
+    dx = (head("Indice") + t2("Indice", .5, .65, 3)
           + voce("01", "Chi siamo e metodo", 4, 1.45) + voce("02", "Espositori da banco", 6, 2.2)
           + voce("03", "Espositori da terra", 18, 2.95) + voce("04", "Contatti", 26, 3.7))
     return sx, dx
@@ -87,14 +87,14 @@ def chi_siamo():
                ("Produzione", "Stampa, fustellatura, incollaggio e confezionamento interni."),
                ("Logistica", "Spedizione piatta o premontata, in Italia e all’estero.")]
     li = "".join(f'<div class="li"><b>{chr(65 + i)}</b><div><h5>{t}</h5><p>{d}</p></div></div>' for i, (t, d) in enumerate(lettere))
-    sx = (head("Chi siamo") + t2("Chi siamo", .5, .85, 3)
+    sx = (head("Chi siamo") + t2("Chi siamo", .5, .65, 3)
           + el("lead", "Dal disegno al bancale, sotto lo stesso tetto.", .5, 1.3, 2.8)
           + txt(f"Dal {TBD('[anno]')} a {TBD('[città]')} progettiamo e produciamo espositori in cartotecnica e materiali durevoli. "
                 "Un unico interlocutore significa tempi più rapidi, meno passaggi e un controllo costante sulla qualità.", .5, 2.0, 2.6)
           + el("letters2", li, 3.6, 1.3, 2.9)
           + el("stats2", f'<div><b>{TBD("35+")}</b>Anni di esperienza</div><div><b>{TBD("400")}</b>Progetti l’anno</div>'
                          f'<div><b>100%</b>Prodotto internamente</div>', .5, 3.85, 6))
-    dx = (head("Metodo") + t2("Dal disegno<br>al prodotto", .5, .85, 2.4)
+    dx = (head("Metodo") + t2("Dal disegno<br>al prodotto", .5, .65, 2.4)
           + txt("Ogni espositore nasce da uno schizzo: proporzioni, ingombri e altezze dei ripiani vengono fissati "
                 "prima ancora del disegno tecnico.", .5, 1.75, 2.2)
           + "".join(t3(f"{i + 1:02d} — {t}", .5, 2.45 + i * .5, 2.2) + txt(d, .5, 2.64 + i * .5, 2.2)
@@ -235,7 +235,7 @@ def fustelle_mockup():
 
 
 def contatti():
-    return (head("Contatti") + t2("Contatti", .5, .85, 3)
+    return (head("Contatti") + t2("Contatti", .5, .65, 3)
             + el("lead", "Il prossimo progetto parte da un brief.", .5, 1.3, 3.5)
             + txt("Raccontaci il prodotto, il punto vendita, le quantità e i tempi: ti rispondiamo con un concept e un prototipo.", .5, 1.8, 2.6)
             + "".join(t3(k, c, r) + el("contact2", TBD(v), c, r + .2, 2.6)
