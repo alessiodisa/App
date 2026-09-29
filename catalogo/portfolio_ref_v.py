@@ -87,6 +87,12 @@ def coppia(titolo, sez, a, b, testo):
                   + txt(testo, x2(0), TOP + 188, COL) + txt(prod(b), x2(1), TOP + 188, COL))
 
 
+def duo(titolo, sez, a, b):
+    return pagina(titolo, sez, foto(a, x2(0), TOP + 4, COL, 102) + foto(b, x2(1), TOP + 4, COL, 102)
+                  + txt('<div class="gap">' + R.GRAFICA + "</div>" + prod(a), x2(0), TOP + 116, COL)
+                  + txt(prod(b), x2(1), TOP + 116, COL))
+
+
 def space(titolo, sez, a, b, testo):
     return pagina(titolo, sez, foto(a, x2(0), TOP + 4, COL, 176)
                   + foto(b, x2(1), TOP + 4, COL, COL) + txt(testo, x2(1), TOP + COL + 12, COL))
@@ -158,8 +164,7 @@ def build():
         creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
         challenges("Struttura", B, "B15", "B03", zb(0)),
         academic("Materiali", B, "B08", "B04", "B07", zb(1)),
-        overview("Grafica e brand", B, "B19", "Fondale stampato e vassoio inclinato a gradini: il prodotto in primo piano, "
-                 "il messaggio del marchio alle spalle.", [], fh=160),
+        duo("Grafica e brand", B, "B19", "B20"),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"),
                       ("Spedizione", "Piatta, montaggio in pochi minuti")], zt(1)),
