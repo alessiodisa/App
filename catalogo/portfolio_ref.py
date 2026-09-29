@@ -88,11 +88,11 @@ def pagina(titolo, sezione, corpo):
 # --------------------------------------------------------------------------
 # schemi di pagina
 # --------------------------------------------------------------------------
-def overview(titolo, sez, code, intro, dati):
+def overview(titolo, sez, code, intro, dati, extra=""):
     """Foto grande a sinistra, testo + dati a destra (Project Overview)."""
     fw = 150
     return pagina(titolo, sez, foto(code, M + 4, TOP + 4, fw, BOT - TOP - 8)
-                  + txt(f'<h4>{sez}</h4><p>{intro}</p>', M + fw + 16, TOP + 6, 99)
+                  + txt(f'<h4>{sez}</h4><p>{intro}</p>{extra}', M + fw + 16, TOP + 6, 99)
                   + txt(kv(dati) + prod(code), M + fw + 16, 112, 99))
 
 
@@ -173,7 +173,7 @@ def introduzione():
 
 def indice():
     voci = [("01", "Introduzione", 4), ("02", "Chi siamo", 5), ("03", "Espositori da banco", 6),
-            ("04", "Espositori da terra", 13), ("05", "Contatti", 19)]
+            ("04", "Espositori da terra", 12), ("05", "Contatti", 17)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', M + 4, TOP + 10, 150)
                   + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '
@@ -231,22 +231,18 @@ def build():
         overview("Espositori da banco", B, "B13", INTRO[B],
                  [("Formati", "Da 20 × 15 a 60 × 40 cm"), ("Materiali", "Cartone, cartoncino, forex, plexi, legno"),
                   ("Montaggio", "Pochi secondi, senza colla")]),
-        construction("Disegno tecnico", B, [ZONE[B][0], ZONE[B][1]], "img/disegni/banco-iso.svg",
-                     "Fig. 03 — Espositore da banco a gradini, quote indicative"),
         philosophy("Progetti", B, ["B02", "B17", "B09", "B11"]),
         urban("Stampa e finiture", B, "B12", "B16", zb(2)),
         creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
-        challenges("Progetti", B, "B15", "B03", ""),
-        academic("Progetti", B, "B08", "B04", "B07", ""),
+        challenges("Struttura", B, "B15", "B03", zb(0)),
+        academic("Materiali", B, "B08", "B04", "B07", zb(1)),
         overview("Espositori da terra", T, "T05", INTRO[T],
-                 [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"), ("Spedizione", "Piatta, montaggio in pochi minuti")]),
-        construction("Disegno tecnico", T, [ZONE[T][0], ZONE[T][1]], "img/disegni/terra-iso.svg",
-                     "Fig. 04 — Espositore da terra a ripiani, quote indicative"),
+                 [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"), ("Spedizione", "Piatta, montaggio in pochi minuti")], zt(1)),
         technical("Sviluppo in piano", T, "img/disegni/terra-fustelle.svg",
                   zona(T, 3), '<p class="fig">Fig. 05 — Fianco, schienale e ripiano, scala 1:10</p>'),
         philosophy("Progetti", T, ["T01", "T02", "T03", "T06"], alto=92),
         space("Stampa e finiture", T, "T04", "T09", zt(2) + prod("T04") + prod("T09")),
-        challenges("Progetti", T, "T07", "T08", ""),
+        challenges("Portata", T, "T07", "T08", zt(0)),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1
