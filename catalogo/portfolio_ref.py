@@ -145,11 +145,12 @@ def coppia(titolo, sez, a, b, testo):
                   + txt(testo, M + 192, TOP + 30, 73))
 
 
-def duo(titolo, sez, a, b):
-    """Due immagini affiancate a tutta larghezza, schede sotto."""
-    w = (W - 2 * M - 8 - 6) / 2
-    return pagina(titolo, sez, "".join(foto(c, M + 4 + i * (w + 6), TOP + 4, w, 114) + txt(prod(c), M + 4 + i * (w + 6), TOP + 126, w)
-                                       for i, c in enumerate((a, b))))
+def duo(titolo, sez, *codes, h=114):
+    """Due o tre immagini affiancate a tutta larghezza, schede sotto."""
+    n, g = len(codes), 6
+    w = (W - 2 * M - 8 - (n - 1) * g) / n
+    return pagina(titolo, sez, "".join(foto(c, M + 4 + i * (w + g), TOP + 4, w, h) + txt(prod(c), M + 4 + i * (w + g), TOP + h + 12, w)
+                                       for i, c in enumerate(codes)))
 
 
 def creative(titolo, sez, codes, testo):
@@ -261,7 +262,7 @@ def build():
         creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
         challenges("Struttura", B, "B15", "B03", zb(0)),
         academic("Materiali", B, "B08", "B04", "B07", zb(1)),
-        duo("Grafica e brand", B, "B19", "B20"),
+        duo("Grafica e brand", B, "B19", "B20", "B21", h=110),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"), ("Spedizione", "Piatta, montaggio in pochi minuti")], zt(1)),
         overview("Logistica", T, "T05", ZONE[T][3][1], []),
