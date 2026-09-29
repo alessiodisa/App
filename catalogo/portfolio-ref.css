@@ -57,3 +57,5 @@
 .blk p.note2 { margin-top: 6mm; font-size: 6.8pt; }
 .book.pre > .page:first-child { grid-column: auto; }
 .blk p + .gap { margin-top: 7mm; }
+.blk p.lead0 { margin-top: 0; }
+.blk h4 + p.lead0 { margin-top: 1.6mm; }

@@ -80,7 +80,8 @@ def zona(sez, i):
 
 
 def pagina(titolo, sezione, corpo):
-    return (f'<div class="ptitle" style="{bx(M, 17)}">{titolo}</div>'
+    """Il titolo di pagina è sempre il nome della sezione; `titolo` resta come argomento degli schemi."""
+    return (f'<div class="ptitle" style="{bx(M, 17)}">{sezione}</div>'
             f'<div class="hdr" style="right:{M}mm;top:17mm"><span class="az">{AZ}</span><span class="pill">{sezione}</span></div>'
             + corpo)
 
@@ -92,14 +93,14 @@ def overview(titolo, sez, code, intro, dati, extra=""):
     """Foto grande a sinistra, testo + dati a destra (Project Overview)."""
     fw = 150
     return pagina(titolo, sez, foto(code, M + 4, TOP + 4, fw, BOT - TOP - 8)
-                  + txt(f'<h4>{sez}</h4><p>{intro}</p>{extra}', M + fw + 16, TOP + 6, 99)
+                  + txt((f'<h4>{titolo}</h4>' if titolo != sez else '') + f'<p class="lead0">{intro}</p>{extra}', M + fw + 16, TOP + 6, 99)
                   + txt(kv(dati) + prod(code), M + fw + 16, 112, 99))
 
 
 def overview_dwg(titolo, sez, src, intro, dati, extra=""):
     """Come overview, ma con la tavola tecnica al posto della foto (senza sfondo)."""
     return pagina(titolo, sez, dwg(src, M + 4, TOP, 150, BOT - TOP)
-                  + txt(f'<h4>{sez}</h4><p>{intro}</p>{extra}', M + 170, TOP + 6, 95)
+                  + txt(f'<p class="lead0">{intro}</p>{extra}', M + 170, TOP + 6, 95)
                   + txt(kv(dati), M + 170, 132, 95))
 
 
@@ -223,7 +224,7 @@ def chi_siamo():
 
 def metodo():
     """Introduzione: dal progetto alla realizzazione, con schizzo e prodotto finito."""
-    intro = (f'<p class="lead3">Dal {TBD("[anno]")} progettiamo e produciamo espositori in cartotecnica e materiali '
+    intro = (f'<h4>Dal progetto alla realizzazione</h4><p class="lead3" style="margin-top:2mm">Dal {TBD("[anno]")} progettiamo e produciamo espositori in cartotecnica e materiali '
              "durevoli: dal primo schizzo al bancale pronto a partire, tutto sotto lo stesso tetto.</p>")
     fasi = "".join(f'<div class="fase"><span>0{i + 1}</span>{blocco(t, d)}</div>' for i, (t, d) in enumerate([
         ("Schizzo", "Proporzioni, ingombri e altezze dei ripiani."),

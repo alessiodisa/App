@@ -18,7 +18,8 @@ COL = (CW - 8) / 2                   # due colonne da 81 mm
 
 
 def pagina(titolo, sezione, corpo):
-    return (f'<div class="ptitle" style="{bx(M, 17)}">{titolo}</div>'
+    """Il titolo di pagina è sempre il nome della sezione; `titolo` resta come argomento degli schemi."""
+    return (f'<div class="ptitle" style="{bx(M, 17)}">{sezione}</div>'
             f'<div class="hdr" style="right:{M}mm;top:17mm"><span class="az">{AZ}</span><span class="pill">{sezione}</span></div>'
             + corpo)
 
@@ -33,13 +34,13 @@ def x2(i):
 def overview(titolo, sez, code, intro, dati, extra="", fh=150):
     y = TOP + 14 + fh
     return pagina(titolo, sez, foto(code, X0, TOP + 4, CW, fh)
-                  + txt(f'<h4>{sez}</h4><p>{intro}</p>{extra}', x2(0), y, COL)
+                  + txt((f'<h4>{titolo}</h4>' if titolo != sez else '') + f'<p class="lead0">{intro}</p>{extra}', x2(0), y, COL)
                   + txt(kv(dati) + prod(code), x2(1), y, COL))
 
 
 def overview_dwg(titolo, sez, src, intro, dati, extra=""):
     return pagina(titolo, sez, dwg(src, X0, TOP, CW, 158)
-                  + txt(f'<h4>{sez}</h4><p>{intro}</p>{extra}', x2(0), 200, COL)
+                  + txt(f'<p class="lead0">{intro}</p>{extra}', x2(0), 200, COL)
                   + txt(kv(dati), x2(1), 200, COL))
 
 
@@ -111,7 +112,7 @@ def indice():
 
 
 def metodo():
-    intro = (f'<p class="lead3">Dal {TBD("[anno]")} progettiamo e produciamo espositori in cartotecnica e materiali '
+    intro = (f'<h4>Dal progetto alla realizzazione</h4><p class="lead3" style="margin-top:2mm">Dal {TBD("[anno]")} progettiamo e produciamo espositori in cartotecnica e materiali '
              "durevoli: dal primo schizzo al bancale pronto a partire, tutto sotto lo stesso tetto.</p>"
              '<p class="note2" style="margin-top:0">Espositori da banco e da terra per cosmesi, farmacia, ottica, '
              "ferramenta e beverage: progettazione, prototipi, stampa e fustellatura interni.</p>")
