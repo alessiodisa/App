@@ -205,7 +205,7 @@ def metodo():
         ("Produzione", "Stampa, fustellatura e confezionamento.")])
     return pagina("Dal disegno al prodotto", "Metodo",
                   f'<div class="dwg" style="{bx(M + 4, TOP, 106, BOT - TOP)}"><img src="img/schizzo-terra.png" alt=""></div>'
-                  + f'<div class="dwg mult" style="{bx(128, TOP, 90, BOT - TOP)}"><img src="img/metodo-prodotto.jpg" alt=""></div>'
+                  + f'<div class="dwg mult" style="{bx(M + 112, TOP, 106, BOT - TOP)}"><img src="img/metodo-prodotto.jpg" alt=""></div>'
                   + txt(testo, 222, TOP + 6, 43))
 
 
