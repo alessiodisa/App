@@ -209,7 +209,8 @@ def chi_siamo():
     corpo = ""
     for i, (n, t, d) in enumerate(fasi):
         x, y = x2(i % 2), TOP + 4 + (i // 2) * 92
-        corpo += f'<div class="tile" style="{bx(x, y, COL, 58)}"><span>{n}</span></div>' + txt(blocco(t, d), x, y + 63, COL)
+        corpo += (dwg(f"img/disegni/chi-{n}.svg", x, y, COL, 58)
+                  + f'<div class="tagc" style="{bx(x, y + 62)}">{n}</div>' + txt(blocco(t, d), x, y + 66, COL))
     corpo += txt(f'<div class="stats">'
                  f'<div><b>{TBD("35+")}</b>Anni di esperienza</div><div><b>{TBD("400")}</b>Progetti l’anno</div>'
                  f'<div><b>100%</b>Prodotto internamente</div></div>', X0, 236, CW)
