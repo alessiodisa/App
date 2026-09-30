@@ -31,7 +31,7 @@ def x2(i):
 # --------------------------------------------------------------------------
 # schemi della reference in verticale
 # --------------------------------------------------------------------------
-def overview(titolo, sez, code, intro, dati, extra="", fh=150, mf=True):
+def overview(titolo, sez, code, intro, dati, extra="", fh=150, mf=False):
     y = TOP + 14 + fh
     return pagina(titolo, sez, foto(code, X0, TOP + 4, CW, fh)
                   + txt((f'<h4>{titolo}</h4>' if titolo != sez else '') + f'<p class="lead0">{intro}</p>{extra}', x2(0), y, COL)
@@ -64,8 +64,7 @@ def creative(titolo, sez, codes, testo):
     corpo = "".join(foto(c, x2(i % 2), TOP + 4 + (i // 2) * (COL + 6), COL, COL) for i, c in enumerate(codes))
     legenda = "".join(f'<li><b>{cid(c)}</b>{TIPO[c]}</li>' for c in codes)
     return pagina(titolo, sez, corpo + txt(testo, x2(0), TOP + 2 * COL + 16, COL)
-                  + txt(f'<ul class="leg" style="margin-top:0">{legenda}</ul>'
-                        f'<p class="note">Materiali e finiture: {TBD("[da completare per ogni codice]")}</p>', x2(1), TOP + 2 * COL + 16, COL))
+                  + txt(f'<ul class="leg" style="margin-top:0">{legenda}</ul>', x2(1), TOP + 2 * COL + 16, COL))
 
 
 def challenges(titolo, sez, small, big, testo):
@@ -136,7 +135,7 @@ def quattro(sez, codes, testo):
         corpo += foto(c, x, y, COL, h) + tag(c, x, y + h + 2.5, COL)
     yb = TOP + 4 + 2 * (h + 12) + 6
     return pagina("", sez, corpo + txt(testo, x2(0), yb, COL)
-                  + txt(legenda(codes) + f'<p class="note">Materiali e finiture: {TBD("[da completare per ogni codice]")}</p>', x2(1), yb, COL))
+                  + txt(legenda(codes), x2(1), yb, COL))
 
 
 def tre_legenda(sez, a, b, tall):

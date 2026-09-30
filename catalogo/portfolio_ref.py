@@ -104,7 +104,7 @@ def kv(rows):
     return '<dl class="kv">' + "".join(f"<dt>{k}</dt><dd>{v}</dd>" for k, v in rows) + "</dl>"
 
 
-def prod(code, mf=True):
+def prod(code, mf=False):
     """Scheda espositore: codice e tipologia; con mf anche Materiali e Finiture."""
     return (f'<div class="prod"><span class="code">{cid(code)}</span><h4>{TIPO[code]}</h4>'
             + (kv([("Materiali", TBD("[materiali]")), ("Finiture", TBD("[finiture]"))]) if mf else "") + "</div>")
@@ -213,8 +213,7 @@ def creative(titolo, sez, codes, testo):
     w, h, g = 82, 70, 6
     corpo = "".join(foto(c, M + 4 + (i % 2) * (w + g), TOP + 4 + (i // 2) * (h + g), w, h) for i, c in enumerate(codes))
     legenda = "".join(f'<li><b>{cid(c)}</b>{TIPO[c]}</li>' for c in codes)
-    return pagina(titolo, sez, corpo + txt(f'{testo}<ul class="leg">{legenda}</ul>'
-                                           f'<p class="note">Materiali e finiture: {TBD("[da completare per ogni codice]")}</p>',
+    return pagina(titolo, sez, corpo + txt(f'{testo}<ul class="leg">{legenda}</ul>',
                                            M + 2 * w + g + 20, 88, 83))
 
 
