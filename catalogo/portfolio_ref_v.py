@@ -137,8 +137,9 @@ def metodo():
         ("Prototipo", "Campione fisico, test di carico e montaggio."),
         ("Produzione", "Stampa, fustellatura e confezionamento interni.")]))
     return pagina("Dal progetto alla realizzazione", "Introduzione",
-                  f'<div class="dwg" style="{bx(x2(0), TOP, COL, 150)}"><img src="img/schizzo-terra.png" alt=""></div>'
-                  + f'<div class="dwg mult" style="{bx(x2(1), TOP, COL, 150)}"><img src="img/metodo-prodotto.jpg" alt=""></div>'
+                  f'<div class="dwg" style="{bx(X0, TOP, CW / 3, 150)}"><img src="img/schizzo-terra.png" alt=""></div>'
+                  + f'<div class="dwg mult" style="{bx(X0 + CW / 3, TOP, CW / 3, 150)}"><img src="img/metodo-prodotto.jpg" alt=""></div>'
+                  + f'<div class="dwg mult" style="{bx(X0 + 2 * CW / 3, TOP, CW / 3, 150)}"><img src="img/metodo-finito.jpg" alt="" style="max-height:62%"></div>'
                   + txt(intro, x2(0), 196, COL) + txt(fasi, x2(1), 196, COL))
 
 

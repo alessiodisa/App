@@ -239,8 +239,9 @@ def metodo():
         ("Prototipo", "Campione fisico, test di carico e montaggio."),
         ("Produzione", "Stampa, fustellatura e confezionamento interni.")]))
     return pagina("Dal progetto alla realizzazione", "Introduzione",
-                  f'<div class="dwg" style="{bx(M + 4, TOP, 96, BOT - TOP)}"><img src="img/schizzo-terra.png" alt=""></div>'
-                  + f'<div class="dwg mult" style="{bx(M + 100, TOP, 96, BOT - TOP)}"><img src="img/metodo-prodotto.jpg" alt=""></div>'
+                  f'<div class="dwg" style="{bx(M + 4, TOP, 64, BOT - TOP)}"><img src="img/schizzo-terra.png" alt=""></div>'
+                  + f'<div class="dwg mult" style="{bx(M + 68, TOP, 64, BOT - TOP)}"><img src="img/metodo-prodotto.jpg" alt=""></div>'
+                  + f'<div class="dwg mult" style="{bx(M + 132, TOP, 64, BOT - TOP)}"><img src="img/metodo-finito.jpg" alt="" style="max-height:62%"></div>'
                   + txt(intro + fasi + '<p class="note2">Espositori da banco e da terra per cosmesi, farmacia, ottica, '
                         'ferramenta e beverage: progettazione, prototipi, stampa e fustellatura interni.</p>', 218, TOP + 2, 63))
 
