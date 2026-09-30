@@ -71,9 +71,25 @@ def _pad(code):
     return f"img/sq/pad/{code}.jpg"
 
 
+ORIG = json.loads((ROOT / "img" / "orig" / "orig.json").read_text())
+
+
+def foto_orig(code, x, y, w, h):
+    """Foto originale intera (non quadrata), scalata al minimo per coprire il riquadro: nessun fondo aggiunto."""
+    (iw, ih), (a1, b1, a2, b2) = ORIG[code]["size"], ORIG[code]["bb"]
+    k = max(w / iw, h / ih)
+    s_w, s_h = iw * k, ih * k
+    ix = min(max(w / 2 - (a1 + a2) / 2 * k, w - s_w), 0)
+    iy = min(max(h / 2 - (b1 + b2) / 2 * k, h - s_h), 0)
+    return (f'<div class="ph" style="{bx(x, y, w, h)}"><img src="img/orig/{code}.jpg" '
+            f'style="{bx(ix, iy, s_w, s_h)}" alt=""></div>')
+
+
 def foto(code, x, y, w, h, fy=.5, z=1.0):
     """Foto con sfondo fornita, a riempire il riquadro, centrata sull'espositore.
     z < 1 allontana l'inquadratura (min. 0.67): l'espositore occupa meno spazio nel riquadro."""
+    if z < 1 and code in ORIG:
+        return foto_orig(code, x, y, w, h)
     a1, b1, a2, b2 = BB[code]
     src, n, off = f"img/sq/{code}.jpg", 1024, 0
     if z < 1:
