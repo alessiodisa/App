@@ -278,6 +278,23 @@ def chi_siamo():
     return pagina("Chi siamo", "Chi siamo", corpo)
 
 
+INTRO_IMG = [("img/intro-schizzo.png", 1364 / 2352, ""), ("img/intro-bianco.jpg", 320 / 1072, " mult"),
+             ("img/intro-finito.jpg", 426 / 1378, " mult")]
+
+
+def tre_fasi(x0, larg, base, H, finale=1.16):
+    """Schizzo, espositore bianco ed espositore finito appoggiati sulla stessa linea di base;
+    l'ultimo (il risultato) un po' più grande. Spazi uguali tra le immagini dentro la larghezza data."""
+    hs = [H, H, H * finale]
+    ws = [r * h for (_, r, _), h in zip(INTRO_IMG, hs)]
+    gap = (larg - sum(ws)) / 2
+    out, x = "", x0
+    for (src, _, cls), w, h in zip(INTRO_IMG, ws, hs):
+        out += f'<div class="dwg{cls}" style="{bx(x, base - h, w, h)}"><img src="{src}" alt=""></div>'
+        x += w + gap
+    return out
+
+
 def metodo():
     """Introduzione: dal progetto alla realizzazione, con schizzo e prodotto finito."""
     intro = (f'<h4>Dal progetto alla realizzazione</h4><p class="lead3" style="margin-top:2mm">Dal {TBD("[anno]")} progettiamo e produciamo espositori in cartotecnica e materiali '
@@ -288,9 +305,7 @@ def metodo():
         ("Prototipo", "Campione fisico, test di carico e montaggio."),
         ("Produzione", "Stampa, fustellatura e confezionamento interni.")]))
     return pagina("Dal progetto alla realizzazione", "Introduzione",
-                  f'<div class="dwg" style="{bx(M + 4, TOP, 64, BOT - TOP)}"><img src="img/schizzo-terra.png" alt=""></div>'
-                  + f'<div class="dwg mult" style="{bx(M + 68, TOP, 64, BOT - TOP)}"><img src="img/metodo-prodotto.jpg" alt=""></div>'
-                  + f'<div class="dwg mult" style="{bx(M + 132, TOP, 64, BOT - TOP)}"><img src="img/metodo-finito.jpg" alt="" style="max-height:62%"></div>'
+                  tre_fasi(M + 4, 186, TOP + 138, 105, finale=1.18)
                   + txt(intro + fasi + '<p class="note2">Espositori da banco e da terra per cosmesi, farmacia, ottica, '
                         'ferramenta e beverage: progettazione, prototipi, stampa e fustellatura interni.</p>', 218, TOP + 2, 63))
 
