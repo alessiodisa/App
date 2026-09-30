@@ -7,7 +7,7 @@ Stessi contenuti e stessi schemi di portfolio_ref.py, ridisposti per la pagina v
 """
 import portfolio_ref as R            # contenuti e componenti (va importato prima della versione verticale)
 import portfolio_grid_v as GV        # copertina e retro verticali
-from portfolio_ref import bx, foto, dwg, txt, blocco, kv, prod, zona, TIPO, INTRO, ZONE, BANCO, TERRA, TBD, AZ, cid, ROOT
+from portfolio_ref import bx, foto, dwg, txt, blocco, kv, prod, nomf, legenda, tag, zona, TIPO, INTRO, ZONE, BANCO, TERRA, TBD, AZ, cid, ROOT
 
 W, H = 210, 297
 M = 16
@@ -31,17 +31,18 @@ def x2(i):
 # --------------------------------------------------------------------------
 # schemi della reference in verticale
 # --------------------------------------------------------------------------
-def overview(titolo, sez, code, intro, dati, extra="", fh=150):
+def overview(titolo, sez, code, intro, dati, extra="", fh=150, mf=True):
     y = TOP + 14 + fh
     return pagina(titolo, sez, foto(code, X0, TOP + 4, CW, fh)
                   + txt((f'<h4>{titolo}</h4>' if titolo != sez else '') + f'<p class="lead0">{intro}</p>{extra}', x2(0), y, COL)
-                  + txt(kv(dati) + prod(code), x2(1), y, COL))
+                  + txt(kv(dati) + prod(code, mf), x2(1), y, COL))
 
 
-def overview_dwg(titolo, sez, src, intro, dati, extra=""):
-    return pagina(titolo, sez, dwg(src, X0, TOP, CW, 158)
-                  + txt(f'<p class="lead0">{intro}</p>{extra}', x2(0), 200, COL)
-                  + txt(kv(dati), x2(1), 200, COL))
+def overview_dwg(titolo, sez, src, intro, dati, extra="", fh=178):
+    y = TOP + 14 + fh
+    return pagina(titolo, sez, dwg(src, X0, TOP + 4, CW, fh)
+                  + txt(f'<p class="lead0">{intro}</p>{extra}', x2(0), y, COL)
+                  + txt(kv(dati), x2(1), y, COL))
 
 
 def philosophy(titolo, sez, codes, alto=70):
@@ -107,6 +108,66 @@ def duo2(titolo, sez, a, b):
     """Due immagini affiancate, schede sotto."""
     return pagina(titolo, sez, foto(a, x2(0), TOP + 4, COL, 120) + foto(b, x2(1), TOP + 4, COL, 120)
                   + txt(prod(a), x2(0), TOP + 134, COL) + txt(prod(b), x2(1), TOP + 134, COL))
+
+
+def griglia(sez, codes, h=96, mf=False):
+    """2×2 immagini più alte che larghe, scheda breve sotto ognuna (senza materiali e finiture)."""
+    corpo = ""
+    for i, c in enumerate(codes):
+        x, y = x2(i % 2), TOP + 4 + (i // 2) * (h + 22)
+        corpo += foto(c, x, y, COL, h) + txt(prod(c, mf), x, y + h + 3, COL)
+    return pagina("", sez, corpo)
+
+
+def didascalie(sez, big, small, testo):
+    """Foto grande con la sua didascalia subito sotto; a destra foto piccola con didascalia;
+    a sinistra, separata da un filetto, la descrizione generale della sezione."""
+    return pagina("", sez, foto(big, X0, TOP + 4, CW, 128) + txt(nomf(big), x2(0), TOP + 136, COL)
+                  + foto(small, x2(1), TOP + 136, COL, COL) + txt(nomf(small), x2(1), TOP + 139 + COL, COL)
+                  + txt(f'<div class="desc">{testo}</div>', x2(0), TOP + 170, COL))
+
+
+def quattro(sez, codes, testo):
+    """Griglia 2×2 con numero identificativo sotto ogni immagine, testo e legenda in basso."""
+    h = COL - 4
+    corpo = ""
+    for i, c in enumerate(codes):
+        x, y = x2(i % 2), TOP + 4 + (i // 2) * (h + 12)
+        corpo += foto(c, x, y, COL, h) + tag(c, x, y + h + 2.5, COL)
+    yb = TOP + 4 + 2 * (h + 12) + 6
+    return pagina("", sez, corpo + txt(testo, x2(0), yb, COL)
+                  + txt(legenda(codes) + f'<p class="note">Materiali e finiture: {TBD("[da completare per ogni codice]")}</p>', x2(1), yb, COL))
+
+
+def tre_legenda(sez, a, b, tall):
+    """Due foto impilate a sinistra, una alta a destra, numeri sotto le foto e legenda in basso."""
+    return pagina("", sez, foto(a, x2(0), TOP + 4, COL, 84) + tag(a, x2(0), TOP + 90.5, COL)
+                  + foto(b, x2(0), TOP + 100, COL, 84) + tag(b, x2(0), TOP + 186.5, COL)
+                  + foto(tall, x2(1), TOP + 4, COL, 180, z=.76) + tag(tall, x2(1), TOP + 186.5, COL)
+                  + txt(legenda([a, b, tall]), X0, TOP + 200, CW))
+
+
+def terna(sez, a, b, c, z=.8):
+    """Due foto affiancate in alto, la terza sotto a sinistra con testo e scheda a destra (inquadratura più larga)."""
+    return pagina("", sez, foto(a, x2(0), TOP + 4, COL, 102, z=z) + foto(b, x2(1), TOP + 4, COL, 102, z=z)
+                  + txt(nomf(a), x2(0), TOP + 110, COL) + txt(nomf(b), x2(1), TOP + 110, COL)
+                  + foto(c, x2(0), TOP + 140, COL, 96, z=z)
+                  + txt('<div class="gap">' + R.GRAFICA + "</div>" + nomf(c), x2(1), TOP + 142, COL))
+
+
+def coppia_z(sez, a, b, z=.8):
+    return pagina("", sez, foto(a, x2(0), TOP + 4, COL, 120, z=z) + foto(b, x2(1), TOP + 4, COL, 120, z=z)
+                  + txt(nomf(a), x2(0), TOP + 130, COL) + txt(nomf(b), x2(1), TOP + 130, COL))
+
+
+def galleria(sez, codes, h=98, z=1.32):
+    """2×2 foto verticali ravvicinate, senza schede: solo il numero sotto e la legenda in fondo su due colonne."""
+    corpo = ""
+    for i, c in enumerate(codes):
+        x, y = x2(i % 2), TOP + 4 + (i // 2) * (h + 12)
+        corpo += foto(c, x, y, COL, h, z=z) + tag(c, x, y + h + 2.5, COL)
+    yl = TOP + 4 + 2 * (h + 12) + 2
+    return pagina("", sez, corpo + txt(legenda(codes[:2]), x2(0), yl, COL) + txt(legenda(codes[2:]), x2(1), yl, COL))
 
 
 def space(titolo, sez, a, b, testo):
@@ -176,18 +237,18 @@ def build():
         overview("Espositori da banco", B, "B13", INTRO[B],
                  [("Formati", "Da 20 × 15 a 60 × 40 cm"), ("Materiali", "Cartone, cartoncino, forex, plexi, legno"),
                   ("Montaggio", "Pochi secondi, senza colla")]),
-        philosophy("Progetti", B, ["B02", "B17", "B09", "B11"], alto=82),
-        urban("Stampa e finiture", B, "B12", "B16", zb(2)),
-        creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
-        challenges("Struttura", B, "B15", "B03", zb(0)),
-        academic("Materiali", B, "B08", "B04", "B07", zb(1)),
-        duo("Grafica e brand", B, "B19", "B20", "B21"),
-        duo2("Grafica e brand", B, "B22", "B23"),
+        griglia(B, ["B02", "B17", "B09", "B11"]),
+        didascalie(B, "B12", "B16", zona(B, 2)),
+        quattro(B, ["B06", "B05", "B01", "B10"], zona(B, 3)),
+        didascalie(B, "B03", "B15", zona(B, 0)),
+        tre_legenda(B, "B08", "B04", "B07"),
+        terna(B, "B19", "B20", "B21"),
+        coppia_z(B, "B22", "B23"),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"),
                       ("Spedizione", "Piatta, montaggio in pochi minuti")], zt(1)),
-        overview("Logistica", T, "T05", ZONE[T][3][1], []),
-        philosophy("Progetti", T, ["T01", "T02", "T03", "T06"], alto=82),
+        overview("Logistica", T, "T05", ZONE[T][3][1], [], fh=178),
+        galleria(T, ["T01", "T02", "T03", "T06"]),
         overview("Stampa e finiture", T, "T04", ZONE[T][2][1], []),
         overview("Due finiture", T, "T09", "Stessa struttura, due finiture: cambia la grafica, la fustella resta la stessa.", []),
         challenges("Portata", T, "T07", "T08", zt(0)),

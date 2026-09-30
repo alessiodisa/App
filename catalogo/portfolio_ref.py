@@ -40,17 +40,52 @@ def bx(x, y, w=None, h=None):
     return s
 
 
-def foto(code, x, y, w, h, fy=.5):
-    """Foto con sfondo fornita, a riempire il riquadro, centrata sull'espositore."""
-    s = max(w, h)
+PAD = 256                 # bordo aggiunto alle foto "zoomate indietro" (px su 1024)
+
+
+def _pad(code):
+    """Versione della foto con il fondo prolungato ai lati, per inquadrare l'espositore con più aria."""
+    out = ROOT / "img" / "sq" / "pad" / f"{code}.jpg"
+    src = ROOT / "img" / "sq" / f"{code}.jpg"
+    if not out.exists() or out.stat().st_mtime < src.stat().st_mtime:
+        import cv2
+        im = cv2.imread(str(src))
+        import numpy as np
+        n = im.shape[0] + 2 * PAD
+        # fondo prolungato: versione piccola della foto, bordo ricostruito per diffusione, poi ingrandita e sfocata
+        k = 16
+        sm = cv2.resize(im, (im.shape[1] // k, im.shape[0] // k), interpolation=cv2.INTER_AREA)
+        p = PAD // k
+        sp = cv2.copyMakeBorder(sm, p, p, p, p, cv2.BORDER_CONSTANT, value=0)
+        mask = np.full(sp.shape[:2], 255, np.uint8)
+        mask[p:-p, p:-p] = 0
+        sp = cv2.inpaint(sp, mask, 6, cv2.INPAINT_TELEA)
+        soft = cv2.GaussianBlur(cv2.resize(sp, (n, n), interpolation=cv2.INTER_CUBIC), (0, 0), 25)
+        big = soft.copy()
+        big[PAD:PAD + im.shape[0], PAD:PAD + im.shape[1]] = im
+        yy, xx = np.mgrid[0:n, 0:n]
+        d = np.minimum.reduce([xx - PAD, n - PAD - 1 - xx, yy - PAD, n - PAD - 1 - yy]).astype(float)
+        a = np.clip(d / 40, 0, 1)[..., None]        # la foto sfuma nel fondo ricostruito sugli ultimi 40 px
+        out.parent.mkdir(exist_ok=True)
+        cv2.imwrite(str(out), (big * a + soft * (1 - a)).astype("uint8"), [cv2.IMWRITE_JPEG_QUALITY, 90])
+    return f"img/sq/pad/{code}.jpg"
+
+
+def foto(code, x, y, w, h, fy=.5, z=1.0):
+    """Foto con sfondo fornita, a riempire il riquadro, centrata sull'espositore.
+    z < 1 allontana l'inquadratura (min. 0.67): l'espositore occupa meno spazio nel riquadro."""
     a1, b1, a2, b2 = BB[code]
-    cx = (a1 + a2) / 2 / 1024 * s
-    cy = (b1 + (b2 - b1) * fy) / 1024 * s
+    src, n, off = f"img/sq/{code}.jpg", 1024, 0
+    if z < 1:
+        src, n, off = _pad(code), 1024 + 2 * PAD, PAD
+    s = max(w, h) * z * n / 1024
+    cx = ((a1 + a2) / 2 + off) / n * s
+    cy = (b1 + (b2 - b1) * fy + off) / n * s
     ix = min(max(w / 2 - cx, w - s), 0)
     iy = min(max(h / 2 - cy, h - s), 0)
-    if (a2 - a1) / 1024 * s > w + .5 or (b2 - b1) / 1024 * s > h + .5:
+    if (a2 - a1) / n * s > w + .5 or (b2 - b1) / n * s > h + .5:
         print(f"  ! {code}: tagliato in {w:.0f}×{h:.0f}")
-    return (f'<div class="ph" style="{bx(x, y, w, h)}"><img src="img/sq/{code}.jpg" style="{bx(ix, iy, s, s)}" alt=""></div>')
+    return (f'<div class="ph" style="{bx(x, y, w, h)}"><img src="{src}" style="{bx(ix, iy, s, s)}" alt=""></div>')
 
 
 def dwg(src, x, y, w, h):
@@ -69,9 +104,23 @@ def kv(rows):
     return '<dl class="kv">' + "".join(f"<dt>{k}</dt><dd>{v}</dd>" for k, v in rows) + "</dl>"
 
 
-def prod(code):
+def prod(code, mf=True):
+    """Scheda espositore: codice e tipologia; con mf anche Materiali e Finiture."""
     return (f'<div class="prod"><span class="code">{cid(code)}</span><h4>{TIPO[code]}</h4>'
-            + kv([("Materiali", TBD("[materiali]")), ("Finiture", TBD("[finiture]"))]) + "</div>")
+            + (kv([("Materiali", TBD("[materiali]")), ("Finiture", TBD("[finiture]"))]) if mf else "") + "</div>")
+
+
+def nomf(code):
+    return prod(code, mf=False)
+
+
+def legenda(codes):
+    return '<ul class="leg" style="margin-top:0">' + "".join(f'<li><b>{cid(c)}</b>{TIPO[c]}</li>' for c in codes) + "</ul>"
+
+
+def tag(code, x, y, w):
+    """Numero identificativo sotto l'immagine, da ritrovare nella legenda."""
+    return f'<div class="tagc" style="{bx(x, y, w)}">{cid(code)}</div>'
 
 
 def zona(sez, i):
@@ -111,7 +160,7 @@ def philosophy(titolo, sez, codes, alto=58):
     corpo = ""
     for i, c in enumerate(codes):
         x = M + 4 + i * (w + gap)
-        corpo += foto(c, x, TOP + 4, w, alto) + txt(prod(c), x, TOP + alto + 10, w)
+        corpo += foto(c, x, TOP + 4, w, alto) + txt(nomf(c), x, TOP + alto + 10, w)
     return pagina(titolo, sez, corpo)
 
 
@@ -155,7 +204,7 @@ def duo(titolo, sez, *codes, h=114):
     """Due o tre immagini affiancate a tutta larghezza, schede sotto."""
     n, g = len(codes), 6
     w = (W - 2 * M - 8 - (n - 1) * g) / n
-    return pagina(titolo, sez, "".join(foto(c, M + 4 + i * (w + g), TOP + 4, w, h) + txt(prod(c), M + 4 + i * (w + g), TOP + h + 12, w)
+    return pagina(titolo, sez, "".join(foto(c, M + 4 + i * (w + g), TOP + 4, w, h, z=.8) + txt(nomf(c), M + 4 + i * (w + g), TOP + h + 12, w)
                                        for i, c in enumerate(codes)))
 
 
@@ -172,20 +221,20 @@ def creative(titolo, sez, codes, testo):
 def urban(titolo, sez, big, small, testo):
     """Foto grande a sinistra; dati, testo e foto piccola a destra (Urban Design)."""
     return pagina(titolo, sez, foto(big, M + 4, TOP + 4, 140, 144)
-                  + txt(prod(big) + f'<div class="gap">{testo}</div>', M + 156, TOP + 4, 105)
-                  + foto(small, M + 156, 124, 58, 58) + txt(prod(small), M + 222, 124, 43))
+                  + txt(nomf(big) + f'<div class="gap">{testo}</div>', M + 156, TOP + 4, 105)
+                  + foto(small, M + 156, 124, 58, 58) + txt(nomf(small), M + 222, 124, 43))
 
 
 def challenges(titolo, sez, small, big, testo):
     """Testo e foto piccola a sinistra, foto grande a destra (Design Challenges)."""
-    return pagina(titolo, sez, txt(testo + prod(big) + prod(small), M + 4, TOP + 4, 88)
+    return pagina(titolo, sez, txt(testo + nomf(big) + nomf(small), M + 4, TOP + 4, 88)
                   + foto(small, M + 4, 112, 76, 76)
                   + foto(big, 120, TOP + 4, 145, 144))
 
 
 def academic(titolo, sez, a, b, tall, testo):
     """Colonna di testo a sinistra, due foto impilate e una alta a destra (Academic Projects)."""
-    return pagina(titolo, sez, txt(testo + "".join(prod(c) for c in (a, b, tall)), M + 4, TOP + 4, 80)
+    return pagina(titolo, sez, txt(testo + "".join(nomf(c) for c in (a, b, tall)), M + 4, TOP + 4, 80)
                   + foto(a, 108, TOP + 4, 70, 70) + foto(b, 108, TOP + 78, 70, 70)
                   + foto(tall, 182, TOP + 4, 83, 144))
 

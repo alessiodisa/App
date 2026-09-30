@@ -59,3 +59,6 @@
 .blk p + .gap { margin-top: 7mm; }
 .blk p.lead0 { margin-top: 0; }
 .blk h4 + p.lead0 { margin-top: 1.6mm; }
+.tagc { font: 600 6pt/1 var(--disp); color: #8E8E8C; letter-spacing: .04em; }
+.blk .desc { border-top: .25mm solid #BDBDBB; padding-top: 3mm; }
+.blk .prod.cap h4 { margin-top: 0; }
