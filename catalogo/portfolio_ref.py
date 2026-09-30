@@ -157,7 +157,13 @@ def pagina(titolo, sezione, corpo):
 def overview(titolo, sez, code, intro, dati, extra="", z=1.0):
     """Foto grande a sinistra, testo + dati a destra (Project Overview)."""
     fw = 150
-    return pagina(titolo, sez, foto(code, M + 4, TOP + 4, fw, BOT - TOP - 8, z=z)
+    fh = BOT - TOP - 8
+    if z < 1 and code in ORIG:                # foto originale intera in un riquadro con le sue proporzioni
+        (iw, ih), fwi = ORIG[code]["size"], fh * ORIG[code]["size"][0] / ORIG[code]["size"][1]
+        img = foto_orig(code, M + 4 + (fw - fwi) / 2, TOP + 4, fwi, fh)
+    else:
+        img = foto(code, M + 4, TOP + 4, fw, fh, z=z)
+    return pagina(titolo, sez, img
                   + txt((f'<h4>{titolo}</h4>' if titolo != sez else '') + f'<p class="lead0">{intro}</p>{extra}', M + fw + 16, TOP + 6, 99)
                   + txt(kv(dati) + prod(code), M + fw + 16, 112, 99))
 

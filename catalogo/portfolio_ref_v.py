@@ -33,7 +33,13 @@ def x2(i):
 # --------------------------------------------------------------------------
 def overview(titolo, sez, code, intro, dati, extra="", fh=150, mf=False, z=1.0):
     y = TOP + 14 + fh
-    return pagina(titolo, sez, foto(code, X0, TOP + 4, CW, fh, z=z)
+    if z < 1 and code in R.ORIG:              # foto originale intera in un riquadro con le sue proporzioni
+        iw, ih = R.ORIG[code]["size"]
+        fwi = fh * iw / ih
+        img = R.foto_orig(code, X0 + (CW - fwi) / 2, TOP + 4, fwi, fh)
+    else:
+        img = foto(code, X0, TOP + 4, CW, fh, z=z)
+    return pagina(titolo, sez, img
                   + txt((f'<h4>{titolo}</h4>' if titolo != sez else '') + f'<p class="lead0">{intro}</p>{extra}', x2(0), y, COL)
                   + txt(kv(dati) + prod(code, mf), x2(1), y, COL))
 
