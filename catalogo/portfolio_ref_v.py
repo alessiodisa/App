@@ -150,8 +150,8 @@ def terna(sez, a, b, c, z=.8):
     """Due foto affiancate in alto, la terza sotto a sinistra con testo e scheda a destra (inquadratura più larga)."""
     return pagina("", sez, foto(a, x2(0), TOP + 4, COL, 102, z=z) + foto(b, x2(1), TOP + 4, COL, 102, z=z)
                   + txt(nomf(a), x2(0), TOP + 110, COL) + txt(nomf(b), x2(1), TOP + 110, COL)
-                  + foto(c, x2(0), TOP + 140, COL, 96, z=z)
-                  + txt('<div class="gap">' + R.GRAFICA + "</div>" + nomf(c), x2(1), TOP + 142, COL))
+                  + foto(c, x2(0), TOP + 136, COL, 90, z=z) + txt(nomf(c), x2(0), TOP + 229, COL)
+                  + txt(R.GRAFICA, x2(1), TOP + 138, COL))
 
 
 def coppia_z(sez, a, b, z=.8):
