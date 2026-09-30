@@ -267,8 +267,10 @@ def challenges(titolo, sez, small, big, testo):
 
 def challenges3(titolo, sez, small, big, extra, testo):
     """Come challenges, ma con una seconda foto verticale (originale intera) accanto a quella grande."""
+    iw, ih = ORIG[small]["size"]
+    hs = TOP + 148 - 100                    # foto piccola verticale, originale intera, base allineata alle foto grandi
     return pagina(titolo, sez, txt(testo + nomf(big) + nomf(extra) + nomf(small), M + 4, TOP + 4, 88)
-                  + foto(small, M + 4, 112, 76, 76)
+                  + foto_orig(small, M + 4, 100, hs * iw / ih, hs)
                   + foto(big, 120, TOP + 4, 79, 144) + foto_orig(extra, 205, TOP + 4, 72, 144))
 
 

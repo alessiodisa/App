@@ -93,7 +93,8 @@ def challenges(titolo, sez, small, big, testo):
 def challenges3(titolo, sez, small, big, extra, testo):
     return pagina(titolo, sez, foto(big, x2(0), TOP + 4, COL, 140) + R.foto_orig(extra, x2(1), TOP + 4, COL, 140)
                   + txt(testo + prod(big) + prod(extra) + prod(small), x2(0), 190, COL)
-                  + foto(small, x2(1), 190, COL, COL))
+                  + R.foto_orig(small, x2(1) + (COL - 86 * R.ORIG[small]["size"][0] / R.ORIG[small]["size"][1]) / 2, 190,
+                                86 * R.ORIG[small]["size"][0] / R.ORIG[small]["size"][1], 86))
 
 
 def academic(titolo, sez, a, b, tall, testo):
