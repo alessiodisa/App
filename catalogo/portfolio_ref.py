@@ -295,8 +295,8 @@ def introduzione():
 
 
 def indice():
-    voci = [("01", "Introduzione", 4), ("02", "Chi siamo", 5), ("03", "Espositori da banco", 6),
-            ("04", "Espositori da terra", 14), ("05", "Contatti", 22)]
+    voci = [("01", "Introduzione", 4), ("02", "Espositori da banco", 6),
+            ("03", "Espositori da terra", 14), ("04", "Contatti", 22)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', M + 4, TOP + 10, 150)
                   + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '

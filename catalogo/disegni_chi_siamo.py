@@ -11,29 +11,39 @@ from math import cos, sin, radians
 from pathlib import Path
 
 OUT = Path(__file__).parent / "img" / "disegni"
-INK, GRAY, PAPER = "#2E2E2E", "#8A8A8A", "#FFFFFF"
+INK, GRAY, PAPER = "#3A3A3A", "#8A8A8A", "#FFFFFF"
 RNG = random.Random(7)
 
 
-def tratto(p1, p2, sw=.26, col=INK, op=.8, passate=2, over=.9, dash=None):
-    """Linea a matita: due passate leggermente curve e sfalsate, che sforano un po' agli estremi."""
+def tratto(p1, p2, sw=.26, col=INK, op=.8, passate=3, over=2.2, dash=None):
+    """Linea a matita da schizzo: tre passate ondeggianti e sfalsate, estremi che sforano e non combaciano."""
     (x1, y1), (x2, y2) = p1, p2
     dx, dy = x2 - x1, y2 - y1
     l = (dx * dx + dy * dy) ** .5 or 1
     ux, uy = dx / l, dy / l
+    nx, ny = -uy, ux
     out = ""
     da = f' stroke-dasharray="{dash}"' if dash else ""
     for k in range(passate):
-        o1, o2 = RNG.uniform(-.2, over), RNG.uniform(-.2, over)
-        j = lambda: RNG.uniform(-.18, .18)
-        a = (x1 - ux * o1 + j(), y1 - uy * o1 + j())
-        b = (x2 + ux * o2 + j(), y2 + uy * o2 + j())
-        bend = RNG.uniform(-.35, .35) * min(1, l / 20)
-        m = ((a[0] + b[0]) / 2 - uy * bend, (a[1] + b[1]) / 2 + ux * bend)
-        w = sw * (1 if k == 0 else .6)
-        out += (f'<path d="M{a[0]:.2f},{a[1]:.2f} Q{m[0]:.2f},{m[1]:.2f} {b[0]:.2f},{b[1]:.2f}" fill="none" '
-                f'stroke="{col}" stroke-width="{w:.2f}" stroke-linecap="round" opacity="{op * (1 if k == 0 else .6):.2f}"{da}/>')
+        o1, o2 = RNG.uniform(-.6, over), RNG.uniform(-.6, over)
+        s = RNG.uniform(-.45, .45)                       # ogni passata un po' spostata di lato
+        a = (x1 - ux * o1 + nx * s, y1 - uy * o1 + ny * s)
+        b = (x2 + ux * o2 + nx * s, y2 + uy * o2 + ny * s)
+        n = max(2, int(l / 6))                           # tracciato ondeggiante a più punti
+        pts = []
+        for i in range(n + 1):
+            f = i / n
+            w = RNG.uniform(-.28, .28) * (1 if 0 < i < n else .3)
+            pts.append((a[0] + (b[0] - a[0]) * f + nx * w, a[1] + (b[1] - a[1]) * f + ny * w))
+        d = f"M{pts[0][0]:.2f},{pts[0][1]:.2f}" + "".join(
+            f" Q{pts[i][0]:.2f},{pts[i][1]:.2f} {(pts[i][0] + pts[i + 1][0]) / 2:.2f},{(pts[i][1] + pts[i + 1][1]) / 2:.2f}"
+            for i in range(1, n)) + f" L{pts[-1][0]:.2f},{pts[-1][1]:.2f}"
+        wdt = sw * RNG.uniform(.45, 1.05)
+        out += (f'<path d="{d}" fill="none" stroke="{col}" stroke-width="{wdt:.2f}" stroke-linecap="round" '
+                f'opacity="{op * RNG.uniform(.45, .95):.2f}"{da}/>')
     return out
+
+
 C, S = cos(radians(30)), sin(radians(30))
 W, H = 120, 80                       # mm, formato di ogni tavola
 
@@ -66,15 +76,15 @@ class Tavola:
             xs, ys = [u for u, _ in q], [v for _, v in q]
             lines, x0 = "", min(xs) - (max(ys) - min(ys))
             while x0 < max(xs):
-                x0 += hatch * RNG.uniform(.8, 1.3)
-                lines += tratto((x0, max(ys) + 1), (x0 + (max(ys) - min(ys) + 2) * .7, min(ys) - 1), .14, INK, .45, 1, .3)
+                x0 += hatch * RNG.uniform(.7, 1.8)
+                lines += tratto((x0 + RNG.uniform(-.8, .8), max(ys) + 1), (x0 + (max(ys) - min(ys) + 2) * RNG.uniform(.6, .8), min(ys) - 1), .15, INK, .5, 1, .6)
             self.el.append(f'<clipPath id="{cid}"><path d="{d}"/></clipPath><g clip-path="url(#{cid})">{lines}</g>')
         for i in range(len(q)):
-            self.el.append(tratto(q[i], q[(i + 1) % len(q)], sw, INK, .85, 2, .9, dash))
+            self.el.append(tratto(q[i], q[(i + 1) % len(q)], sw, INK, .85, 3, 2.2, dash))
 
     def line(self, a, b, sw=.26, col=INK, dash=None):
-        self.el.append(tratto(self.p(*a), self.p(*b), sw, col, .8 if col == INK else .9, 2 if col == INK else 1,
-                              .7 if col == INK else .2, dash))
+        self.el.append(tratto(self.p(*a), self.p(*b), sw, col, .8 if col == INK else .9, 3 if col == INK else 2,
+                              1.8 if col == INK else .8, dash))
 
     def box(self, x, y, z, dx, dy, dz, hatch=1.4, fill=PAPER):
         """Parallelepipedo: facce visibili (sopra, sinistra, destra), la destra tratteggiata come ombra."""
