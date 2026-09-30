@@ -51,6 +51,17 @@ def overview_dwg(titolo, sez, src, intro, dati, extra="", fh=178):
                   + txt(kv(dati), x2(1), y, COL))
 
 
+def affianca(sez, a, b, testo, h=108):
+    """Foto quadrata e foto verticale originale affiancate alla stessa altezza, didascalie e testo sotto."""
+    iw, ih = R.ORIG[b]["size"]
+    wb = h * iw / ih
+    wa = CW - wb - 8
+    y = TOP + 4 + h + 6
+    return pagina("", sez, foto(a, X0, TOP + 4, wa, h) + R.foto_orig(b, X0 + wa + 8, TOP + 4, wb, h)
+                  + txt(nomf(a), X0, y, wa) + txt(nomf(b), X0 + wa + 8, y, wb)
+                  + txt(f'<p class="lead0">{testo}</p>', X0, y + 24, CW))
+
+
 def philosophy(titolo, sez, codes, alto=70):
     corpo = ""
     riga = alto + 40
@@ -185,7 +196,7 @@ def space(titolo, sez, a, b, testo):
 # --------------------------------------------------------------------------
 def indice():
     voci = [("01", "Introduzione", 4), ("02", "Chi siamo", 5), ("03", "Espositori da banco", 6),
-            ("04", "Espositori da terra", 14), ("05", "Contatti", 23)]
+            ("04", "Espositori da terra", 14), ("05", "Contatti", 22)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', X0, TOP + 10, CW)
                   + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '
@@ -254,11 +265,10 @@ def build():
         overview("Logistica", T, "T05", ZONE[T][3][1], [], fh=178),
         galleria(T, ["T01", "T02", "T03", "T06"]),
         overview("Stampa e finiture", T, "T04", ZONE[T][2][1], []),
-        overview("Due finiture", T, "T09", "Stessa struttura, due finiture: cambia la grafica, la fustella resta la stessa.", []),
+        affianca(T, "T09", "T13", "Stessa struttura, due finiture: cambia la grafica, la fustella resta la stessa."),
         challenges("Portata", T, "T07", "T08", zt(0)),
         coppia("Grafica e brand", T, "T10", "T11", '<div class="gap">' + R.GRAFICA + "</div>" + prod("T10")),
         overview("Colonna", T, "T12", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.", [], fh=165),
-        overview("Colore", T, "T13", "Fianchi a colonna in tinta e ripiani a vassoio: la struttura porta il colore del marchio, l’header il messaggio.", [], fh=165, z=.86),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1
