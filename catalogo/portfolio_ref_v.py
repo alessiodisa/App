@@ -38,7 +38,7 @@ def overview(titolo, sez, code, intro, dati, extra="", fh=150, mf=False):
                   + txt(kv(dati) + prod(code, mf), x2(1), y, COL))
 
 
-def overview_dwg(titolo, sez, src, intro, dati, extra="", fh=150):
+def overview_dwg(titolo, sez, src, intro, dati, extra="", fh=178):
     y = TOP + 14 + fh
     return pagina(titolo, sez, dwg(src, X0, TOP + 4, CW, fh)
                   + txt(f'<p class="lead0">{intro}</p>{extra}', x2(0), y, COL)
@@ -246,7 +246,7 @@ def build():
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"),
                       ("Spedizione", "Piatta, montaggio in pochi minuti")]),
-        overview("Logistica", T, "T05", ZONE[T][3][1], []),
+        overview("Logistica", T, "T05", ZONE[T][3][1], [], fh=178),
         galleria(T, ["T01", "T02", "T03", "T06"]),
         overview("Stampa e finiture", T, "T04", ZONE[T][2][1], []),
         overview("Due finiture", T, "T09", "Stessa struttura, due finiture: cambia la grafica, la fustella resta la stessa.", []),
