@@ -148,9 +148,10 @@ def overview(titolo, sez, code, intro, dati, extra=""):
 
 def overview_dwg(titolo, sez, src, intro, dati, extra=""):
     """Come overview, ma con la tavola tecnica al posto della foto (senza sfondo)."""
-    return pagina(titolo, sez, dwg(src, M + 4, TOP, 150, BOT - TOP)
-                  + txt(f'<p class="lead0">{intro}</p>{extra}', M + 170, TOP + 6, 95)
-                  + txt(kv(dati), M + 170, 132, 95))
+    fw = 150                                  # stesse misure e posizioni di overview (apertura banco)
+    return pagina(titolo, sez, dwg(src, M + 4, TOP + 4, fw, BOT - TOP - 8)
+                  + txt(f'<p class="lead0">{intro}</p>{extra}', M + fw + 16, TOP + 6, 99)
+                  + txt(kv(dati), M + fw + 16, 112, 99))
 
 
 def philosophy(titolo, sez, codes, alto=58):
@@ -320,7 +321,7 @@ def build():
         duo("Grafica e brand", B, "B19", "B20", "B21", h=110),
         duo("Grafica e brand", B, "B22", "B23"),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
-                     [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"), ("Spedizione", "Piatta, montaggio in pochi minuti")], zt(1)),
+                     [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"), ("Spedizione", "Piatta, montaggio in pochi minuti")]),
         overview("Logistica", T, "T05", ZONE[T][3][1], []),
         philosophy("Progetti", T, ["T01", "T02", "T03", "T06"], alto=92),
         overview("Stampa e finiture", T, "T04", ZONE[T][2][1], []),
