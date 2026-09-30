@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T20:03:33.032307+00:00",
+  "generated_at": "2026-09-30T21:03:16.587670+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -35,8 +35,22 @@
       "is_treviso_united": true
     },
     {
-      "team_id": 16523,
+      "team_id": 189,
       "pos": 3,
+      "name": "F.C. CA’NELSON",
+      "pts": "9",
+      "played": "4",
+      "wins": "3",
+      "draws": "0",
+      "losses": "1",
+      "for": "9",
+      "against": "4",
+      "gd": "5",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 16523,
+      "pos": 4,
       "name": "F.C. BORUSSIA PORCMUND",
       "pts": "6",
       "played": "3",
@@ -46,20 +60,6 @@
       "for": "12",
       "against": "7",
       "gd": "5",
-      "is_treviso_united": false
-    },
-    {
-      "team_id": 189,
-      "pos": 4,
-      "name": "F.C. CA’NELSON",
-      "pts": "6",
-      "played": "3",
-      "wins": "2",
-      "draws": "0",
-      "losses": "1",
-      "for": "4",
-      "against": "3",
-      "gd": "1",
       "is_treviso_united": false
     },
     {
@@ -175,22 +175,8 @@
       "is_treviso_united": false
     },
     {
-      "team_id": 12204,
-      "pos": 12,
-      "name": "SPARTA PREGA",
-      "pts": "3",
-      "played": "3",
-      "wins": "1",
-      "draws": "0",
-      "losses": "2",
-      "for": "5",
-      "against": "8",
-      "gd": "-3",
-      "is_treviso_united": false
-    },
-    {
       "team_id": 25070,
-      "pos": 14,
+      "pos": 13,
       "name": "REAL SANTA MARIA",
       "pts": "3",
       "played": "3",
@@ -200,6 +186,20 @@
       "for": "3",
       "against": "7",
       "gd": "-4",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 12204,
+      "pos": 14,
+      "name": "SPARTA PREGA",
+      "pts": "3",
+      "played": "4",
+      "wins": "1",
+      "draws": "0",
+      "losses": "3",
+      "for": "6",
+      "against": "13",
+      "gd": "-7",
       "is_treviso_united": false
     },
     {
