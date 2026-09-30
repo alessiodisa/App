@@ -90,6 +90,12 @@ def challenges(titolo, sez, small, big, testo):
                   + foto(small, x2(1), 190, COL, COL))
 
 
+def challenges3(titolo, sez, small, big, extra, testo):
+    return pagina(titolo, sez, foto(big, x2(0), TOP + 4, COL, 140) + R.foto_orig(extra, x2(1), TOP + 4, COL, 140)
+                  + txt(testo + prod(big) + prod(extra) + prod(small), x2(0), 190, COL)
+                  + foto(small, x2(1), 190, COL, COL))
+
+
 def academic(titolo, sez, a, b, tall, testo):
     return pagina(titolo, sez, foto(a, x2(0), TOP + 4, COL - 4, 72) + foto(b, x2(0), TOP + 80, COL - 4, 72)
                   + foto(tall, x2(1) - 4, TOP + 4, COL + 4, 148)
@@ -265,8 +271,8 @@ def build():
         overview("Logistica", T, "T05", ZONE[T][3][1], [], fh=178),
         galleria(T, ["T01", "T02", "T03", "T06"]),
         overview("Stampa e finiture", T, "T04", ZONE[T][2][1], []),
-        affianca(T, "T09", "T13", "Stessa struttura, due finiture: cambia la grafica, la fustella resta la stessa."),
-        challenges("Portata", T, "T07", "T08", zt(0)),
+        overview("Due finiture", T, "T09", "Stessa struttura, due finiture: cambia la grafica, la fustella resta la stessa.", []),
+        challenges3("Portata", T, "T07", "T08", "T13", zt(0)),
         coppia("Grafica e brand", T, "T10", "T11", '<div class="gap">' + R.GRAFICA + "</div>" + prod("T10")),
         overview("Colonna", T, "T12", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.", [], fh=165),
         contatti(),

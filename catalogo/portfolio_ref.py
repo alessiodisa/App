@@ -265,6 +265,13 @@ def challenges(titolo, sez, small, big, testo):
                   + foto(big, 120, TOP + 4, 145, 144))
 
 
+def challenges3(titolo, sez, small, big, extra, testo):
+    """Come challenges, ma con una seconda foto verticale (originale intera) accanto a quella grande."""
+    return pagina(titolo, sez, txt(testo + nomf(big) + nomf(extra) + nomf(small), M + 4, TOP + 4, 88)
+                  + foto(small, M + 4, 112, 76, 76)
+                  + foto(big, 120, TOP + 4, 79, 144) + foto_orig(extra, 205, TOP + 4, 72, 144))
+
+
 def academic(titolo, sez, a, b, tall, testo):
     """Colonna di testo a sinistra, due foto impilate e una alta a destra (Academic Projects)."""
     return pagina(titolo, sez, txt(testo + "".join(nomf(c) for c in (a, b, tall)), M + 4, TOP + 4, 80)
@@ -375,8 +382,8 @@ def build():
         overview("Logistica", T, "T05", ZONE[T][3][1], []),
         philosophy("Progetti", T, ["T01", "T02", "T03", "T06"], alto=92),
         overview("Stampa e finiture", T, "T04", ZONE[T][2][1], []),
-        affianca(T, "T09", "T13", "Stessa struttura, due finiture: cambia la grafica, la fustella resta la stessa."),
-        challenges("Portata", T, "T07", "T08", zt(0)),
+        overview("Due finiture", T, "T09", "Stessa struttura, due finiture: cambia la grafica, la fustella resta la stessa.", []),
+        challenges3("Portata", T, "T07", "T08", "T13", zt(0)),
         coppia("Grafica e brand", T, "T10", "T11", '<div class="gap">' + GRAFICA + "</div>" + prod("T10") + prod("T11")),
         overview("Colonna", T, "T12", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.", []),
         contatti(),
