@@ -31,9 +31,9 @@ def x2(i):
 # --------------------------------------------------------------------------
 # schemi della reference in verticale
 # --------------------------------------------------------------------------
-def overview(titolo, sez, code, intro, dati, extra="", fh=150, mf=False):
+def overview(titolo, sez, code, intro, dati, extra="", fh=150, mf=False, z=1.0):
     y = TOP + 14 + fh
-    return pagina(titolo, sez, foto(code, X0, TOP + 4, CW, fh)
+    return pagina(titolo, sez, foto(code, X0, TOP + 4, CW, fh, z=z)
                   + txt((f'<h4>{titolo}</h4>' if titolo != sez else '') + f'<p class="lead0">{intro}</p>{extra}', x2(0), y, COL)
                   + txt(kv(dati) + prod(code, mf), x2(1), y, COL))
 
@@ -179,7 +179,7 @@ def space(titolo, sez, a, b, testo):
 # --------------------------------------------------------------------------
 def indice():
     voci = [("01", "Introduzione", 4), ("02", "Chi siamo", 5), ("03", "Espositori da banco", 6),
-            ("04", "Espositori da terra", 14), ("05", "Contatti", 22)]
+            ("04", "Espositori da terra", 14), ("05", "Contatti", 23)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', X0, TOP + 10, CW)
                   + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '
@@ -252,6 +252,7 @@ def build():
         challenges("Portata", T, "T07", "T08", zt(0)),
         coppia("Grafica e brand", T, "T10", "T11", '<div class="gap">' + R.GRAFICA + "</div>" + prod("T10")),
         overview("Colonna", T, "T12", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.", [], fh=165),
+        overview("Colore", T, "T13", "Fianchi a colonna in tinta e ripiani a vassoio: la struttura porta il colore del marchio, l’header il messaggio.", [], fh=165, z=.86),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1
