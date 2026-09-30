@@ -144,10 +144,10 @@ def zona(sez, i):
     return blocco(t, d)
 
 
-def pagina(titolo, sezione, corpo):
+def pagina(titolo, sezione, corpo, mostra=True):
     """Il titolo di pagina è sempre il nome della sezione; `titolo` resta come argomento degli schemi."""
-    return (f'<div class="ptitle" style="{bx(M, 17)}">{sezione}</div>'
-            f'<div class="hdr" style="right:{M}mm;top:17mm"><span class="az">{AZ}</span><span class="pill">{sezione}</span></div>'
+    return ((f'<div class="ptitle" style="{bx(M, 17)}">{sezione}</div>' if mostra else "")
+            + f'<div class="hdr" style="right:{M}mm;top:17mm"><span class="az">{AZ}</span><span class="pill">{sezione}</span></div>'
             + corpo)
 
 
@@ -165,7 +165,7 @@ def overview(titolo, sez, code, intro, dati, extra="", z=1.0):
         img = foto(code, M + 4, TOP + 4, fw, fh, z=z)
     return pagina(titolo, sez, img
                   + txt((f'<h4>{titolo}</h4>' if titolo != sez else '') + f'<p class="lead0">{intro}</p>{extra}', M + fw + 16, TOP + 6, 99)
-                  + txt(kv(dati) + prod(code), M + fw + 16, 112, 99))
+                  + txt(prod(code) + kv(dati), M + fw + 16, 112, 99))
 
 
 def overview_dwg(titolo, sez, src, intro, dati, extra=""):
@@ -254,7 +254,7 @@ def creative(titolo, sez, codes, testo):
 def urban(titolo, sez, big, small, testo):
     """Foto grande a sinistra; dati, testo e foto piccola a destra (Urban Design)."""
     return pagina(titolo, sez, foto(big, M + 4, TOP + 4, 140, 144)
-                  + txt(nomf(big) + f'<div class="gap">{testo}</div>', M + 156, TOP + 4, 105)
+                  + txt(nomf(big) + f'<div class="desc" style="margin-top:8mm">{testo}</div>', M + 156, TOP + 4, 105)
                   + foto(small, M + 156, 124, 58, 58) + txt(nomf(small), M + 222, 124, 43))
 
 
@@ -313,12 +313,38 @@ def chi_siamo():
     corpo = ""
     for i, (n, t, d) in enumerate(fasi):
         x = M + 4 + i * (w + gap)
-        corpo += (dwg(f"img/disegni/chi-{n}.svg", x, TOP + 4, w, 58)
+        corpo += (dwg(f"img/disegni/chi-{n}.svg", x, TOP + 4, w, 58).replace('class="dwg"', 'class="dwg mult"')
                   + f'<div class="tagc" style="{bx(x, TOP + 68)}">{n}</div>' + txt(blocco(t, d), x, TOP + 72, w))
-    corpo += txt(f'<div class="stats">'
-                 f'<div><b>{TBD("35+")}</b>Anni di esperienza</div><div><b>{TBD("400")}</b>Progetti l’anno</div>'
-                 f'<div><b>100%</b>Prodotto internamente</div></div>', M + 4, 158, 200)
-    return pagina("Chi siamo", "Chi siamo", corpo)
+    corpo += txt(settori(), M + 4, 150, 120) + txt(chips(), W - M - 4 - 120, 150, 120)
+    return pagina("", "Introduzione", corpo, mostra=False)
+
+
+METODO_TXT = ("Tutto parte da un confronto con il cliente: ascoltiamo il prodotto, il punto vendita e gli obiettivi. "
+              "Da qui sviluppiamo un’idea, la trasformiamo in una bozza e poi in un prototipo da toccare con mano. "
+              "Quando ogni dettaglio è a posto passiamo alla produzione: seguiamo l’intero processo, "
+              "dal primo incontro alla consegna.")
+METODO_NOTA = ("Espositori da banco e da terra per ogni tipologia di esigenza e di applicazione: "
+               "studiati, progettati e realizzati con cura e professionalità.")
+CHI_FRASE = "Un unico interlocutore, dall’idea al punto vendita."
+SETTORI = ["Cosmesi", "Farmacia", "Ottica", "Food &amp; beverage", "Ferramenta", "Moda e accessori", "Elettronica", "Pet care"]
+FINITURE = (blocco("Stampa e finiture",
+                   "Ogni espositore nasce per farsi notare: stampa e nobilitazioni trasformano il cartone in una superficie "
+                   "di marca. Stampiamo in offset e in digitale su cartoncini e ondulati, in quadricromia e a colori Pantone, "
+                   "e completiamo la grafica con lavorazioni che aggiungono luce, profondità e tatto.")
+            + '<ul class="fin">' + "".join(f"<li>{v}</li>" for v in [
+                "Stampa offset e digitale", "Colori Pantone e metallizzati", "Plastificazione opaca, lucida e soft-touch",
+                "Vernice UV lucida, opaca e selettiva", "UV a spessore e effetti 3D", "Lamina a caldo e a freddo",
+                "Rilievi e bassorilievi a secco", "Effetti glitter e perlescenti", "Carte speciali, naturali e goffrate",
+                "Accoppiatura su microonda e alveolare", "Finestre in PET e fustellati sagomati",
+                "Grafiche a tutta altezza e a vivo"]) + "</ul>")
+
+
+def settori():
+    return f'<p class="big">{CHI_FRASE}</p>'
+
+
+def chips():
+    return '<h4>Settori</h4><div class="chips">' + "".join(f"<span>{s}</span>" for s in SETTORI) + "</div>"
 
 
 INTRO_IMG = [("img/intro-schizzo.png", 1364 / 2352, ""), ("img/intro-bianco.jpg", 320 / 1072, " mult"),
@@ -341,8 +367,7 @@ def tre_fasi(x0, larg, base, H, finale=1.18, giu=.04):
 
 def metodo():
     """Introduzione: dal progetto alla realizzazione, con schizzo e prodotto finito."""
-    intro = (f'<h4>Dal progetto alla realizzazione</h4><p class="lead3" style="margin-top:2mm">Dal {TBD("[anno]")} progettiamo e produciamo espositori in cartotecnica e materiali '
-             "durevoli: dal primo schizzo al bancale pronto a partire, tutto sotto lo stesso tetto.</p>")
+    intro = (f'<h4>Dal progetto alla realizzazione</h4><p class="metodo">' + METODO_TXT + "</p>")
     fasi = "".join(f'<div class="fase"><span>0{i + 1}</span>{blocco(t, d)}</div>' for i, (t, d) in enumerate([
         ("Schizzo", "Proporzioni, ingombri e altezze dei ripiani."),
         ("Disegno tecnico", "Tracciati di fustella e render 3D."),
@@ -350,8 +375,7 @@ def metodo():
         ("Produzione", "Stampa, fustellatura e confezionamento interni.")]))
     return pagina("Dal progetto alla realizzazione", "Introduzione",
                   tre_fasi(M + 8, 180, TOP + 134, 105)
-                  + txt(intro + fasi + '<p class="note2">Espositori da banco e da terra per cosmesi, farmacia, ottica, '
-                        'ferramenta e beverage: progettazione, prototipi, stampa e fustellatura interni.</p>', 218, TOP + 2, 63))
+                  + txt(intro + fasi + f'<p class="note2">{METODO_NOTA}</p>', 218, TOP + 2, 63))
 
 
 def contatti():
@@ -370,14 +394,14 @@ def build():
     interne = [
         indice(), metodo(), chi_siamo(),
         overview("Espositori da banco", B, "B13", INTRO[B],
-                 [("Formati", "Da 20 × 15 a 60 × 40 cm"), ("Materiali", "Cartone, cartoncino, forex, plexi, legno"),
+                 [("Materiali", "Cartone, cartoncino, forex, plexi, legno"),
                   ("Montaggio", "Pochi secondi, senza colla")]),
         philosophy("Progetti", B, ["B02", "B17", "B09", "B11"]),
-        urban("Stampa e finiture", B, "B12", "B16", zb(2)),
-        creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
-        challenges("Struttura", B, "B15", "B03", zb(0)),
-        academic("Materiali", B, "B08", "B04", "B07", zb(1)),
+        urban("Stampa e finiture", B, "B12", "B16", FINITURE),
         duo("Grafica e brand", B, "B19", "B20", "B21", h=110),
+        creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
+        academic("Materiali", B, "B08", "B04", "B07", zb(1)),
+        challenges("Struttura", B, "B15", "B03", zb(0)),
         duo("Grafica e brand", B, "B22", "B23"),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"), ("Spedizione", "Piatta, montaggio in pochi minuti")]),

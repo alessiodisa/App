@@ -1,15 +1,39 @@
 #!/usr/bin/env python3
 """
-Quattro disegni tecnici "a penna" per la pagina Chi siamo (vettoriali, fondo trasparente):
+Quattro bozze "a matita" per la pagina Chi siamo (vettoriali, tratto irregolare e ripassato, fondo bianco
+da usare con mix-blend-mode multiply):
 ufficio tecnico, prototipazione, produzione, logistica.
 
     python3 disegni_chi_siamo.py   ->  img/disegni/chi-01.svg ... chi-04.svg
 """
+import random
 from math import cos, sin, radians
 from pathlib import Path
 
 OUT = Path(__file__).parent / "img" / "disegni"
-INK, GRAY, PAPER = "#1C1C1C", "#8A8A8A", "#FBFBFA"
+INK, GRAY, PAPER = "#2E2E2E", "#8A8A8A", "#FFFFFF"
+RNG = random.Random(7)
+
+
+def tratto(p1, p2, sw=.26, col=INK, op=.8, passate=2, over=.9, dash=None):
+    """Linea a matita: due passate leggermente curve e sfalsate, che sforano un po' agli estremi."""
+    (x1, y1), (x2, y2) = p1, p2
+    dx, dy = x2 - x1, y2 - y1
+    l = (dx * dx + dy * dy) ** .5 or 1
+    ux, uy = dx / l, dy / l
+    out = ""
+    da = f' stroke-dasharray="{dash}"' if dash else ""
+    for k in range(passate):
+        o1, o2 = RNG.uniform(-.2, over), RNG.uniform(-.2, over)
+        j = lambda: RNG.uniform(-.18, .18)
+        a = (x1 - ux * o1 + j(), y1 - uy * o1 + j())
+        b = (x2 + ux * o2 + j(), y2 + uy * o2 + j())
+        bend = RNG.uniform(-.35, .35) * min(1, l / 20)
+        m = ((a[0] + b[0]) / 2 - uy * bend, (a[1] + b[1]) / 2 + ux * bend)
+        w = sw * (1 if k == 0 else .6)
+        out += (f'<path d="M{a[0]:.2f},{a[1]:.2f} Q{m[0]:.2f},{m[1]:.2f} {b[0]:.2f},{b[1]:.2f}" fill="none" '
+                f'stroke="{col}" stroke-width="{w:.2f}" stroke-linecap="round" opacity="{op * (1 if k == 0 else .6):.2f}"{da}/>')
+    return out
 C, S = cos(radians(30)), sin(radians(30))
 W, H = 120, 80                       # mm, formato di ogni tavola
 
@@ -30,30 +54,29 @@ class Tavola:
         b[0], b[1], b[2], b[3] = min(b[0], u), min(b[1], v), max(b[2], u), max(b[3], v)
         return u, v
 
-    def poly(self, pts, fill=PAPER, sw=.32, hatch=None, dash=None):
+    def poly(self, pts, fill=PAPER, sw=.3, hatch=None, dash=None):
         q = [self.p(*a) for a in pts]
         d = "M" + " L".join(f"{u:.2f},{v:.2f}" for u, v in q) + " Z"
+        if fill != "none":
+            self.el.append(f'<path d="{d}" fill="{fill}"/>')
         if hatch:
+            # tratteggio a matita: linee inclinate irregolari, ritagliate sulla faccia
             self.n += 1
             cid = f"h{self.n}"
             xs, ys = [u for u, _ in q], [v for _, v in q]
-            lines = "".join(f'<line x1="{x0:.2f}" y1="{max(ys) + 2:.2f}" x2="{x0 + (max(ys) - min(ys) + 4) * .6:.2f}" '
-                            f'y2="{min(ys) - 2:.2f}"/>'
-                            for x0 in [min(xs) - 40 + i * hatch for i in range(int((max(xs) - min(xs) + 60) / hatch))])
-            self.el.append(f'<clipPath id="{cid}"><path d="{d}"/></clipPath><path d="{d}" fill="{fill}"/>'
-                           f'<g clip-path="url(#{cid})" stroke="{INK}" stroke-width=".16" opacity=".55">{lines}</g>'
-                           f'<path d="{d}" fill="none" stroke="{INK}" stroke-width="{sw}" stroke-linejoin="round"/>')
-        else:
-            da = f' stroke-dasharray="{dash}"' if dash else ""
-            self.el.append(f'<path d="{d}" fill="{fill}" stroke="{INK}" stroke-width="{sw}" stroke-linejoin="round"{da}/>')
+            lines, x0 = "", min(xs) - (max(ys) - min(ys))
+            while x0 < max(xs):
+                x0 += hatch * RNG.uniform(.8, 1.3)
+                lines += tratto((x0, max(ys) + 1), (x0 + (max(ys) - min(ys) + 2) * .7, min(ys) - 1), .14, INK, .45, 1, .3)
+            self.el.append(f'<clipPath id="{cid}"><path d="{d}"/></clipPath><g clip-path="url(#{cid})">{lines}</g>')
+        for i in range(len(q)):
+            self.el.append(tratto(q[i], q[(i + 1) % len(q)], sw, INK, .85, 2, .9, dash))
 
-    def line(self, a, b, sw=.28, col=INK, dash=None):
-        (x1, y1), (x2, y2) = self.p(*a), self.p(*b)
-        da = f' stroke-dasharray="{dash}"' if dash else ""
-        self.el.append(f'<line x1="{x1:.2f}" y1="{y1:.2f}" x2="{x2:.2f}" y2="{y2:.2f}" stroke="{col}" stroke-width="{sw}" '
-                       f'stroke-linecap="round"{da}/>')
+    def line(self, a, b, sw=.26, col=INK, dash=None):
+        self.el.append(tratto(self.p(*a), self.p(*b), sw, col, .8 if col == INK else .9, 2 if col == INK else 1,
+                              .7 if col == INK else .2, dash))
 
-    def box(self, x, y, z, dx, dy, dz, hatch=1.1, fill=PAPER):
+    def box(self, x, y, z, dx, dy, dz, hatch=1.4, fill=PAPER):
         """Parallelepipedo: facce visibili (sopra, sinistra, destra), la destra tratteggiata come ombra."""
         self.poly([(x, y + dy, z), (x + dx, y + dy, z), (x + dx, y + dy, z + dz), (x, y + dy, z + dz)], fill)
         self.poly([(x + dx, y, z), (x + dx, y + dy, z), (x + dx, y + dy, z + dz), (x + dx, y, z + dz)], fill, hatch=hatch)
@@ -79,7 +102,7 @@ class Tavola:
 
     def testo(self, x, y, s, size=2.1, anchor="middle", col=GRAY):
         self.el.append(f'<text x="{x:.2f}" y="{y:.2f}" font-family="Inter, Arial, sans-serif" font-size="{size}" '
-                       f'font-weight="500" fill="{col}" text-anchor="{anchor}">{s}</text>')
+                       f'font-weight="400" font-style="italic" fill="{col}" text-anchor="{anchor}">{s}</text>')
 
     def svg(self, nome):
         OUT.mkdir(parents=True, exist_ok=True)
@@ -133,21 +156,37 @@ def prototipazione():
 
 
 def produzione():
-    t = Tavola(58, 14, .78)
-    # pila di fogli stampati
-    for i in range(6):
-        t.box(0, 0, i * 1.6, 60, 42, 1.2, 1.4)
-    # fustella (tavola di legno con filetti) sospesa sopra la pila
-    z = 22
-    t.box(-2, -2, z, 64, 46, 3, 1.0)
-    for x, y, dx, dy in [(8, 8, 18, 12), (26, 8, 18, 12), (8, 20, 18, 12), (26, 20, 18, 12)]:
-        t.poly([(x, y, z + 3), (x + dx, y, z + 3), (x + dx, y + dy, z + 3), (x, y + dy, z + 3)], "none", .24)
-    for x in (14, 46):
-        t.line((x, 44, z + 16), (x, 44, z + 5), .24)
-        t.line((x - 1.5, 44, z + 7), (x, 44, z + 5), .24)
-        t.line((x + 1.5, 44, z + 7), (x, 44, z + 5), .24)
-    t.quota((0, 42, 0), (60, 42, 0), (0, 8, 0), "1000")
-    t.quota((60, 42, 0), (60, 0, 0), (8, 0, 0), "700")
+    """Linea di produzione: nastro con fogli stampati che passano sotto la fustellatrice, pila di pezzi finiti."""
+    t = Tavola(40, 10, .7)
+    # montante posteriore del portale (dietro al nastro)
+    t.box(34, -7, 0, 6, 5, 49, 1.2)
+    # gambe e nastro trasportatore
+    for x in (2, 84):
+        for y in (1, 23):
+            t.box(x, y, 0, 3, 3, 12, 1.2)
+    t.box(0, 0, 12, 90, 27, 3, 1.1)
+    for x in range(10, 90, 12):                    # rulli visti dal fianco
+        t.line((x, 27, 12.5), (x, 27, 14.5), .18)
+    # fogli stampati in ingresso
+    t.box(4, 4, 15, 20, 19, .6, 1.4)
+    for x, y, dx, dy in [(8, 8, 5, 11), (13, 8, 6, 11), (19, 8, 2, 11)]:
+        t.poly([(x, y, 15.6), (x + dx, y, 15.6), (x + dx, y + dy, 15.6), (x, y + dy, 15.6)], "none", .18)
+    # foglio fustellato in uscita, con la sagoma dell'espositore
+    t.box(52, 4, 15, 20, 19, .6, 1.4)
+    t.poly([(55, 7, 15.6), (63, 7, 15.6), (63, 12, 15.6), (69, 12, 15.6), (69, 20, 15.6), (55, 20, 15.6)], "none", .2)
+    t.line((63, 12, 15.6), (63, 20, 15.6), .16, INK, "1 .7")
+    # piano di taglio che scende, montante anteriore e traversa
+    t.box(33, 2, 26, 8, 23, 4, 1.0)
+    for y in (8, 18):
+        t.line((37, y, 25), (37, y, 18), .2)
+        t.line((35.8, y, 20), (37, y, 18), .2)
+        t.line((38.2, y, 20), (37, y, 18), .2)
+    t.box(34, 29, 0, 6, 5, 49, 1.2)
+    t.box(32, -7, 42, 10, 41, 7, 1.1)
+    # pila di pezzi finiti
+    for i in range(5):
+        t.box(100, 4, i * 1.4, 22, 19, 1.1, 1.6)
+    t.quota((90, 27, 0), (90, 0, 0), (8, 0, 0), "800")
     t.svg("chi-03.svg")
 
 

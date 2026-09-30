@@ -62,3 +62,11 @@
 .tagc { font: 600 6pt/1 var(--disp); color: #8E8E8C; letter-spacing: .04em; }
 .blk .desc { border-top: .25mm solid #BDBDBB; padding-top: 3mm; }
 .blk .prod.cap h4 { margin-top: 0; }
+.blk p.metodo { font: 400 7.8pt/1.6 var(--body); color: #3E3E3C; margin: 2mm 0 6mm; }
+.blk .prod + .kv { margin-top: 5mm; }
+.chips { margin-top: 2.4mm; }
+.chips span { display: inline-block; border: .25mm solid #BDBDBB; border-radius: 3mm; padding: 1.1mm 2.8mm;
+  margin: 0 1.6mm 1.8mm 0; font: 500 6.6pt/1 var(--body); color: #5E5E5C; }
+ul.fin { list-style: none; columns: 2; column-gap: 5mm; margin-top: 3.4mm; }
+ul.fin li { font: 400 6.6pt/1.35 var(--body); color: #5E5E5C; padding: .9mm 0 .9mm 3mm; position: relative; break-inside: avoid; }
+ul.fin li::before { content: ""; position: absolute; left: 0; top: 2.1mm; width: 1.2mm; height: .25mm; background: #151515; }

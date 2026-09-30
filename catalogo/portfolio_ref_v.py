@@ -17,10 +17,10 @@ X0 = M + 4
 COL = (CW - 8) / 2                   # due colonne da 81 mm
 
 
-def pagina(titolo, sezione, corpo):
+def pagina(titolo, sezione, corpo, mostra=True):
     """Il titolo di pagina è sempre il nome della sezione; `titolo` resta come argomento degli schemi."""
-    return (f'<div class="ptitle" style="{bx(M, 17)}">{sezione}</div>'
-            f'<div class="hdr" style="right:{M}mm;top:17mm"><span class="az">{AZ}</span><span class="pill">{sezione}</span></div>'
+    return ((f'<div class="ptitle" style="{bx(M, 17)}">{sezione}</div>' if mostra else "")
+            + f'<div class="hdr" style="right:{M}mm;top:17mm"><span class="az">{AZ}</span><span class="pill">{sezione}</span></div>'
             + corpo)
 
 
@@ -41,7 +41,7 @@ def overview(titolo, sez, code, intro, dati, extra="", fh=150, mf=False, z=1.0):
         img = foto(code, X0, TOP + 4, CW, fh, z=z)
     return pagina(titolo, sez, img
                   + txt((f'<h4>{titolo}</h4>' if titolo != sez else '') + f'<p class="lead0">{intro}</p>{extra}', x2(0), y, COL)
-                  + txt(kv(dati) + prod(code, mf), x2(1), y, COL))
+                  + txt(prod(code, mf) + kv(dati), x2(1), y, COL))
 
 
 def overview_dwg(titolo, sez, src, intro, dati, extra="", fh=178):
@@ -147,7 +147,7 @@ def didascalie(sez, big, small, testo):
     a sinistra, separata da un filetto, la descrizione generale della sezione."""
     return pagina("", sez, foto(big, X0, TOP + 4, CW, 128) + txt(nomf(big), x2(0), TOP + 136, COL)
                   + foto(small, x2(1), TOP + 136, COL, COL) + txt(nomf(small), x2(1), TOP + 139 + COL, COL)
-                  + txt(f'<div class="desc">{testo}</div>', x2(0), TOP + 170, COL))
+                  + txt(f'<div class="desc">{testo}</div>', x2(0), TOP + 154, COL))
 
 
 def quattro(sez, codes, testo):
@@ -211,10 +211,8 @@ def indice():
 
 
 def metodo():
-    intro = (f'<h4>Dal progetto alla realizzazione</h4><p class="lead3" style="margin-top:2mm">Dal {TBD("[anno]")} progettiamo e produciamo espositori in cartotecnica e materiali '
-             "durevoli: dal primo schizzo al bancale pronto a partire, tutto sotto lo stesso tetto.</p>"
-             '<p class="note2" style="margin-top:0">Espositori da banco e da terra per cosmesi, farmacia, ottica, '
-             "ferramenta e beverage: progettazione, prototipi, stampa e fustellatura interni.</p>")
+    intro = (f'<h4>Dal progetto alla realizzazione</h4><p class="metodo">' + R.METODO_TXT + "</p>"
+             + '<p class="note2">' + R.METODO_NOTA + "</p>")
     fasi = "".join(f'<div class="fase"><span>0{i + 1}</span>{blocco(t, d)}</div>' for i, (t, d) in enumerate([
         ("Schizzo", "Proporzioni, ingombri e altezze dei ripiani."),
         ("Disegno tecnico", "Tracciati di fustella e render 3D."),
@@ -233,12 +231,10 @@ def chi_siamo():
     corpo = ""
     for i, (n, t, d) in enumerate(fasi):
         x, y = x2(i % 2), TOP + 4 + (i // 2) * 92
-        corpo += (dwg(f"img/disegni/chi-{n}.svg", x, y, COL, 58)
+        corpo += (dwg(f"img/disegni/chi-{n}.svg", x, y, COL, 58).replace('class="dwg"', 'class="dwg mult"')
                   + f'<div class="tagc" style="{bx(x, y + 62)}">{n}</div>' + txt(blocco(t, d), x, y + 66, COL))
-    corpo += txt(f'<div class="stats">'
-                 f'<div><b>{TBD("35+")}</b>Anni di esperienza</div><div><b>{TBD("400")}</b>Progetti l’anno</div>'
-                 f'<div><b>100%</b>Prodotto internamente</div></div>', X0, 236, CW)
-    return pagina("Chi siamo", "Chi siamo", corpo)
+    corpo += txt(R.settori(), x2(0), 232, COL) + txt(R.chips(), x2(1), 232, COL)
+    return pagina("", "Introduzione", corpo, mostra=False)
 
 
 def contatti():
@@ -257,14 +253,14 @@ def build():
     interne = [
         indice(), metodo(), chi_siamo(),
         overview("Espositori da banco", B, "B13", INTRO[B],
-                 [("Formati", "Da 20 × 15 a 60 × 40 cm"), ("Materiali", "Cartone, cartoncino, forex, plexi, legno"),
+                 [("Materiali", "Cartone, cartoncino, forex, plexi, legno"),
                   ("Montaggio", "Pochi secondi, senza colla")]),
         griglia(B, ["B02", "B17", "B09", "B11"]),
-        didascalie(B, "B12", "B16", zona(B, 2)),
-        quattro(B, ["B06", "B05", "B01", "B10"], zona(B, 3)),
-        didascalie(B, "B03", "B15", zona(B, 0)),
-        tre_legenda(B, "B08", "B04", "B07"),
+        didascalie(B, "B12", "B16", R.FINITURE),
         terna(B, "B19", "B20", "B21"),
+        quattro(B, ["B06", "B05", "B01", "B10"], zona(B, 3)),
+        tre_legenda(B, "B08", "B04", "B07"),
+        didascalie(B, "B03", "B15", zona(B, 0)),
         coppia_z(B, "B22", "B23"),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"),
