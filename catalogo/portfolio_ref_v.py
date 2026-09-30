@@ -197,7 +197,7 @@ def metodo():
         ("Prototipo", "Campione fisico, test di carico e montaggio."),
         ("Produzione", "Stampa, fustellatura e confezionamento interni.")]))
     return pagina("Dal progetto alla realizzazione", "Introduzione",
-                  R.tre_fasi(X0, CW, TOP + 133, 95, finale=1.18)
+                  R.tre_fasi(X0 + 4, CW - 8, TOP + 132, 95)
                   + txt(intro, x2(0), 196, COL) + txt(fasi, x2(1), 196, COL))
 
 
