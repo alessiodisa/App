@@ -88,7 +88,7 @@ def foto_orig(code, x, y, w, h):
 def foto(code, x, y, w, h, fy=.5, z=1.0):
     """Foto con sfondo fornita, a riempire il riquadro, centrata sull'espositore.
     z < 1 allontana l'inquadratura (min. 0.67): l'espositore occupa meno spazio nel riquadro."""
-    if z < 1 and code in ORIG:
+    if code in ORIG:                          # foto originale fornita intera: nessun ritaglio quadrato
         return foto_orig(code, x, y, w, h)
     a1, b1, a2, b2 = BB[code]
     src, n, off = f"img/sq/{code}.jpg", 1024, 0
