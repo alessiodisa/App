@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T21:03:05.578306+00:00",
+  "generated_at": "2026-10-01T22:03:13.841047+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -63,8 +63,22 @@
       "is_treviso_united": false
     },
     {
-      "team_id": 16523,
+      "team_id": 185,
       "pos": 5,
+      "name": "G.S.A. MONTEBELLUNA",
+      "pts": "7",
+      "played": "4",
+      "wins": "2",
+      "draws": "1",
+      "losses": "1",
+      "for": "8",
+      "against": "7",
+      "gd": "1",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 16523,
+      "pos": 6,
       "name": "F.C. BORUSSIA PORCMUND",
       "pts": "6",
       "played": "3",
@@ -78,7 +92,7 @@
     },
     {
       "team_id": 20412,
-      "pos": 6,
+      "pos": 7,
       "name": "MIDNIGHT",
       "pts": "6",
       "played": "3",
@@ -92,7 +106,7 @@
     },
     {
       "team_id": 20421,
-      "pos": 7,
+      "pos": 8,
       "name": "TREVISO CITY",
       "pts": "5",
       "played": "4",
@@ -106,7 +120,7 @@
     },
     {
       "team_id": 167,
-      "pos": 8,
+      "pos": 9,
       "name": "A.c. ATLETICO PAPATO",
       "pts": "5",
       "played": "4",
@@ -120,7 +134,7 @@
     },
     {
       "team_id": 20446,
-      "pos": 9,
+      "pos": 10,
       "name": "NEXT DINAMO",
       "pts": "4",
       "played": "4",
@@ -130,20 +144,6 @@
       "for": "7",
       "against": "7",
       "gd": "0",
-      "is_treviso_united": false
-    },
-    {
-      "team_id": 185,
-      "pos": 10,
-      "name": "G.S.A. MONTEBELLUNA",
-      "pts": "4",
-      "played": "3",
-      "wins": "1",
-      "draws": "1",
-      "losses": "1",
-      "for": "5",
-      "against": "6",
-      "gd": "-1",
       "is_treviso_united": false
     },
     {
@@ -179,13 +179,13 @@
       "pos": 13,
       "name": "REAL SANTA MARIA",
       "pts": "3",
-      "played": "3",
+      "played": "4",
       "wins": "1",
       "draws": "0",
-      "losses": "2",
-      "for": "3",
-      "against": "7",
-      "gd": "-4",
+      "losses": "3",
+      "for": "4",
+      "against": "10",
+      "gd": "-6",
       "is_treviso_united": false
     },
     {
