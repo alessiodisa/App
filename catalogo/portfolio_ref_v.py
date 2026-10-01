@@ -24,6 +24,9 @@ def pagina(titolo, sezione, corpo, mostra=True):
             + corpo)
 
 
+RA, YB, RB = 106, TOP + 132, 90       # griglia comune delle doppie pagine con foto
+
+
 def x2(i):
     return X0 + i * (COL + 8)
 
@@ -142,22 +145,23 @@ def griglia(sez, codes, h=96, mf=False):
     return pagina("", sez, corpo)
 
 
-def didascalie(sez, big, small, testo):
+def didascalie(sez, big, small, testo, RA=RA, YB=YB, RB=RB):
     """Foto grande con la sua didascalia subito sotto; a destra foto piccola con didascalia;
-    a sinistra, separata da un filetto, la descrizione generale della sezione."""
-    return pagina("", sez, foto(big, X0, TOP + 4, CW, 128) + txt(nomf(big), x2(0), TOP + 136, COL)
-                  + foto(small, x2(1), TOP + 136, COL, COL) + txt(nomf(small), x2(1), TOP + 139 + COL, COL)
-                  + txt(f'<div class="desc">{testo}</div>', x2(0), TOP + 154, COL))
+    a sinistra, separata da un filetto, la descrizione generale della sezione.
+    Stessa griglia di terna/coppia_z: riga A alta RA, riga B da YB alta RB."""
+    return pagina("", sez, foto(big, X0, TOP + 4, CW, RA) + txt(nomf(big), x2(0), TOP + RA + 9, COL)
+                  + foto(small, x2(1), YB, COL, RB) + txt(nomf(small), x2(1), YB + RB + 3, COL)
+                  + txt(f'<div class="desc">{testo}</div>', x2(0), YB, COL))
 
 
 def quattro(sez, codes, testo):
-    """Griglia 2×2 con numero identificativo sotto ogni immagine, testo e legenda in basso."""
-    h = COL - 4
+    """Griglia 2×2 con le stesse altezze di tre_legenda (righe da 84 mm), numeri sotto e legenda in basso."""
+    h = 84
     corpo = ""
     for i, c in enumerate(codes):
         x, y = x2(i % 2), TOP + 4 + (i // 2) * (h + 12)
         corpo += foto(c, x, y, COL, h) + tag(c, x, y + h + 2.5, COL)
-    yb = TOP + 4 + 2 * (h + 12) + 6
+    yb = TOP + 200
     return pagina("", sez, corpo + txt(testo, x2(0), yb, COL)
                   + txt(legenda(codes), x2(1), yb, COL))
 
@@ -171,16 +175,16 @@ def tre_legenda(sez, a, b, tall):
 
 
 def terna(sez, a, b, c, z=.8):
-    """Due foto affiancate in alto, la terza sotto a sinistra con testo e scheda a destra (inquadratura più larga)."""
-    return pagina("", sez, foto(a, x2(0), TOP + 4, COL, 102, z=z) + foto(b, x2(1), TOP + 4, COL, 102, z=z)
-                  + txt(nomf(a), x2(0), TOP + 110, COL) + txt(nomf(b), x2(1), TOP + 110, COL)
-                  + foto(c, x2(0), TOP + 136, COL, 90, z=z) + txt(nomf(c), x2(0), TOP + 229, COL)
-                  + txt(R.GRAFICA, x2(1), TOP + 138, COL))
+    """Due foto in alto (riga A), la terza sotto a sinistra (riga B) con il testo a destra."""
+    return pagina("", sez, foto(a, x2(0), TOP + 4, COL, RA, z=z) + foto(b, x2(1), TOP + 4, COL, RA, z=z)
+                  + txt(nomf(a), x2(0), TOP + RA + 9, COL) + txt(nomf(b), x2(1), TOP + RA + 9, COL)
+                  + foto(c, x2(0), YB, COL, RB, z=z) + txt(nomf(c), x2(0), YB + RB + 3, COL)
+                  + txt(R.GRAFICA, x2(1), YB, COL))
 
 
-def coppia_z(sez, a, b, z=.8):
-    return pagina("", sez, foto(a, x2(0), TOP + 4, COL, 120, z=z) + foto(b, x2(1), TOP + 4, COL, 120, z=z)
-                  + txt(nomf(a), x2(0), TOP + 130, COL) + txt(nomf(b), x2(1), TOP + 130, COL))
+def coppia_z(sez, a, b, z=.8, RA=RA):
+    return pagina("", sez, foto(a, x2(0), TOP + 4, COL, RA, z=z) + foto(b, x2(1), TOP + 4, COL, RA, z=z)
+                  + txt(nomf(a), x2(0), TOP + RA + 9, COL) + txt(nomf(b), x2(1), TOP + RA + 9, COL))
 
 
 def galleria(sez, codes, h=98, z=1.32):
@@ -260,8 +264,8 @@ def build():
         terna(B, "B19", "B20", "B21"),
         quattro(B, ["B06", "B05", "B01", "B10"], zona(B, 3)),
         tre_legenda(B, "B08", "B04", "B07"),
-        didascalie(B, "B03", "B15", zona(B, 0)),
-        coppia_z(B, "B22", "B23"),
+        didascalie(B, "B03", "B15", zona(B, 0), RA=126, YB=TOP + 152, RB=76),
+        coppia_z(B, "B22", "B23", RA=126),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"),
                       ("Spedizione", "Piatta, montaggio in pochi minuti")]),

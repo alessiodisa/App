@@ -234,17 +234,17 @@ def terzetto(titolo, sez, codes, testo):
                   + txt(testo, M + 214, TOP + 4, W - 2 * M - 214))
 
 
-def duo(titolo, sez, *codes, h=114):
+def duo(titolo, sez, *codes, h=126):
     """Due o tre immagini affiancate a tutta larghezza, schede sotto."""
     n, g = len(codes), 6
     w = (W - 2 * M - 8 - (n - 1) * g) / n
-    return pagina(titolo, sez, "".join(foto(c, M + 4 + i * (w + g), TOP + 4, w, h, z=.8) + txt(nomf(c), M + 4 + i * (w + g), TOP + h + 12, w)
+    return pagina(titolo, sez, "".join(foto(c, M + 4 + i * (w + g), TOP + 4, w, h, z=.8) + txt(nomf(c), M + 4 + i * (w + g), TOP + h + 9, w)
                                        for i, c in enumerate(codes)))
 
 
 def creative(titolo, sez, codes, testo):
     """Griglia 2×2 a sinistra, colonna di testo a destra in basso (Creative Work)."""
-    w, h, g = 82, 70, 6
+    w, h, g = 84, 72, 4                       # righe allineate alle foto impilate di academic
     corpo = "".join(foto(c, M + 4 + (i % 2) * (w + g), TOP + 4 + (i // 2) * (h + g), w, h) for i, c in enumerate(codes))
     legenda = "".join(f'<li><b>{cid(c)}</b>{TIPO[c]}</li>' for c in codes)
     return pagina(titolo, sez, corpo + txt(f'{testo}<ul class="leg">{legenda}</ul>',
@@ -253,9 +253,10 @@ def creative(titolo, sez, codes, testo):
 
 def urban(titolo, sez, big, small, testo):
     """Foto grande a sinistra; dati, testo e foto piccola a destra (Urban Design)."""
-    return pagina(titolo, sez, foto(big, M + 4, TOP + 4, 140, 144)
+    h = 126                                   # stessa altezza delle foto della pagina a fianco (duo)
+    return pagina(titolo, sez, foto(big, M + 4, TOP + 4, 140, h)
                   + txt(nomf(big) + f'<div class="desc" style="margin-top:8mm">{testo}</div>', M + 156, TOP + 4, 105)
-                  + foto(small, M + 156, 124, 58, 58) + txt(nomf(small), M + 222, 124, 43))
+                  + foto(small, M + 156, TOP + 4 + h - 46, 46, 46) + txt(nomf(small), M + 208, TOP + 4 + h - 46, 57))
 
 
 def challenges(titolo, sez, small, big, testo):
@@ -277,8 +278,8 @@ def challenges3(titolo, sez, small, big, extra, testo):
 def academic(titolo, sez, a, b, tall, testo):
     """Colonna di testo a sinistra, due foto impilate e una alta a destra (Academic Projects)."""
     return pagina(titolo, sez, txt(testo + "".join(nomf(c) for c in (a, b, tall)), M + 4, TOP + 4, 80)
-                  + foto(a, 108, TOP + 4, 70, 70) + foto(b, 108, TOP + 78, 70, 70)
-                  + foto(tall, 182, TOP + 4, 83, 144))
+                  + foto(a, 108, TOP + 4, 72, 72) + foto(b, 108, TOP + 80, 72, 72)
+                  + foto(tall, 182, TOP + 4, 83, 148))
 
 
 # --------------------------------------------------------------------------
@@ -398,7 +399,7 @@ def build():
                   ("Montaggio", "Pochi secondi, senza colla")]),
         philosophy("Progetti", B, ["B02", "B17", "B09", "B11"]),
         urban("Stampa e finiture", B, "B12", "B16", FINITURE),
-        duo("Grafica e brand", B, "B19", "B20", "B21", h=110),
+        duo("Grafica e brand", B, "B19", "B20", "B21"),
         creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
         academic("Materiali", B, "B08", "B04", "B07", zb(1)),
         challenges("Struttura", B, "B15", "B03", zb(0)),
