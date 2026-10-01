@@ -242,6 +242,22 @@ def duo(titolo, sez, *codes, h=126):
                                        for i, c in enumerate(codes)))
 
 
+def tris(sez, big, a, b, h=126):
+    """Foto grande e due foto verticali affiancate, alla stessa altezza; numeri sotto e legenda."""
+    wb, g = 119, 6
+    wa = (W - 2 * M - 8 - wb - 2 * g) / 2
+    xs = [M + 4, M + 4 + wb + g, M + 4 + wb + g + wa + g]
+    out = foto(big, xs[0], TOP + 4, wb, h) + foto(a, xs[1], TOP + 4, wa, h) + foto(b, xs[2], TOP + 4, wa, h)
+    out += "".join(tag(c, x, TOP + h + 6.5, 40) for c, x in zip((big, a, b), xs))
+    return pagina("", sez, out + txt(legenda([big, a, b]), xs[1], TOP + h + 13, 140))
+
+
+def grande(sez, code, testo, h=126):
+    """Una foto grande con scheda e testo descrittivo accanto."""
+    return pagina("", sez, foto(code, M + 4, TOP + 4, 150, h)
+                  + txt(nomf(code) + f'<div class="desc" style="margin-top:8mm">{testo}</div>', M + 170, TOP + 4, 95))
+
+
 def creative(titolo, sez, codes, testo):
     """Griglia 2×2 a sinistra, colonna di testo a destra in basso (Creative Work)."""
     w, h, g = 84, 72, 4                       # righe allineate alle foto impilate di academic
@@ -402,8 +418,8 @@ def build():
         duo("Grafica e brand", B, "B19", "B20", "B21"),
         creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
         academic("Materiali", B, "B08", "B04", "B07", zb(1)),
-        challenges("Struttura", B, "B15", "B03", zb(0)),
-        duo("Grafica e brand", B, "B22", "B23"),
+        tris(B, "B03", "B22", "B23"),
+        grande(B, "B15", zona(B, 0)),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"), ("Spedizione", "Piatta, montaggio in pochi minuti")]),
         overview("Logistica", T, "T05", ZONE[T][3][1], []),
