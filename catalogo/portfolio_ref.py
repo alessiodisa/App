@@ -258,6 +258,15 @@ def grande(sez, code, testo, h=126):
                   + txt(nomf(code) + f'<div class="desc" style="margin-top:8mm">{testo}</div>', M + 170, TOP + 4, 95))
 
 
+def alto(sez, big, a, b, h=126):
+    """Foto grande a sinistra (stessa altezza della pagina a fianco), due foto piccole impilate a destra."""
+    wb, s = 156, (h - 6) / 2
+    xr = M + 4 + wb + 8
+    return pagina("", sez, foto(big, M + 4, TOP + 4, wb, h) + txt(nomf(big), M + 4, TOP + h + 9, wb)
+                  + foto(a, xr, TOP + 4, s, s) + txt(nomf(a), xr + s + 4, TOP + 4, W - M - 4 - xr - s - 4)
+                  + foto(b, xr, TOP + 10 + s, s, s) + txt(nomf(b), xr + s + 4, TOP + 10 + s, W - M - 4 - xr - s - 4))
+
+
 def creative(titolo, sez, codes, testo):
     """Griglia 2×2 a sinistra, colonna di testo a destra in basso (Creative Work)."""
     w, h, g = 84, 72, 4                       # righe allineate alle foto impilate di academic
@@ -415,9 +424,9 @@ def build():
                   ("Montaggio", "Pochi secondi, senza colla")]),
         philosophy("Progetti", B, ["B02", "B17", "B09", "B11"]),
         urban("Stampa e finiture", B, "B12", "B16", FINITURE),
-        duo("Grafica e brand", B, "B19", "B20", "B21"),
+        alto(B, "B04", "B21", "B19"),
         creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
-        academic("Materiali", B, "B08", "B04", "B07", zb(1)),
+        academic("Materiali", B, "B08", "B20", "B07", zb(1)),
         tris(B, "B03", "B22", "B23"),
         grande(B, "B15", zona(B, 0)),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],

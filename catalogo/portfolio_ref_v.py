@@ -174,6 +174,13 @@ def tre_legenda(sez, a, b, tall):
                   + txt(legenda([a, b, tall]), X0, TOP + 200, CW))
 
 
+def alto(sez, big, a, b):
+    """Foto grande a tutta larghezza in alto (riga A), due foto affiancate sotto (riga B), didascalie sotto."""
+    return pagina("", sez, foto(big, X0, TOP + 4, CW, RA) + txt(nomf(big), x2(0), TOP + RA + 9, COL)
+                  + foto(a, x2(0), YB, COL, RB) + txt(nomf(a), x2(0), YB + RB + 3, COL)
+                  + foto(b, x2(1), YB, COL, RB) + txt(nomf(b), x2(1), YB + RB + 3, COL))
+
+
 def terna(sez, a, b, c, z=.8):
     """Due foto in alto (riga A), la terza sotto a sinistra (riga B) con il testo a destra."""
     return pagina("", sez, foto(a, x2(0), TOP + 4, COL, RA, z=z) + foto(b, x2(1), TOP + 4, COL, RA, z=z)
@@ -276,9 +283,9 @@ def build():
                   ("Montaggio", "Pochi secondi, senza colla")]),
         griglia(B, ["B02", "B17", "B09", "B11"]),
         didascalie(B, "B12", "B16", R.FINITURE),
-        terna(B, "B19", "B20", "B21"),
+        alto(B, "B04", "B21", "B19"),
         quattro(B, ["B06", "B05", "B01", "B10"], zona(B, 3)),
-        tre_legenda(B, "B08", "B04", "B07"),
+        tre_legenda(B, "B08", "B20", "B07"),
         tris(B, "B03", "B22", "B23"),
         grande(B, "B15", zona(B, 0)),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
