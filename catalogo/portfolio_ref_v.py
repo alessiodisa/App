@@ -299,9 +299,9 @@ def build():
         coppia("Forme", T, "T14", "T15", blocco("Forme", "Vani incassati e fianchi sagomati: la struttura diventa parte del racconto del marchio, senza rinunciare alla portata.")),
         coppia("Ripiani", T, "T09", "T07", blocco("Ripiani", "Fianchi inclinati, ripiani a vista e header sagomato: struttura leggera, grafica a tutta superficie.")),
         coppia("Grafica e brand", T, "T10", "T11", R.GRAFICA),
-        galleria(T, ["T01", "T02", "T03", "T06"]),
-        overview("Colonna", T, "T12", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.", [], fh=165),
-        overview("Stampa e finiture", T, "T04", ZONE[T][2][1], []),
+        coppia("Progetti", T, "T01", "T02", blocco("Materiali", ZONE[T][1][1])),
+        coppia("Colonna", T, "T12", "T03", blocco("Colonna", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.")),
+        coppia("Stampa e finiture", T, "T04", "T06", blocco("Stampa e finiture", ZONE[T][2][1])),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1

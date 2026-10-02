@@ -74,10 +74,14 @@ def _pad(code):
 ORIG = json.loads((ROOT / "img" / "orig" / "orig.json").read_text())
 
 
+ZOOM = {"T10": 1.3, "T09": 1.12}          # ingrandimenti mirati per pareggiare la scala tra foto affiancate
+
+
 def foto_orig(code, x, y, w, h):
     """Foto originale intera (non quadrata), scalata al minimo per coprire il riquadro: nessun fondo aggiunto."""
     (iw, ih), (a1, b1, a2, b2) = ORIG[code]["size"], ORIG[code]["bb"]
-    k = max(w / iw, h / ih)
+    k0 = max(w / iw, h / ih)
+    k = max(k0, min(k0 * ZOOM.get(code, 1), .95 * h / (b2 - b1), .95 * w / (a2 - a1)))   # lo zoom non taglia mai l'espositore
     s_w, s_h = iw * k, ih * k
     ix = min(max(w / 2 - (a1 + a2) / 2 * k, w - s_w), 0)
     iy = min(max(h / 2 - (b1 + b2) / 2 * k, h - s_h), 0)
@@ -224,7 +228,7 @@ GRAFICA = blocco("Comunicazione", "Fianchi, header e frontali stampati a tutta a
 
 def coppia(titolo, sez, a, b, testo, h=108):
     """Due immagini verticali affiancate, didascalia subito sotto ciascuna, testo descrittivo sotto le didascalie."""
-    w = 100
+    w = 90
     xb = M + 4 + w + 8
     y = TOP + 4 + h
     return pagina(titolo, sez, foto(a, M + 4, TOP + 4, w, h) + foto(b, xb, TOP + 4, w, h)
@@ -440,9 +444,9 @@ def build():
         coppia("Forme", T, "T14", "T15", blocco("Forme", "Vani incassati e fianchi sagomati: la struttura diventa parte del racconto del marchio, senza rinunciare alla portata.")),
         coppia("Ripiani", T, "T09", "T07", blocco("Ripiani", "Fianchi inclinati, ripiani a vista e header sagomato: struttura leggera, grafica a tutta superficie.")),
         coppia("Grafica e brand", T, "T10", "T11", GRAFICA),
-        philosophy("Progetti", T, ["T01", "T02", "T03", "T06"], alto=92),
-        overview("Colonna", T, "T12", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.", []),
-        overview("Stampa e finiture", T, "T04", ZONE[T][2][1], []),
+        coppia("Progetti", T, "T01", "T02", blocco("Materiali", ZONE[T][1][1])),
+        coppia("Colonna", T, "T12", "T03", blocco("Colonna", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.")),
+        coppia("Stampa e finiture", T, "T04", "T06", blocco("Stampa e finiture", ZONE[T][2][1])),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1

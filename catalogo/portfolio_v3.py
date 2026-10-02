@@ -44,7 +44,7 @@ TIPO = {
     "B22": "Espositore da banco a 4 vassoi su 2 livelli con fondale",
     "B23": "Espositore da banco porta locandina a cornice con base",
     "T01": "Espositore da terra a 3 ripiani con header",
-    "T02": "Espositore da terra a ganci con header",
+    "T02": "Espositore da terra a ganci con header e base",
     "T03": "Espositore da terra a 4 ripiani a sbalzo",
     "T04": "Espositore da terra a 4 ripiani",
     "T05": "Espositore da terra a 4 ripiani con header",
