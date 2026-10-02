@@ -23,7 +23,7 @@ BANCO, TERRA = "Espositori da banco", "Espositori da terra"
 # tipologia tecnica di ogni espositore (da confermare)
 TIPO = {
     "B01": "Espositore da banco a 2 gradini con header",
-    "B02": "Espositore da banco inclinato a 3 scomparti con header",
+    "B02": "Espositore da banco a 2 scomparti inclinati con header",
     "B03": "Espositore da banco con crowner sagomato",
     "B04": "Espositore da banco a vassoio con fondale",
     "B05": "Espositore da banco a 2 gradini con header",
