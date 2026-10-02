@@ -47,7 +47,7 @@ TIPO = {
     "T02": "Espositore da terra a ganci con header",
     "T03": "Espositore da terra a 4 ripiani a sbalzo",
     "T04": "Espositore da terra a 4 ripiani",
-    "T05": "Espositore da terra a 5 ripiani con header",
+    "T05": "Espositore da terra a 4 ripiani con header",
     "T06": "Espositore da terra a 4 ripiani con crowner",
     "T07": "Espositore da terra a podio con fondale",
     "T08": "Espositore da terra a totem con 4 nicchie",
