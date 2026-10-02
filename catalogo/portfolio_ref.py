@@ -433,12 +433,12 @@ def build():
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"), ("Spedizione", "Piatta, montaggio in pochi minuti")]),
         overview("Logistica", T, "T05", ZONE[T][3][1], []),
         philosophy("Progetti", T, ["T01", "T02", "T03", "T06"], alto=92),
-        overview("Stampa e finiture", T, "T04", ZONE[T][2][1], []),
+        coppia("Forme", T, "T14", "T15", '<div class="gap">' + blocco("Forme", "Vani incassati e fianchi sagomati: la struttura diventa parte del racconto del marchio, senza rinunciare alla portata.") + "</div>" + prod("T14") + prod("T15")),
         overview("Due finiture", T, "T09", "Stessa struttura, due finiture: cambia la grafica, la fustella resta la stessa.", []),
         challenges3("Portata", T, "T07", "T08", "T13", zt(0)),
         coppia("Grafica e brand", T, "T10", "T11", '<div class="gap">' + GRAFICA + "</div>" + prod("T10") + prod("T11")),
         overview("Colonna", T, "T12", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.", []),
-        coppia("Forme", T, "T14", "T15", '<div class="gap">' + blocco("Forme", "Vani incassati e fianchi sagomati: la struttura diventa parte del racconto del marchio, senza rinunciare alla portata.") + "</div>" + prod("T14") + prod("T15")),
+        overview("Stampa e finiture", T, "T04", ZONE[T][2][1], []),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1
