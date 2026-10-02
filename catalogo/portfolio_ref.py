@@ -75,13 +75,15 @@ ORIG = json.loads((ROOT / "img" / "orig" / "orig.json").read_text())
 
 
 ZOOM = {"T10": 1.3, "T09": 1.12}          # ingrandimenti mirati per pareggiare la scala tra foto affiancate
+FILL = {"T02": .68, "T12": .68}           # quota d'altezza del riquadro occupata dall'espositore (come i vicini)
 
 
 def foto_orig(code, x, y, w, h):
     """Foto originale intera (non quadrata), scalata al minimo per coprire il riquadro: nessun fondo aggiunto."""
     (iw, ih), (a1, b1, a2, b2) = ORIG[code]["size"], ORIG[code]["bb"]
     k0 = max(w / iw, h / ih)
-    k = max(k0, min(k0 * ZOOM.get(code, 1), .95 * h / (b2 - b1), .95 * w / (a2 - a1)))   # lo zoom non taglia mai l'espositore
+    kz = FILL[code] * h / (b2 - b1) if code in FILL else k0 * ZOOM.get(code, 1)
+    k = max(k0, min(kz, .95 * h / (b2 - b1), .95 * w / (a2 - a1)))   # lo zoom non taglia mai l'espositore
     s_w, s_h = iw * k, ih * k
     ix = min(max(w / 2 - (a1 + a2) / 2 * k, w - s_w), 0)
     iy = min(max(h / 2 - (b1 + b2) / 2 * k, h - s_h), 0)
