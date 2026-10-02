@@ -74,7 +74,8 @@ def _pad(code):
 ORIG = json.loads((ROOT / "img" / "orig" / "orig.json").read_text())
 
 
-ZOOM = {"T10": 1.3, "T09": 1.12}          # ingrandimenti mirati per pareggiare la scala tra foto affiancate
+ZOOM = {"T10": 1.12, "T09": 1.12, "T15": 1.12}   # ingrandimenti mirati per pareggiare la scala tra foto affiancate
+SHIFT = {"T15": .04, "T07": .06}          # spostamento in basso dell'espositore (quota del riquadro), per allineare le basi
 FILL = {"T02": .68, "T12": .68}           # quota d'altezza del riquadro occupata dall'espositore (come i vicini)
 
 
@@ -86,7 +87,7 @@ def foto_orig(code, x, y, w, h):
     k = max(k0, min(kz, .95 * h / (b2 - b1), .95 * w / (a2 - a1)))   # lo zoom non taglia mai l'espositore
     s_w, s_h = iw * k, ih * k
     ix = min(max(w / 2 - (a1 + a2) / 2 * k, w - s_w), 0)
-    iy = min(max(h / 2 - (b1 + b2) / 2 * k, h - s_h), 0)
+    iy = min(max(h / 2 - (b1 + b2) / 2 * k + SHIFT.get(code, 0) * h, h - s_h), 0)
     return (f'<div class="ph" style="{bx(x, y, w, h)}"><img src="img/orig/{code}.jpg" '
             f'style="{bx(ix, iy, s_w, s_h)}" alt=""></div>')
 
