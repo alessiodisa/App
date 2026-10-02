@@ -55,6 +55,8 @@ TIPO = {
     "T10": "Espositore da terra a 4 ripiani con fianco sagomato e vassoio",
     "T11": "Espositore da terra a colonna con vano a gradini e header",
     "T12": "Espositore da terra a colonna con 4 ripiani laterali e header sagomato",
+    "T14": "Espositore da terra a colonna con 3 vani a vassoio e base porta depliant",
+    "T15": "Espositore da terra a 3 ripiani sfalsati con fianchi sagomati e base",
     "T13": "Espositore da terra a 5 ripiani con fianchi a colonna e header",
 }
 

@@ -229,7 +229,7 @@ def space(titolo, sez, a, b, testo):
 # --------------------------------------------------------------------------
 def indice():
     voci = [("01", "Introduzione", 4), ("02", "Espositori da banco", 6),
-            ("03", "Espositori da terra", 14), ("04", "Contatti", 22)]
+            ("03", "Espositori da terra", 14), ("04", "Contatti", 23)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', X0, TOP + 10, CW)
                   + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '
@@ -298,6 +298,7 @@ def build():
         challenges3("Portata", T, "T07", "T08", "T13", zt(0)),
         coppia("Grafica e brand", T, "T10", "T11", '<div class="gap">' + R.GRAFICA + "</div>" + prod("T10")),
         overview("Colonna", T, "T12", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.", [], fh=165),
+        coppia("Forme", T, "T14", "T15", '<div class="gap">' + blocco("Forme", "Vani incassati e fianchi sagomati: la struttura diventa parte del racconto del marchio, senza rinunciare alla portata.") + "</div>" + prod("T14")),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1
