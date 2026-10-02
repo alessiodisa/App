@@ -51,7 +51,7 @@ TIPO = {
     "T06": "Espositore da terra a 4 ripiani con crowner",
     "T07": "Espositore da terra a podio con fondale",
     "T08": "Espositore da terra a totem con 4 nicchie",
-    "T09": "Espositore da terra a 3 ripiani con header ad arco",
+    "T09": "Espositore da terra a 3 ripiani con fianchi inclinati e header ad arco",
     "T10": "Espositore da terra a 4 ripiani con fianco sagomato e vassoio",
     "T11": "Espositore da terra a colonna con vano a gradini e header",
     "T12": "Espositore da terra a colonna con 4 ripiani laterali e header sagomato",
