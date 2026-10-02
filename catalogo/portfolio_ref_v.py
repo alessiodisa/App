@@ -110,9 +110,12 @@ def technical(titolo, sez, src, sx, dx):
     return pagina(titolo, sez, dwg(src, X0, TOP, CW, 170) + txt(sx, x2(0), 214, COL) + txt(dx, x2(1), 214, COL, "blk right"))
 
 
-def coppia(titolo, sez, a, b, testo):
-    return pagina(titolo, sez, foto(a, x2(0), TOP + 4, COL, 176) + foto(b, x2(1), TOP + 4, COL, 176)
-                  + txt(testo, x2(0), TOP + 188, COL) + txt(prod(b), x2(1), TOP + 188, COL))
+def coppia(titolo, sez, a, b, testo, h=176):
+    """Due immagini verticali affiancate, didascalia subito sotto ciascuna, testo descrittivo sotto le didascalie."""
+    y = TOP + 4 + h
+    return pagina(titolo, sez, foto(a, x2(0), TOP + 4, COL, h) + foto(b, x2(1), TOP + 4, COL, h)
+                  + txt(nomf(a), x2(0), y + 5, COL) + txt(nomf(b), x2(1), y + 5, COL)
+                  + txt(f'<div class="desc">{testo}</div>', x2(0), y + 22, COL))
 
 
 def terzetto(titolo, sez, codes):
@@ -292,10 +295,10 @@ def build():
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"),
                       ("Spedizione", "Piatta, montaggio in pochi minuti")]),
         overview("Logistica", T, "T05", ZONE[T][3][1], [], fh=178),
-        coppia("Portata", T, "T08", "T13", '<div class="gap">' + blocco("Portata", ZONE[T][0][1]) + "</div>" + prod("T08")),
-        coppia("Forme", T, "T14", "T15", '<div class="gap">' + blocco("Forme", "Vani incassati e fianchi sagomati: la struttura diventa parte del racconto del marchio, senza rinunciare alla portata.") + "</div>" + prod("T14")),
-        coppia("Ripiani", T, "T09", "T07", '<div class="gap">' + blocco("Ripiani", "Fianchi inclinati, ripiani a vista e header sagomato: struttura leggera, grafica a tutta superficie.") + "</div>" + prod("T09")),
-        coppia("Grafica e brand", T, "T10", "T11", '<div class="gap">' + R.GRAFICA + "</div>" + prod("T10")),
+        coppia("Portata", T, "T08", "T13", blocco("Portata", ZONE[T][0][1])),
+        coppia("Forme", T, "T14", "T15", blocco("Forme", "Vani incassati e fianchi sagomati: la struttura diventa parte del racconto del marchio, senza rinunciare alla portata.")),
+        coppia("Ripiani", T, "T09", "T07", blocco("Ripiani", "Fianchi inclinati, ripiani a vista e header sagomato: struttura leggera, grafica a tutta superficie.")),
+        coppia("Grafica e brand", T, "T10", "T11", R.GRAFICA),
         galleria(T, ["T01", "T02", "T03", "T06"]),
         overview("Colonna", T, "T12", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.", [], fh=165),
         overview("Stampa e finiture", T, "T04", ZONE[T][2][1], []),
