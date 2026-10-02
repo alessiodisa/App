@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T19:04:45.584672+00:00",
+  "generated_at": "2026-10-02T20:03:08.858694+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -91,22 +91,36 @@
       "is_treviso_united": false
     },
     {
-      "team_id": 20412,
+      "team_id": 192,
       "pos": 7,
-      "name": "MIDNIGHT",
+      "name": "ATHLETIC DINAMO",
       "pts": "6",
-      "played": "3",
+      "played": "4",
       "wins": "2",
       "draws": "0",
-      "losses": "1",
-      "for": "4",
-      "against": "4",
+      "losses": "2",
+      "for": "8",
+      "against": "8",
       "gd": "0",
       "is_treviso_united": false
     },
     {
-      "team_id": 20421,
+      "team_id": 20412,
       "pos": 8,
+      "name": "MIDNIGHT",
+      "pts": "6",
+      "played": "4",
+      "wins": "2",
+      "draws": "0",
+      "losses": "2",
+      "for": "5",
+      "against": "6",
+      "gd": "-1",
+      "is_treviso_united": false
+    },
+    {
+      "team_id": 20421,
+      "pos": 9,
       "name": "TREVISO CITY",
       "pts": "5",
       "played": "4",
@@ -120,7 +134,7 @@
     },
     {
       "team_id": 167,
-      "pos": 9,
+      "pos": 10,
       "name": "A.c. ATLETICO PAPATO",
       "pts": "5",
       "played": "4",
@@ -134,7 +148,7 @@
     },
     {
       "team_id": 20446,
-      "pos": 10,
+      "pos": 11,
       "name": "NEXT DINAMO",
       "pts": "4",
       "played": "4",
@@ -144,20 +158,6 @@
       "for": "7",
       "against": "7",
       "gd": "0",
-      "is_treviso_united": false
-    },
-    {
-      "team_id": 192,
-      "pos": 11,
-      "name": "ATHLETIC DINAMO",
-      "pts": "3",
-      "played": "3",
-      "wins": "1",
-      "draws": "0",
-      "losses": "2",
-      "for": "6",
-      "against": "7",
-      "gd": "-1",
       "is_treviso_united": false
     },
     {
