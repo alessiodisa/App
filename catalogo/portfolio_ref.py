@@ -283,9 +283,8 @@ def creative(titolo, sez, codes, testo):
     """Griglia 2×2 a sinistra, colonna di testo a destra in basso (Creative Work)."""
     w, h, g = 84, 72, 4                       # righe allineate alle foto impilate di academic
     corpo = "".join(foto(c, M + 4 + (i % 2) * (w + g), TOP + 4 + (i // 2) * (h + g), w, h) for i, c in enumerate(codes))
-    legenda = "".join(f'<li><b>{cid(c)}</b>{TIPO[c]}</li>' for c in codes)
-    return pagina(titolo, sez, corpo + txt(f'{testo}<ul class="leg">{legenda}</ul>',
-                                           M + 2 * w + g + 20, 88, 83))
+    xl = M + 2 * w + g + 20
+    return pagina(titolo, sez, corpo + txt(legenda(codes[:2]), xl, 88, 40) + txt(legenda(codes[2:]), xl + 43, 88, 40))
 
 
 def urban(titolo, sez, big, small, testo):

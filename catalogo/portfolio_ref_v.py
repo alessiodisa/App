@@ -166,8 +166,8 @@ def quattro(sez, codes, testo):
         x, y = x2(i % 2), TOP + 4 + (i // 2) * (h + 12)
         corpo += foto(c, x, y, COL, h) + tag(c, x, y + h + 2.5, COL)
     yb = TOP + 4 + HB + 10
-    return pagina("", sez, corpo + txt(testo, x2(0), yb, COL)
-                  + txt(legenda(codes), x2(1), yb, COL))
+    return pagina("", sez, corpo + txt(legenda(codes[:2]), x2(0), yb, COL)
+                  + txt(legenda(codes[2:]), x2(1), yb, COL))
 
 
 def tre_legenda(sez, a, b, tall):
