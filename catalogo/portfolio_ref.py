@@ -385,7 +385,7 @@ def chips():
 
 
 INTRO_IMG = [("img/intro-schizzo.png", 1364 / 2352, ""), ("img/intro-bianco.jpg", 320 / 1072, " mult"),
-             ("img/intro-finito.jpg", 426 / 1378, " mult")]
+             ("img/intro-finito.jpg", 430 / 1378, " mult")]
 
 
 def tre_fasi(x0, larg, base, H, finale=1.18, giu=.04):
