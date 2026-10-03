@@ -24,7 +24,7 @@ BANCO, TERRA = "Espositori da banco", "Espositori da terra"
 TIPO = {
     "B01": "Espositore da banco a 2 gradini con header",
     "B02": "Espositore da banco a 2 scomparti inclinati con header",
-    "B03": "Espositore da banco con crowner sagomato",
+    "B03": "Espositore da banco a vassoio inclinato con header",
     "B04": "Espositore da banco a vassoio con fondale",
     "B05": "Espositore da banco a 2 gradini con header",
     "B06": "Espositore da banco a pedana con fondale",
@@ -43,7 +43,7 @@ TIPO = {
     "B21": "Espositore da banco a vassoio alveolare con fondale",
     "B22": "Espositore da banco a 4 vassoi su 2 livelli con fondale",
     "B23": "Espositore da banco porta locandina a cornice con base",
-    "T01": "Espositore da terra a 3 ripiani con header",
+    "T01": "Espositore da terra a colonna sagomata con 4 ripiani a sbalzo",
     "T02": "Espositore da terra a ganci con header e base",
     "T03": "Espositore da terra a 4 ripiani a sbalzo",
     "T04": "Espositore da terra a 4 ripiani",

@@ -76,7 +76,7 @@ ORIG = json.loads((ROOT / "img" / "orig" / "orig.json").read_text())
 
 ZOOM = {"T10": 1.12, "T09": 1.12, "T15": 1.12}   # ingrandimenti mirati per pareggiare la scala tra foto affiancate
 SHIFT = {"T15": .04, "T07": .06}          # spostamento in basso dell'espositore (quota del riquadro), per allineare le basi
-FILL = {"T02": .68, "T12": .68, "B19": .8, "B21": .62}           # quota d'altezza del riquadro occupata dall'espositore (come i vicini)
+FILL = {"T02": .68, "T12": .68, "B19": .8, "B21": .62, "B03": .72, "T01": .7}  # quota d'altezza del riquadro occupata dall'espositore (come i vicini)
 
 
 def foto_orig(code, x, y, w, h):
