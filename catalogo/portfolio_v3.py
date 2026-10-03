@@ -28,7 +28,7 @@ TIPO = {
     "B04": "Espositore da banco a vassoio con fondale",
     "B05": "Espositore da banco a 2 gradini con header",
     "B06": "Espositore da banco a pedana con fondale",
-    "B07": "Espositore da banco a colonna con ganci",
+    "B07": "Espositore da banco a colonna con header e vaschetta dispenser",
     "B08": "Espositore da banco a box con header",
     "B09": "Espositore da banco a libreria con 3 ripiani",
     "B10": "Espositore da banco a pedana curva con fondale",
