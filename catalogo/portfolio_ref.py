@@ -74,6 +74,7 @@ def _pad(code):
 ORIG = json.loads((ROOT / "img" / "orig" / "orig.json").read_text())
 
 
+SQZOOM = {"B01": 1.18}                   # leggero zoom sulle foto quadrate, per poterle centrare sull'espositore
 ZOOM = {"T10": 1.12, "T09": 1.12, "T15": 1.12}   # ingrandimenti mirati per pareggiare la scala tra foto affiancate
 SHIFT = {"T15": .04, "T07": .06}          # spostamento in basso dell'espositore (quota del riquadro), per allineare le basi
 FILL = {"T02": .68, "T12": .68, "B19": .8, "B21": .8, "B03": .72, "T01": .78}  # quota d'altezza del riquadro occupata dall'espositore (come i vicini)
@@ -101,7 +102,7 @@ def foto(code, x, y, w, h, fy=.5, z=1.0):
     src, n, off = f"img/sq/{code}.jpg", 1024, 0
     if z < 1:
         src, n, off = _pad(code), 1024 + 2 * PAD, PAD
-    s = max(w, h) * z * n / 1024
+    s = max(w, h) * z * n / 1024 * SQZOOM.get(code, 1)
     cx = ((a1 + a2) / 2 + off) / n * s
     cy = (b1 + (b2 - b1) * fy + off) / n * s
     ix = min(max(w / 2 - cx, w - s), 0)
