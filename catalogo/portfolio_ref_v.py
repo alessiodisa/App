@@ -24,6 +24,7 @@ def pagina(titolo, sezione, corpo, mostra=True):
             + corpo)
 
 
+HB = 210                              # altezza del blocco immagini nelle pagine 10-13
 RA, YB, RB = 106, TOP + 132, 90       # griglia comune delle doppie pagine con foto
 
 
@@ -159,22 +160,24 @@ def didascalie(sez, big, small, testo, RA=RA, YB=YB, RB=RB):
 
 def quattro(sez, codes, testo):
     """Griglia 2×2 con le stesse altezze di tre_legenda (righe da 84 mm), numeri sotto e legenda in basso."""
-    h = 84
+    h = (HB - 12) / 2                       # blocco immagini alto HB, come le pagine affiancate
     corpo = ""
     for i, c in enumerate(codes):
         x, y = x2(i % 2), TOP + 4 + (i // 2) * (h + 12)
         corpo += foto(c, x, y, COL, h) + tag(c, x, y + h + 2.5, COL)
-    yb = TOP + 200
+    yb = TOP + 4 + HB + 10
     return pagina("", sez, corpo + txt(testo, x2(0), yb, COL)
                   + txt(legenda(codes), x2(1), yb, COL))
 
 
 def tre_legenda(sez, a, b, tall):
     """Due foto impilate a sinistra, una alta a destra, numeri sotto le foto e legenda in basso."""
-    return pagina("", sez, foto(a, x2(0), TOP + 4, COL, 84) + tag(a, x2(0), TOP + 90.5, COL)
-                  + foto(b, x2(0), TOP + 100, COL, 84) + tag(b, x2(0), TOP + 186.5, COL)
-                  + foto(tall, x2(1), TOP + 4, COL, 180, z=.76) + tag(tall, x2(1), TOP + 186.5, COL)
-                  + txt(legenda([a, b, tall]), X0, TOP + 200, CW))
+    h = (HB - 12) / 2
+    yb = TOP + 4 + HB
+    return pagina("", sez, foto(a, x2(0), TOP + 4, COL, h) + tag(a, x2(0), TOP + 4 + h + 2.5, COL)
+                  + foto(b, x2(0), TOP + 16 + h, COL, h) + tag(b, x2(0), yb + 2.5, COL)
+                  + foto(tall, x2(1), TOP + 4, COL, HB, z=.76) + tag(tall, x2(1), yb + 2.5, COL)
+                  + txt(legenda([a, b, tall]), X0, yb + 10, CW))
 
 
 def alto(sez, big, a, b):
