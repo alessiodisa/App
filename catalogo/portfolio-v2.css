@@ -1,0 +1,85 @@
+/* Portfolio v2 — stile "Architecture Portfolio". Si carica dopo portfolio-grid.css */
+:root { --disp: "Inter Tight", "Helvetica Neue", Arial, sans-serif; --paper2: #F6F6F5; --txt: #56565A; }
+
+/* pagine interne senza griglia; copertina e retro la mantengono */
+.page { background-color: var(--paper2); background-image: none; }
+.page.grid { background-color: var(--paper);
+  background-image: linear-gradient(to right, var(--grid) .25mm, transparent .25mm), linear-gradient(to bottom, var(--grid) .25mm, transparent .25mm);
+  background-size: calc(297mm / 7) 42mm; background-position: -.12mm -.12mm; }
+
+/* copertina e retro: stesso impianto, font della nuova inspo */
+.cover-t { font: 800 64pt/.95 var(--disp); letter-spacing: -.03em; }
+.cover-t.sm { font-size: 34pt; }
+.light-t { font: 300 28pt/1 var(--disp); letter-spacing: -.01em; color: #9B9B99; }
+.h3, .h5, h5, .h6 { font-family: var(--disp); }
+.folio { font-family: var(--disp); font-weight: 600; }
+
+/* testata interna */
+.brand { font: 600 6.4pt/1 var(--disp); letter-spacing: .01em; }
+.pill { text-align: right; }
+.pill span { display: inline-block; background: var(--ink); color: #fff; border-radius: 3mm; padding: 1.3mm 3.2mm;
+  font: 600 6pt/1 var(--disp); letter-spacing: .02em; }
+
+/* titoli e testi */
+.t2 { font: 700 24pt/1.02 var(--disp); letter-spacing: -.025em; color: var(--ink); }
+.t3 { font: 700 7.6pt/1.3 var(--disp); color: var(--ink); }
+.txt { font: 400 7.2pt/1.6 var(--body); color: var(--txt); }
+.lead { font: 500 13pt/1.3 var(--disp); letter-spacing: -.01em; color: var(--ink); }
+.code2 { font: 600 8pt/1 var(--disp); color: #9B9B99; letter-spacing: .04em; }
+.bignum2 { font: 800 44pt/1 var(--disp); color: #D6D6D4; letter-spacing: -.03em; }
+.cap2 { font: 400 6.4pt/1.45 var(--body); color: var(--txt); }
+.cap2 b { display: block; font: 700 6.8pt/1.35 var(--disp); color: var(--ink); }
+.contact2 { font: 700 11pt/1.3 var(--disp); color: var(--ink); }
+
+.meta2 { display: grid; grid-template-columns: 20mm 1fr; border-top: .3mm solid var(--ink); }
+.meta2 dt, .meta2 dd { padding: 1.5mm 0 1.6mm; border-bottom: .2mm solid #D2D2D0; font: 400 6.8pt/1.35 var(--body); }
+.meta2 dt { font: 700 6.4pt/1.35 var(--disp); color: var(--ink); }
+
+.bullets2 { list-style: none; column-count: 3; column-gap: 8mm; font: 400 7.2pt/1.5 var(--body); color: var(--txt); }
+.bullets2 li { padding: 1.2mm 0 1.2mm 5mm; position: relative; break-inside: avoid; }
+.bullets2 li::before { content: ""; position: absolute; left: 0; top: 2.5mm; width: 2mm; height: 2mm; background: var(--ink); }
+
+.letters2 .li { display: flex; gap: 3.5mm; margin-bottom: 5mm; }
+.letters2 b { flex: none; width: 6mm; height: 6mm; background: var(--ink); color: #fff; font: 700 7pt/6mm var(--disp); text-align: center; }
+.letters2 h5 { font: 700 8pt/1.3 var(--disp); text-transform: none; }
+.letters2 p { font: 400 7pt/1.5 var(--body); color: var(--txt); margin-top: .6mm; }
+
+.stats2 { display: flex; gap: 16mm; border-top: .3mm solid var(--ink); padding-top: 3mm; }
+.stats2 div { font: 400 6.8pt/1.4 var(--body); color: var(--txt); }
+.stats2 b { display: block; font: 800 26pt/1.1 var(--disp); color: var(--ink); letter-spacing: -.02em; }
+
+.idx-n { font: 800 22pt/1 var(--disp); color: #D0D0CE; }
+.idx-t { font: 700 16pt/1.1 var(--disp); letter-spacing: -.015em; }
+.idx-p { font: 600 13pt/1.1 var(--disp); color: #9B9B99; text-align: right; }
+
+/* tavole di gamma e didascalie ereditate: font nuovo, niente maiuscolo */
+.gcode { font-family: var(--disp); }
+.capline, .capline b { font-family: var(--disp); }
+.capline { font-family: var(--body); text-transform: none; letter-spacing: 0; font-size: 6.3pt; }
+.capline b { text-transform: none; font-size: 7pt; }
+.h6 { text-transform: none; font-size: 7.5pt; }
+.small { text-transform: none; letter-spacing: 0; font-size: 6.8pt; }
+.dim { font-family: var(--disp); }
+.bignum { font-family: var(--disp); color: #D6D6D4; }
+.bignum.sm { font-size: 34pt; }
+.code2.right { text-align: right; }
+.gcode { font-weight: 800; font-size: 14pt; }
+
+/* griglia modulare v2 */
+.cellt { overflow: hidden; }
+.cellt.small { font-size: 6.4pt; }
+.cellcap { display: flex; flex-direction: column; justify-content: flex-end; font: 400 6.4pt/1.45 var(--body); color: var(--txt); pointer-events: none; }
+.cellcap b { display: block; font: 700 6.8pt/1.35 var(--disp); color: var(--ink); }
+.dwg { display: flex; align-items: center; justify-content: center; }
+.dwg img { max-width: 100%; max-height: 100%; position: static; }
+.tag2 { position: absolute; font: 700 5.8pt/1 var(--disp); background: var(--ink); color: #fff; padding: 1mm 1.6mm; border-radius: 2mm; }
+.leg2 { list-style: none; }
+.leg2 li { border-top: .2mm solid #D2D2D0; padding: 1mm 0 1.1mm; font: 600 6.6pt/1.3 var(--disp); color: var(--ink); break-inside: avoid; }
+.leg2 li b { display: inline-block; width: 9mm; font-weight: 700; }
+.leg2 li span { display: block; font: 400 6pt/1.35 var(--body); color: var(--txt); padding-left: 9mm; }
+.leg2.row { column-count: 4; column-gap: 4.8mm; }
+.cellt .t2 { font-size: 20pt; }
+.cellt .meta2 { margin-top: 0; }
+.cellt.bottom { display: flex; flex-direction: column; justify-content: flex-end; }
+.cellcap2 { border-top: .25mm solid var(--ink); padding: 1.6mm 0 3mm; font: 400 6.6pt/1.45 var(--body); color: var(--txt); }
+.cellcap2 b { display: block; font: 700 7.4pt/1.35 var(--disp); color: var(--ink); }
