@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T09:05:45.387572+00:00",
+  "generated_at": "2026-10-03T10:03:05.050102+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -246,19 +246,6 @@
     }
   ],
   "players": [
-    {
-      "name": "Andrea Visonà Dalla Pozza",
-      "number": null,
-      "position": "goalkeeper",
-      "position_label": "Portiere",
-      "stats": {
-        "appearances": "2",
-        "goals": 0,
-        "yellow_cards": 0,
-        "red_cards": 0,
-        "motm": 0
-      }
-    },
     {
       "name": "Giulio Bianchin",
       "number": null,
