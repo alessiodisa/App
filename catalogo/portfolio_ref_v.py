@@ -197,9 +197,11 @@ def terna(sez, a, b, c, z=.8):
 
 def tris(sez, big, a, b):
     """Foto grande in alto, due foto affiancate sotto; numeri sotto ogni foto e legenda in fondo."""
-    return pagina("", sez, foto(big, X0, TOP + 4, CW, 124) + tag(big, X0, TOP + 129.5, COL)
-                  + foto(a, x2(0), TOP + 136, COL, 78) + tag(a, x2(0), TOP + 216.5, COL)
-                  + foto(b, x2(1), TOP + 136, COL, 78) + tag(b, x2(1), TOP + 216.5, COL)
+    hb = 108                                # foto grande più bassa, le due sotto salgono (blocco totale HB)
+    hs = HB - hb - 12
+    return pagina("", sez, foto(big, X0, TOP + 4, CW, hb) + tag(big, X0, TOP + 4 + hb + 1.5, COL)
+                  + foto(a, x2(0), TOP + 16 + hb, COL, hs) + tag(a, x2(0), TOP + 4 + HB + 2.5, COL)
+                  + foto(b, x2(1), TOP + 16 + hb, COL, hs) + tag(b, x2(1), TOP + 4 + HB + 2.5, COL)
                   + txt(legenda([big, a, b]), X0, TOP + 223, CW))
 
 
