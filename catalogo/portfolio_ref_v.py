@@ -172,12 +172,12 @@ def quattro(sez, codes, testo):
 
 def tre_legenda(sez, a, b, tall):
     """Due foto impilate a sinistra, una alta a destra, numeri sotto le foto e legenda in basso."""
-    h = (HB - 12) / 2
+    h, hs = 108, HB - 108 - 12               # stesse altezze di tris, la pagina a fianco
     yb = TOP + 4 + HB
-    return pagina("", sez, foto(a, x2(0), TOP + 4, COL, h) + tag(a, x2(0), TOP + 4 + h + 2.5, COL)
-                  + foto(b, x2(0), TOP + 16 + h, COL, h) + tag(b, x2(0), yb + 2.5, COL)
+    return pagina("", sez, foto(a, x2(0), TOP + 4, COL, h) + tag(a, x2(0), TOP + 4 + h + 1.5, COL)
+                  + foto(b, x2(0), TOP + 16 + h, COL, hs) + tag(b, x2(0), yb + 2.5, COL)
                   + foto(tall, x2(1), TOP + 4, COL, HB, z=.76) + tag(tall, x2(1), yb + 2.5, COL)
-                  + txt(legenda([a, b, tall]), X0, yb + 10, CW))
+                  + txt(legenda([a, b, tall]), X0, TOP + 223, CW))
 
 
 def alto(sez, big, a, b):
