@@ -264,10 +264,10 @@ def tris(sez, big, a, b, h=126):
     return pagina("", sez, out + txt(legenda([big, a, b]), xs[1], TOP + h + 13, 140))
 
 
-def grande(sez, code, testo, h=126):
+def grande(sez, code, testo, h=126, w=150):
     """Una foto grande con scheda e testo descrittivo accanto."""
-    return pagina("", sez, foto(code, M + 4, TOP + 4, 150, h)
-                  + txt(nomf(code) + (f'<div class="desc" style="margin-top:8mm">{testo}</div>' if testo else ""), M + 170, TOP + 4, 95))
+    return pagina("", sez, foto(code, M + 4, TOP + 4, w, h)
+                  + txt(nomf(code) + (f'<div class="desc" style="margin-top:8mm">{testo}</div>' if testo else ""), M + w + 20, TOP + 4, 95))
 
 
 def alto(sez, big, a, b, h=126):
@@ -449,7 +449,7 @@ def build():
         coppia("Grafica e brand", T, "T10", "T11", GRAFICA),
         coppia("Progetti", T, "T01", "T02", blocco("Materiali", ZONE[T][1][1])),
         coppia("Colonna", T, "T12", "T03", blocco("Colonna", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.")),
-        coppia("Stampa e finiture", T, "T04", "T06", blocco("Stampa e finiture", ZONE[T][2][1])),
+        grande(T, "T16", blocco("Stampa e finiture", ZONE[T][2][1]), w=100),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1

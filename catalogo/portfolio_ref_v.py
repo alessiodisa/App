@@ -306,7 +306,7 @@ def build():
         coppia("Grafica e brand", T, "T10", "T11", R.GRAFICA),
         coppia("Progetti", T, "T01", "T02", blocco("Materiali", ZONE[T][1][1])),
         coppia("Colonna", T, "T12", "T03", blocco("Colonna", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.")),
-        coppia("Stampa e finiture", T, "T04", "T06", blocco("Stampa e finiture", ZONE[T][2][1])),
+        grande(T, "T16", blocco("Stampa e finiture", ZONE[T][2][1])),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1
