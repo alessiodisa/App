@@ -285,12 +285,21 @@ def contatti():
             + el("small", AZ + " — Portfolio Espositori 2026", .5, 4.47, 3))
 
 
+CONTATTI = [("Telefono", "+39 000 000 0000"), ("Email", "info@azienda.it"),
+            ("Indirizzo", "Via Esempio 1, 00000 Città (XX)"), ("Web", "www.azienda.it")]
+
+
+def contatti_retro(x, w, bottom=MARG):
+    """Blocco contatti del retro: titoletto, filetto e righe etichetta/valore, ancorato al margine basso."""
+    righe = "".join(f"<dt>{k}</dt><dd>{TBD(v)}</dd>" for k, v in CONTATTI)
+    return (f'<div class="rcontatti" style="left:{x:.1f}mm;bottom:{bottom:.1f}mm;width:{w:.1f}mm">'
+            f'<div class="h5">Contatti</div><dl>{righe}</dl></div>')
+
+
 def retro():
     return (el("cover-t sm", "Portfolio", .5, .45) + el("small", AZ + " — Espositori 2026", .5, .97, 3)
-            + el("h5", "Telefono", .5, 4.2) + el("small", TBD("+39 000 000 0000"), .5, 4.38)
-            + el("h5", "Email", 1.7, 4.2) + el("small", TBD("info@azienda.it"), 1.7, 4.38)
-            + el("h5", "Indirizzo", 2.9, 4.2) + el("small", TBD("Via Esempio 1, Città"), 2.9, 4.38, 1.3)
-            + plus(1, 1) + plus(6, 1) + plus(1, 4) + plus(6, 4))
+            + contatti_retro(g(.5, 0)[0], 110)
+            + plus(1, 1) + plus(6, 1) + plus(6, 4))
 
 
 def build():

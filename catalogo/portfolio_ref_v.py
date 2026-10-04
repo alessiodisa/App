@@ -117,7 +117,7 @@ def coppia(titolo, sez, a, b, testo, h=176):
     y = TOP + 4 + h
     return pagina(titolo, sez, foto(a, x2(0), TOP + 4, COL, h) + foto(b, x2(1), TOP + 4, COL, h)
                   + txt(nomf(a), x2(0), y + 5, COL) + txt(nomf(b), x2(1), y + 5, COL)
-                  + txt(f'<div class="desc">{testo}</div>', x2(0), y + 22, COL))
+                  + (txt(f'<div class="desc">{testo}</div>', x2(0), y + 22, COL) if testo else ""))
 
 
 def terzetto(titolo, sez, codes):
@@ -301,13 +301,13 @@ def build():
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"),
                       ("Spedizione", "Piatta, montaggio in pochi minuti")]),
         overview("Logistica", T, "T05", ZONE[T][3][1], [], fh=178),
-        coppia("Portata", T, "T08", "T13", blocco("Portata", ZONE[T][0][1])),
-        coppia("Forme", T, "T14", "T09", blocco("Forme", "Vani incassati e fianchi sagomati: la struttura diventa parte del racconto del marchio, senza rinunciare alla portata.")),
-        coppia("Ripiani", T, "T15", "T07", blocco("Ripiani", "Fianchi inclinati, ripiani a vista e header sagomato: struttura leggera, grafica a tutta superficie.")),
-        coppia("Grafica e brand", T, "T10", "T11", R.GRAFICA),
-        coppia("Progetti", T, "T01", "T02", blocco("Materiali", ZONE[T][1][1])),
-        coppia("Colonna", T, "T12", "T03", blocco("Colonna", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.")),
-        grande(T, "T16", blocco("Stampa e finiture", ZONE[T][2][1])),
+        coppia("Portata", T, "T08", "T13", ""),
+        coppia("Forme", T, "T14", "T09", ""),
+        coppia("Ripiani", T, "T15", "T07", ""),
+        coppia("Grafica e brand", T, "T10", "T11", ""),
+        coppia("Progetti", T, "T01", "T02", ""),
+        coppia("Colonna", T, "T12", "T03", ""),
+        grande(T, "T16", ""),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1

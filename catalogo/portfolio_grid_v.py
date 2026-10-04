@@ -192,10 +192,8 @@ def contatti():
 
 def retro():
     return (el("cover-t sm", "Portfolio", .35, .6) + el("small", AZ + " — Espositori 2026", .35, 1.27, 3)
-            + el("h5", "Telefono", .35, 6.3) + el("small", TBD("+39 000 000 0000"), .35, 6.5)
-            + el("h5", "Email", 1.8, 6.3) + el("small", TBD("info@azienda.it"), 1.8, 6.5)
-            + el("h5", "Indirizzo", 3.2, 6.3) + el("small", TBD("Via Esempio 1, Città"), 3.2, 6.5, 1.45)
-            + plus(1, 1) + plus(4, 1) + plus(1, 6) + plus(4, 6))
+            + PG.contatti_retro(g(.35, 0)[0], 110)
+            + plus(1, 1) + plus(4, 1) + plus(4, 6))
 
 
 def build():

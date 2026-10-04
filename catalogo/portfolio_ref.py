@@ -237,7 +237,7 @@ def coppia(titolo, sez, a, b, testo, h=108):
     y = TOP + 4 + h
     return pagina(titolo, sez, foto(a, M + 4, TOP + 4, w, h) + foto(b, xb, TOP + 4, w, h)
                   + txt(nomf(a), M + 4, y + 5, w) + txt(nomf(b), xb, y + 5, w)
-                  + txt(f'<div class="desc">{testo}</div>', M + 4, y + 21, w))
+                  + (txt(f'<div class="desc">{testo}</div>', M + 4, y + 21, w) if testo else ""))
 
 
 def terzetto(titolo, sez, codes, testo):
@@ -443,13 +443,13 @@ def build():
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"), ("Spedizione", "Piatta, montaggio in pochi minuti")]),
         overview("Logistica", T, "T05", ZONE[T][3][1], []),
-        coppia("Portata", T, "T08", "T13", blocco("Portata", ZONE[T][0][1])),
-        coppia("Forme", T, "T14", "T09", blocco("Forme", "Vani incassati e fianchi sagomati: la struttura diventa parte del racconto del marchio, senza rinunciare alla portata.")),
-        coppia("Ripiani", T, "T15", "T07", blocco("Ripiani", "Fianchi inclinati, ripiani a vista e header sagomato: struttura leggera, grafica a tutta superficie.")),
-        coppia("Grafica e brand", T, "T10", "T11", GRAFICA),
-        coppia("Progetti", T, "T01", "T02", blocco("Materiali", ZONE[T][1][1])),
-        coppia("Colonna", T, "T12", "T03", blocco("Colonna", "Colonna stretta con ripiani laterali: poco ingombro a terra e grafica a tutta altezza.")),
-        grande(T, "T16", blocco("Stampa e finiture", ZONE[T][2][1]), w=100),
+        coppia("Portata", T, "T08", "T13", ""),
+        coppia("Forme", T, "T14", "T09", ""),
+        coppia("Ripiani", T, "T15", "T07", ""),
+        coppia("Grafica e brand", T, "T10", "T11", ""),
+        coppia("Progetti", T, "T01", "T02", ""),
+        coppia("Colonna", T, "T12", "T03", ""),
+        grande(T, "T16", "", w=100),
         contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1
