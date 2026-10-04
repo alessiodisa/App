@@ -242,7 +242,7 @@ def space(titolo, sez, a, b, testo):
 # --------------------------------------------------------------------------
 def indice():
     voci = [("01", "Introduzione", 4), ("02", "Espositori da banco", 6),
-            ("03", "Espositori da terra", 14), ("04", "Contatti", 23)]
+            ("03", "Espositori da terra", 14), ("04", "Contatti", 24)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', X0, TOP + 10, CW)
                   + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '
@@ -312,10 +312,9 @@ def build():
         coppia("Progetti", T, "T01", "T02", ""),
         coppia("Colonna", T, "T12", "T03", ""),
         grande(T, "T16", ""),
-        contatti(),
     ]
     # pagina bianca provvisoria prima della copertina (da rimuovere in seguito): la copertina resta pagina 1
-    pages = [("blank pre", ""), ("grid", GV.copertina()), ("blank", "")] + [("ref", p) for p in interne] + [("grid", GV.retro())]
+    pages = [("blank pre", ""), ("grid", GV.copertina()), ("blank", "")] + [("ref", p) for p in interne] + [("blank", "")] + [("grid", GV.retro())]
     html = []
     for i, (cls, body) in enumerate(pages, start=0):
         side = "pr" if i % 2 else "pl"
