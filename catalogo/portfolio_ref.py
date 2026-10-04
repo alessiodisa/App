@@ -352,7 +352,7 @@ def chi_siamo():
         x = M + 4 + i * (w + gap)
         corpo += (dwg(f"img/disegni/chi-{n}.svg", x, TOP + 4, w, 58).replace('class="dwg"', 'class="dwg mult"')
                   + f'<div class="tagc" style="{bx(x, TOP + 68)}">{n}</div>' + txt(blocco(t, d), x, TOP + 72, w))
-    corpo += txt(settori(), M + 4, 150, 120) + txt(chips(), W - M - 4 - 120, 150, 120)
+    corpo += txt(settori(), M + 4, 150, W - 2 * M - 8)
     return pagina("", "Introduzione", corpo, mostra=False)
 
 
@@ -377,7 +377,7 @@ FINITURE = (blocco("Stampa e finiture",
 
 
 def settori():
-    return f'<p class="big">{CHI_FRASE}</p>'
+    return f'<p class="big" style="white-space:nowrap">{CHI_FRASE}</p>'
 
 
 def chips():

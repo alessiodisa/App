@@ -268,7 +268,7 @@ def chi_siamo():
         x, y = x2(i % 2), TOP + 4 + (i // 2) * 92
         corpo += (dwg(f"img/disegni/chi-{n}.svg", x, y, COL, 58).replace('class="dwg"', 'class="dwg mult"')
                   + f'<div class="tagc" style="{bx(x, y + 62)}">{n}</div>' + txt(blocco(t, d), x, y + 66, COL))
-    corpo += txt(R.settori(), x2(0), 232, COL) + txt(R.chips(), x2(1), 232, COL)
+    corpo += txt(R.settori(), x2(0), 232, CW)
     return pagina("", "Introduzione", corpo, mostra=False)
 
 
