@@ -74,7 +74,7 @@ def _pad(code):
 ORIG = json.loads((ROOT / "img" / "orig" / "orig.json").read_text())
 
 
-SQZOOM = {"B01": 1.18}                   # leggero zoom sulle foto quadrate, per poterle centrare sull'espositore
+SQZOOM = {}                   # leggero zoom sulle foto quadrate, per poterle centrare sull'espositore
 ZOOM = {"B20": 1.15, "T11": 1.12, "T10": 1.12, "T09": 1.12, "T15": 1.12}   # ingrandimenti mirati per pareggiare la scala tra foto affiancate
 SHIFT = {"T15": .04, "T07": .06, "B21": .06}          # spostamento in basso dell'espositore (quota del riquadro), per allineare le basi
 FILL = {"T02": .68, "T12": .68, "B19": .8, "B21": .8, "B03": .72, "T01": .78, "B22": .78}  # quota d'altezza del riquadro occupata dall'espositore (come i vicini)
@@ -280,8 +280,14 @@ def alto(sez, big, a, b, h=126):
 
 
 def creative(titolo, sez, codes, testo):
-    """Griglia 2×2 a sinistra, colonna di testo a destra in basso (Creative Work)."""
+    """Griglia 2×2 a sinistra, colonna di testo a destra in basso (Creative Work).
+    Con tre foto: le prime due impilate a sinistra, la terza grande accanto, legenda a destra."""
     w, h, g = 84, 72, 4                       # righe allineate alle foto impilate di academic
+    if len(codes) == 3:
+        ws, wb = 64, 140
+        corpo = (foto(codes[0], M + 4, TOP + 4, ws, h) + foto(codes[1], M + 4, TOP + 4 + h + g, ws, h)
+                 + foto(codes[2], M + 4 + ws + g, TOP + 4, wb, 2 * h + g))
+        return pagina(titolo, sez, corpo + txt(legenda(codes), M + 4 + ws + g + wb + 10, 88, 43))
     corpo = "".join(foto(c, M + 4 + (i % 2) * (w + g), TOP + 4 + (i // 2) * (h + g), w, h) for i, c in enumerate(codes))
     xl = M + 2 * w + g + 20
     return pagina(titolo, sez, corpo + txt(legenda(codes[:2]), xl, 88, 40) + txt(legenda(codes[2:]), xl + 43, 88, 40))
@@ -433,10 +439,10 @@ def build():
         overview("Espositori da banco", B, "B13", INTRO[B],
                  [("Materiali", "Cartone, cartoncino, forex, plexi, legno"),
                   ("Montaggio", "Pochi secondi, senza colla")]),
-        philosophy("Progetti", B, ["B02", "B17", "B09", "B11"]),
+        philosophy("Progetti", B, ["B02", "B17", "B10", "B11"]),
         urban("Stampa e finiture", B, "B12", "B16", FINITURE),
         alto(B, "B04", "B21", "B19"),
-        creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
+        creative("Su misura", B, ["B06", "B05", "B01"], zb(3)),
         grande(B, "B15", ""),
         tris(B, "B03", "B22", "B23"),
         academic("Materiali", B, "B20", "B08", "B07", zb(1)),

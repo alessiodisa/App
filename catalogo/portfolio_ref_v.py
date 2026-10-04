@@ -160,12 +160,16 @@ def didascalie(sez, big, small, testo, RA=RA, YB=YB, RB=RB):
 
 
 def quattro(sez, codes, testo):
-    """Griglia 2×2 con le stesse altezze di tre_legenda (righe da 84 mm), numeri sotto e legenda in basso."""
+    """Griglia 2×2 con le stesse altezze di tre_legenda (righe da 84 mm), numeri sotto e legenda in basso.
+    Con tre foto la terza è larga tutta la pagina e la sua riga è più alta, per mostrarla intera."""
     h = (HB - 12) / 2                       # blocco immagini alto HB, come le pagine affiancate
+    hs = [h, h] if len(codes) == 4 else [78, HB - 12 - 78]
     corpo = ""
     for i, c in enumerate(codes):
-        x, y = x2(i % 2), TOP + 4 + (i // 2) * (h + 12)
-        corpo += foto(c, x, y, COL, h) + tag(c, x, y + h + 2.5, COL)
+        x, y = x2(i % 2), TOP + 4 + (i // 2) * (hs[0] + 12)
+        w = CW if len(codes) == 3 and i == 2 else COL
+        hh = hs[i // 2]
+        corpo += foto(c, x, y, w, hh) + tag(c, x, y + hh + 2.5, COL)
     yb = TOP + 4 + HB + 10
     return pagina("", sez, corpo + txt(legenda(codes[:2]), x2(0), yb, COL)
                   + txt(legenda(codes[2:]), x2(1), yb, COL))
@@ -290,10 +294,10 @@ def build():
         overview("Espositori da banco", B, "B13", INTRO[B],
                  [("Materiali", "Cartone, cartoncino, forex, plexi, legno"),
                   ("Montaggio", "Pochi secondi, senza colla")]),
-        griglia(B, ["B02", "B17", "B09", "B11"]),
+        griglia(B, ["B02", "B17", "B10", "B11"]),
         didascalie(B, "B12", "B16", R.FINITURE, **G89),
         alto(B, "B04", "B21", "B19", **G89),
-        quattro(B, ["B06", "B05", "B01", "B10"], zona(B, 3)),
+        quattro(B, ["B06", "B05", "B01"], zona(B, 3)),
         grande(B, "B15", ""),
         tris(B, "B03", "B22", "B23"),
         tre_legenda(B, "B20", "B08", "B07"),
