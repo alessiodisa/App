@@ -356,9 +356,9 @@ def chi_siamo():
     corpo = ""
     for i, (n, t, d) in enumerate(fasi):
         x = M + 4 + i * (w + gap)
-        corpo += (dwg(f"img/disegni/chi-{n}.svg", x, TOP + 4, w, 58).replace('class="dwg"', 'class="dwg mult"')
-                  + f'<div class="tagc" style="{bx(x, TOP + 68)}">{n}</div>' + txt(blocco(t, d), x, TOP + 72, w))
-    corpo += txt(settori(), M + 4, 150, W - 2 * M - 8)
+        corpo += (dwg(f"img/disegni/chi-{n}.svg", x, TOP + 14, w, 58).replace('class="dwg"', 'class="dwg mult"')
+                  + f'<div class="tagc" style="{bx(x, TOP + 78)}">{n}</div>' + txt(blocco(t, d), x, TOP + 82, w))
+    corpo += txt(settori(), M + 4, 160, W - 2 * M - 8)
     return pagina("", "Introduzione", corpo, mostra=False)
 
 

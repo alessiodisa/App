@@ -269,10 +269,10 @@ def chi_siamo():
             ("04", "Logistica", "Spedizione piatta o premontata, in Italia e all’estero.")]
     corpo = ""
     for i, (n, t, d) in enumerate(fasi):
-        x, y = x2(i % 2), TOP + 4 + (i // 2) * 92
+        x, y = x2(i % 2), TOP + 20 + (i // 2) * 92          # più in basso, in linea con i disegni di pagina 4
         corpo += (dwg(f"img/disegni/chi-{n}.svg", x, y, COL, 58).replace('class="dwg"', 'class="dwg mult"')
                   + f'<div class="tagc" style="{bx(x, y + 62)}">{n}</div>' + txt(blocco(t, d), x, y + 66, COL))
-    corpo += txt(R.settori(), x2(0), 232, CW)
+    corpo += txt(R.settori(), x2(0), 248, CW)
     return pagina("", "Introduzione", corpo, mostra=False)
 
 
