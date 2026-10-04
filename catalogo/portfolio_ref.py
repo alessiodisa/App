@@ -267,7 +267,7 @@ def tris(sez, big, a, b, h=126):
 def grande(sez, code, testo, h=126):
     """Una foto grande con scheda e testo descrittivo accanto."""
     return pagina("", sez, foto(code, M + 4, TOP + 4, 150, h)
-                  + txt(nomf(code) + f'<div class="desc" style="margin-top:8mm">{testo}</div>', M + 170, TOP + 4, 95))
+                  + txt(nomf(code) + (f'<div class="desc" style="margin-top:8mm">{testo}</div>' if testo else ""), M + 170, TOP + 4, 95))
 
 
 def alto(sez, big, a, b, h=126):
@@ -437,7 +437,7 @@ def build():
         urban("Stampa e finiture", B, "B12", "B16", FINITURE),
         alto(B, "B04", "B21", "B19"),
         creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
-        grande(B, "B15", f"<p>{ZONE[B][0][1]}</p>"),
+        grande(B, "B15", ""),
         tris(B, "B03", "B22", "B23"),
         academic("Materiali", B, "B20", "B08", "B07", zb(1)),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
