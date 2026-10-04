@@ -45,7 +45,7 @@ TIPO = {
     "B23": "Espositore da banco porta locandina a cornice con base",
     "T01": "Espositore da terra a colonna sagomata con 4 ripiani a sbalzo",
     "T02": "Espositore da terra a ganci con header e base",
-    "T03": "Espositore da terra a 4 ripiani a sbalzo",
+    "T03": "Espositore da terra a colonna con 3 vani a vista",
     "T04": "Espositore da terra a 4 ripiani",
     "T05": "Espositore da terra a 4 ripiani con header",
     "T06": "Espositore da terra a 4 ripiani con crowner",
