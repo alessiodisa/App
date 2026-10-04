@@ -207,9 +207,9 @@ def tris(sez, big, a, b):
 
 def grande(sez, code, testo):
     """Una foto grande a tutta larghezza (stessa altezza del blocco di tris), sotto testo e scheda."""
-    return pagina("", sez, foto(code, X0, TOP + 4, CW, 210) + tag(code, X0, TOP + 216.5, COL)
-                  + txt(f'<div class="desc">{testo}</div>', x2(0), TOP + 226, COL)
-                  + txt(nomf(code), x2(1), TOP + 226, COL))
+    return pagina("", sez, foto(code, X0, TOP + 4, CW, 210)
+                  + txt(nomf(code), x2(0), TOP + 218, COL)
+                  + txt(f'<div class="desc">{testo}</div>', x2(1), TOP + 218, COL))
 
 
 def coppia_z(sez, a, b, z=.8, RA=RA):
@@ -293,7 +293,7 @@ def build():
         didascalie(B, "B12", "B16", R.FINITURE),
         alto(B, "B04", "B21", "B19"),
         quattro(B, ["B06", "B05", "B01", "B10"], zona(B, 3)),
-        grande(B, "B15", zona(B, 0)),
+        grande(B, "B15", f"<p>{ZONE[B][0][1]}</p>"),
         tris(B, "B03", "B22", "B23"),
         tre_legenda(B, "B20", "B08", "B07"),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],

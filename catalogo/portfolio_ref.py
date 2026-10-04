@@ -437,7 +437,7 @@ def build():
         urban("Stampa e finiture", B, "B12", "B16", FINITURE),
         alto(B, "B04", "B21", "B19"),
         creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
-        grande(B, "B15", zona(B, 0)),
+        grande(B, "B15", f"<p>{ZONE[B][0][1]}</p>"),
         tris(B, "B03", "B22", "B23"),
         academic("Materiali", B, "B20", "B08", "B07", zb(1)),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
