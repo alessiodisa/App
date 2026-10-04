@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T10:57:46.885549+00:00",
+  "generated_at": "2026-10-04T17:22:55.035007+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -429,6 +429,19 @@
       }
     },
     {
+      "name": "Alexis Yara",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
       "name": "Axel Emmanuel Gerard Akafou",
       "number": null,
       "position": "midfielder",
@@ -513,19 +526,6 @@
       "position_label": "Centrocampista",
       "stats": {
         "appearances": "1",
-        "goals": 0,
-        "yellow_cards": 0,
-        "red_cards": 0,
-        "motm": 0
-      }
-    },
-    {
-      "name": "Tommaso Benvenuti",
-      "number": null,
-      "position": "midfielder",
-      "position_label": "Centrocampista",
-      "stats": {
-        "appearances": "0",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
