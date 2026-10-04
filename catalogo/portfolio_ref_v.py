@@ -295,7 +295,7 @@ def build():
         quattro(B, ["B06", "B05", "B01", "B10"], zona(B, 3)),
         grande(B, "B15", zona(B, 0)),
         tris(B, "B03", "B22", "B23"),
-        tre_legenda(B, "B08", "B20", "B07"),
+        tre_legenda(B, "B20", "B08", "B07"),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"),
                       ("Spedizione", "Piatta, montaggio in pochi minuti")]),

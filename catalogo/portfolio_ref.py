@@ -439,7 +439,7 @@ def build():
         creative("Su misura", B, ["B06", "B05", "B01", "B10"], zb(3)),
         grande(B, "B15", zona(B, 0)),
         tris(B, "B03", "B22", "B23"),
-        academic("Materiali", B, "B08", "B20", "B07", zb(1)),
+        academic("Materiali", B, "B20", "B08", "B07", zb(1)),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"), ("Spedizione", "Piatta, montaggio in pochi minuti")]),
         overview("Logistica", T, "T05", ZONE[T][3][1], []),
