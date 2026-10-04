@@ -26,6 +26,7 @@ def pagina(titolo, sezione, corpo, mostra=True):
 
 HB = 210                              # altezza del blocco immagini nelle pagine 10-13
 RA, YB, RB = 106, TOP + 132, 90       # griglia comune delle doppie pagine con foto
+G89 = dict(RA=116, YB=TOP + 142, RB=82)  # pagine 8-9: riga alta più alta (B12 intero), riga bassa più bassa
 
 
 def x2(i):
@@ -180,7 +181,7 @@ def tre_legenda(sez, a, b, tall):
                   + txt(legenda([a, b, tall]), X0, TOP + 223, CW))
 
 
-def alto(sez, big, a, b):
+def alto(sez, big, a, b, RA=RA, YB=YB, RB=RB):
     """Foto grande a tutta larghezza in alto (riga A), due foto affiancate sotto (riga B), didascalie sotto."""
     return pagina("", sez, foto(big, X0, TOP + 4, CW, RA) + txt(nomf(big), x2(0), TOP + RA + 9, COL)
                   + foto(a, x2(0), YB, COL, RB) + txt(nomf(a), x2(0), YB + RB + 3, COL)
@@ -290,8 +291,8 @@ def build():
                  [("Materiali", "Cartone, cartoncino, forex, plexi, legno"),
                   ("Montaggio", "Pochi secondi, senza colla")]),
         griglia(B, ["B02", "B17", "B09", "B11"]),
-        didascalie(B, "B12", "B16", R.FINITURE),
-        alto(B, "B04", "B21", "B19"),
+        didascalie(B, "B12", "B16", R.FINITURE, **G89),
+        alto(B, "B04", "B21", "B19", **G89),
         quattro(B, ["B06", "B05", "B01", "B10"], zona(B, 3)),
         grande(B, "B15", ""),
         tris(B, "B03", "B22", "B23"),
