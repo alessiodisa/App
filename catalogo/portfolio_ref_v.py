@@ -159,9 +159,6 @@ def didascalie(sez, big, small, testo, RA=RA, YB=YB, RB=RB):
                   + txt(f'<div class="desc">{testo}</div>', x2(0), YB, COL))
 
 
-ZV = {"B05": 1.12}                      # zoom solo nella versione verticale
-
-
 def quattro(sez, codes, testo):
     """Griglia 2×2 con le stesse altezze di tre_legenda (righe da 84 mm), numeri sotto e legenda in basso.
     Con tre foto la terza è larga tutta la pagina e la sua riga è più alta, per mostrarla intera."""
@@ -172,7 +169,7 @@ def quattro(sez, codes, testo):
         x, y = x2(i % 2), TOP + 4 + (i // 2) * (hs[0] + 12)
         w = CW if len(codes) == 3 and i == 2 else COL
         hh = hs[i // 2]
-        corpo += foto(c, x, y, w, hh, z=ZV.get(c, 1)) + tag(c, x, y + hh + 2.5, COL)
+        corpo += foto(c, x, y, w, hh) + tag(c, x, y + hh + 2.5, COL)
     yb = TOP + 4 + HB + 10
     return pagina("", sez, corpo + txt(legenda(codes[:2]), x2(0), yb, COL)
                   + txt(legenda(codes[2:]), x2(1), yb, COL))
