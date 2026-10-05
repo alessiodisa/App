@@ -42,7 +42,7 @@ def meta(code):
 def copertina():
     x, y = g(4.65, .95)
     return (el("small", "Vol. 01 — 2027", .35, .6)
-            + el("small right", "Progettato e prodotto da", 2.5, .6, 2.15) + PG.logo(W - g(4.65, 0)[0], g(4.65, .77)[1], 36, right=True)
+            + PG.logo(W - g(4.65, 0)[0], g(4.65, .6)[1], 36, right=True)
             + f'<img class="drawing" src="img/esploso-terra.svg" style="right:{W - x:.1f}mm;top:{y:.1f}mm;height:185mm" alt="">'
             + el("small", "Cartotecnica ed espositori per il punto vendita: progettazione, prototipazione e produzione. "
                  "Cartone, cartoncino e materiali durevoli.", .35, 1.3, 1.9)
