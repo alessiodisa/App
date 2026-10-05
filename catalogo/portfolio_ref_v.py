@@ -244,14 +244,13 @@ def indice():
     voci = [("01", "Introduzione", 2), ("02", "Espositori da banco", 4), ("03", "Espositori da terra", 12)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', X0, TOP + 10, CW)
-                  + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '
-                        'le schede riportano solo i dati tecnici essenziali.</p>', X0, 140, 120))
+                  + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti.</p>', X0, 140, 120))
 
 
 def metodo():
     intro = (f'<h4>Dal progetto alla realizzazione</h4><p class="metodo">' + R.METODO_TXT + "</p>"
              + '<p class="note2">' + R.METODO_NOTA + "</p>")
-    fasi = "".join(f'<div class="fase"><span>0{i + 1}</span>{blocco(t, d)}</div>' for i, (t, d) in enumerate([
+    fasi = "".join(f'<div class="fase"><span>0{i + 1}</span><h4>{t}</h4></div>' for i, (t, d) in enumerate([
         ("Schizzo", "Proporzioni, ingombri e altezze dei ripiani."),
         ("Disegno tecnico", "Tracciati di fustella e render 3D."),
         ("Prototipo", "Campione fisico, test di carico e montaggio."),
@@ -303,7 +302,9 @@ def build():
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"),
                       ("Spedizione", "Piatta, montaggio in pochi minuti")]),
-        overview("Logistica", T, "T05", ZONE[T][3][1], [], fh=178),
+        overview("Configurazioni", T, "T05", "Monofacciale o bifacciale, a ripiani, a ganci, a vani o a podi: la forma nasce dal prodotto "
+                 "e dal punto in cui verrà esposto. Header e crowner portano il messaggio in alto, basi e fianchi rinforzati "
+                 "danno stabilità a pieno carico, e la stessa struttura si adatta a campagne diverse cambiando solo la grafica.", [], fh=178),
         coppia("Portata", T, "T08", "T13", ""),
         coppia("Forme", T, "T14", "T09", ""),
         coppia("Ripiani", T, "T15", "T07", ""),

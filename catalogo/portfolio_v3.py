@@ -22,7 +22,7 @@ BANCO, TERRA = "Espositori da banco", "Espositori da terra"
 
 # tipologia tecnica di ogni espositore (da confermare)
 TIPO = {
-    "B01": "Espositore da banco a 2 gradini con header",
+    "B01": "Espositore da banco a pedana con gradino ad arco e fondale",
     "B02": "Espositore da banco a 2 scomparti inclinati con header",
     "B03": "Espositore da banco a vassoio inclinato con header",
     "B04": "Espositore da banco a vassoio con fondale",
@@ -34,7 +34,7 @@ TIPO = {
     "B10": "Espositore da banco a pedana curva con fondale",
     "B11": "Espositore da banco a 4 ripiani a sbalzo con fondale",
     "B12": "Espositore da banco a fondale con 3 nicchie",
-    "B13": "Espositore da banco a pedana con fondale",
+    "B13": "Espositore da banco a gradini con fondale",
     "B15": "Espositore da banco a box con doppio fondale",
     "B16": "Espositore da banco monoprodotto con fondale",
     "B17": "Espositore da banco a 3 gradini con header",
@@ -62,10 +62,12 @@ TIPO = {
 }
 
 INTRO = {
-    BANCO: "Gli espositori da banco lavorano nel punto più vicino alla scelta: accanto alla cassa, sul banco della "
-           "farmacia, in vetrina. Strutture compatte che portano il prodotto all’altezza dello sguardo e si montano in pochi gesti.",
-    TERRA: "Gli espositori da terra portano il prodotto fuori dallo scaffale e lo rendono visibile da lontano. "
-           "Strutture autoportanti a più ripiani, con header per la comunicazione, pensate per reggere il carico e montarsi in pochi minuti.",
+    BANCO: "L’espositore da banco lavora dove si decide l’acquisto: accanto alla cassa, sul banco della farmacia, "
+           "in vetrina. Compatto e leggero, porta il prodotto all’altezza dello sguardo, ordina la gamma in poco spazio "
+           "e trasforma l’ultimo metro prima del pagamento in comunicazione di marca.",
+    TERRA: "L’espositore da terra crea un punto vendita nel punto vendita: porta il prodotto fuori dallo scaffale, "
+           "lo rende visibile da lontano e ne racconta la marca su tutta l’altezza. Struttura autoportante, "
+           "ripiani dimensionati sul carico e grafica a vivo su ogni superficie.",
 }
 
 ZONE = {

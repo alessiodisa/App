@@ -19,7 +19,16 @@ Schemi di pagina della reference (A4 orizzontale, 297 × 210 mm):
 import json
 import portfolio_grid as PG
 import portfolio_v3 as V3
-from portfolio_grid import TBD, AZ, cid, ROOT, BB
+from portfolio_grid import TBD, AZ, cid as cid_file, ROOT, BB
+
+# numeri mostrati nel catalogo: progressivi nell'ordine in cui gli espositori compaiono (i file restano col codice interno)
+ORDINE = ['B13', 'B02', 'B17', 'B10', 'B11', 'B12', 'B16', 'B04', 'B21', 'B19', 'B06', 'B05', 'B01', 'B15', 'B03', 'B22', 'B23', 'B20', 'B08', 'B07'] + \
+         ['T05', 'T08', 'T13', 'T14', 'T09', 'T15', 'T07', 'T10', 'T11', 'T01', 'T02', 'T12', 'T03', 'T16']
+NUMERO = {c: f"{c[0]}.{[o for o in ORDINE if o[0] == c[0]].index(c) + 1:02d}" for c in ORDINE}
+
+
+def cid(c):
+    return NUMERO.get(c) or cid_file(c)
 
 W, H = 297, 210
 M = 16                    # margine laterale
@@ -341,8 +350,7 @@ def indice():
     voci = [("01", "Introduzione", 2), ("02", "Espositori da banco", 4), ("03", "Espositori da terra", 12)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', M + 4, TOP + 10, 150)
-                  + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti, '
-                        'le schede riportano solo i dati tecnici essenziali.</p>', 190, TOP + 10, 75))
+                  + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti.</p>', 190, TOP + 10, 75))
 
 
 def chi_siamo():
