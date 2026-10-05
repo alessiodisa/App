@@ -20,7 +20,14 @@ CB = json.loads((ROOT / "img" / "cbbox.json").read_text())   # ingombro nelle sc
 
 W, H = 297, 210
 C, R = W / 7, H / 5            # modulo di griglia: 42,43 × 42 mm
-AZ = '<span class="tbd">[NOME AZIENDA]</span>'
+AZ = "Onprint"
+LOGO = "img/logo-onprint.png"
+
+
+def logo(x, y, w, right=False):
+    """Logo aziendale (fondo bianco reso trasparente con multiply)."""
+    pos = f"right:{x:.1f}mm" if right else f"left:{x:.1f}mm"
+    return f'<img class="logo" src="{LOGO}" style="{pos};top:{y:.1f}mm;width:{w:.1f}mm" alt="Onprint">'
 
 
 def TBD(s):
@@ -121,8 +128,8 @@ def voce_indice(n, t, p, r):
 
 def copertina():
     x, y = g(6.5, .45)
-    return (el("small", "Vol. 01 — 2026", .5, .45)
-            + el("small", "Progettato e prodotto da", .5, .75) + el("h3", AZ, .5, .9)
+    return (el("small", "Vol. 01 — 2027", .5, .45)
+            + el("small", "Progettato e prodotto da", .5, .75) + logo(g(.5, .9)[0], g(.5, .9)[1], 32)
             + el("small", "Cartotecnica ed espositori per il punto vendita: progettazione, prototipazione e produzione. "
                  "Cartone, cartoncino e materiali durevoli.", .5, 1.35, 2.6)
             + f'<img class="drawing" src="img/esploso-terra.svg" style="right:{W - x:.1f}mm;top:{y:.1f}mm;height:{H - 2 * MARG:.1f}mm" alt="">'
@@ -282,23 +289,23 @@ def contatti():
             + el("h5", "Indirizzo", .5, 3.2) + el("contact", TBD("Via Esempio 1, 00000 Città (XX)"), .5, 3.37, 2.8)
             + el("h5", "Web", 3.5, 3.2) + el("contact", TBD("www.azienda.it"), 3.5, 3.37, 2.5)
             + el("bar", "", .5, 4.2, 6)
-            + el("small", AZ + " — Portfolio Espositori 2026", .5, 4.47, 3))
+            + el("small", AZ + " — Portfolio Espositori 2027", .5, 4.47, 3))
 
 
-CONTATTI = [("Telefono", "+39 000 000 0000"), ("Email", "info@azienda.it"),
-            ("Indirizzo", "Via Esempio 1, 00000 Città (XX)"), ("Web", "www.azienda.it")]
+CONTATTI = [("Telefono", "049 630390"), ("Email", TBD("[email]")), ("Web", "www.onprint.it"),
+            ("Indirizzo", "Viale dell’Industria 26, 35030 Rubano (PD)"), ("P. IVA", "04693550289"), ("Codice univoco", "T04ZHR3")]
 
 
 def contatti_retro(x, w, bottom=MARG):
     """Blocco contatti del retro: titoletto, filetto e righe etichetta/valore, ancorato al margine basso."""
-    righe = "".join(f"<dt>{k}</dt><dd>{TBD(v)}</dd>" for k, v in CONTATTI)
+    righe = "".join(f"<dt>{k}</dt><dd>{v}</dd>" for k, v in CONTATTI)
     return (f'<div class="rcontatti" style="left:{x:.1f}mm;bottom:{bottom:.1f}mm;width:{w:.1f}mm">'
             f'<div class="h5">Contatti</div><dl>{righe}</dl></div>')
 
 
 def retro():
-    return (el("cover-t sm", "Portfolio", .5, .45) + el("small", AZ + " — Espositori 2026", .5, .97, 3)
-            + contatti_retro(g(.5, 0)[0], 110)
+    return (el("cover-t sm", "Portfolio", .5, .45) + el("small", AZ + " — Espositori 2027", .5, .97, 3)
+            + contatti_retro(g(.5, 0)[0], 110) + logo(MARG, H - MARG - 13.5, 36, right=True)
             + plus(1, 1) + plus(6, 1) + plus(6, 4))
 
 

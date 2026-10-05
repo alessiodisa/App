@@ -319,7 +319,7 @@ def build():
     for i, (cls, body) in enumerate(pages, start=0):          # numerazione: indice = 01, copertina e retro senza numero
         side = "pr" if i % 2 else "pl"
         foot = "" if cls.split()[0] in ("grid", "blank") else (f'<div class="pn" style="{bx(M, 280)}">{i - 2:02d}</div>'
-                                                                f'<div class="ft" style="right:{M}mm;top:282mm">Portfolio Espositori 2026</div>')
+                                                                f'<div class="ft" style="right:{M}mm;top:282mm">Portfolio Espositori 2027</div>')
         html.append(f'<section class="page {side} {cls}">{body}{foot}\n</section>')
     doc = f"""<!DOCTYPE html>
 <html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
