@@ -40,14 +40,14 @@ def meta(code):
 # pagine
 # --------------------------------------------------------------------------
 def copertina():
-    x, y = g(4.65, .95)
+    x, y = g(4.65, 1.35)
     return (el("small", "Vol. 01 — 2027", .35, .6)
             + PG.logo(W - g(4.65, 0)[0], g(4.65, .6)[1], 36, right=True)
-            + f'<img class="drawing" src="img/esploso-terra.svg" style="right:{W - x:.1f}mm;top:{y:.1f}mm;height:185mm" alt="">'
+            + f'<img class="drawing" src="img/esploso-terra.svg" style="right:{W - x:.1f}mm;top:{y:.1f}mm;height:172mm" alt="">'
             + el("small", "Cartotecnica ed espositori per il punto vendita: progettazione, prototipazione e produzione. "
-                 "Cartone, cartoncino e materiali durevoli.", .35, 1.3, 1.9)
-            + el("capline", "<b>Fig. 01</b>Espositore da terra — vista esplosa", .35, 4.2, 1.9)
-            + el("light-t xl", "Portfolio", .35, 4.85) + el("cover-t", "Espositori", .35, 5.15)
+                 "Cartone, cartoncino e materiali durevoli.", .35, 1.7, 1.9)
+            + el("capline", "<b>Fig. 01</b>Espositore da terra — vista esplosa", .35, 4.55, 1.9)
+            + el("light-t xl", "Portfolio", .35, 5.0) + el("cover-t", "Espositori", .35, 5.3)
             + plus(1, 1) + plus(1, 4) + plus(4, 6))
 
 
