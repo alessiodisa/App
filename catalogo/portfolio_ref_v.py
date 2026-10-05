@@ -182,7 +182,7 @@ def tre_legenda(sez, a, b, tall):
     return pagina("", sez, foto(a, x2(0), TOP + 4, COL, h) + tag(a, x2(0), TOP + 4 + h + 1.5, COL)
                   + foto(b, x2(0), TOP + 16 + h, COL, hs) + tag(b, x2(0), yb + 2.5, COL)
                   + foto(tall, x2(1), TOP + 4, COL, HB, z=.76) + tag(tall, x2(1), yb + 2.5, COL)
-                  + txt(legenda([a, b, tall]), X0, TOP + 223, CW))
+                  + txt(legenda([a, b]), x2(0), TOP + 223, COL) + txt(legenda([tall]), x2(1), TOP + 223, COL))
 
 
 def alto(sez, big, a, b, RA=RA, YB=YB, RB=RB):
@@ -207,7 +207,7 @@ def tris(sez, big, a, b):
     return pagina("", sez, foto(big, X0, TOP + 4, CW, hb) + tag(big, X0, TOP + 4 + hb + 1.5, COL)
                   + foto(a, x2(0), TOP + 16 + hb, COL, hs) + tag(a, x2(0), TOP + 4 + HB + 2.5, COL)
                   + foto(b, x2(1), TOP + 16 + hb, COL, hs) + tag(b, x2(1), TOP + 4 + HB + 2.5, COL)
-                  + txt(legenda([big, a, b]), X0, TOP + 223, CW))
+                  + txt(legenda([big, a]), x2(0), TOP + 223, COL) + txt(legenda([b]), x2(1), TOP + 223, COL))
 
 
 def grande(sez, code, testo):
