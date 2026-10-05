@@ -292,7 +292,7 @@ def contatti():
             + el("small", AZ + " — Portfolio Espositori 2027", .5, 4.47, 3))
 
 
-CONTATTI = [("Telefono", "049 630390"), ("Email", TBD("[email]")), ("Web", "www.onprint.it"),
+CONTATTI = [("Telefono", "049 630390"), ("Email", "info@onprint.it"), ("Web", "www.onprint.it"),
             ("Indirizzo", "Viale dell’Industria 26, 35030 Rubano (PD)"), ("P. IVA", "04693550289"), ("Codice univoco", "T04ZHR3")]
 
 
