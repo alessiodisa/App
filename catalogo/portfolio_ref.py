@@ -375,7 +375,7 @@ FINITURE = (blocco("Stampa e finiture",
                    "e completiamo la grafica con lavorazioni che aggiungono luce, profondità e tatto.")
             + '<ul class="fin">' + "".join(f"<li>{v}</li>" for v in [
                 "Stampa offset e digitale", "Colori Pantone e metallizzati", "Plastificazione opaca, lucida e soft-touch",
-                "Vernice UV lucida, opaca e selettiva", "UV a spessore e effetti 3D", "Lamina a caldo e a freddo",
+                "Vernice UV lucida, opaca e selettiva", "UV a spessore ed effetti 3D", "Lamina a caldo e a freddo",
                 "Rilievi e bassorilievi a secco", "Effetti glitter e perlescenti", "Carte speciali, naturali e goffrate",
                 "Accoppiatura su microonda e alveolare", "Finestre in PET e fustellati sagomati",
                 "Grafiche a tutta altezza e a vivo"]) + "</ul>")
