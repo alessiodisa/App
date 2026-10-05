@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T18:05:59.728405+00:00",
+  "generated_at": "2026-10-05T22:04:20.636178+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -10,14 +10,14 @@
       "team_id": 8310,
       "pos": 1,
       "name": "TREVISO UNITED",
-      "pts": "10",
-      "played": "4",
-      "wins": "3",
+      "pts": "13",
+      "played": "5",
+      "wins": "4",
       "draws": "1",
       "losses": "0",
-      "for": "14",
-      "against": "5",
-      "gd": "9",
+      "for": "19",
+      "against": "9",
+      "gd": "10",
       "is_treviso_united": true
     },
     {
@@ -109,13 +109,13 @@
       "pos": 8,
       "name": "MIDNIGHT",
       "pts": "6",
-      "played": "4",
+      "played": "5",
       "wins": "2",
       "draws": "0",
-      "losses": "2",
-      "for": "5",
-      "against": "6",
-      "gd": "-1",
+      "losses": "3",
+      "for": "9",
+      "against": "11",
+      "gd": "-2",
       "is_treviso_united": false
     },
     {
@@ -252,7 +252,7 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -291,7 +291,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -304,9 +304,9 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "4",
+        "appearances": "5",
         "goals": 0,
-        "yellow_cards": 2,
+        "yellow_cards": 3,
         "red_cards": 0,
         "motm": 0
       }
@@ -317,9 +317,9 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "3",
+        "appearances": "4",
         "goals": 1,
-        "yellow_cards": 2,
+        "yellow_cards": 3,
         "red_cards": 0,
         "motm": 0
       }
@@ -356,8 +356,8 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "1",
-        "goals": 1,
+        "appearances": "2",
+        "goals": 2,
         "yellow_cards": 0,
         "red_cards": 0,
         "motm": 0
@@ -434,7 +434,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -460,8 +460,8 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "2",
-        "goals": 1,
+        "appearances": "3",
+        "goals": 2,
         "yellow_cards": 1,
         "red_cards": 0,
         "motm": 0
@@ -473,7 +473,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -551,8 +551,8 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "4",
-        "goals": 1,
+        "appearances": "5",
+        "goals": 2,
         "yellow_cards": 1,
         "red_cards": 0,
         "motm": 0
@@ -564,8 +564,8 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "3",
-        "goals": 3,
+        "appearances": "4",
+        "goals": 5,
         "yellow_cards": 0,
         "red_cards": 0,
         "motm": 0
@@ -600,12 +600,6 @@
   ],
   "upcoming_matches": [
     {
-      "date": "2026-10-05T21:00:36",
-      "title": "TREVISO UNITED vs MIDNIGHT",
-      "opponent": "MIDNIGHT",
-      "league": "serie-a-2026-2027"
-    },
-    {
       "date": "2026-10-15T20:00:31",
       "title": "INGARBUJATI NEXT GEN vs TREVISO UNITED",
       "opponent": "INGARBUJATI NEXT GEN",
@@ -633,6 +627,12 @@
       "date": "2026-11-19T22:00:43",
       "title": "TREVISO UNITED vs REAL SANTA MARIA",
       "opponent": "REAL SANTA MARIA",
+      "league": "serie-a-2026-2027"
+    },
+    {
+      "date": "2026-11-26T21:00:28",
+      "title": "F.C. CA’NELSON vs TREVISO UNITED",
+      "opponent": "F.C. CA’NELSON",
       "league": "serie-a-2026-2027"
     }
   ]
