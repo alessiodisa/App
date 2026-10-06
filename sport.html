@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=34">
+<link rel="stylesheet" href="assets/css/style.css?v=35">
 </head>
 <body>
 
@@ -249,6 +249,53 @@
     </div>
   </section>
 
+  <!-- NOVA UNITED -->
+  <section class="squad squad-simple" id="nova-united">
+    <div class="container">
+      <span class="eyebrow" data-i18n="squadNova.eyebrow">Nova United</span>
+      <h2 data-i18n="squadNova.title">Nova United</h2>
+      <p data-i18n="squadNova.text">Nova United è un'altra squadra di calcio a 8 che porta in campo lo spirito United: energia, appartenenza e voglia di vincere insieme.</p>
+    </div>
+
+    <div class="container campionato" id="campionato-nova">
+      <span class="eyebrow" data-i18n="campionato.eyebrow">Il campionato</span>
+      <h2 data-i18n="campionatoNova.title">Calciotto Treviso</h2>
+
+      <div class="campionato-grid">
+        <div class="campionato-card campionato-card-wide">
+          <h3 data-i18n="campionato.standings.title">Classifica</h3>
+          <div class="campionato-table-wrap">
+            <table class="campionato-table" id="campionatoTableNova"></table>
+          </div>
+        </div>
+
+        <div class="campionato-card">
+          <h3 data-i18n="campionato.matches.title">Prossime partite</h3>
+          <ul class="campionato-list" id="campionatoMatchesNova"></ul>
+        </div>
+
+        <details class="campionato-card campionato-card-wide campionato-section-toggle">
+          <summary>
+            <h3 data-i18n="campionato.roster.title">Rosa e statistiche</h3>
+            <span class="campionato-chevron" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          </summary>
+          <div class="campionato-roster" id="campionatoRosterNova"></div>
+        </details>
+
+        <div class="campionato-card campionato-card-wide">
+          <h3 data-i18n="campionato.scorers.title">Classifica marcatori</h3>
+          <div class="campionato-roster" id="campionatoScorersNova"></div>
+        </div>
+      </div>
+
+      <p class="campionato-source">
+        <span data-i18n="campionato.source">Dati aggiornati automaticamente da</span>
+        <a href="https://calciotto.tv/team/nova-united/" target="_blank" rel="noopener">calciotto.tv</a>
+        <span id="campionatoUpdatedNova"></span>
+      </p>
+    </div>
+  </section>
+
   <section class="page-placeholder">
     <div class="container">
       <p data-i18n="page.placeholder">Stiamo costruendo questa pagina passo dopo passo — nuovi contenuti in arrivo presto.</p>
@@ -309,8 +356,8 @@
   </div>
 </footer>
 
-<script src="assets/js/i18n.js?v=21"></script>
+<script src="assets/js/i18n.js?v=22"></script>
 <script src="assets/js/treviso-staff.js?v=4"></script>
-<script src="assets/js/main.js?v=17"></script>
+<script src="assets/js/main.js?v=18"></script>
 </body>
 </html>

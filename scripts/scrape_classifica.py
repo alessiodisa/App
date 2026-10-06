@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Pulls Treviso United's current data (standings, roster+stats, upcoming
-matches) from the calciotto.tv SportsPress REST API and writes it to
-assets/data/treviso-united.json for the Sport page to render.
+Pulls data (standings, roster+stats, upcoming matches) for each team in
+TEAMS below from the calciotto.tv SportsPress REST API and writes it to
+assets/data/<team>.json for the Sport page to render.
 
-Dirigenza/staff are NOT scraped — they're curated by hand in
+Dirigenza/staff are NOT scraped — Treviso United's are curated by hand in
 assets/js/treviso-staff.js, since calciotto.tv's own listing doesn't match
-how these people actually work with the team.
+how those people actually work with the team.
 
 Run on a schedule by .github/workflows/update-classifica.yml (GitHub's own
 network — this can't be run from a sandboxed dev environment that blocks
@@ -18,6 +18,10 @@ Notes on the API (learned by probing, since it isn't documented):
   players are found by fully paginating /players and filtering
   client-side on `current_teams`.
 - Per-player season stats live at statistics[str(league_id)][str(season_id)].
+- A team's own `leagues` field (if present) is used to auto-detect which
+  league/season to pull standings and stats from, so each team doesn't need
+  its league hardcoded. Falls back to FALLBACK_LEAGUE_SLUG/SEASON_SLUG
+  (Treviso's known league) if a team has no `leagues` field.
 """
 import html
 import json
@@ -27,22 +31,35 @@ from datetime import datetime, timezone
 
 import requests
 
-
-def clean_text(s):
-    """Decode HTML entities WordPress leaves in rendered titles (e.g. &#8217;)."""
-    return html.unescape(s) if isinstance(s, str) else s
-
 BASE = "https://calciotto.tv/wp-json/sportspress/v2"
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; UnitedSiteBot/1.0)"}
-TEAM_SLUG = "treviso-united-c8"
-LEAGUE_SLUG = "serie-a-2026-2027"
-SEASON_SLUG = "2026-2027"
-OUT_PATH = "assets/data/treviso-united.json"
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; UnitedHubSiteBot/1.0)"}
+FALLBACK_LEAGUE_SLUG = "serie-a-2026-2027"
+FALLBACK_SEASON_SLUG = "2026-2027"
+
+TEAMS = [
+    {
+        "slug": "treviso-united-c8",
+        "name_search": "TREVISO UNITED",
+        "out_path": "assets/data/treviso-united.json",
+        "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
+    },
+    {
+        "slug": "nova-united",
+        "name_search": "NOVA UNITED",
+        "out_path": "assets/data/nova-united.json",
+        "source": "https://calciotto.tv/team/nova-united/",
+    },
+]
 
 # A shared, keep-alive session avoids a fresh TCP+TLS handshake per request,
 # which otherwise dominates latency when paginating through many pages.
 SESSION = requests.Session()
 SESSION.headers.update(HEADERS)
+
+
+def clean_text(s):
+    """Decode HTML entities WordPress leaves in rendered titles (e.g. &#8217;)."""
+    return html.unescape(s) if isinstance(s, str) else s
 
 
 def get(path, params=None):
@@ -91,21 +108,53 @@ POSITION_LABELS = {
     "forward": "Attaccante",
 }
 
-def main():
-    # --- League + season + team lookup ---
-    leagues = get("leagues", {"slug": LEAGUE_SLUG})
+
+def find_team(slug, name_search):
+    teams = get("teams", {"slug": slug})
+    if teams:
+        return teams[0]
+    print(f"  slug '{slug}' not found directly, searching by name '{name_search}'...", flush=True)
+    all_teams = get_all("teams", {"_fields": "id,slug,title"})
+    for t in all_teams:
+        title = clean_text((t.get("title") or {}).get("rendered", ""))
+        if name_search.upper() in title.upper():
+            return get(f"teams/{t['id']}")
+    raise RuntimeError(f"team not found: slug={slug} name_search={name_search}")
+
+
+def resolve_league_season(team):
+    """Prefer the team's own `leagues` field; fall back to Treviso's known
+    league/season slugs if that field is missing or empty."""
+    team_league_ids = team.get("leagues") or []
+    if team_league_ids:
+        league_id = team_league_ids[0]
+        try:
+            league = get(f"leagues/{league_id}")
+            season_ids = league.get("seasons") or []
+            season_id = season_ids[0] if season_ids else None
+            league_name = clean_text((league.get("title") or {}).get("rendered", ""))
+            return league_id, season_id, league_name
+        except Exception as e:
+            print(f"  league lookup failed for league_id={league_id}: {e}, falling back", flush=True)
+
+    leagues = get("leagues", {"slug": FALLBACK_LEAGUE_SLUG})
     if not leagues:
-        raise RuntimeError(f"league not found: {LEAGUE_SLUG}")
+        raise RuntimeError(f"fallback league not found: {FALLBACK_LEAGUE_SLUG}")
     league_id = leagues[0]["id"]
-
-    seasons = get("seasons", {"slug": SEASON_SLUG})
+    league_name = clean_text((leagues[0].get("title") or {}).get("rendered", ""))
+    seasons = get("seasons", {"slug": FALLBACK_SEASON_SLUG})
     season_id = seasons[0]["id"] if seasons else None
+    return league_id, season_id, league_name
 
-    teams = get("teams", {"slug": TEAM_SLUG})
-    if not teams:
-        raise RuntimeError(f"team not found: {TEAM_SLUG}")
-    team = teams[0]
+
+def scrape_team(team_cfg, all_players_slim):
+    slug = team_cfg["slug"]
+    print(f"--- scraping {slug} ---", flush=True)
+    team = find_team(slug, team_cfg["name_search"])
     team_id = team["id"]
+
+    league_id, season_id, league_name = resolve_league_season(team)
+    print(f"  team_id={team_id} league_id={league_id} season_id={season_id} league_name={league_name!r}", flush=True)
 
     # --- Standings table for the league ---
     tables = get("tables", {"leagues": league_id})
@@ -141,18 +190,14 @@ def main():
                 "for": row.get("f"),
                 "against": row.get("a"),
                 "gd": row.get("gd"),
-                "is_treviso_united": int(tid_str) == team_id if tid_str.isdigit() else False,
+                "is_home_team": int(tid_str) == team_id if tid_str.isdigit() else False,
             })
         standings.sort(key=lambda r: (int(r["pos"]) if str(r["pos"]).isdigit() else 999))
 
-    # --- Roster: the `teams=` REST filter is broken (returns unfiltered
-    # results), so scan the full players collection and filter client-side.
-    # Use _fields to trim the (large, statistics-heavy) default payload for
-    # this discovery pass — full details are fetched only for actual matches.
-    print("scanning players...", flush=True)
-    all_players_slim = get_all("players", {"_fields": "id,title,current_teams,class_list,number"}, log_progress=True)
+    # --- Roster: filter the site-wide player list (passed in, fetched once
+    # for all teams) client-side on `current_teams`. ---
     matching_ids = [p["id"] for p in all_players_slim if team_id in (p.get("current_teams") or [])]
-    print(f"found {len(matching_ids)} matching players, fetching full records...", flush=True)
+    print(f"  found {len(matching_ids)} matching players, fetching full records...", flush=True)
     players_raw = []
     for pid in matching_ids:
         try:
@@ -161,11 +206,10 @@ def main():
             continue
 
     # `current_teams` turns out to reflect *ever* having been on this team
-    # (83 matches — this club's whole history), not this season's roster. The
-    # reliable signal is whether the player has a stats record for the
-    # current league+season at all — only actively-registered squad members
-    # get one (even a 0/0/0 one), so that's what actually narrows it down
-    # to the real ~28-player roster.
+    # (whole club history), not this season's roster. The reliable signal is
+    # whether the player has a stats record for the current league+season at
+    # all — only actively-registered squad members get one (even a 0/0/0
+    # one), so that's what actually narrows it down to the real roster.
     players = []
     for p in players_raw:
         class_list = p.get("class_list", [])
@@ -192,11 +236,8 @@ def main():
     position_order = {"goalkeeper": 0, "defender": 1, "midfielder": 2, "forward": 3}
     players.sort(key=lambda p: (position_order.get(p["position"], 9), p["name"]))
 
-    # Dirigenza/staff are curated by hand in assets/js/treviso-staff.js and no
-    # longer scraped from calciotto.tv.
-
     # --- Upcoming matches ---
-    events_raw = get_all("events", {"search": "TREVISO UNITED"})
+    events_raw = get_all("events", {"search": team_cfg["name_search"]})
     now = datetime.now(timezone.utc)
     upcoming = []
     for e in events_raw:
@@ -209,7 +250,7 @@ def main():
         if event_dt < now:
             continue
         title = clean_text(e.get("title", {}).get("rendered", ""))
-        opponent = title.replace("TREVISO UNITED", "").replace(" vs ", "").strip()
+        opponent = title.replace(team_cfg["name_search"], "").replace(" vs ", "").strip()
         class_list = e.get("class_list", [])
         league_slug = class_value(class_list, "sp_league-")
         upcoming.append({
@@ -223,9 +264,10 @@ def main():
 
     output = {
         "generated_at": now.isoformat(),
-        "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
+        "source": team_cfg["source"],
+        "league_name": league_name,
         "team": {
-            "name": clean_text(team.get("title", {}).get("rendered", "TREVISO UNITED")),
+            "name": clean_text(team.get("title", {}).get("rendered", team_cfg["name_search"])),
             "link": team.get("link"),
         },
         "standings": standings,
@@ -233,12 +275,32 @@ def main():
         "upcoming_matches": upcoming,
     }
 
-    os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
-    with open(OUT_PATH, "w", encoding="utf-8") as f:
+    out_path = team_cfg["out_path"]
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"wrote {OUT_PATH}")
-    print(f"standings rows: {len(standings)}, players: {len(players)} (scanned {len(all_players_slim)} total), upcoming: {len(upcoming)}")
+    print(f"  wrote {out_path}")
+    print(f"  standings rows: {len(standings)}, players: {len(players)}, upcoming: {len(upcoming)}", flush=True)
+
+
+def main():
+    print("scanning players (shared across teams)...", flush=True)
+    all_players_slim = get_all("players", {"_fields": "id,title,current_teams,class_list,number"}, log_progress=True)
+    print(f"scanned {len(all_players_slim)} players total", flush=True)
+
+    failures = []
+    for team_cfg in TEAMS:
+        try:
+            scrape_team(team_cfg, all_players_slim)
+        except Exception as e:
+            print(f"ERROR scraping {team_cfg['slug']}: {e}", file=sys.stderr, flush=True)
+            failures.append(team_cfg["slug"])
+
+    if failures:
+        print(f"WARNING: failed to scrape: {', '.join(failures)} (other teams still written)", file=sys.stderr, flush=True)
+    if len(failures) == len(TEAMS):
+        raise RuntimeError("all teams failed to scrape")
 
 
 if __name__ == "__main__":

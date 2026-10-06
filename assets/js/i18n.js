@@ -62,6 +62,10 @@ const I18N = {
 
     "campionato.eyebrow": "Il campionato",
     "campionato.title": "Serie A — Calciotto Treviso",
+    "squadNova.eyebrow": "Nova United",
+    "squadNova.title": "Nova United",
+    "squadNova.text": "Nova United è un'altra squadra di calcio a 8 che porta in campo lo spirito United: energia, appartenenza e voglia di vincere insieme.",
+    "campionatoNova.title": "Calciotto Treviso",
     "campionato.matches.title": "Prossime partite",
     "campionato.matches.empty": "Nessuna partita in programma",
     "campionato.standings.title": "Classifica",
@@ -183,6 +187,10 @@ const I18N = {
 
     "campionato.eyebrow": "The league",
     "campionato.title": "Serie A — Calciotto Treviso",
+    "squadNova.eyebrow": "Nova United",
+    "squadNova.title": "Nova United",
+    "squadNova.text": "Nova United is another eight-a-side football team that brings the United spirit onto the pitch: energy, belonging and the drive to win together.",
+    "campionatoNova.title": "Calciotto Treviso",
     "campionato.matches.title": "Upcoming matches",
     "campionato.matches.empty": "No matches scheduled",
     "campionato.standings.title": "Standings",

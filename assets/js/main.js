@@ -279,38 +279,42 @@
     });
   }
 
-  function initTrevisoData() {
-    var root = document.getElementById("campionato");
+  // Generic per-team loader/renderer for a calciotto.tv-scraped JSON file
+  // (see scripts/scrape_classifica.py). `ids` maps the element ids this
+  // team's markup uses, so the same code drives both the Treviso United and
+  // Nova United sections.
+  function initTeamData(ids) {
+    var root = document.getElementById(ids.rootId);
     if (!root) return;
 
-    fetch("assets/data/treviso-united.json?t=" + Date.now())
+    fetch(ids.jsonPath + "?t=" + Date.now())
       .then(function (res) {
         if (!res.ok) throw new Error("data unavailable");
         return res.json();
       })
-      .then(renderTrevisoData)
+      .then(function (data) { renderTeamData(data, ids); })
       .catch(function () {
         var lang = document.documentElement.getAttribute("lang") || "it";
         var msg = escapeHtml(I18N[lang]["campionato.error"]);
-        var matchesEl = document.getElementById("campionatoMatches");
+        var matchesEl = document.getElementById(ids.matchesId);
         if (matchesEl) matchesEl.innerHTML = "<li>" + msg + "</li>";
-        var table = document.getElementById("campionatoTable");
+        var table = document.getElementById(ids.tableId);
         if (table) table.innerHTML = "";
-        ["campionatoRoster", "campionatoScorers"].forEach(function (id) {
+        [ids.rosterId, ids.scorersId].forEach(function (id) {
           var el = document.getElementById(id);
           if (el) el.innerHTML = "<p>" + msg + "</p>";
         });
       });
   }
 
-  function renderTrevisoData(data) {
+  function renderTeamData(data, ids) {
     var lang = document.documentElement.getAttribute("lang") || "it";
     var locale = lang === "en" ? "en-GB" : "it-IT";
 
-    var table = document.getElementById("campionatoTable");
+    var table = document.getElementById(ids.tableId);
     if (table && data.standings && data.standings.length) {
       var rows = data.standings.map(function (r) {
-        var cls = r.is_treviso_united ? ' class="is-united"' : "";
+        var cls = r.is_home_team ? ' class="is-united"' : "";
         return "<tr" + cls + "><td>" + escapeHtml(r.pos) + "</td><td>" + escapeHtml(r.name) + "</td><td>" +
           escapeHtml(r.pts) + "</td><td>" + escapeHtml(r.played) + "</td><td>" + escapeHtml(r.wins) + "</td><td>" +
           escapeHtml(r.draws) + "</td><td>" + escapeHtml(r.losses) + "</td><td>" + escapeHtml(r.gd) + "</td></tr>";
@@ -318,7 +322,7 @@
       table.innerHTML = "<thead><tr><th>#</th><th>Squadra</th><th>Pt</th><th>G</th><th>V</th><th>N</th><th>P</th><th>DR</th></tr></thead><tbody>" + rows + "</tbody>";
     }
 
-    var roster = document.getElementById("campionatoRoster");
+    var roster = document.getElementById(ids.rosterId);
     if (roster) {
       if (data.players && data.players.length) {
         var t = I18N[lang];
@@ -349,7 +353,7 @@
       }
     }
 
-    var scorers = document.getElementById("campionatoScorers");
+    var scorers = document.getElementById(ids.scorersId);
     if (scorers) {
       if (data.players && data.players.length) {
         var topScorers = data.players.slice().sort(function (a, b) {
@@ -371,7 +375,7 @@
     }
 
 
-    var matches = document.getElementById("campionatoMatches");
+    var matches = document.getElementById(ids.matchesId);
     if (matches) {
       var lang3 = document.documentElement.getAttribute("lang") || "it";
       if (data.upcoming_matches && data.upcoming_matches.length) {
@@ -390,13 +394,13 @@
               '</span><span class="campionato-date">' + escapeHtml(dateStr) + "</span></div>";
           return '<li class="campionato-match' + (isNext ? " campionato-match-next" : "") + '">' + row + "</li>";
         }).join("");
-        startMatchCountdowns(lang3);
+        startMatchCountdowns(lang3, matches);
       } else {
         matches.innerHTML = "<li>" + escapeHtml(I18N[lang3]["campionato.matches.empty"]) + "</li>";
       }
     }
 
-    var updated = document.getElementById("campionatoUpdated");
+    var updated = document.getElementById(ids.updatedId);
     if (updated && data.generated_at) {
       var gd = new Date(data.generated_at);
       if (!isNaN(gd)) {
@@ -416,10 +420,12 @@
 
   // Live countdown to the next match. Runs on its own interval since the
   // target time doesn't come from a re-fetch — just ticks against the
-  // already-loaded date.
-  function startMatchCountdowns(lang) {
+  // already-loaded date. Scoped to `root` (the just-rendered matches list)
+  // so re-rendering one team's section doesn't double-bind another team's
+  // already-ticking countdown.
+  function startMatchCountdowns(lang, root) {
     var units = COUNTDOWN_UNITS[lang] || COUNTDOWN_UNITS.it;
-    document.querySelectorAll(".campionato-countdown[data-date]").forEach(function (el) {
+    (root || document).querySelectorAll(".campionato-countdown[data-date]").forEach(function (el) {
       var target = new Date(el.getAttribute("data-date")).getTime();
       if (isNaN(target)) return;
 
@@ -477,7 +483,24 @@
     initInstagramFeed("igTrack", "/.netlify/functions/instagram-feed", "@unitedcultureee");
     initInstagramFeed("igTrackTreviso", "/.netlify/functions/instagram-feed-treviso", "@trevisounited");
     initVideoAutoplay();
-    initTrevisoData();
+    initTeamData({
+      jsonPath: "assets/data/treviso-united.json",
+      rootId: "campionato",
+      tableId: "campionatoTable",
+      matchesId: "campionatoMatches",
+      rosterId: "campionatoRoster",
+      scorersId: "campionatoScorers",
+      updatedId: "campionatoUpdated"
+    });
+    initTeamData({
+      jsonPath: "assets/data/nova-united.json",
+      rootId: "campionato-nova",
+      tableId: "campionatoTableNova",
+      matchesId: "campionatoMatchesNova",
+      rosterId: "campionatoRosterNova",
+      scorersId: "campionatoScorersNova",
+      updatedId: "campionatoUpdatedNova"
+    });
     renderStaticStaff();
     initSmoothDetails(".campionato-section-toggle");
   });

@@ -607,6 +607,22 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .squad-text-mobile{ display: none; }
 
+.squad-simple .eyebrow{ color: var(--blue); }
+.squad-simple h2{
+  color: var(--ink);
+  font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  margin: 10px 0 14px;
+}
+.squad-simple p{
+  color: var(--gray-500);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  max-width: 60ch;
+  margin: 0;
+}
+
 .campionato{ margin-top: 90px; }
 .campionato .eyebrow{ color: var(--blue); }
 .campionato h2{

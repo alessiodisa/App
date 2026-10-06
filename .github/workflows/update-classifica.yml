@@ -1,4 +1,4 @@
-name: Update Treviso United data
+name: Update team data (calciotto.tv)
 
 on:
   schedule:
@@ -29,10 +29,10 @@ jobs:
         run: |
           git config user.name "united-data-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add assets/data/treviso-united.json
+          git add assets/data/treviso-united.json assets/data/nova-united.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update Treviso United data [skip ci]"
+            git commit -m "Update team data [skip ci]"
             git push
           fi
