@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T20:38:16.207537+00:00",
+  "generated_at": "2026-10-06T20:42:34.986767+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -529,5 +529,20 @@
       "opponent": "CALCIOTTO LEVADA",
       "league": "serie-c-2026-2027"
     }
-  ]
+  ],
+  "dirigenza": [
+    {
+      "name": "Alberto Di Modica",
+      "role": "Dirigente"
+    },
+    {
+      "name": "Andrea Giabardo",
+      "role": "Dirigente"
+    },
+    {
+      "name": "Giulio De Faveri",
+      "role": "Presidente"
+    }
+  ],
+  "staff": []
 }
