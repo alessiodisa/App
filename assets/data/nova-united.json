@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T20:42:34.986767+00:00",
+  "generated_at": "2026-10-06T22:50:35.187998+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -7,8 +7,22 @@
   },
   "standings": [
     {
-      "team_id": 30187,
+      "team_id": 30198,
       "pos": 1,
+      "name": "VIRTUS SBI",
+      "pts": "3",
+      "played": "1",
+      "wins": "1",
+      "draws": "0",
+      "losses": "0",
+      "for": "5",
+      "against": "0",
+      "gd": "5",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30187,
+      "pos": 2,
       "name": "NOVA UNITED",
       "pts": "3",
       "played": "1",
@@ -22,7 +36,7 @@
     },
     {
       "team_id": 30192,
-      "pos": 2,
+      "pos": 3,
       "name": "JAGERBOMBERS",
       "pts": "3",
       "played": "1",
@@ -36,7 +50,7 @@
     },
     {
       "team_id": 30189,
-      "pos": 3,
+      "pos": 4,
       "name": "GENESIS",
       "pts": "3",
       "played": "1",
@@ -50,7 +64,7 @@
     },
     {
       "team_id": 30199,
-      "pos": 4,
+      "pos": 5,
       "name": "31036",
       "pts": "0",
       "played": "0",
@@ -64,7 +78,7 @@
     },
     {
       "team_id": 30195,
-      "pos": 4,
+      "pos": 5,
       "name": "A.C. OSPEDALETTO",
       "pts": "0",
       "played": "0",
@@ -78,7 +92,7 @@
     },
     {
       "team_id": 30196,
-      "pos": 4,
+      "pos": 5,
       "name": "ASD ALBAREDO INSIEME",
       "pts": "0",
       "played": "0",
@@ -92,7 +106,7 @@
     },
     {
       "team_id": 30188,
-      "pos": 4,
+      "pos": 5,
       "name": "CALCIOTTO LEVADA",
       "pts": "0",
       "played": "0",
@@ -105,22 +119,8 @@
       "is_home_team": false
     },
     {
-      "team_id": 30191,
-      "pos": 4,
-      "name": "EIGHTSIDE",
-      "pts": "0",
-      "played": "0",
-      "wins": "0",
-      "draws": "0",
-      "losses": "0",
-      "for": "0",
-      "against": "0",
-      "gd": "0",
-      "is_home_team": false
-    },
-    {
       "team_id": 30190,
-      "pos": 4,
+      "pos": 5,
       "name": "HELLAS MADONNA",
       "pts": "0",
       "played": "0",
@@ -134,7 +134,7 @@
     },
     {
       "team_id": 30197,
-      "pos": 4,
+      "pos": 5,
       "name": "MONIGO FC",
       "pts": "0",
       "played": "0",
@@ -147,22 +147,8 @@
       "is_home_team": false
     },
     {
-      "team_id": 30198,
-      "pos": 4,
-      "name": "VIRTUS SBI",
-      "pts": "0",
-      "played": "0",
-      "wins": "0",
-      "draws": "0",
-      "losses": "0",
-      "for": "0",
-      "against": "0",
-      "gd": "0",
-      "is_home_team": false
-    },
-    {
       "team_id": 30194,
-      "pos": 12,
+      "pos": 11,
       "name": "SCHIERATISSIMI",
       "pts": "0",
       "played": "1",
@@ -176,7 +162,7 @@
     },
     {
       "team_id": 30342,
-      "pos": 13,
+      "pos": 12,
       "name": "BOCA BOYS",
       "pts": "0",
       "played": "1",
@@ -190,7 +176,7 @@
     },
     {
       "team_id": 30345,
-      "pos": 14,
+      "pos": 13,
       "name": "VIDOR DE JANEIRO",
       "pts": "0",
       "played": "1",
@@ -200,6 +186,20 @@
       "for": "1",
       "against": "5",
       "gd": "-4",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30191,
+      "pos": 14,
+      "name": "EIGHTSIDE",
+      "pts": "0",
+      "played": "1",
+      "wins": "0",
+      "draws": "0",
+      "losses": "1",
+      "for": "0",
+      "against": "5",
+      "gd": "-5",
       "is_home_team": false
     },
     {
