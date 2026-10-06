@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-10-06T20:19:40.784783+00:00",
+  "source": "https://calciotto.tv/team/nova-united/",
+  "league_name": "",
+  "team": {
+    "name": "NOVA UNITED",
+    "link": "https://calciotto.tv/team/nova-united/"
+  },
+  "standings": [],
+  "players": [],
+  "upcoming_matches": [
+    {
+      "date": "2026-10-12T20:00:13",
+      "title": "ASD ALBAREDO INSIEME vs NOVA UNITED",
+      "opponent": "ASD ALBAREDO INSIEME",
+      "league": "serie-c-2026-2027"
+    },
+    {
+      "date": "2026-10-19T21:00:55",
+      "title": "NOVA UNITED vs EIGHTSIDE",
+      "opponent": "EIGHTSIDE",
+      "league": "serie-c-2026-2027"
+    },
+    {
+      "date": "2026-10-26T20:00:19",
+      "title": "NOVA UNITED vs NOI SAN PAOLO",
+      "opponent": "NOI SAN PAOLO",
+      "league": "coppa-italia-treviso-2027"
+    },
+    {
+      "date": "2026-11-02T21:00:27",
+      "title": "VIRTUS SBI vs NOVA UNITED",
+      "opponent": "VIRTUS SBI",
+      "league": "serie-c-2026-2027"
+    },
+    {
+      "date": "2026-11-09T22:00:02",
+      "title": "NOVA UNITED vs JAGERBOMBERS",
+      "opponent": "JAGERBOMBERS",
+      "league": "serie-c-2026-2027"
+    },
+    {
+      "date": "2026-11-18T21:00:25",
+      "title": "CALCIOTTO LEVADA vs NOVA UNITED",
+      "opponent": "CALCIOTTO LEVADA",
+      "league": "serie-c-2026-2027"
+    }
+  ]
+}
