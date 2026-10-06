@@ -480,8 +480,10 @@
     initAutoScroll(document.getElementById("marqueeTrack"), ".marquee-group", "--mq-w", 76);
     initAutoScroll(document.getElementById("igTrack"), ".ig-group", "--ig-w", 20);
     initAutoScroll(document.getElementById("igTrackTreviso"), ".ig-group", "--ig-w", 20);
+    initAutoScroll(document.getElementById("igTrackNova"), ".ig-group", "--ig-w", 20);
     initInstagramFeed("igTrack", "/.netlify/functions/instagram-feed", "@unitedcultureee");
     initInstagramFeed("igTrackTreviso", "/.netlify/functions/instagram-feed-treviso", "@trevisounited");
+    initInstagramFeed("igTrackNova", "/.netlify/functions/instagram-feed-nova", "@novauniteddd");
     initVideoAutoplay();
     initTeamData({
       jsonPath: "assets/data/treviso-united.json",

@@ -160,6 +160,20 @@ def scrape_team(team_cfg, all_players_slim, all_tables, season_id):
     league_id = find_team_league(team_id, all_tables)
     print(f"  team_id={team_id} league_id={league_id} season_id={season_id}", flush=True)
 
+    if os.environ.get("DEBUG_TEAM_SCHEMA"):
+        print(f"  DEBUG team keys: {sorted(team.keys())}", flush=True)
+        content = (team.get("content") or {}).get("rendered", "")
+        print(f"  DEBUG team.content.rendered (first 2000 chars): {content[:2000]!r}", flush=True)
+        excerpt = (team.get("excerpt") or {}).get("rendered", "")
+        print(f"  DEBUG team.excerpt.rendered: {excerpt[:500]!r}", flush=True)
+        meta = team.get("meta")
+        print(f"  DEBUG team.meta: {meta!r}", flush=True)
+        try:
+            staff_probe = get("staff", {"teams": team_id})
+            print(f"  DEBUG /staff?teams={team_id}: {len(staff_probe)} items: {json.dumps(staff_probe)[:1000]}", flush=True)
+        except Exception as e:
+            print(f"  DEBUG /staff probe failed: {e}", flush=True)
+
     # --- Standings table for the league ---
     tables = get("tables", {"leagues": league_id})
     table = None
