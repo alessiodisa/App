@@ -23,8 +23,8 @@ BANCO, TERRA = "Espositori da banco", "Espositori da terra"
 # tipologia tecnica di ogni espositore (da confermare)
 TIPO = {
     "B01": "Espositore da banco a pedana con gradino ad arco e fondale",
-    "B02": "Espositore da banco a tasche a cascata con header",
-    "B03": "Espositore da banco a vassoio inclinato con header",
+    "B02": "Espositore da banco a gradini",
+    "B03": "Espositore da banco con vassoio sagomato",
     "B04": "Espositore da banco a vassoio con fondale",
     "B05": "Espositore da banco a 2 gradini con header",
     "B06": "Espositore da banco a pedana con fondale",
@@ -34,15 +34,15 @@ TIPO = {
     "B10": "Espositore da banco a pedana curva con fondale",
     "B11": "Espositore da banco a 4 ripiani a sbalzo con fondale",
     "B12": "Espositore da banco a fondale con 3 nicchie",
-    "B13": "Espositore da banco a pedana con fondale grafico",
+    "B13": "Espositore da banco con scivolo e fondale",
     "B15": "Espositore da banco a box con doppio fondale",
     "B16": "Espositore da banco monoprodotto con fondale",
-    "B17": "Espositore da banco a 3 gradini con header",
+    "B17": "Espositore da banco a 2 gradini sagomati",
     "B19": "Espositore da banco a gradini inclinati con fondale",
-    "B20": "Espositore da banco a vassoio con header ad arco",
+    "B20": "Espositore da banco a 2 gradini con header ad arco",
     "B21": "Espositore da banco a vassoio alveolare con fondale",
     "B22": "Espositore da banco a 4 vassoi su 2 livelli con fondale",
-    "B23": "Espositore da banco porta locandina a cornice con base",
+    "B23": "Podio in plexiglass",
     "T01": "Espositore da terra a colonna sagomata con ripiani a sbalzo",
     "T02": "Espositore da terra a ganci con header e base",
     "T03": "Espositore da terra a colonna con 3 vani a vista",
@@ -55,8 +55,8 @@ TIPO = {
     "T10": "Espositore da terra a 3 ripiani con sagoma frontale, top e base",
     "T11": "Espositore da terra a colonna con vano a gradini e header",
     "T12": "Espositore da terra a colonna con 4 ripiani laterali e header sagomato",
-    "T14": "Espositore da terra a ripiani con header",
-    "T15": "Espositore da terra a 3 ripiani sfalsati con fianchi sagomati e base",
+    "T14": "Espositore da terra con nicchie inclinate",
+    "T15": "Espositore da terra a 3 ripiani con fianchi",
     "T13": "Espositore da terra a 5 ripiani con fianchi a colonna e header",
     "T16": "Espositore da terra a podi esagonali con fondali",
 }
@@ -66,8 +66,8 @@ INTRO = {
            "in vetrina. Compatto e leggero, porta il prodotto all’altezza dello sguardo, ordina la gamma in poco spazio "
            "e trasforma l’ultimo metro prima del pagamento in comunicazione di marca.",
     TERRA: "L’espositore da terra crea un punto vendita nel punto vendita: porta il prodotto fuori dallo scaffale, "
-           "lo rende visibile da lontano e ne racconta la marca su tutta l’altezza. Struttura autoportante, "
-           "ripiani dimensionati sul carico e grafica a vivo su ogni superficie.",
+           "lo rende visibile da lontano e ne racconta la marca su tutta l’altezza. Curiamo ogni dettaglio già in fase "
+           "di progettazione: ogni espositore è studiato ad hoc, su misura del prodotto e del punto vendita.",
 }
 
 ZONE = {

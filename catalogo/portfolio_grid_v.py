@@ -46,7 +46,7 @@ def copertina():
             + f'<img class="drawing" src="img/esploso-terra.svg" style="right:{W - x:.1f}mm;top:{y:.1f}mm;height:172mm" alt="">'
             + el("small", "Progettiamo e produciamo espositori per il punto vendita, dall’idea al bancale.", .35, 1.7, 1.9)
             + el("capline", "<b>Fig. 01</b>Espositore da terra — vista esplosa", .35, 4.55, 1.9)
-            + el("light-t xl", "Portfolio", .35, 5.0) + el("cover-t", "Espositori", .35, 5.3)
+            + el("light-t xl", "Catalogo", .35, 5.0) + el("cover-t", "Espositori", .35, 5.3)
             + plus(1, 1) + plus(1, 4) + plus(4, 6))
 
 
@@ -185,13 +185,13 @@ def contatti():
             + el("h5", "Indirizzo", .35, 4.7) + el("contact", TBD("Via Esempio 1, 00000 Città (XX)"), .35, 4.85, 2.1)
             + el("h5", "Web", 2.6, 4.7) + el("contact", TBD("www.azienda.it"), 2.6, 4.85, 2)
             + el("bar", "", .35, 6.2, 4.3)
-            + el("small", AZ + " — Portfolio Espositori 2027", .35, 6.52, 3)
+            + el("small", AZ + " — Catalogo Espositori 2027", .35, 6.52, 3)
             + plus(4, 1) + plus(4, 2))
 
 
 def retro():
     return (el("small", "Espositori 2027", .35, .6)
-            + el("cover-t sm", "Portfolio", .35, 1.2)
+            + el("cover-t sm", "Catalogo", .35, 1.2)
             + PG.contatti_retro(g(.35, 0)[0], 110) + PG.logo(MARG, H - MARG - 13.5, 36, right=True)
             + plus(4, 1) + plus(4, 6))
 
@@ -216,7 +216,7 @@ def build():
         html.append(f'<section class="page {side}">{body}{folio}\n</section>')
     doc = f"""<!DOCTYPE html>
 <html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Espositori — verticale</title>
+<title>Catalogo Espositori — verticale</title>
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="portfolio-grid.css">
 <link rel="stylesheet" href="portfolio-grid-v.css">

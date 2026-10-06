@@ -132,7 +132,7 @@ def copertina():
             + el("small", "Progettato e prodotto da", .5, .75) + logo(g(.5, .9)[0], g(.5, .9)[1], 32)
             + el("small", "Progettiamo e produciamo espositori per il punto vendita, dall’idea al bancale.", .5, 1.35, 2.6)
             + f'<img class="drawing" src="img/esploso-terra.svg" style="right:{W - x:.1f}mm;top:{y:.1f}mm;height:{H - 2 * MARG:.1f}mm" alt="">'
-            + el("light-t", "Portfolio", .5, 2.3) + el("cover-t", "Espositori", .5, 2.62)
+            + el("light-t", "Catalogo", .5, 2.3) + el("cover-t", "Espositori", .5, 2.62)
             + el("capline", "<b>Fig. 01</b>Espositore da terra — vista esplosa", .5, 3.5, 2)
             + plus(1, 1) + plus(4, 1) + plus(1, 4) + plus(4, 4))
 
@@ -288,7 +288,7 @@ def contatti():
             + el("h5", "Indirizzo", .5, 3.2) + el("contact", TBD("Via Esempio 1, 00000 Città (XX)"), .5, 3.37, 2.8)
             + el("h5", "Web", 3.5, 3.2) + el("contact", TBD("www.azienda.it"), 3.5, 3.37, 2.5)
             + el("bar", "", .5, 4.2, 6)
-            + el("small", AZ + " — Portfolio Espositori 2027", .5, 4.47, 3))
+            + el("small", AZ + " — Catalogo Espositori 2027", .5, 4.47, 3))
 
 
 CONTATTI = [("Telefono", "049 630390"), ("Email", "info@onprint.it"), ("Web", "www.onprint.it"),
@@ -299,11 +299,11 @@ def contatti_retro(x, w, bottom=MARG):
     """Blocco contatti del retro: titoletto, filetto e righe etichetta/valore, ancorato al margine basso."""
     righe = "".join(f"<dt>{k}</dt><dd>{v}</dd>" for k, v in CONTATTI)
     return (f'<div class="rcontatti" style="left:{x:.1f}mm;bottom:{bottom:.1f}mm;width:{w:.1f}mm">'
-            f'<div class="h5">Contatti</div><dl>{righe}</dl></div>')
+            f'<dl>{righe}</dl></div>')
 
 
 def retro():
-    return (el("cover-t sm", "Portfolio", .5, .45) + el("small", AZ + " — Espositori 2027", .5, .97, 3)
+    return (el("cover-t sm", "Catalogo", .5, .45) + el("small", AZ + " — Espositori 2027", .5, .97, 3)
             + contatti_retro(g(.5, 0)[0], 110) + logo(MARG, H - MARG - 13.5, 36, right=True)
             + plus(1, 1) + plus(6, 1) + plus(6, 4))
 
@@ -333,7 +333,7 @@ def build():
         html.append(f'<section class="page {side}">{body}{folio}\n</section>')
     doc = f"""<!DOCTYPE html>
 <html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Espositori</title>
+<title>Catalogo Espositori</title>
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="portfolio-grid.css">
 </head><body><main class="book">

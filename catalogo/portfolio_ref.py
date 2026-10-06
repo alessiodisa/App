@@ -452,7 +452,7 @@ def build():
         tris(B, "B03", "B22", "B23"),
         academic("Materiali", B, "B20", "B08", "B07", zb(1)),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
-                     [("Altezze", "Solitamente da 100 a 200 cm"), ("Configurazioni", "Ripiani, ganci, vani, podi"), ("Spedizione", "Piatta, montaggio in pochi minuti")]),
+                     [("Altezze", "Solitamente da 100 a 200 cm"), ("Configurazioni", "Ripiani, ganci, vani, podi"), ("Spedizione", "Piatta, oppure montato e imballato")]),
         overview("Logistica", T, "T05", ZONE[T][3][1], []),
         coppia("Portata", T, "T08", "T13", ""),
         coppia("Forme", T, "T14", "T09", ""),
@@ -475,11 +475,11 @@ def build():
             foot = f'<div class="pn" style="right:{M}mm;top:192mm">{n:02d}</div>'
         else:
             foot = (f'<div class="pn" style="{bx(M, 192)}">{n:02d}</div>'
-                    f'<div class="ft" style="right:{M}mm;top:194mm">Portfolio Espositori 2027</div>')
+                    f'<div class="ft" style="right:{M}mm;top:194mm">Catalogo Espositori 2027</div>')
         html.append(f'<section class="page {side} {cls}">{body}{foot}\n</section>')
     doc = f"""<!DOCTYPE html>
 <html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Espositori</title>
+<title>Catalogo Espositori</title>
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="portfolio-grid.css">
 <link rel="stylesheet" href="portfolio-v2.css">

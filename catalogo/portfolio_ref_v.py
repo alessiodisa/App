@@ -301,10 +301,11 @@ def build():
         tre_legenda(B, "B20", "B08", "B07"),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Solitamente da 100 a 200 cm"), ("Configurazioni", "Ripiani, ganci, vani, podi"),
-                      ("Spedizione", "Piatta, montaggio in pochi minuti")]),
+                      ("Spedizione", "Piatta, oppure montato e imballato")]),
         overview("Configurazioni", T, "T05", "Monofacciale o bifacciale, a ripiani, a ganci, a vani o a podi: la forma nasce dal prodotto "
                  "e dal punto in cui verrà esposto. Header e crowner portano il messaggio in alto, basi e fianchi rinforzati "
-                 "danno stabilità a pieno carico, e la stessa struttura si adatta a campagne diverse cambiando solo la grafica.", [], fh=178),
+                 "danno stabilità a pieno carico. Per la spedizione valutiamo soluzioni stese o già montate, con ingombri "
+                 "studiati sulle misure dei magazzini e dei bancali, EPAL e non.", [], fh=178),
         coppia("Portata", T, "T08", "T13", ""),
         coppia("Forme", T, "T14", "T09", ""),
         coppia("Ripiani", T, "T15", "T07", ""),
@@ -325,11 +326,11 @@ def build():
             foot = f'<div class="pn" style="right:{M}mm;top:280mm">{n:02d}</div>'
         else:
             foot = (f'<div class="pn" style="{bx(M, 280)}">{n:02d}</div>'
-                    f'<div class="ft" style="right:{M}mm;top:282mm">Portfolio Espositori 2027</div>')
+                    f'<div class="ft" style="right:{M}mm;top:282mm">Catalogo Espositori 2027</div>')
         html.append(f'<section class="page {side} {cls}">{body}{foot}\n</section>')
     doc = f"""<!DOCTYPE html>
 <html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Espositori — verticale</title>
+<title>Catalogo Espositori — verticale</title>
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="portfolio-grid.css">
 <link rel="stylesheet" href="portfolio-grid-v.css">
