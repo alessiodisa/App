@@ -302,10 +302,11 @@ def build():
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
                      [("Altezze", "Solitamente da 100 a 200 cm"), ("Configurazioni", "Ripiani, ganci, vani, podi"),
                       ("Spedizione", "Piatta, oppure montato e imballato")]),
-        overview("Configurazioni", T, "T05", "Monofacciale o bifacciale, a ripiani, a ganci, a vani o a podi: la forma nasce dal prodotto "
-                 "e dal punto in cui verrà esposto. Header e crowner portano il messaggio in alto, basi e fianchi rinforzati "
-                 "danno stabilità a pieno carico. Per la spedizione valutiamo soluzioni stese o già montate, con ingombri "
-                 "studiati sulle misure dei magazzini e dei bancali, EPAL e non.", [], fh=178),
+        overview("Configurazioni", T, "T05", "Ogni espositore da terra prende forma dal prodotto e dal luogo in cui sarà esposto: "
+                 "monofacciale o bifacciale, a ripiani, a ganci, a vani o a podi. Header e crowner portano il messaggio in alto, "
+                 "visibile da lontano, mentre basi e fianchi rinforzati garantiscono stabilità anche a pieno carico. "
+                 "Anche la logistica fa parte del progetto: l’espositore può viaggiare steso o già montato, con ingombri e "
+                 "imballi studiati sulle misure di magazzini e bancali, EPAL e non solo.", [], fh=178),
         coppia("Portata", T, "T08", "T13", ""),
         coppia("Forme", T, "T14", "T09", ""),
         coppia("Ripiani", T, "T15", "T07", ""),
