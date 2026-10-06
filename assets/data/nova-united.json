@@ -1,13 +1,497 @@
 {
-  "generated_at": "2026-10-06T20:19:40.784783+00:00",
+  "generated_at": "2026-10-06T20:24:43.823985+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
-  "league_name": "",
   "team": {
     "name": "NOVA UNITED",
     "link": "https://calciotto.tv/team/nova-united/"
   },
-  "standings": [],
-  "players": [],
+  "standings": [
+    {
+      "team_id": 30187,
+      "pos": 1,
+      "name": "NOVA UNITED",
+      "pts": "3",
+      "played": "1",
+      "wins": "1",
+      "draws": "0",
+      "losses": "0",
+      "for": "5",
+      "against": "1",
+      "gd": "4",
+      "is_home_team": true
+    },
+    {
+      "team_id": 30192,
+      "pos": 2,
+      "name": "JAGERBOMBERS",
+      "pts": "3",
+      "played": "1",
+      "wins": "1",
+      "draws": "0",
+      "losses": "0",
+      "for": "4",
+      "against": "2",
+      "gd": "2",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30189,
+      "pos": 3,
+      "name": "GENESIS",
+      "pts": "3",
+      "played": "1",
+      "wins": "1",
+      "draws": "0",
+      "losses": "0",
+      "for": "2",
+      "against": "1",
+      "gd": "1",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30199,
+      "pos": 4,
+      "name": "31036",
+      "pts": "0",
+      "played": "0",
+      "wins": "0",
+      "draws": "0",
+      "losses": "0",
+      "for": "0",
+      "against": "0",
+      "gd": "0",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30195,
+      "pos": 4,
+      "name": "A.C. OSPEDALETTO",
+      "pts": "0",
+      "played": "0",
+      "wins": "0",
+      "draws": "0",
+      "losses": "0",
+      "for": "0",
+      "against": "0",
+      "gd": "0",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30196,
+      "pos": 4,
+      "name": "ASD ALBAREDO INSIEME",
+      "pts": "0",
+      "played": "0",
+      "wins": "0",
+      "draws": "0",
+      "losses": "0",
+      "for": "0",
+      "against": "0",
+      "gd": "0",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30188,
+      "pos": 4,
+      "name": "CALCIOTTO LEVADA",
+      "pts": "0",
+      "played": "0",
+      "wins": "0",
+      "draws": "0",
+      "losses": "0",
+      "for": "0",
+      "against": "0",
+      "gd": "0",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30191,
+      "pos": 4,
+      "name": "EIGHTSIDE",
+      "pts": "0",
+      "played": "0",
+      "wins": "0",
+      "draws": "0",
+      "losses": "0",
+      "for": "0",
+      "against": "0",
+      "gd": "0",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30190,
+      "pos": 4,
+      "name": "HELLAS MADONNA",
+      "pts": "0",
+      "played": "0",
+      "wins": "0",
+      "draws": "0",
+      "losses": "0",
+      "for": "0",
+      "against": "0",
+      "gd": "0",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30197,
+      "pos": 4,
+      "name": "MONIGO FC",
+      "pts": "0",
+      "played": "0",
+      "wins": "0",
+      "draws": "0",
+      "losses": "0",
+      "for": "0",
+      "against": "0",
+      "gd": "0",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30198,
+      "pos": 4,
+      "name": "VIRTUS SBI",
+      "pts": "0",
+      "played": "0",
+      "wins": "0",
+      "draws": "0",
+      "losses": "0",
+      "for": "0",
+      "against": "0",
+      "gd": "0",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30194,
+      "pos": 12,
+      "name": "SCHIERATISSIMI",
+      "pts": "0",
+      "played": "1",
+      "wins": "0",
+      "draws": "0",
+      "losses": "1",
+      "for": "1",
+      "against": "2",
+      "gd": "-1",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30342,
+      "pos": 13,
+      "name": "BOCA BOYS",
+      "pts": "0",
+      "played": "1",
+      "wins": "0",
+      "draws": "0",
+      "losses": "1",
+      "for": "2",
+      "against": "4",
+      "gd": "-2",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30345,
+      "pos": 14,
+      "name": "VIDOR DE JANEIRO",
+      "pts": "0",
+      "played": "1",
+      "wins": "0",
+      "draws": "0",
+      "losses": "1",
+      "for": "1",
+      "against": "5",
+      "gd": "-4",
+      "is_home_team": false
+    },
+    {
+      "team_id": 0,
+      "pos": "Pos",
+      "name": "Team",
+      "pts": "Pts",
+      "played": "P",
+      "wins": "W",
+      "draws": "D",
+      "losses": "L",
+      "for": "F",
+      "against": "A",
+      "gd": "GD",
+      "is_home_team": false
+    }
+  ],
+  "players": [
+    {
+      "name": "Massimiliano Vecchiato",
+      "number": null,
+      "position": "goalkeeper",
+      "position_label": "Portiere",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Riccardo Cirillo",
+      "number": null,
+      "position": "goalkeeper",
+      "position_label": "Portiere",
+      "stats": {
+        "appearances": "1",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Simone Gallina",
+      "number": null,
+      "position": "goalkeeper",
+      "position_label": "Portiere",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Andrea Balbo",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Angelo Luca De Blasi",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "1",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Giulio De Faveri",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "1",
+        "goals": 1,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Pietro De Nardi",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Pietro Sernicola",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Vincenzo Ribuffo",
+      "number": null,
+      "position": "defender",
+      "position_label": "Difensore",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Alberto Di Modica",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "1",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Amon N’Dol Benigno Stephano Kakou",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "1",
+        "goals": 1,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Andrea Giabardo",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Daniele Russo",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Edoardo Mula",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "1",
+        "goals": 1,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Giovanni Ceccon",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Mattia Zavatarelli",
+      "number": null,
+      "position": "midfielder",
+      "position_label": "Centrocampista",
+      "stats": {
+        "appearances": "1",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Alessandro Bressan",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Davide Zecca",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Francesco Gasparini",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Giacomo Agatino Gasparini",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {
+        "appearances": "1",
+        "goals": 1,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 1
+      }
+    },
+    {
+      "name": "Giovanni Baldo",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {
+        "appearances": "1",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    }
+  ],
   "upcoming_matches": [
     {
       "date": "2026-10-12T20:00:13",
