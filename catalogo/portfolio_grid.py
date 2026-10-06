@@ -293,7 +293,7 @@ def contatti():
 
 
 CONTATTI = [("Telefono", "049 630390"), ("Email", "info@onprint.it"), ("Web", "www.onprint.it"),
-            ("Indirizzo", "Viale dell’Industria 26, 35030 Rubano (PD)"), ("P. IVA", "04693550289"), ("Codice univoco", "T04ZHR3")]
+            ("Indirizzo", "Viale dell’Industria 26, 35030 Rubano (PD)")]
 
 
 def contatti_retro(x, w, bottom=MARG):

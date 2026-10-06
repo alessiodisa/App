@@ -191,9 +191,10 @@ def contatti():
 
 
 def retro():
-    return (el("cover-t sm", "Portfolio", .35, .6) + el("small", AZ + " — Espositori 2027", .35, 1.27, 3)
-            + PG.contatti_retro(g(.35, 0)[0], 110) + PG.logo(MARG, H - MARG - 13.5, 36, right=True)
-            + plus(1, 1) + plus(4, 1) + plus(4, 6))
+    return (PG.logo(g(.35, 0)[0], g(.35, .6)[1], 36)
+            + el("cover-t sm", "Portfolio", .35, 1.2) + el("small", AZ + " — Espositori 2027", .35, 1.62, 3)
+            + PG.contatti_retro(g(.35, 0)[0], 110)
+            + plus(4, 1) + plus(4, 6))
 
 
 def build():
