@@ -4,9 +4,12 @@ Pulls data (standings, roster+stats, upcoming matches) for each team in
 TEAMS below from the calciotto.tv SportsPress REST API and writes it to
 assets/data/<team>.json for the Sport page to render.
 
-Dirigenza/staff are NOT scraped — Treviso United's are curated by hand in
-assets/js/treviso-staff.js, since calciotto.tv's own listing doesn't match
-how those people actually work with the team.
+Dirigenza/staff ARE scraped into each team's "dirigenza"/"staff" lists
+(via the /staff post type, filtered client-side the same way players are —
+see below), but the Sport page only renders them for Nova United. Treviso
+United's own Dirigenza/Staff cards are still driven by the hand-curated
+assets/js/treviso-staff.js instead, since calciotto.tv's listing there
+doesn't match how those people actually work with the team.
 
 Run on a schedule by .github/workflows/update-classifica.yml (GitHub's own
 network — this can't be run from a sandboxed dev environment that blocks
@@ -18,6 +21,10 @@ Notes on the API (learned by probing, since it isn't documented):
   players are found by fully paginating /players and filtering
   client-side on `current_teams`.
 - Per-player season stats live at statistics[str(league_id)][str(season_id)].
+- The `teams=<id>` filter on /staff is broken the same way — paginate and
+  filter client-side on `current_teams` + `seasons` instead. Each staff
+  member's role comes from their class_list as "sp_role-<slug>" (e.g.
+  "sp_role-dirigente", "sp_role-presidente", "sp_role-allenatore").
 - A team's own `leagues` field is NOT reliable for finding its *current*
   league — it turns out to list every league the team has ever played in
   (same pitfall as `current_teams` on players), not just the current one.
@@ -113,6 +120,29 @@ POSITION_LABELS = {
     "forward": "Attaccante",
 }
 
+# Management-type roles go in a team's "dirigenza" list; anything else
+# (coaches etc.) goes in "staff".
+STAFF_ROLE_LABELS = {
+    "dirigente": "Dirigente",
+    "presidente": "Presidente",
+    "vicepresidente": "Vicepresidente",
+    "allenatore": "Allenatore",
+}
+MANAGEMENT_ROLE_SLUGS = {"dirigente", "presidente", "vicepresidente"}
+
+
+def staff_role_slug(s):
+    for c in s.get("class_list") or []:
+        if c.startswith("sp_role-"):
+            return c[len("sp_role-"):]
+    return None
+
+
+def staff_role_label(slug):
+    if not slug:
+        return ""
+    return STAFF_ROLE_LABELS.get(slug, slug.replace("-", " ").title())
+
 
 def find_team(slug, name_search):
     teams = get("teams", {"slug": slug})
@@ -151,7 +181,7 @@ def find_team_league(team_id, all_tables):
     return leagues[0]["id"]
 
 
-def scrape_team(team_cfg, all_players_slim, all_tables, season_id):
+def scrape_team(team_cfg, all_players_slim, all_tables, season_id, all_staff_slim):
     slug = team_cfg["slug"]
     print(f"--- scraping {slug} ---", flush=True)
     team = find_team(slug, team_cfg["name_search"])
@@ -160,16 +190,25 @@ def scrape_team(team_cfg, all_players_slim, all_tables, season_id):
     league_id = find_team_league(team_id, all_tables)
     print(f"  team_id={team_id} league_id={league_id} season_id={season_id}", flush=True)
 
-    if os.environ.get("DEBUG_TEAM_SCHEMA"):
-        print(f"  DEBUG team.staff field: {team.get('staff')!r}", flush=True)
-        matching_staff = [
-            s for s in ALL_STAFF_SLIM
-            if team_id in (s.get("current_teams") or []) and season_id in (s.get("seasons") or [])
-        ]
-        print(f"  DEBUG matching staff for team_id={team_id}, season_id={season_id}: {len(matching_staff)}", flush=True)
-        for s in matching_staff:
-            roles = [c for c in (s.get("class_list") or []) if c.startswith("sp_role-")]
-            print(f"    - {s.get('title', {}).get('rendered')!r} roles={roles} current_teams={s.get('current_teams')} teams={s.get('teams')}", flush=True)
+    # --- Dirigenza/staff: management-type roles (dirigente, presidente, ...)
+    # go in "dirigenza", everything else (allenatore, ...) in "staff". ---
+    matching_staff = [
+        s for s in all_staff_slim
+        if team_id in (s.get("current_teams") or []) and season_id in (s.get("seasons") or [])
+    ]
+    dirigenza = []
+    staff_list = []
+    for s in matching_staff:
+        role_slug = staff_role_slug(s)
+        entry = {
+            "name": clean_text((s.get("title") or {}).get("rendered", "")),
+            "role": staff_role_label(role_slug),
+        }
+        if role_slug in MANAGEMENT_ROLE_SLUGS:
+            dirigenza.append(entry)
+        else:
+            staff_list.append(entry)
+    print(f"  dirigenza: {len(dirigenza)}, staff: {len(staff_list)}", flush=True)
 
     # --- Standings table for the league ---
     tables = get("tables", {"leagues": league_id})
@@ -287,6 +326,8 @@ def scrape_team(team_cfg, all_players_slim, all_tables, season_id):
         "standings": standings,
         "players": players,
         "upcoming_matches": upcoming,
+        "dirigenza": dirigenza,
+        "staff": staff_list,
     }
 
     out_path = team_cfg["out_path"]
@@ -298,11 +339,7 @@ def scrape_team(team_cfg, all_players_slim, all_tables, season_id):
     print(f"  standings rows: {len(standings)}, players: {len(players)}, upcoming: {len(upcoming)}", flush=True)
 
 
-ALL_STAFF_SLIM = []
-
-
 def main():
-    global ALL_STAFF_SLIM
     print("scanning players (shared across teams)...", flush=True)
     all_players_slim = get_all("players", {"_fields": "id,title,current_teams,class_list,number"}, log_progress=True)
     print(f"scanned {len(all_players_slim)} players total", flush=True)
@@ -311,14 +348,13 @@ def main():
     season_id = resolve_season()
     print(f"season_id={season_id}, {len(all_tables)} tables total", flush=True)
 
-    if os.environ.get("DEBUG_TEAM_SCHEMA"):
-        ALL_STAFF_SLIM = get_all("staff", {"_fields": "id,title,current_teams,teams,seasons,class_list"})
-        print(f"DEBUG scanned {len(ALL_STAFF_SLIM)} staff total", flush=True)
+    all_staff_slim = get_all("staff", {"_fields": "id,title,current_teams,seasons,class_list"})
+    print(f"scanned {len(all_staff_slim)} staff total", flush=True)
 
     failures = []
     for team_cfg in TEAMS:
         try:
-            scrape_team(team_cfg, all_players_slim, all_tables, season_id)
+            scrape_team(team_cfg, all_players_slim, all_tables, season_id, all_staff_slim)
         except Exception as e:
             print(f"ERROR scraping {team_cfg['slug']}: {e}", file=sys.stderr, flush=True)
             failures.append(team_cfg["slug"])

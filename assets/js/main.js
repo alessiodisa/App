@@ -304,6 +304,11 @@
           var el = document.getElementById(id);
           if (el) el.innerHTML = "<p>" + msg + "</p>";
         });
+        [ids.dirigenzaId, ids.staffId].forEach(function (id) {
+          if (!id) return;
+          var el = document.getElementById(id);
+          if (el) el.innerHTML = "<li>" + msg + "</li>";
+        });
       });
   }
 
@@ -407,6 +412,19 @@
         updated.textContent = gd.toLocaleString(locale, { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" });
       }
     }
+
+    // Dirigenza/staff: only teams whose `ids` config opts in render these
+    // from the scraped data (Treviso United's are curated by hand instead —
+    // see renderStaticStaff).
+    [[ids.dirigenzaId, data.dirigenza], [ids.staffId, data.staff]].forEach(function (pair) {
+      var id = pair[0], items = pair[1];
+      if (!id) return;
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.innerHTML = (items || []).map(function (s) {
+        return "<li><span>" + escapeHtml(s.name) + '</span><span class="campionato-role">' + escapeHtml(s.role) + "</span></li>";
+      }).join("");
+    });
   }
 
   var COUNTDOWN_UNITS = {
@@ -501,7 +519,9 @@
       matchesId: "campionatoMatchesNova",
       rosterId: "campionatoRosterNova",
       scorersId: "campionatoScorersNova",
-      updatedId: "campionatoUpdatedNova"
+      updatedId: "campionatoUpdatedNova",
+      dirigenzaId: "campionatoDirigenzaNova",
+      staffId: "campionatoStaffTeamNova"
     });
     renderStaticStaff();
     initSmoothDetails(".campionato-section-toggle");
