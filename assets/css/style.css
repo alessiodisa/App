@@ -605,6 +605,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: rgba(255,255,255,.65);
 }
 .squad-sponsor img{ height: 20px; width: auto; filter: brightness(0) invert(1); }
+.squad-sponsor img.squad-sponsor-logo-lg{ height: 34px; }
 
 .squad-text-mobile{ display: none; }
 
