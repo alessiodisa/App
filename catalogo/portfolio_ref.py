@@ -369,12 +369,10 @@ def chi_siamo():
     return pagina("", "Introduzione", corpo, mostra=False)
 
 
-METODO_TXT = ("Tutto parte da un confronto con il cliente: ascoltiamo il prodotto, il punto vendita e gli obiettivi. "
-              "Da qui sviluppiamo un’idea, la trasformiamo in una bozza e poi in un prototipo da toccare con mano. "
-              "Quando ogni dettaglio è a posto passiamo alla produzione: seguiamo l’intero processo, "
-              "dal primo incontro alla consegna.")
-METODO_NOTA = ("Espositori da banco e da terra per ogni tipologia di esigenza e di applicazione: "
-               "studiati, progettati e realizzati con cura e professionalità.")
+METODO_TXT = ("Tutto parte da un confronto con il cliente: il prodotto, il punto vendita, gli obiettivi. "
+              "Da qui nasce un’idea, che diventa bozza e poi prototipo da toccare con mano. "
+              "Quando ogni dettaglio è a posto passiamo alla produzione e seguiamo il progetto fino alla consegna.")
+METODO_NOTA = "Espositori da banco e da terra per ogni esigenza: progettati, prodotti e seguiti internamente."
 CHI_FRASE = "Un unico interlocutore, dall’idea al punto vendita."
 SETTORI = ["Cosmesi", "Farmacia", "Ottica", "Food &amp; beverage", "Ferramenta", "Moda e accessori", "Elettronica", "Pet care"]
 FINITURE = (blocco("Stampa e finiture",
@@ -454,7 +452,7 @@ def build():
         tris(B, "B03", "B22", "B23"),
         academic("Materiali", B, "B20", "B08", "B07", zb(1)),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
-                     [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"), ("Spedizione", "Piatta, montaggio in pochi minuti")]),
+                     [("Altezze", "Solitamente da 100 a 200 cm"), ("Configurazioni", "Ripiani, ganci, vani, podi"), ("Spedizione", "Piatta, montaggio in pochi minuti")]),
         overview("Logistica", T, "T05", ZONE[T][3][1], []),
         coppia("Portata", T, "T08", "T13", ""),
         coppia("Forme", T, "T14", "T09", ""),

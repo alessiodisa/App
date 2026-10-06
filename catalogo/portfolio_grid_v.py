@@ -44,8 +44,7 @@ def copertina():
     return (el("small", "Vol. 01 — 2027", .35, .6)
             + PG.logo(W - g(4.65, 0)[0], g(4.65, .6)[1], 36, right=True)
             + f'<img class="drawing" src="img/esploso-terra.svg" style="right:{W - x:.1f}mm;top:{y:.1f}mm;height:172mm" alt="">'
-            + el("small", "Cartotecnica ed espositori per il punto vendita: progettazione, prototipazione e produzione. "
-                 "Cartone, cartoncino e materiali durevoli.", .35, 1.7, 1.9)
+            + el("small", "Progettiamo e produciamo espositori per il punto vendita, dall’idea al bancale.", .35, 1.7, 1.9)
             + el("capline", "<b>Fig. 01</b>Espositore da terra — vista esplosa", .35, 4.55, 1.9)
             + el("light-t xl", "Portfolio", .35, 5.0) + el("cover-t", "Espositori", .35, 5.3)
             + plus(1, 1) + plus(1, 4) + plus(4, 6))
@@ -191,9 +190,9 @@ def contatti():
 
 
 def retro():
-    return (PG.logo(g(.35, 0)[0], g(.35, .6)[1], 36)
-            + el("cover-t sm", "Portfolio", .35, 1.2) + el("small", AZ + " — Espositori 2027", .35, 1.62, 3)
-            + PG.contatti_retro(g(.35, 0)[0], 110)
+    return (el("small", "Espositori 2027", .35, .6)
+            + el("cover-t sm", "Portfolio", .35, 1.2)
+            + PG.contatti_retro(g(.35, 0)[0], 110) + PG.logo(MARG, H - MARG - 13.5, 36, right=True)
             + plus(4, 1) + plus(4, 6))
 
 

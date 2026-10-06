@@ -300,7 +300,7 @@ def build():
         tris(B, "B03", "B22", "B23"),
         tre_legenda(B, "B20", "B08", "B07"),
         overview_dwg("Espositori da terra", T, "img/disegni/terra-tavola.svg", INTRO[T],
-                     [("Altezze", "Da 140 a 180 cm"), ("Ripiani", "Da 3 a 5, con header"),
+                     [("Altezze", "Solitamente da 100 a 200 cm"), ("Configurazioni", "Ripiani, ganci, vani, podi"),
                       ("Spedizione", "Piatta, montaggio in pochi minuti")]),
         overview("Configurazioni", T, "T05", "Monofacciale o bifacciale, a ripiani, a ganci, a vani o a podi: la forma nasce dal prodotto "
                  "e dal punto in cui verrà esposto. Header e crowner portano il messaggio in alto, basi e fianchi rinforzati "

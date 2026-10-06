@@ -130,8 +130,7 @@ def copertina():
     x, y = g(6.5, .45)
     return (el("small", "Vol. 01 — 2027", .5, .45)
             + el("small", "Progettato e prodotto da", .5, .75) + logo(g(.5, .9)[0], g(.5, .9)[1], 32)
-            + el("small", "Cartotecnica ed espositori per il punto vendita: progettazione, prototipazione e produzione. "
-                 "Cartone, cartoncino e materiali durevoli.", .5, 1.35, 2.6)
+            + el("small", "Progettiamo e produciamo espositori per il punto vendita, dall’idea al bancale.", .5, 1.35, 2.6)
             + f'<img class="drawing" src="img/esploso-terra.svg" style="right:{W - x:.1f}mm;top:{y:.1f}mm;height:{H - 2 * MARG:.1f}mm" alt="">'
             + el("light-t", "Portfolio", .5, 2.3) + el("cover-t", "Espositori", .5, 2.62)
             + el("capline", "<b>Fig. 01</b>Espositore da terra — vista esplosa", .5, 3.5, 2)
