@@ -161,18 +161,15 @@ def scrape_team(team_cfg, all_players_slim, all_tables, season_id):
     print(f"  team_id={team_id} league_id={league_id} season_id={season_id}", flush=True)
 
     if os.environ.get("DEBUG_TEAM_SCHEMA"):
-        print(f"  DEBUG team keys: {sorted(team.keys())}", flush=True)
-        content = (team.get("content") or {}).get("rendered", "")
-        print(f"  DEBUG team.content.rendered (first 2000 chars): {content[:2000]!r}", flush=True)
-        excerpt = (team.get("excerpt") or {}).get("rendered", "")
-        print(f"  DEBUG team.excerpt.rendered: {excerpt[:500]!r}", flush=True)
-        meta = team.get("meta")
-        print(f"  DEBUG team.meta: {meta!r}", flush=True)
-        try:
-            staff_probe = get("staff", {"teams": team_id})
-            print(f"  DEBUG /staff?teams={team_id}: {len(staff_probe)} items: {json.dumps(staff_probe)[:1000]}", flush=True)
-        except Exception as e:
-            print(f"  DEBUG /staff probe failed: {e}", flush=True)
+        print(f"  DEBUG team.staff field: {team.get('staff')!r}", flush=True)
+        matching_staff = [
+            s for s in ALL_STAFF_SLIM
+            if team_id in (s.get("current_teams") or []) and season_id in (s.get("seasons") or [])
+        ]
+        print(f"  DEBUG matching staff for team_id={team_id}, season_id={season_id}: {len(matching_staff)}", flush=True)
+        for s in matching_staff:
+            roles = [c for c in (s.get("class_list") or []) if c.startswith("sp_role-")]
+            print(f"    - {s.get('title', {}).get('rendered')!r} roles={roles} current_teams={s.get('current_teams')} teams={s.get('teams')}", flush=True)
 
     # --- Standings table for the league ---
     tables = get("tables", {"leagues": league_id})
@@ -301,7 +298,11 @@ def scrape_team(team_cfg, all_players_slim, all_tables, season_id):
     print(f"  standings rows: {len(standings)}, players: {len(players)}, upcoming: {len(upcoming)}", flush=True)
 
 
+ALL_STAFF_SLIM = []
+
+
 def main():
+    global ALL_STAFF_SLIM
     print("scanning players (shared across teams)...", flush=True)
     all_players_slim = get_all("players", {"_fields": "id,title,current_teams,class_list,number"}, log_progress=True)
     print(f"scanned {len(all_players_slim)} players total", flush=True)
@@ -309,6 +310,10 @@ def main():
     all_tables = get_all("tables")
     season_id = resolve_season()
     print(f"season_id={season_id}, {len(all_tables)} tables total", flush=True)
+
+    if os.environ.get("DEBUG_TEAM_SCHEMA"):
+        ALL_STAFF_SLIM = get_all("staff", {"_fields": "id,title,current_teams,teams,seasons,class_list"})
+        print(f"DEBUG scanned {len(ALL_STAFF_SLIM)} staff total", flush=True)
 
     failures = []
     for team_cfg in TEAMS:
