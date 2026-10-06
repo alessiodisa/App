@@ -474,12 +474,14 @@
     });
   }
 
-  // Dirigenza/Staff are curated by hand in assets/js/treviso-staff.js, not
-  // scraped from calciotto.tv, so they render independently of the fetch above.
+  // Dirigenza/Staff are curated by hand in assets/js/treviso-staff.js and
+  // assets/js/nova-staff.js, not scraped from calciotto.tv, so they render
+  // independently of the fetch above.
   function renderStaticStaff() {
     var lists = [
       { id: "campionatoDirigenza", items: window.TREVISO_DIRIGENZA || [] },
-      { id: "campionatoStaffTeam", items: window.TREVISO_STAFF || [] }
+      { id: "campionatoStaffTeam", items: window.TREVISO_STAFF || [] },
+      { id: "campionatoDirigenzaNova", items: window.NOVA_DIRIGENZA || [] }
     ];
     lists.forEach(function (list) {
       var el = document.getElementById(list.id);
@@ -519,9 +521,7 @@
       matchesId: "campionatoMatchesNova",
       rosterId: "campionatoRosterNova",
       scorersId: "campionatoScorersNova",
-      updatedId: "campionatoUpdatedNova",
-      dirigenzaId: "campionatoDirigenzaNova",
-      staffId: "campionatoStaffTeamNova"
+      updatedId: "campionatoUpdatedNova"
     });
     renderStaticStaff();
     initSmoothDetails(".campionato-section-toggle");
