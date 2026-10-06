@@ -191,7 +191,7 @@ def contatti():
 
 def retro():
     return (el("small", "Espositori 2027", .35, .6)
-            + el("cover-t sm", "Catalogo", .35, 1.2)
+            + el("cover-t sm", "Catalogo", .35, .95)
             + PG.contatti_retro(g(.35, 0)[0], 110) + PG.logo(MARG, H - MARG - 13.5, 36, right=True)
             + plus(4, 1) + plus(4, 6))
 
