@@ -18,10 +18,15 @@ Notes on the API (learned by probing, since it isn't documented):
   players are found by fully paginating /players and filtering
   client-side on `current_teams`.
 - Per-player season stats live at statistics[str(league_id)][str(season_id)].
-- A team's own `leagues` field (if present) is used to auto-detect which
-  league/season to pull standings and stats from, so each team doesn't need
-  its league hardcoded. Falls back to FALLBACK_LEAGUE_SLUG/SEASON_SLUG
-  (Treviso's known league) if a team has no `leagues` field.
+- A team's own `leagues` field is NOT reliable for finding its *current*
+  league — it turns out to list every league the team has ever played in
+  (same pitfall as `current_teams` on players), not just the current one.
+  So each team's current league is instead found by scanning all `tables`
+  for the one whose row data contains the team's id — that table's
+  `leagues` field is the real current league. Falls back to
+  FALLBACK_LEAGUE_SLUG (Treviso's known league) if no table contains the
+  team. The season is a single site-wide value (SEASON_SLUG), not resolved
+  per-team.
 """
 import html
 import json
@@ -33,8 +38,8 @@ import requests
 
 BASE = "https://calciotto.tv/wp-json/sportspress/v2"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; UnitedHubSiteBot/1.0)"}
+SEASON_SLUG = "2026-2027"
 FALLBACK_LEAGUE_SLUG = "serie-a-2026-2027"
-FALLBACK_SEASON_SLUG = "2026-2027"
 
 TEAMS = [
     {
@@ -122,39 +127,38 @@ def find_team(slug, name_search):
     raise RuntimeError(f"team not found: slug={slug} name_search={name_search}")
 
 
-def resolve_league_season(team):
-    """Prefer the team's own `leagues` field; fall back to Treviso's known
-    league/season slugs if that field is missing or empty."""
-    team_league_ids = team.get("leagues") or []
-    if team_league_ids:
-        league_id = team_league_ids[0]
-        try:
-            league = get(f"leagues/{league_id}")
-            season_ids = league.get("seasons") or []
-            season_id = season_ids[0] if season_ids else None
-            league_name = clean_text((league.get("title") or {}).get("rendered", ""))
-            return league_id, season_id, league_name
-        except Exception as e:
-            print(f"  league lookup failed for league_id={league_id}: {e}, falling back", flush=True)
+def resolve_season():
+    seasons = get("seasons", {"slug": SEASON_SLUG})
+    if not seasons:
+        raise RuntimeError(f"season not found: {SEASON_SLUG}")
+    return seasons[0]["id"]
 
+
+def find_team_league(team_id, all_tables):
+    """Find the current league this team plays in by locating the table
+    whose row data includes the team's id — reliable, unlike the team's own
+    `leagues` field (see module docstring)."""
+    for t in all_tables:
+        data = t.get("data") or {}
+        if str(team_id) in data:
+            league_ids = t.get("leagues") or []
+            if league_ids:
+                return league_ids[0]
+    print(f"  team {team_id} not found in any table, using fallback league '{FALLBACK_LEAGUE_SLUG}'", flush=True)
     leagues = get("leagues", {"slug": FALLBACK_LEAGUE_SLUG})
     if not leagues:
-        raise RuntimeError(f"fallback league not found: {FALLBACK_LEAGUE_SLUG}")
-    league_id = leagues[0]["id"]
-    league_name = clean_text((leagues[0].get("title") or {}).get("rendered", ""))
-    seasons = get("seasons", {"slug": FALLBACK_SEASON_SLUG})
-    season_id = seasons[0]["id"] if seasons else None
-    return league_id, season_id, league_name
+        raise RuntimeError(f"team {team_id} not found in any table, and fallback league not found")
+    return leagues[0]["id"]
 
 
-def scrape_team(team_cfg, all_players_slim):
+def scrape_team(team_cfg, all_players_slim, all_tables, season_id):
     slug = team_cfg["slug"]
     print(f"--- scraping {slug} ---", flush=True)
     team = find_team(slug, team_cfg["name_search"])
     team_id = team["id"]
 
-    league_id, season_id, league_name = resolve_league_season(team)
-    print(f"  team_id={team_id} league_id={league_id} season_id={season_id} league_name={league_name!r}", flush=True)
+    league_id = find_team_league(team_id, all_tables)
+    print(f"  team_id={team_id} league_id={league_id} season_id={season_id}", flush=True)
 
     # --- Standings table for the league ---
     tables = get("tables", {"leagues": league_id})
@@ -265,7 +269,6 @@ def scrape_team(team_cfg, all_players_slim):
     output = {
         "generated_at": now.isoformat(),
         "source": team_cfg["source"],
-        "league_name": league_name,
         "team": {
             "name": clean_text(team.get("title", {}).get("rendered", team_cfg["name_search"])),
             "link": team.get("link"),
@@ -289,10 +292,14 @@ def main():
     all_players_slim = get_all("players", {"_fields": "id,title,current_teams,class_list,number"}, log_progress=True)
     print(f"scanned {len(all_players_slim)} players total", flush=True)
 
+    all_tables = get_all("tables")
+    season_id = resolve_season()
+    print(f"season_id={season_id}, {len(all_tables)} tables total", flush=True)
+
     failures = []
     for team_cfg in TEAMS:
         try:
-            scrape_team(team_cfg, all_players_slim)
+            scrape_team(team_cfg, all_players_slim, all_tables, season_id)
         except Exception as e:
             print(f"ERROR scraping {team_cfg['slug']}: {e}", file=sys.stderr, flush=True)
             failures.append(team_cfg["slug"])
