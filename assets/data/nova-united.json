@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T14:51:02.559168+00:00",
+  "generated_at": "2026-10-07T20:16:27.002999+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -49,8 +49,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 30189,
+      "team_id": 30199,
       "pos": 4,
+      "name": "31036",
+      "pts": "3",
+      "played": "1",
+      "wins": "1",
+      "draws": "0",
+      "losses": "0",
+      "for": "2",
+      "against": "0",
+      "gd": "2",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30189,
+      "pos": 5,
       "name": "GENESIS",
       "pts": "3",
       "played": "1",
@@ -63,36 +77,8 @@
       "is_home_team": false
     },
     {
-      "team_id": 30199,
-      "pos": 5,
-      "name": "31036",
-      "pts": "0",
-      "played": "0",
-      "wins": "0",
-      "draws": "0",
-      "losses": "0",
-      "for": "0",
-      "against": "0",
-      "gd": "0",
-      "is_home_team": false
-    },
-    {
-      "team_id": 30195,
-      "pos": 5,
-      "name": "A.C. OSPEDALETTO",
-      "pts": "0",
-      "played": "0",
-      "wins": "0",
-      "draws": "0",
-      "losses": "0",
-      "for": "0",
-      "against": "0",
-      "gd": "0",
-      "is_home_team": false
-    },
-    {
       "team_id": 30196,
-      "pos": 5,
+      "pos": 6,
       "name": "ASD ALBAREDO INSIEME",
       "pts": "0",
       "played": "0",
@@ -106,7 +92,7 @@
     },
     {
       "team_id": 30188,
-      "pos": 5,
+      "pos": 6,
       "name": "CALCIOTTO LEVADA",
       "pts": "0",
       "played": "0",
@@ -120,7 +106,7 @@
     },
     {
       "team_id": 30190,
-      "pos": 5,
+      "pos": 6,
       "name": "HELLAS MADONNA",
       "pts": "0",
       "played": "0",
@@ -134,7 +120,7 @@
     },
     {
       "team_id": 30197,
-      "pos": 5,
+      "pos": 6,
       "name": "MONIGO FC",
       "pts": "0",
       "played": "0",
@@ -148,7 +134,7 @@
     },
     {
       "team_id": 30194,
-      "pos": 11,
+      "pos": 10,
       "name": "SCHIERATISSIMI",
       "pts": "0",
       "played": "1",
@@ -162,7 +148,7 @@
     },
     {
       "team_id": 30342,
-      "pos": 12,
+      "pos": 11,
       "name": "BOCA BOYS",
       "pts": "0",
       "played": "1",
@@ -171,6 +157,20 @@
       "losses": "1",
       "for": "2",
       "against": "4",
+      "gd": "-2",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30195,
+      "pos": 12,
+      "name": "A.C. OSPEDALETTO",
+      "pts": "0",
+      "played": "1",
+      "wins": "0",
+      "draws": "0",
+      "losses": "1",
+      "for": "0",
+      "against": "2",
       "gd": "-2",
       "is_home_team": false
     },
