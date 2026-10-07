@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T07:50:10.883827+00:00",
+  "generated_at": "2026-10-07T14:51:02.559168+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -441,6 +441,19 @@
     },
     {
       "name": "Davide Zecca",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Elia Luigi Mucci",
       "number": null,
       "position": "forward",
       "position_label": "Attaccante",
