@@ -85,8 +85,8 @@ ORIG = json.loads((ROOT / "img" / "orig" / "orig.json").read_text())
 
 SQZOOM = {}                   # leggero zoom sulle foto quadrate, per poterle centrare sull'espositore
 ZOOM = {"B20": 1.15, "T11": 1.12, "T10": 1.12, "T09": 1.12, "T15": 1.12}   # ingrandimenti mirati per pareggiare la scala tra foto affiancate
-SHIFT = {"T15": .04, "T07": .06, "B21": .06}          # spostamento in basso dell'espositore (quota del riquadro), per allineare le basi
-FILL = {"T02": .68, "T12": .76, "B19": .8, "B21": .8, "B03": .72, "T01": .78, "B22": .78}  # quota d'altezza del riquadro occupata dall'espositore (come i vicini)
+SHIFT = {"T08": .017, "T15": .04, "T07": .06, "B21": .06}          # spostamento in basso dell'espositore (quota del riquadro), per allineare le basi
+FILL = {"T08": .761, "T02": .68, "T12": .76, "B19": .8, "B21": .8, "B03": .72, "T01": .78, "B22": .78}  # quota d'altezza del riquadro occupata dall'espositore (come i vicini)
 
 
 def foto_orig(code, x, y, w, h):
