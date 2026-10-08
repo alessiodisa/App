@@ -350,7 +350,8 @@ def indice():
     voci = [("01", "Introduzione", 2), ("02", "Espositori da banco", 4), ("03", "Espositori da terra", 12)]
     li = "".join(f'<li><span class="n">{n}</span><span class="t">{t}</span><span class="p">{p:02d}</span></li>' for n, t, p in voci)
     return pagina("Indice", "Indice", txt(f'<ul class="toc">{li}</ul>', M + 4, TOP + 10, 150)
-                  + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti.</p>', 190, TOP + 10, 75))
+                  + txt('<p class="big">Un catalogo illustrativo: le immagini raccontano i progetti.</p>'
+                        '<p class="note2">Per motivi di privacy, alcuni articoli sono stati completamente rigraficati.</p>', 190, TOP + 10, 75))
 
 
 def chi_siamo():
