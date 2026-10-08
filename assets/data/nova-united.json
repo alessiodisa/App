@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T06:46:38.817141+00:00",
+  "generated_at": "2026-10-08T14:09:15.054040+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -218,6 +218,19 @@
     }
   ],
   "players": [
+    {
+      "name": "Giacomo Signorello",
+      "number": null,
+      "position": "goalkeeper",
+      "position_label": "Portiere",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
     {
       "name": "Massimiliano Vecchiato",
       "number": null,
@@ -467,6 +480,19 @@
     },
     {
       "name": "Francesco Gasparini",
+      "number": null,
+      "position": "forward",
+      "position_label": "Attaccante",
+      "stats": {
+        "appearances": "0",
+        "goals": 0,
+        "yellow_cards": 0,
+        "red_cards": 0,
+        "motm": 0
+      }
+    },
+    {
+      "name": "Francesco Oliva",
       "number": null,
       "position": "forward",
       "position_label": "Attaccante",
