@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T19:10:54.134559+00:00",
+  "generated_at": "2026-10-09T23:39:41.317051+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -77,8 +77,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 30189,
+      "team_id": 30197,
       "pos": 6,
+      "name": "MONIGO FC",
+      "pts": "3",
+      "played": "1",
+      "wins": "1",
+      "draws": "0",
+      "losses": "0",
+      "for": "3",
+      "against": "2",
+      "gd": "1",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30189,
+      "pos": 7,
       "name": "GENESIS",
       "pts": "3",
       "played": "1",
@@ -91,36 +105,8 @@
       "is_home_team": false
     },
     {
-      "team_id": 30190,
-      "pos": 7,
-      "name": "HELLAS MADONNA",
-      "pts": "0",
-      "played": "0",
-      "wins": "0",
-      "draws": "0",
-      "losses": "0",
-      "for": "0",
-      "against": "0",
-      "gd": "0",
-      "is_home_team": false
-    },
-    {
-      "team_id": 30197,
-      "pos": 7,
-      "name": "MONIGO FC",
-      "pts": "0",
-      "played": "0",
-      "wins": "0",
-      "draws": "0",
-      "losses": "0",
-      "for": "0",
-      "against": "0",
-      "gd": "0",
-      "is_home_team": false
-    },
-    {
       "team_id": 30196,
-      "pos": 9,
+      "pos": 8,
       "name": "ASD ALBAREDO INSIEME",
       "pts": "0",
       "played": "1",
@@ -129,6 +115,20 @@
       "losses": "1",
       "for": "5",
       "against": "6",
+      "gd": "-1",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30190,
+      "pos": 9,
+      "name": "HELLAS MADONNA",
+      "pts": "0",
+      "played": "1",
+      "wins": "0",
+      "draws": "0",
+      "losses": "1",
+      "for": "2",
+      "against": "3",
       "gd": "-1",
       "is_home_team": false
     },
