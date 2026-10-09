@@ -1,0 +1,27 @@
+/* Portfolio v3 — si carica dopo portfolio-v2.css */
+.page:not(.grid) { background: linear-gradient(180deg, #FAFAF9 0%, #F1F1EF 100%); }
+.ptitle3 { font: 700 19pt/1 var(--disp); letter-spacing: -.02em; color: var(--ink); }
+.pill { position: absolute; }
+
+.bignum3 { font: 800 40pt/1 var(--disp); color: #D4D4D2; letter-spacing: -.03em; margin-bottom: 6mm; }
+.intro3 { font: 500 11pt/1.4 var(--disp); letter-spacing: -.005em; color: var(--ink); }
+.intro3.sm { font-size: 8.4pt; margin-bottom: 8mm; }
+
+.prod { border-top: .3mm solid var(--ink); padding-top: 2.2mm; }
+.cellt.bottom .prod { margin-top: auto; }
+.prod-code { font: 600 6.4pt/1 var(--disp); color: #9B9B99; letter-spacing: .04em; }
+.prod-tipo { font: 700 9pt/1.25 var(--disp); color: var(--ink); margin-top: 1.4mm; }
+.prod dl { display: grid; grid-template-columns: 17mm 1fr; margin-top: 2.2mm; }
+.prod dt, .prod dd { font-size: 6.6pt; line-height: 1.4; padding: .9mm 0; border-top: .2mm solid #D6D6D4; }
+.prod dt { font: 600 6.4pt/1.4 var(--disp); color: var(--ink); }
+.prod dd { color: var(--txt); }
+
+.zona { border-top: .3mm solid var(--ink); padding-top: 2.2mm; }
+.zona-n { font: 600 6.4pt/1 var(--disp); color: #9B9B99; }
+.zona-t { font: 700 10pt/1.2 var(--disp); color: var(--ink); margin-top: 1.4mm; }
+.zona p { font: 400 7.2pt/1.55 var(--body); color: var(--txt); margin-top: 2mm; }
+
+.cellt.stack { display: flex; flex-direction: column; justify-content: flex-end; gap: 6mm; }
+.fig { font: 400 6.4pt/1.45 var(--body); color: var(--txt); }
+.fig b { display: block; font: 700 6.8pt/1.35 var(--disp); color: var(--ink); }
+.t2 { font-size: 19pt; }
