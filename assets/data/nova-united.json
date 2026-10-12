@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T02:58:42.956974+00:00",
+  "generated_at": "2026-10-12T10:08:29.489218+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -570,6 +570,10 @@
     }
   ],
   "dirigenza": [
+    {
+      "name": "Pietro Sernicola",
+      "role": "Dirigente"
+    },
     {
       "name": "Alberto Di Modica",
       "role": "Dirigente"
