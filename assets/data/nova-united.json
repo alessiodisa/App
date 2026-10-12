@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T10:08:29.489218+00:00",
+  "generated_at": "2026-10-12T20:02:33.449151+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -11,13 +11,13 @@
       "pos": 1,
       "name": "VIRTUS SBI",
       "pts": "3",
-      "played": "1",
+      "played": "2",
       "wins": "1",
       "draws": "0",
-      "losses": "0",
-      "for": "5",
-      "against": "0",
-      "gd": "5",
+      "losses": "1",
+      "for": "7",
+      "against": "3",
+      "gd": "4",
       "is_home_team": false
     },
     {
@@ -25,13 +25,13 @@
       "pos": 2,
       "name": "NOVA UNITED",
       "pts": "3",
-      "played": "1",
+      "played": "2",
       "wins": "1",
       "draws": "0",
-      "losses": "0",
+      "losses": "1",
       "for": "5",
-      "against": "1",
-      "gd": "4",
+      "against": "2",
+      "gd": "3",
       "is_home_team": true
     },
     {
@@ -108,28 +108,28 @@
       "team_id": 30196,
       "pos": 8,
       "name": "ASD ALBAREDO INSIEME",
-      "pts": "0",
-      "played": "1",
-      "wins": "0",
+      "pts": "3",
+      "played": "2",
+      "wins": "1",
       "draws": "0",
       "losses": "1",
-      "for": "5",
+      "for": "6",
       "against": "6",
-      "gd": "-1",
+      "gd": "0",
       "is_home_team": false
     },
     {
       "team_id": 30190,
       "pos": 9,
       "name": "HELLAS MADONNA",
-      "pts": "0",
-      "played": "1",
-      "wins": "0",
+      "pts": "3",
+      "played": "2",
+      "wins": "1",
       "draws": "0",
       "losses": "1",
-      "for": "2",
-      "against": "3",
-      "gd": "-1",
+      "for": "5",
+      "against": "5",
+      "gd": "0",
       "is_home_team": false
     },
     {
@@ -263,7 +263,7 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -289,9 +289,9 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
-        "yellow_cards": 0,
+        "yellow_cards": 1,
         "red_cards": 0,
         "motm": 0
       }
@@ -302,7 +302,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 1,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -315,7 +315,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -341,7 +341,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -354,7 +354,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -367,7 +367,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 1,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -393,7 +393,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -432,7 +432,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -445,7 +445,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -458,7 +458,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -471,7 +471,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -484,7 +484,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -510,7 +510,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 1,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -523,7 +523,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -532,12 +532,6 @@
     }
   ],
   "upcoming_matches": [
-    {
-      "date": "2026-10-12T20:00:13",
-      "title": "ASD ALBAREDO INSIEME vs NOVA UNITED",
-      "opponent": "ASD ALBAREDO INSIEME",
-      "league": "serie-c-2026-2027"
-    },
     {
       "date": "2026-10-19T21:00:55",
       "title": "NOVA UNITED vs EIGHTSIDE",
@@ -566,6 +560,12 @@
       "date": "2026-11-18T21:00:25",
       "title": "CALCIOTTO LEVADA vs NOVA UNITED",
       "opponent": "CALCIOTTO LEVADA",
+      "league": "serie-c-2026-2027"
+    },
+    {
+      "date": "2026-11-23T22:00:56",
+      "title": "NOVA UNITED vs MONIGO FC",
+      "opponent": "MONIGO FC",
       "league": "serie-c-2026-2027"
     }
   ],
