@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T17:40:45.730875+00:00",
+  "generated_at": "2026-10-14T21:03:47.698248+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -133,17 +133,17 @@
       "is_home_team": false
     },
     {
-      "team_id": 190,
+      "team_id": 12204,
       "pos": 10,
-      "name": "LOS BULLDOGS",
-      "pts": "5",
-      "played": "5",
-      "wins": "1",
-      "draws": "2",
-      "losses": "2",
+      "name": "SPARTA PREGA",
+      "pts": "6",
+      "played": "6",
+      "wins": "2",
+      "draws": "0",
+      "losses": "4",
       "for": "12",
-      "against": "14",
-      "gd": "-2",
+      "against": "18",
+      "gd": "-6",
       "is_home_team": false
     },
     {
@@ -161,8 +161,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 20446,
+      "team_id": 190,
       "pos": 12,
+      "name": "LOS BULLDOGS",
+      "pts": "5",
+      "played": "6",
+      "wins": "1",
+      "draws": "2",
+      "losses": "3",
+      "for": "13",
+      "against": "18",
+      "gd": "-5",
+      "is_home_team": false
+    },
+    {
+      "team_id": 20446,
+      "pos": 13,
       "name": "NEXT DINAMO",
       "pts": "4",
       "played": "5",
@@ -176,7 +190,7 @@
     },
     {
       "team_id": 165,
-      "pos": 13,
+      "pos": 14,
       "name": "INGARBUJATI NEXT GEN",
       "pts": "3",
       "played": "5",
@@ -190,7 +204,7 @@
     },
     {
       "team_id": 163,
-      "pos": 14,
+      "pos": 15,
       "name": "CARMELITEAM",
       "pts": "3",
       "played": "5",
@@ -200,20 +214,6 @@
       "for": "14",
       "against": "22",
       "gd": "-8",
-      "is_home_team": false
-    },
-    {
-      "team_id": 12204,
-      "pos": 15,
-      "name": "SPARTA PREGA",
-      "pts": "3",
-      "played": "5",
-      "wins": "1",
-      "draws": "0",
-      "losses": "4",
-      "for": "8",
-      "against": "17",
-      "gd": "-9",
       "is_home_team": false
     },
     {

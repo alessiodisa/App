@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T17:40:55.559994+00:00",
+  "generated_at": "2026-10-14T21:03:58.181029+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -21,8 +21,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 30198,
+      "team_id": 30188,
       "pos": 2,
+      "name": "CALCIOTTO LEVADA",
+      "pts": "6",
+      "played": "2",
+      "wins": "2",
+      "draws": "0",
+      "losses": "0",
+      "for": "12",
+      "against": "8",
+      "gd": "4",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30198,
+      "pos": 3,
       "name": "VIRTUS SBI",
       "pts": "3",
       "played": "2",
@@ -36,7 +50,7 @@
     },
     {
       "team_id": 30187,
-      "pos": 3,
+      "pos": 4,
       "name": "NOVA UNITED",
       "pts": "3",
       "played": "2",
@@ -47,20 +61,6 @@
       "against": "2",
       "gd": "3",
       "is_home_team": true
-    },
-    {
-      "team_id": 30192,
-      "pos": 4,
-      "name": "JAGERBOMBERS",
-      "pts": "3",
-      "played": "1",
-      "wins": "1",
-      "draws": "0",
-      "losses": "0",
-      "for": "4",
-      "against": "2",
-      "gd": "2",
-      "is_home_team": false
     },
     {
       "team_id": 30199,
@@ -77,22 +77,8 @@
       "is_home_team": false
     },
     {
-      "team_id": 30188,
-      "pos": 6,
-      "name": "CALCIOTTO LEVADA",
-      "pts": "3",
-      "played": "1",
-      "wins": "1",
-      "draws": "0",
-      "losses": "0",
-      "for": "6",
-      "against": "5",
-      "gd": "1",
-      "is_home_team": false
-    },
-    {
       "team_id": 30196,
-      "pos": 7,
+      "pos": 6,
       "name": "ASD ALBAREDO INSIEME",
       "pts": "3",
       "played": "2",
@@ -106,7 +92,7 @@
     },
     {
       "team_id": 30190,
-      "pos": 8,
+      "pos": 7,
       "name": "HELLAS MADONNA",
       "pts": "3",
       "played": "2",
@@ -116,6 +102,20 @@
       "for": "5",
       "against": "5",
       "gd": "0",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30192,
+      "pos": 8,
+      "name": "JAGERBOMBERS",
+      "pts": "3",
+      "played": "2",
+      "wins": "1",
+      "draws": "0",
+      "losses": "1",
+      "for": "7",
+      "against": "8",
+      "gd": "-1",
       "is_home_team": false
     },
     {
