@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T21:03:58.181029+00:00",
+  "generated_at": "2026-10-15T00:11:18.993944+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -91,6 +91,20 @@
       "is_home_team": false
     },
     {
+      "team_id": 30195,
+      "pos": 7,
+      "name": "A.C. OSPEDALETTO",
+      "pts": "3",
+      "played": "2",
+      "wins": "1",
+      "draws": "0",
+      "losses": "1",
+      "for": "5",
+      "against": "5",
+      "gd": "0",
+      "is_home_team": false
+    },
+    {
       "team_id": 30190,
       "pos": 7,
       "name": "HELLAS MADONNA",
@@ -106,7 +120,7 @@
     },
     {
       "team_id": 30192,
-      "pos": 8,
+      "pos": 9,
       "name": "JAGERBOMBERS",
       "pts": "3",
       "played": "2",
@@ -120,7 +134,7 @@
     },
     {
       "team_id": 30342,
-      "pos": 9,
+      "pos": 10,
       "name": "BOCA BOYS",
       "pts": "3",
       "played": "2",
@@ -134,7 +148,7 @@
     },
     {
       "team_id": 30197,
-      "pos": 10,
+      "pos": 11,
       "name": "MONIGO FC",
       "pts": "3",
       "played": "2",
@@ -148,7 +162,7 @@
     },
     {
       "team_id": 30194,
-      "pos": 11,
+      "pos": 12,
       "name": "SCHIERATISSIMI",
       "pts": "0",
       "played": "2",
@@ -161,36 +175,8 @@
       "is_home_team": false
     },
     {
-      "team_id": 30195,
-      "pos": 12,
-      "name": "A.C. OSPEDALETTO",
-      "pts": "0",
-      "played": "1",
-      "wins": "0",
-      "draws": "0",
-      "losses": "1",
-      "for": "0",
-      "against": "2",
-      "gd": "-2",
-      "is_home_team": false
-    },
-    {
-      "team_id": 30345,
-      "pos": 13,
-      "name": "VIDOR DE JANEIRO",
-      "pts": "0",
-      "played": "1",
-      "wins": "0",
-      "draws": "0",
-      "losses": "1",
-      "for": "1",
-      "against": "5",
-      "gd": "-4",
-      "is_home_team": false
-    },
-    {
       "team_id": 30191,
-      "pos": 14,
+      "pos": 13,
       "name": "EIGHTSIDE",
       "pts": "0",
       "played": "1",
@@ -200,6 +186,20 @@
       "for": "0",
       "against": "5",
       "gd": "-5",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30345,
+      "pos": 14,
+      "name": "VIDOR DE JANEIRO",
+      "pts": "0",
+      "played": "2",
+      "wins": "0",
+      "draws": "0",
+      "losses": "2",
+      "for": "4",
+      "against": "10",
+      "gd": "-6",
       "is_home_team": false
     },
     {
