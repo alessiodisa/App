@@ -32,6 +32,9 @@
     en: "No results in this category."
   };
 
+  var VIDEO_LABEL = { it: "Guarda il video", en: "Watch the video" };
+  var TRIED_LABEL = { it: "Provato da noi", en: "Tried by us" };
+
   function escapeHtml(str) {
     return String(str == null ? "" : str).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -105,13 +108,27 @@
 
       markers = places.map(function (place) {
         var marker = L.marker([place.lat, place.lng], { icon: makeIcon(place.category) });
-        marker.bindPopup(
-          "<strong>" + escapeHtml(place.name) + "</strong>" +
-          (place.description ? "<br>" + escapeHtml(place.description) : "")
-        );
+        marker.bindPopup(popupHtml(place));
+        marker.on("click", function () { highlightCard(place); });
         marker.addTo(map);
         return marker;
       });
+    }
+
+    function popupHtml(place) {
+      var tried = place.tried
+        ? '<div class="map-popup-tried">★★★ ' + escapeHtml(TRIED_LABEL[lang] || TRIED_LABEL.it) + "</div>"
+        : "";
+      var video = place.videoLink
+        ? '<a class="map-popup-video" href="' + escapeHtml(place.videoLink) + '" target="_blank" rel="noopener">' +
+          escapeHtml(VIDEO_LABEL[lang] || VIDEO_LABEL.it) + "</a>"
+        : "";
+      return (
+        "<strong>" + escapeHtml(place.name) + "</strong>" +
+        (place.placeType ? '<div class="map-popup-type">' + escapeHtml(place.placeType) + "</div>" : "") +
+        (place.description ? "<p>" + escapeHtml(place.description) + "</p>" : "") +
+        tried + video
+      );
     }
 
     function focusPlace(place) {
@@ -119,6 +136,18 @@
       if (!map || i === -1 || !markers[i]) return;
       map.flyTo([place.lat, place.lng], 16);
       markers[i].openPopup();
+    }
+
+    // Marker click -> scroll to and briefly highlight the matching list
+    // card, completing the two-way sync (the list already focuses the map
+    // on click, via focusPlace above).
+    function highlightCard(place) {
+      var idx = places.indexOf(place);
+      var card = document.querySelector('.map-place-card[data-place="' + idx + '"]');
+      if (!card) return;
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+      card.classList.add("is-highlighted");
+      window.setTimeout(function () { card.classList.remove("is-highlighted"); }, 1600);
     }
 
     function cardHtml(place) {
@@ -136,14 +165,21 @@
           (place.popularity != null ? "<span>♥ " + escapeHtml(place.popularity) + "</span>" : "") +
           "</div>"
         : "";
+      var tried = place.tried ? '<span class="map-place-tried" title="' + escapeHtml(TRIED_LABEL[lang] || TRIED_LABEL.it) + '">★★★</span>' : "";
+      var video = place.videoLink
+        ? '<a class="map-place-video-link" href="' + escapeHtml(place.videoLink) + '" target="_blank" rel="noopener">' +
+          escapeHtml(VIDEO_LABEL[lang] || VIDEO_LABEL.it) + "</a>"
+        : "";
       return (
         '<div class="map-place-card" data-place="' + places.indexOf(place) + '" tabindex="0" role="button" aria-label="' + escapeHtml(place.name) + '">' +
         media +
         '<div class="map-place-body">' +
-        '<span class="map-place-category">' + escapeHtml(cardLabels[place.category] || cardLabels.other) + "</span>" +
+        '<div class="map-place-top-row"><span class="map-place-category">' + escapeHtml(cardLabels[place.category] || cardLabels.other) + "</span>" + tried + "</div>" +
+        (place.placeType ? '<span class="map-place-type">' + escapeHtml(place.placeType) + "</span>" : "") +
         '<h3 class="map-place-name">' + escapeHtml(place.name) + "</h3>" +
         (place.description ? '<p class="map-place-desc">' + escapeHtml(place.description) + "</p>" : "") +
         meta +
+        video +
         "</div></div>"
       );
     }
@@ -156,6 +192,9 @@
         card.addEventListener("keydown", function (e) {
           if (e.key === "Enter" || e.key === " ") { e.preventDefault(); focusPlace(place); }
         });
+      });
+      container.querySelectorAll(".map-place-video-link").forEach(function (link) {
+        link.addEventListener("click", function (e) { e.stopPropagation(); });
       });
     }
 

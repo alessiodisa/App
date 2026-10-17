@@ -71,6 +71,31 @@
     });
   }
 
+  // Submits a Netlify Form (https://docs.netlify.com/forms/setup/) over
+  // fetch so the page doesn't navigate away, then swaps the form for a
+  // thank-you message. Falls back to a normal (navigating) submit if the
+  // fetch fails, e.g. when previewing the site outside Netlify.
+  function initNetlifyAjaxForm(formId, thanksKey) {
+    var form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var lang = document.documentElement.getAttribute("lang") || "it";
+      var data = new URLSearchParams(new FormData(form)).toString();
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: data
+      }).then(function () {
+        var note = form.parentElement.querySelector(".map-form-note");
+        form.hidden = true;
+        if (note) note.textContent = I18N[lang][thanksKey];
+      }).catch(function () {
+        form.submit();
+      });
+    });
+  }
+
   // Infinite horizontal auto-scroll: clones the group markup enough times to
   // always keep at least two screens' worth of content queued ahead, then
   // drives the CSS animation off the exact measured pixel distance so the
@@ -497,6 +522,8 @@
     initNavScroll();
     initMobileNav();
     initJoinForm();
+    initNetlifyAjaxForm("mapSuggestForm", "map.suggest.thanks");
+    initNetlifyAjaxForm("mapProposeForm", "map.propose.thanks");
     initAutoScroll(document.getElementById("marqueeTrack"), ".marquee-group", "--mq-w", 76);
     initAutoScroll(document.getElementById("igTrack"), ".ig-group", "--ig-w", 20);
     initAutoScroll(document.getElementById("igTrackTreviso"), ".ig-group", "--ig-w", 20);

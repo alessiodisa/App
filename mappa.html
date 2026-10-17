@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="assets/css/style.css?v=38">
+<link rel="stylesheet" href="assets/css/style.css?v=39">
 </head>
 <body>
 
@@ -92,6 +92,39 @@
     </div>
   </section>
 
+  <section class="map-contribute">
+    <div class="container">
+      <div class="map-contribute-grid">
+        <div class="map-contribute-card">
+          <h2 data-i18n="map.suggest.title">Dacci un consiglio</h2>
+          <p data-i18n="map.suggest.text">Conosci un posto che dovremmo scoprire? Raccontacelo.</p>
+          <form class="map-contribute-form" name="consigli-mappa" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="mapSuggestForm">
+            <input type="hidden" name="form-name" value="consigli-mappa">
+            <p class="map-form-hidden"><label>Non compilare se sei umano: <input name="bot-field"></label></p>
+            <input type="text" name="nome" data-i18n-placeholder="map.suggest.name.placeholder" placeholder="Il tuo nome (opzionale)">
+            <textarea name="messaggio" required data-i18n-placeholder="map.suggest.message.placeholder" placeholder="Nome del posto e perché ci dovremmo andare"></textarea>
+            <button type="submit" class="btn btn-primary" data-i18n="map.suggest.submit">Invia il consiglio</button>
+          </form>
+          <p class="map-form-note" data-i18n="map.suggest.note">Leggiamo ogni segnalazione, niente spam.</p>
+        </div>
+
+        <div class="map-contribute-card">
+          <h2 data-i18n="map.propose.title">Proponi la tua attività</h2>
+          <p data-i18n="map.propose.text">Hai un locale o un'attività e vuoi comparire in un video United? Scrivici.</p>
+          <form class="map-contribute-form" name="proposte-mappa" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="mapProposeForm">
+            <input type="hidden" name="form-name" value="proposte-mappa">
+            <p class="map-form-hidden"><label>Non compilare se sei umano: <input name="bot-field"></label></p>
+            <input type="text" name="attivita" required data-i18n-placeholder="map.propose.business.placeholder" placeholder="Nome dell'attività">
+            <input type="email" name="email" required data-i18n-placeholder="map.propose.email.placeholder" placeholder="La tua email">
+            <textarea name="messaggio" data-i18n-placeholder="map.propose.message.placeholder" placeholder="Raccontaci di cosa si tratta"></textarea>
+            <button type="submit" class="btn btn-primary" data-i18n="map.propose.submit">Invia la proposta</button>
+          </form>
+          <p class="map-form-note" data-i18n="map.propose.note">Ti rispondiamo via email se il progetto fa per noi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -131,6 +164,7 @@
           <li><a href="chi-siamo.html" data-i18n="footer.company.l1">Chi siamo</a></li>
           <li><a href="#" data-i18n="footer.company.l2">Contatti</a></li>
           <li><a href="#" data-i18n="footer.company.l3">Lavora con noi</a></li>
+          <li><a href="privacy.html" data-i18n="footer.company.l4">Privacy</a></li>
         </ul>
       </div>
     </div>
@@ -146,9 +180,9 @@
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="assets/js/i18n.js?v=24"></script>
-<script src="assets/js/main.js?v=21"></script>
-<script src="assets/js/map-places.js?v=2"></script>
-<script src="assets/js/map.js?v=4"></script>
+<script src="assets/js/i18n.js?v=25"></script>
+<script src="assets/js/main.js?v=22"></script>
+<script src="assets/js/map-places.js?v=3"></script>
+<script src="assets/js/map.js?v=5"></script>
 </body>
 </html>
