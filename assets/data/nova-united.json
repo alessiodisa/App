@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T15:58:00.107018+00:00",
+  "generated_at": "2026-10-19T20:50:21.854889+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -77,17 +77,17 @@
       "is_home_team": true
     },
     {
-      "team_id": 30196,
+      "team_id": 30194,
       "pos": 6,
-      "name": "ASD ALBAREDO INSIEME",
+      "name": "SCHIERATISSIMI",
       "pts": "3",
-      "played": "2",
+      "played": "3",
       "wins": "1",
       "draws": "0",
-      "losses": "1",
-      "for": "6",
-      "against": "6",
-      "gd": "0",
+      "losses": "2",
+      "for": "10",
+      "against": "8",
+      "gd": "2",
       "is_home_team": false
     },
     {
@@ -147,8 +147,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 30197,
+      "team_id": 30196,
       "pos": 11,
+      "name": "ASD ALBAREDO INSIEME",
+      "pts": "3",
+      "played": "3",
+      "wins": "1",
+      "draws": "0",
+      "losses": "2",
+      "for": "8",
+      "against": "12",
+      "gd": "-4",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30197,
+      "pos": 12,
       "name": "MONIGO FC",
       "pts": "3",
       "played": "2",
@@ -158,20 +172,6 @@
       "for": "3",
       "against": "7",
       "gd": "-4",
-      "is_home_team": false
-    },
-    {
-      "team_id": 30194,
-      "pos": 12,
-      "name": "SCHIERATISSIMI",
-      "pts": "0",
-      "played": "2",
-      "wins": "0",
-      "draws": "0",
-      "losses": "2",
-      "for": "4",
-      "against": "6",
-      "gd": "-2",
       "is_home_team": false
     },
     {
