@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T03:53:31.827735+00:00",
+  "generated_at": "2026-10-20T08:58:59.749507+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -35,8 +35,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 30188,
+      "team_id": 30187,
       "pos": 3,
+      "name": "NOVA UNITED",
+      "pts": "6",
+      "played": "3",
+      "wins": "2",
+      "draws": "0",
+      "losses": "1",
+      "for": "9",
+      "against": "4",
+      "gd": "5",
+      "is_home_team": true
+    },
+    {
+      "team_id": 30188,
+      "pos": 4,
       "name": "CALCIOTTO LEVADA",
       "pts": "6",
       "played": "2",
@@ -50,7 +64,7 @@
     },
     {
       "team_id": 30198,
-      "pos": 4,
+      "pos": 5,
       "name": "VIRTUS SBI",
       "pts": "3",
       "played": "2",
@@ -61,20 +75,6 @@
       "against": "3",
       "gd": "4",
       "is_home_team": false
-    },
-    {
-      "team_id": 30187,
-      "pos": 5,
-      "name": "NOVA UNITED",
-      "pts": "3",
-      "played": "2",
-      "wins": "1",
-      "draws": "0",
-      "losses": "1",
-      "for": "5",
-      "against": "2",
-      "gd": "3",
-      "is_home_team": true
     },
     {
       "team_id": 30194,
@@ -193,13 +193,13 @@
       "pos": 14,
       "name": "EIGHTSIDE",
       "pts": "0",
-      "played": "2",
+      "played": "3",
       "wins": "0",
       "draws": "0",
-      "losses": "2",
-      "for": "0",
-      "against": "9",
-      "gd": "-9",
+      "losses": "3",
+      "for": "2",
+      "against": "13",
+      "gd": "-11",
       "is_home_team": false
     },
     {
@@ -237,7 +237,7 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -250,7 +250,7 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -263,7 +263,7 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -289,7 +289,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 0,
         "yellow_cards": 1,
         "red_cards": 0,
@@ -302,7 +302,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 1,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -315,7 +315,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -393,8 +393,8 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "1",
-        "goals": 0,
+        "appearances": "2",
+        "goals": 1,
         "yellow_cards": 0,
         "red_cards": 0,
         "motm": 0
@@ -406,11 +406,11 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "1",
-        "goals": 1,
+        "appearances": "2",
+        "goals": 3,
         "yellow_cards": 0,
         "red_cards": 0,
-        "motm": 0
+        "motm": 1
       }
     },
     {
@@ -432,7 +432,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -458,7 +458,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -471,7 +471,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -484,8 +484,8 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "1",
-        "goals": 0,
+        "appearances": "2",
+        "goals": 1,
         "yellow_cards": 0,
         "red_cards": 0,
         "motm": 0
@@ -523,7 +523,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
