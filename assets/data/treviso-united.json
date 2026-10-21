@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T15:43:45.655454+00:00",
+  "generated_at": "2026-10-21T19:45:01.670103+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -119,8 +119,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 192,
+      "team_id": 12204,
       "pos": 9,
+      "name": "SPARTA PREGA",
+      "pts": "9",
+      "played": "7",
+      "wins": "3",
+      "draws": "0",
+      "losses": "4",
+      "for": "13",
+      "against": "18",
+      "gd": "-5",
+      "is_home_team": false
+    },
+    {
+      "team_id": 192,
+      "pos": 10,
       "name": "ATHLETIC DINAMO",
       "pts": "6",
       "played": "6",
@@ -130,20 +144,6 @@
       "for": "9",
       "against": "13",
       "gd": "-4",
-      "is_home_team": false
-    },
-    {
-      "team_id": 12204,
-      "pos": 10,
-      "name": "SPARTA PREGA",
-      "pts": "6",
-      "played": "6",
-      "wins": "2",
-      "draws": "0",
-      "losses": "4",
-      "for": "12",
-      "against": "18",
-      "gd": "-6",
       "is_home_team": false
     },
     {
@@ -179,13 +179,13 @@
       "pos": 13,
       "name": "A.c. ATLETICO PAPATO",
       "pts": "5",
-      "played": "6",
+      "played": "7",
       "wins": "1",
       "draws": "2",
-      "losses": "3",
+      "losses": "4",
       "for": "8",
-      "against": "13",
-      "gd": "-5",
+      "against": "14",
+      "gd": "-6",
       "is_home_team": false
     },
     {
