@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T20:56:41.556861+00:00",
+  "generated_at": "2026-10-22T23:47:16.185076+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -49,8 +49,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 189,
+      "team_id": 19325,
       "pos": 4,
+      "name": "ADELANTES",
+      "pts": "16",
+      "played": "7",
+      "wins": "5",
+      "draws": "1",
+      "losses": "1",
+      "for": "22",
+      "against": "13",
+      "gd": "9",
+      "is_home_team": false
+    },
+    {
+      "team_id": 189,
+      "pos": 5,
       "name": "F.C. CA’NELSON",
       "pts": "15",
       "played": "7",
@@ -60,20 +74,6 @@
       "for": "16",
       "against": "8",
       "gd": "8",
-      "is_home_team": false
-    },
-    {
-      "team_id": 19325,
-      "pos": 5,
-      "name": "ADELANTES",
-      "pts": "13",
-      "played": "6",
-      "wins": "4",
-      "draws": "1",
-      "losses": "1",
-      "for": "17",
-      "against": "11",
-      "gd": "6",
       "is_home_team": false
     },
     {
@@ -109,13 +109,13 @@
       "pos": 8,
       "name": "MIDNIGHT",
       "pts": "9",
-      "played": "6",
+      "played": "7",
       "wins": "3",
       "draws": "0",
-      "losses": "3",
-      "for": "15",
-      "against": "13",
-      "gd": "2",
+      "losses": "4",
+      "for": "17",
+      "against": "18",
+      "gd": "-1",
       "is_home_team": false
     },
     {
@@ -151,13 +151,13 @@
       "pos": 11,
       "name": "ATHLETIC DINAMO",
       "pts": "6",
-      "played": "6",
+      "played": "7",
       "wins": "2",
       "draws": "0",
-      "losses": "4",
-      "for": "9",
-      "against": "13",
-      "gd": "-4",
+      "losses": "5",
+      "for": "10",
+      "against": "15",
+      "gd": "-5",
       "is_home_team": false
     },
     {
@@ -175,8 +175,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 190,
+      "team_id": 25070,
       "pos": 13,
+      "name": "REAL SANTA MARIA",
+      "pts": "6",
+      "played": "7",
+      "wins": "2",
+      "draws": "0",
+      "losses": "5",
+      "for": "9",
+      "against": "20",
+      "gd": "-11",
+      "is_home_team": false
+    },
+    {
+      "team_id": 190,
+      "pos": 14,
       "name": "LOS BULLDOGS",
       "pts": "5",
       "played": "6",
@@ -190,7 +204,7 @@
     },
     {
       "team_id": 167,
-      "pos": 14,
+      "pos": 15,
       "name": "A.c. ATLETICO PAPATO",
       "pts": "5",
       "played": "7",
@@ -204,7 +218,7 @@
     },
     {
       "team_id": 165,
-      "pos": 15,
+      "pos": 16,
       "name": "INGARBUJATI NEXT GEN",
       "pts": "3",
       "played": "7",
@@ -214,20 +228,6 @@
       "for": "11",
       "against": "19",
       "gd": "-8",
-      "is_home_team": false
-    },
-    {
-      "team_id": 25070,
-      "pos": 16,
-      "name": "REAL SANTA MARIA",
-      "pts": "3",
-      "played": "6",
-      "wins": "1",
-      "draws": "0",
-      "losses": "5",
-      "for": "7",
-      "against": "19",
-      "gd": "-12",
       "is_home_team": false
     },
     {
@@ -252,7 +252,7 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "3",
+        "appearances": "4",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -265,7 +265,7 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -304,7 +304,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "5",
+        "appearances": "6",
         "goals": 0,
         "yellow_cards": 3,
         "red_cards": 0,
@@ -330,7 +330,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "5",
+        "appearances": "6",
         "goals": 0,
         "yellow_cards": 2,
         "red_cards": 0,
@@ -395,7 +395,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -460,7 +460,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "4",
+        "appearances": "5",
         "goals": 2,
         "yellow_cards": 1,
         "red_cards": 0,
@@ -473,7 +473,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "3",
+        "appearances": "4",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -512,8 +512,8 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "2",
-        "goals": 2,
+        "appearances": "3",
+        "goals": 3,
         "yellow_cards": 1,
         "red_cards": 0,
         "motm": 1
@@ -551,7 +551,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -564,8 +564,8 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "6",
-        "goals": 2,
+        "appearances": "7",
+        "goals": 3,
         "yellow_cards": 1,
         "red_cards": 0,
         "motm": 0
@@ -577,7 +577,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "5",
+        "appearances": "6",
         "goals": 8,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -590,7 +590,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "3",
+        "appearances": "4",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -612,12 +612,6 @@
     }
   ],
   "upcoming_matches": [
-    {
-      "date": "2026-10-22T21:00:24",
-      "title": "TREVISO UNITED vs QUINTO TEAM",
-      "opponent": "QUINTO TEAM",
-      "league": "serie-a-2026-2027"
-    },
     {
       "date": "2026-11-05T20:00:01",
       "title": "NEXT DINAMO vs TREVISO UNITED",
@@ -646,6 +640,12 @@
       "date": "2026-12-03T21:00:52",
       "title": "TREVISO UNITED vs ATHLETIC DINAMO",
       "opponent": "ATHLETIC DINAMO",
+      "league": "serie-a-2026-2027"
+    },
+    {
+      "date": "2026-12-17T22:00:54",
+      "title": "ADELANTES vs TREVISO UNITED",
+      "opponent": "ADELANTES",
       "league": "serie-a-2026-2027"
     }
   ],
