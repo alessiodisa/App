@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T18:57:00.777880+00:00",
+  "generated_at": "2026-11-03T01:25:48.362578+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -7,8 +7,22 @@
   },
   "standings": [
     {
-      "team_id": 30189,
+      "team_id": 30187,
       "pos": 1,
+      "name": "NOVA UNITED",
+      "pts": "9",
+      "played": "4",
+      "wins": "3",
+      "draws": "0",
+      "losses": "1",
+      "for": "12",
+      "against": "5",
+      "gd": "7",
+      "is_home_team": true
+    },
+    {
+      "team_id": 30189,
+      "pos": 2,
       "name": "GENESIS",
       "pts": "9",
       "played": "3",
@@ -22,7 +36,7 @@
     },
     {
       "team_id": 30199,
-      "pos": 2,
+      "pos": 3,
       "name": "31036",
       "pts": "9",
       "played": "3",
@@ -36,31 +50,17 @@
     },
     {
       "team_id": 30198,
-      "pos": 3,
+      "pos": 4,
       "name": "VIRTUS SBI",
       "pts": "6",
-      "played": "3",
+      "played": "4",
       "wins": "2",
       "draws": "0",
-      "losses": "1",
-      "for": "10",
-      "against": "5",
-      "gd": "5",
+      "losses": "2",
+      "for": "11",
+      "against": "8",
+      "gd": "3",
       "is_home_team": false
-    },
-    {
-      "team_id": 30187,
-      "pos": 4,
-      "name": "NOVA UNITED",
-      "pts": "6",
-      "played": "3",
-      "wins": "2",
-      "draws": "0",
-      "losses": "1",
-      "for": "9",
-      "against": "4",
-      "gd": "5",
-      "is_home_team": true
     },
     {
       "team_id": 30188,
@@ -237,7 +237,7 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -263,8 +263,8 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "2",
-        "goals": 0,
+        "appearances": "3",
+        "goals": 1,
         "yellow_cards": 0,
         "red_cards": 0,
         "motm": 0
@@ -289,7 +289,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "3",
+        "appearances": "4",
         "goals": 0,
         "yellow_cards": 1,
         "red_cards": 0,
@@ -302,11 +302,11 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "3",
-        "goals": 1,
+        "appearances": "4",
+        "goals": 3,
         "yellow_cards": 0,
         "red_cards": 0,
-        "motm": 0
+        "motm": 1
       }
     },
     {
@@ -315,7 +315,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -341,9 +341,9 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
-        "yellow_cards": 0,
+        "yellow_cards": 1,
         "red_cards": 0,
         "motm": 0
       }
@@ -393,7 +393,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 1,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -432,9 +432,9 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "3",
+        "appearances": "4",
         "goals": 0,
-        "yellow_cards": 0,
+        "yellow_cards": 1,
         "red_cards": 0,
         "motm": 0
       }
@@ -445,7 +445,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "1",
+        "appearances": "2",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -458,7 +458,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -471,7 +471,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -510,7 +510,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 1,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -523,7 +523,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "3",
+        "appearances": "4",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -532,12 +532,6 @@
     }
   ],
   "upcoming_matches": [
-    {
-      "date": "2026-11-02T21:00:27",
-      "title": "VIRTUS SBI vs NOVA UNITED",
-      "opponent": "VIRTUS SBI",
-      "league": "serie-c-2026-2027"
-    },
     {
       "date": "2026-11-09T22:00:02",
       "title": "NOVA UNITED vs JAGERBOMBERS",
@@ -566,6 +560,12 @@
       "date": "2026-12-14T22:00:05",
       "title": "HELLAS MADONNA vs NOVA UNITED",
       "opponent": "HELLAS MADONNA",
+      "league": "serie-c-2026-2027"
+    },
+    {
+      "date": "2027-01-13T20:00:25",
+      "title": "NOVA UNITED vs A.C. OSPEDALETTO",
+      "opponent": "A.C. OSPEDALETTO",
       "league": "serie-c-2026-2027"
     }
   ],
