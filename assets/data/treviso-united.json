@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T18:19:16.336865+00:00",
+  "generated_at": "2026-11-05T00:01:08.546345+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -91,8 +91,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 185,
+      "team_id": 12204,
       "pos": 7,
+      "name": "SPARTA PREGA",
+      "pts": "12",
+      "played": "8",
+      "wins": "4",
+      "draws": "0",
+      "losses": "4",
+      "for": "18",
+      "against": "19",
+      "gd": "-1",
+      "is_home_team": false
+    },
+    {
+      "team_id": 185,
+      "pos": 8,
       "name": "G.S.A. MONTEBELLUNA",
       "pts": "10",
       "played": "7",
@@ -106,7 +120,7 @@
     },
     {
       "team_id": 20412,
-      "pos": 8,
+      "pos": 9,
       "name": "MIDNIGHT",
       "pts": "9",
       "played": "7",
@@ -116,20 +130,6 @@
       "for": "17",
       "against": "18",
       "gd": "-1",
-      "is_home_team": false
-    },
-    {
-      "team_id": 12204,
-      "pos": 9,
-      "name": "SPARTA PREGA",
-      "pts": "9",
-      "played": "7",
-      "wins": "3",
-      "draws": "0",
-      "losses": "4",
-      "for": "13",
-      "against": "18",
-      "gd": "-5",
       "is_home_team": false
     },
     {
@@ -179,13 +179,13 @@
       "pos": 13,
       "name": "ATHLETIC DINAMO",
       "pts": "6",
-      "played": "7",
+      "played": "8",
       "wins": "2",
       "draws": "0",
-      "losses": "5",
-      "for": "10",
-      "against": "15",
-      "gd": "-5",
+      "losses": "6",
+      "for": "11",
+      "against": "20",
+      "gd": "-9",
       "is_home_team": false
     },
     {
