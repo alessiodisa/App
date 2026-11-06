@@ -1,0 +1,7 @@
+/* Versione verticale delle pagine sul modello della reference */
+@page { size: 210mm 297mm; margin: 0; }
+.book { grid-template-columns: repeat(2, 210mm); }
+.page { width: 210mm; height: 297mm; }
+.page.grid { background-size: 42mm calc(297mm / 7); }
+.page.ref { background: linear-gradient(160deg, #FFFFFF 0%, #F3F3F2 45%, #E3E3E2 100%); }
+.cover-t { font-size: 50pt; }
