@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T21:38:44.506751+00:00",
+  "generated_at": "2026-11-06T01:52:25.054574+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -39,13 +39,13 @@
       "pos": 3,
       "name": "QUINTO TEAM",
       "pts": "18",
-      "played": "7",
+      "played": "8",
       "wins": "6",
       "draws": "0",
-      "losses": "1",
-      "for": "30",
-      "against": "21",
-      "gd": "9",
+      "losses": "2",
+      "for": "33",
+      "against": "26",
+      "gd": "7",
       "is_home_team": false
     },
     {
@@ -147,8 +147,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 20446,
+      "team_id": 25070,
       "pos": 11,
+      "name": "REAL SANTA MARIA",
+      "pts": "9",
+      "played": "8",
+      "wins": "3",
+      "draws": "0",
+      "losses": "5",
+      "for": "14",
+      "against": "23",
+      "gd": "-9",
+      "is_home_team": false
+    },
+    {
+      "team_id": 20446,
+      "pos": 12,
       "name": "NEXT DINAMO",
       "pts": "8",
       "played": "8",
@@ -162,7 +176,7 @@
     },
     {
       "team_id": 190,
-      "pos": 12,
+      "pos": 13,
       "name": "LOS BULLDOGS",
       "pts": "6",
       "played": "7",
@@ -176,7 +190,7 @@
     },
     {
       "team_id": 192,
-      "pos": 13,
+      "pos": 14,
       "name": "ATHLETIC DINAMO",
       "pts": "6",
       "played": "8",
@@ -186,20 +200,6 @@
       "for": "11",
       "against": "20",
       "gd": "-9",
-      "is_home_team": false
-    },
-    {
-      "team_id": 25070,
-      "pos": 14,
-      "name": "REAL SANTA MARIA",
-      "pts": "6",
-      "played": "7",
-      "wins": "2",
-      "draws": "0",
-      "losses": "5",
-      "for": "9",
-      "against": "20",
-      "gd": "-11",
       "is_home_team": false
     },
     {

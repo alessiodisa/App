@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T21:38:53.210690+00:00",
+  "generated_at": "2026-11-06T01:52:33.953529+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -77,22 +77,8 @@
       "is_home_team": false
     },
     {
-      "team_id": 30188,
-      "pos": 6,
-      "name": "CALCIOTTO LEVADA",
-      "pts": "6",
-      "played": "3",
-      "wins": "2",
-      "draws": "0",
-      "losses": "1",
-      "for": "12",
-      "against": "10",
-      "gd": "2",
-      "is_home_team": false
-    },
-    {
       "team_id": 30192,
-      "pos": 7,
+      "pos": 6,
       "name": "JAGERBOMBERS",
       "pts": "6",
       "played": "4",
@@ -102,6 +88,20 @@
       "for": "11",
       "against": "9",
       "gd": "2",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30188,
+      "pos": 7,
+      "name": "CALCIOTTO LEVADA",
+      "pts": "6",
+      "played": "4",
+      "wins": "2",
+      "draws": "0",
+      "losses": "2",
+      "for": "15",
+      "against": "15",
+      "gd": "0",
       "is_home_team": false
     },
     {
@@ -192,14 +192,14 @@
       "team_id": 30191,
       "pos": 14,
       "name": "EIGHTSIDE",
-      "pts": "0",
-      "played": "3",
-      "wins": "0",
+      "pts": "3",
+      "played": "4",
+      "wins": "1",
       "draws": "0",
       "losses": "3",
-      "for": "2",
-      "against": "13",
-      "gd": "-11",
+      "for": "7",
+      "against": "16",
+      "gd": "-9",
       "is_home_team": false
     },
     {
