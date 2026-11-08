@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T09:51:47.949275+00:00",
+  "generated_at": "2026-11-08T16:26:16.671376+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -637,15 +637,15 @@
       "league": "serie-a-2026-2027"
     },
     {
+      "date": "2026-12-10T20:00:08",
+      "title": "TREVISO UNITED vs NOVA UNITED",
+      "opponent": "NOVA UNITED",
+      "league": "coppa-italia-treviso-2027"
+    },
+    {
       "date": "2026-12-17T22:00:54",
       "title": "ADELANTES vs TREVISO UNITED",
       "opponent": "ADELANTES",
-      "league": "serie-a-2026-2027"
-    },
-    {
-      "date": "2027-01-14T21:00:12",
-      "title": "TREVISO UNITED vs G.S.A. MONTEBELLUNA",
-      "opponent": "G.S.A. MONTEBELLUNA",
       "league": "serie-a-2026-2027"
     }
   ],

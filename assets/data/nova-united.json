@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T09:51:56.510701+00:00",
+  "generated_at": "2026-11-08T16:26:25.338391+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -557,15 +557,15 @@
       "league": "serie-c-2026-2027"
     },
     {
+      "date": "2026-12-10T20:00:08",
+      "title": "TREVISO UNITED vs NOVA UNITED",
+      "opponent": "TREVISO UNITED",
+      "league": "coppa-italia-treviso-2027"
+    },
+    {
       "date": "2026-12-14T22:00:05",
       "title": "HELLAS MADONNA vs NOVA UNITED",
       "opponent": "HELLAS MADONNA",
-      "league": "serie-c-2026-2027"
-    },
-    {
-      "date": "2027-01-13T20:00:25",
-      "title": "NOVA UNITED vs A.C. OSPEDALETTO",
-      "opponent": "A.C. OSPEDALETTO",
       "league": "serie-c-2026-2027"
     }
   ],
