@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T07:21:31.457818+00:00",
+  "generated_at": "2026-11-09T17:54:49.457279+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -650,6 +650,10 @@
     }
   ],
   "dirigenza": [
+    {
+      "name": "Lorenzo Ladisa",
+      "role": "Dirigente"
+    },
     {
       "name": "Andrea Brugnerotto",
       "role": "Dirigente"
