@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T21:32:07.865263+00:00",
+  "generated_at": "2026-11-11T01:34:32.555425+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -7,8 +7,22 @@
   },
   "standings": [
     {
-      "team_id": 30199,
+      "team_id": 30190,
       "pos": 1,
+      "name": "HELLAS MADONNA",
+      "pts": "12",
+      "played": "5",
+      "wins": "4",
+      "draws": "0",
+      "losses": "1",
+      "for": "22",
+      "against": "10",
+      "gd": "12",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30199,
+      "pos": 2,
       "name": "31036",
       "pts": "12",
       "played": "4",
@@ -22,7 +36,7 @@
     },
     {
       "team_id": 30187,
-      "pos": 2,
+      "pos": 3,
       "name": "NOVA UNITED",
       "pts": "10",
       "played": "5",
@@ -33,20 +47,6 @@
       "against": "8",
       "gd": "7",
       "is_home_team": true
-    },
-    {
-      "team_id": 30190,
-      "pos": 3,
-      "name": "HELLAS MADONNA",
-      "pts": "9",
-      "played": "4",
-      "wins": "3",
-      "draws": "0",
-      "losses": "1",
-      "for": "17",
-      "against": "8",
-      "gd": "9",
-      "is_home_team": false
     },
     {
       "team_id": 30189,
@@ -193,13 +193,13 @@
       "pos": 14,
       "name": "EIGHTSIDE",
       "pts": "3",
-      "played": "4",
+      "played": "5",
       "wins": "1",
       "draws": "0",
-      "losses": "3",
-      "for": "7",
-      "against": "16",
-      "gd": "-9",
+      "losses": "4",
+      "for": "9",
+      "against": "21",
+      "gd": "-12",
       "is_home_team": false
     },
     {
