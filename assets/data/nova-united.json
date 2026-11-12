@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T04:39:43.454529+00:00",
+  "generated_at": "2026-11-12T13:24:47.862027+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -7,8 +7,22 @@
   },
   "standings": [
     {
-      "team_id": 30190,
+      "team_id": 30199,
       "pos": 1,
+      "name": "31036",
+      "pts": "15",
+      "played": "5",
+      "wins": "5",
+      "draws": "0",
+      "losses": "0",
+      "for": "21",
+      "against": "2",
+      "gd": "19",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30190,
+      "pos": 2,
       "name": "HELLAS MADONNA",
       "pts": "12",
       "played": "5",
@@ -18,20 +32,6 @@
       "for": "22",
       "against": "10",
       "gd": "12",
-      "is_home_team": false
-    },
-    {
-      "team_id": 30199,
-      "pos": 2,
-      "name": "31036",
-      "pts": "12",
-      "played": "4",
-      "wins": "4",
-      "draws": "0",
-      "losses": "0",
-      "for": "13",
-      "against": "2",
-      "gd": "11",
       "is_home_team": false
     },
     {
@@ -133,45 +133,45 @@
       "is_home_team": false
     },
     {
-      "team_id": 30345,
+      "team_id": 30196,
       "pos": 10,
+      "name": "ASD ALBAREDO INSIEME",
+      "pts": "6",
+      "played": "5",
+      "wins": "2",
+      "draws": "0",
+      "losses": "3",
+      "for": "12",
+      "against": "19",
+      "gd": "-7",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30345,
+      "pos": 11,
       "name": "VIDOR DE JANEIRO",
       "pts": "4",
-      "played": "4",
+      "played": "5",
       "wins": "1",
       "draws": "1",
-      "losses": "2",
+      "losses": "3",
       "for": "13",
-      "against": "16",
-      "gd": "-3",
+      "against": "24",
+      "gd": "-11",
       "is_home_team": false
     },
     {
       "team_id": 30195,
-      "pos": 11,
+      "pos": 12,
       "name": "A.C. OSPEDALETTO",
       "pts": "3",
-      "played": "4",
+      "played": "5",
       "wins": "1",
       "draws": "0",
-      "losses": "3",
-      "for": "8",
-      "against": "13",
-      "gd": "-5",
-      "is_home_team": false
-    },
-    {
-      "team_id": 30196,
-      "pos": 12,
-      "name": "ASD ALBAREDO INSIEME",
-      "pts": "3",
-      "played": "4",
-      "wins": "1",
-      "draws": "0",
-      "losses": "3",
-      "for": "8",
-      "against": "16",
-      "gd": "-8",
+      "losses": "4",
+      "for": "11",
+      "against": "17",
+      "gd": "-6",
       "is_home_team": false
     },
     {
