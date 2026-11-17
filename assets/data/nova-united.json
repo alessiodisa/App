@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T17:37:36.179649+00:00",
+  "generated_at": "2026-11-17T01:13:41.933307+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -63,8 +63,22 @@
       "is_home_team": true
     },
     {
-      "team_id": 30197,
+      "team_id": 30198,
       "pos": 5,
+      "name": "VIRTUS SBI",
+      "pts": "9",
+      "played": "6",
+      "wins": "3",
+      "draws": "0",
+      "losses": "3",
+      "for": "15",
+      "against": "14",
+      "gd": "1",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30197,
+      "pos": 6,
       "name": "MONIGO FC",
       "pts": "9",
       "played": "5",
@@ -78,21 +92,21 @@
     },
     {
       "team_id": 30194,
-      "pos": 6,
+      "pos": 7,
       "name": "SCHIERATISSIMI",
       "pts": "7",
-      "played": "5",
+      "played": "6",
       "wins": "2",
       "draws": "1",
-      "losses": "2",
-      "for": "19",
-      "against": "13",
-      "gd": "6",
+      "losses": "3",
+      "for": "21",
+      "against": "17",
+      "gd": "4",
       "is_home_team": false
     },
     {
       "team_id": 30192,
-      "pos": 7,
+      "pos": 8,
       "name": "JAGERBOMBERS",
       "pts": "7",
       "played": "5",
@@ -102,20 +116,6 @@
       "for": "14",
       "against": "12",
       "gd": "2",
-      "is_home_team": false
-    },
-    {
-      "team_id": 30198,
-      "pos": 8,
-      "name": "VIRTUS SBI",
-      "pts": "6",
-      "played": "5",
-      "wins": "2",
-      "draws": "0",
-      "losses": "3",
-      "for": "11",
-      "against": "12",
-      "gd": "-1",
       "is_home_team": false
     },
     {
