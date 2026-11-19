@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T18:29:57.753925+00:00",
+  "generated_at": "2026-11-19T00:50:32.649519+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -21,45 +21,45 @@
       "is_home_team": false
     },
     {
-      "team_id": 30190,
+      "team_id": 30189,
       "pos": 2,
-      "name": "HELLAS MADONNA",
-      "pts": "12",
-      "played": "5",
-      "wins": "4",
+      "name": "GENESIS",
+      "pts": "15",
+      "played": "6",
+      "wins": "5",
       "draws": "0",
       "losses": "1",
-      "for": "22",
-      "against": "10",
-      "gd": "12",
+      "for": "25",
+      "against": "8",
+      "gd": "17",
       "is_home_team": false
     },
     {
-      "team_id": 30189,
+      "team_id": 30190,
       "pos": 3,
-      "name": "GENESIS",
-      "pts": "12",
-      "played": "5",
+      "name": "HELLAS MADONNA",
+      "pts": "13",
+      "played": "6",
       "wins": "4",
-      "draws": "0",
+      "draws": "1",
       "losses": "1",
-      "for": "15",
-      "against": "8",
-      "gd": "7",
+      "for": "23",
+      "against": "11",
+      "gd": "12",
       "is_home_team": false
     },
     {
       "team_id": 30187,
       "pos": 4,
       "name": "NOVA UNITED",
-      "pts": "10",
-      "played": "5",
-      "wins": "3",
+      "pts": "13",
+      "played": "6",
+      "wins": "4",
       "draws": "1",
       "losses": "1",
-      "for": "15",
-      "against": "8",
-      "gd": "7",
+      "for": "18",
+      "against": "10",
+      "gd": "8",
       "is_home_team": true
     },
     {
@@ -91,8 +91,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 30194,
+      "team_id": 30192,
       "pos": 7,
+      "name": "JAGERBOMBERS",
+      "pts": "8",
+      "played": "6",
+      "wins": "2",
+      "draws": "2",
+      "losses": "2",
+      "for": "16",
+      "against": "14",
+      "gd": "2",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30194,
+      "pos": 8,
       "name": "SCHIERATISSIMI",
       "pts": "7",
       "played": "6",
@@ -105,36 +119,36 @@
       "is_home_team": false
     },
     {
-      "team_id": 30192,
-      "pos": 8,
-      "name": "JAGERBOMBERS",
+      "team_id": 30196,
+      "pos": 9,
+      "name": "ASD ALBAREDO INSIEME",
       "pts": "7",
-      "played": "5",
+      "played": "6",
       "wins": "2",
       "draws": "1",
-      "losses": "2",
-      "for": "14",
-      "against": "12",
-      "gd": "2",
+      "losses": "3",
+      "for": "13",
+      "against": "20",
+      "gd": "-7",
       "is_home_team": false
     },
     {
       "team_id": 30188,
-      "pos": 9,
+      "pos": 10,
       "name": "CALCIOTTO LEVADA",
       "pts": "6",
-      "played": "5",
+      "played": "6",
       "wins": "2",
       "draws": "0",
-      "losses": "3",
-      "for": "17",
-      "against": "21",
-      "gd": "-4",
+      "losses": "4",
+      "for": "19",
+      "against": "24",
+      "gd": "-5",
       "is_home_team": false
     },
     {
       "team_id": 30342,
-      "pos": 10,
+      "pos": 11,
       "name": "BOCA BOYS",
       "pts": "6",
       "played": "6",
@@ -147,36 +161,36 @@
       "is_home_team": false
     },
     {
-      "team_id": 30196,
-      "pos": 11,
-      "name": "ASD ALBAREDO INSIEME",
-      "pts": "6",
-      "played": "5",
-      "wins": "2",
-      "draws": "0",
-      "losses": "3",
-      "for": "12",
-      "against": "19",
-      "gd": "-7",
+      "team_id": 30191,
+      "pos": 12,
+      "name": "EIGHTSIDE",
+      "pts": "4",
+      "played": "6",
+      "wins": "1",
+      "draws": "1",
+      "losses": "4",
+      "for": "11",
+      "against": "23",
+      "gd": "-12",
       "is_home_team": false
     },
     {
       "team_id": 30345,
-      "pos": 12,
+      "pos": 13,
       "name": "VIDOR DE JANEIRO",
       "pts": "4",
-      "played": "5",
+      "played": "6",
       "wins": "1",
       "draws": "1",
-      "losses": "3",
+      "losses": "4",
       "for": "13",
-      "against": "24",
-      "gd": "-11",
+      "against": "34",
+      "gd": "-21",
       "is_home_team": false
     },
     {
       "team_id": 30195,
-      "pos": 13,
+      "pos": 14,
       "name": "A.C. OSPEDALETTO",
       "pts": "3",
       "played": "6",
@@ -186,20 +200,6 @@
       "for": "11",
       "against": "20",
       "gd": "-9",
-      "is_home_team": false
-    },
-    {
-      "team_id": 30191,
-      "pos": 14,
-      "name": "EIGHTSIDE",
-      "pts": "3",
-      "played": "5",
-      "wins": "1",
-      "draws": "0",
-      "losses": "4",
-      "for": "9",
-      "against": "21",
-      "gd": "-12",
       "is_home_team": false
     },
     {
@@ -250,7 +250,7 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "0",
+        "appearances": "1",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -263,7 +263,7 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "3",
+        "appearances": "4",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -302,7 +302,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "5",
+        "appearances": "6",
         "goals": 0,
         "yellow_cards": 1,
         "red_cards": 0,
@@ -315,8 +315,8 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "5",
-        "goals": 3,
+        "appearances": "6",
+        "goals": 4,
         "yellow_cards": 0,
         "red_cards": 0,
         "motm": 1
@@ -354,7 +354,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "3",
+        "appearances": "4",
         "goals": 0,
         "yellow_cards": 1,
         "red_cards": 0,
@@ -367,7 +367,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -406,7 +406,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "4",
+        "appearances": "5",
         "goals": 2,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -419,11 +419,11 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "3",
-        "goals": 3,
-        "yellow_cards": 0,
+        "appearances": "4",
+        "goals": 5,
+        "yellow_cards": 1,
         "red_cards": 0,
-        "motm": 1
+        "motm": 2
       }
     },
     {
@@ -445,9 +445,9 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "5",
+        "appearances": "6",
         "goals": 0,
-        "yellow_cards": 1,
+        "yellow_cards": 2,
         "red_cards": 0,
         "motm": 0
       }
@@ -458,7 +458,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -484,7 +484,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "3",
+        "appearances": "4",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -497,7 +497,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "3",
+        "appearances": "4",
         "goals": 1,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -523,7 +523,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "4",
+        "appearances": "5",
         "goals": 1,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -536,7 +536,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "4",
+        "appearances": "5",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -545,12 +545,6 @@
     }
   ],
   "upcoming_matches": [
-    {
-      "date": "2026-11-18T21:00:25",
-      "title": "CALCIOTTO LEVADA vs NOVA UNITED",
-      "opponent": "CALCIOTTO LEVADA",
-      "league": "serie-c-2026-2027"
-    },
     {
       "date": "2026-11-23T22:00:56",
       "title": "NOVA UNITED vs MONIGO FC",
@@ -579,6 +573,12 @@
       "date": "2027-01-13T20:00:25",
       "title": "NOVA UNITED vs A.C. OSPEDALETTO",
       "opponent": "A.C. OSPEDALETTO",
+      "league": "serie-c-2026-2027"
+    },
+    {
+      "date": "2027-01-18T20:00:27",
+      "title": "31036 vs NOVA UNITED",
+      "opponent": "31036",
       "league": "serie-c-2026-2027"
     }
   ],
