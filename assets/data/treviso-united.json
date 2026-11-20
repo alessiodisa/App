@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T14:30:43.378408+00:00",
+  "generated_at": "2026-11-20T22:02:24.712387+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -133,8 +133,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 25070,
+      "team_id": 192,
       "pos": 10,
+      "name": "ATHLETIC DINAMO",
+      "pts": "12",
+      "played": "10",
+      "wins": "4",
+      "draws": "0",
+      "losses": "6",
+      "for": "19",
+      "against": "24",
+      "gd": "-5",
+      "is_home_team": false
+    },
+    {
+      "team_id": 25070,
+      "pos": 11,
       "name": "REAL SANTA MARIA",
       "pts": "12",
       "played": "10",
@@ -148,30 +162,16 @@
     },
     {
       "team_id": 163,
-      "pos": 11,
+      "pos": 12,
       "name": "CARMELITEAM",
       "pts": "10",
-      "played": "9",
+      "played": "10",
       "wins": "3",
       "draws": "1",
-      "losses": "5",
-      "for": "23",
-      "against": "31",
-      "gd": "-8",
-      "is_home_team": false
-    },
-    {
-      "team_id": 192,
-      "pos": 12,
-      "name": "ATHLETIC DINAMO",
-      "pts": "9",
-      "played": "9",
-      "wins": "3",
-      "draws": "0",
       "losses": "6",
-      "for": "15",
-      "against": "21",
-      "gd": "-6",
+      "for": "26",
+      "against": "35",
+      "gd": "-9",
       "is_home_team": false
     },
     {

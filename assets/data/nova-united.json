@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T14:30:51.497443+00:00",
+  "generated_at": "2026-11-20T22:02:34.067643+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -11,13 +11,13 @@
       "pos": 1,
       "name": "31036",
       "pts": "15",
-      "played": "5",
+      "played": "6",
       "wins": "5",
       "draws": "0",
-      "losses": "0",
-      "for": "21",
-      "against": "2",
-      "gd": "19",
+      "losses": "1",
+      "for": "23",
+      "against": "5",
+      "gd": "18",
       "is_home_team": false
     },
     {
@@ -63,8 +63,22 @@
       "is_home_team": true
     },
     {
-      "team_id": 30198,
+      "team_id": 30197,
       "pos": 5,
+      "name": "MONIGO FC",
+      "pts": "12",
+      "played": "6",
+      "wins": "4",
+      "draws": "0",
+      "losses": "2",
+      "for": "17",
+      "against": "18",
+      "gd": "-1",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30198,
+      "pos": 6,
       "name": "VIRTUS SBI",
       "pts": "9",
       "played": "6",
@@ -74,20 +88,6 @@
       "for": "15",
       "against": "14",
       "gd": "1",
-      "is_home_team": false
-    },
-    {
-      "team_id": 30197,
-      "pos": 6,
-      "name": "MONIGO FC",
-      "pts": "9",
-      "played": "5",
-      "wins": "3",
-      "draws": "0",
-      "losses": "2",
-      "for": "14",
-      "against": "16",
-      "gd": "-2",
       "is_home_team": false
     },
     {
