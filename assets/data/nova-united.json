@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T09:56:42.719556+00:00",
+  "generated_at": "2026-11-23T21:49:46.547208+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -7,8 +7,22 @@
   },
   "standings": [
     {
-      "team_id": 30199,
+      "team_id": 30189,
       "pos": 1,
+      "name": "GENESIS",
+      "pts": "18",
+      "played": "7",
+      "wins": "6",
+      "draws": "0",
+      "losses": "1",
+      "for": "28",
+      "against": "9",
+      "gd": "19",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30199,
+      "pos": 2,
       "name": "31036",
       "pts": "15",
       "played": "6",
@@ -21,31 +35,17 @@
       "is_home_team": false
     },
     {
-      "team_id": 30189,
-      "pos": 2,
-      "name": "GENESIS",
-      "pts": "15",
-      "played": "6",
-      "wins": "5",
-      "draws": "0",
-      "losses": "1",
-      "for": "25",
-      "against": "8",
-      "gd": "17",
-      "is_home_team": false
-    },
-    {
       "team_id": 30190,
       "pos": 3,
       "name": "HELLAS MADONNA",
       "pts": "13",
-      "played": "6",
+      "played": "7",
       "wins": "4",
       "draws": "1",
-      "losses": "1",
-      "for": "23",
-      "against": "11",
-      "gd": "12",
+      "losses": "2",
+      "for": "24",
+      "against": "14",
+      "gd": "10",
       "is_home_team": false
     },
     {
