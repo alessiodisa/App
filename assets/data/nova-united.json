@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T21:49:46.547208+00:00",
+  "generated_at": "2026-11-24T05:40:26.311260+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -21,8 +21,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 30199,
+      "team_id": 30187,
       "pos": 2,
+      "name": "NOVA UNITED",
+      "pts": "16",
+      "played": "7",
+      "wins": "5",
+      "draws": "1",
+      "losses": "1",
+      "for": "23",
+      "against": "12",
+      "gd": "11",
+      "is_home_team": true
+    },
+    {
+      "team_id": 30199,
+      "pos": 3,
       "name": "31036",
       "pts": "15",
       "played": "6",
@@ -36,7 +50,7 @@
     },
     {
       "team_id": 30190,
-      "pos": 3,
+      "pos": 4,
       "name": "HELLAS MADONNA",
       "pts": "13",
       "played": "7",
@@ -49,31 +63,17 @@
       "is_home_team": false
     },
     {
-      "team_id": 30187,
-      "pos": 4,
-      "name": "NOVA UNITED",
-      "pts": "13",
-      "played": "6",
-      "wins": "4",
-      "draws": "1",
-      "losses": "1",
-      "for": "18",
-      "against": "10",
-      "gd": "8",
-      "is_home_team": true
-    },
-    {
       "team_id": 30197,
       "pos": 5,
       "name": "MONIGO FC",
       "pts": "12",
-      "played": "6",
+      "played": "7",
       "wins": "4",
       "draws": "0",
-      "losses": "2",
-      "for": "17",
-      "against": "18",
-      "gd": "-1",
+      "losses": "3",
+      "for": "19",
+      "against": "23",
+      "gd": "-4",
       "is_home_team": false
     },
     {
@@ -237,7 +237,7 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "2",
+        "appearances": "3",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -263,7 +263,7 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "4",
+        "appearances": "5",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -276,7 +276,7 @@
       "position": "goalkeeper",
       "position_label": "Portiere",
       "stats": {
-        "appearances": "4",
+        "appearances": "5",
         "goals": 1,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -302,7 +302,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "6",
+        "appearances": "7",
         "goals": 0,
         "yellow_cards": 1,
         "red_cards": 0,
@@ -315,8 +315,8 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "6",
-        "goals": 4,
+        "appearances": "7",
+        "goals": 5,
         "yellow_cards": 0,
         "red_cards": 0,
         "motm": 1
@@ -328,7 +328,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "3",
+        "appearances": "4",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -354,7 +354,7 @@
       "position": "defender",
       "position_label": "Difensore",
       "stats": {
-        "appearances": "4",
+        "appearances": "5",
         "goals": 0,
         "yellow_cards": 1,
         "red_cards": 0,
@@ -367,7 +367,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "3",
+        "appearances": "4",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -406,7 +406,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "5",
+        "appearances": "6",
         "goals": 2,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -419,11 +419,11 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "4",
-        "goals": 5,
+        "appearances": "5",
+        "goals": 8,
         "yellow_cards": 1,
         "red_cards": 0,
-        "motm": 2
+        "motm": 3
       }
     },
     {
@@ -445,7 +445,7 @@
       "position": "midfielder",
       "position_label": "Centrocampista",
       "stats": {
-        "appearances": "6",
+        "appearances": "7",
         "goals": 0,
         "yellow_cards": 2,
         "red_cards": 0,
@@ -458,7 +458,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "3",
+        "appearances": "4",
         "goals": 0,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -484,8 +484,8 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "4",
-        "goals": 0,
+        "appearances": "5",
+        "goals": 1,
         "yellow_cards": 0,
         "red_cards": 0,
         "motm": 0
@@ -497,7 +497,7 @@
       "position": "forward",
       "position_label": "Attaccante",
       "stats": {
-        "appearances": "4",
+        "appearances": "5",
         "goals": 1,
         "yellow_cards": 0,
         "red_cards": 0,
@@ -546,12 +546,6 @@
   ],
   "upcoming_matches": [
     {
-      "date": "2026-11-23T22:00:56",
-      "title": "NOVA UNITED vs MONIGO FC",
-      "opponent": "MONIGO FC",
-      "league": "serie-c-2026-2027"
-    },
-    {
       "date": "2026-11-30T20:00:54",
       "title": "SCHIERATISSIMI vs NOVA UNITED",
       "opponent": "SCHIERATISSIMI",
@@ -579,6 +573,12 @@
       "date": "2027-01-18T20:00:27",
       "title": "31036 vs NOVA UNITED",
       "opponent": "31036",
+      "league": "serie-c-2026-2027"
+    },
+    {
+      "date": "2027-01-25T22:00:15",
+      "title": "NOVA UNITED vs GENESIS",
+      "opponent": "GENESIS",
       "league": "serie-c-2026-2027"
     }
   ],
