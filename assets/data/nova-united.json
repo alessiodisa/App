@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T16:38:49.080820+00:00",
+  "generated_at": "2026-11-25T01:11:20.762519+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -77,8 +77,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 30198,
+      "team_id": 30194,
       "pos": 6,
+      "name": "SCHIERATISSIMI",
+      "pts": "10",
+      "played": "7",
+      "wins": "3",
+      "draws": "1",
+      "losses": "3",
+      "for": "25",
+      "against": "20",
+      "gd": "5",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30198,
+      "pos": 7,
       "name": "VIRTUS SBI",
       "pts": "9",
       "played": "6",
@@ -91,8 +105,22 @@
       "is_home_team": false
     },
     {
+      "team_id": 30342,
+      "pos": 8,
+      "name": "BOCA BOYS",
+      "pts": "9",
+      "played": "7",
+      "wins": "3",
+      "draws": "0",
+      "losses": "4",
+      "for": "18",
+      "against": "24",
+      "gd": "-6",
+      "is_home_team": false
+    },
+    {
       "team_id": 30192,
-      "pos": 7,
+      "pos": 9,
       "name": "JAGERBOMBERS",
       "pts": "8",
       "played": "6",
@@ -105,22 +133,8 @@
       "is_home_team": false
     },
     {
-      "team_id": 30194,
-      "pos": 8,
-      "name": "SCHIERATISSIMI",
-      "pts": "7",
-      "played": "6",
-      "wins": "2",
-      "draws": "1",
-      "losses": "3",
-      "for": "21",
-      "against": "17",
-      "gd": "4",
-      "is_home_team": false
-    },
-    {
       "team_id": 30196,
-      "pos": 9,
+      "pos": 10,
       "name": "ASD ALBAREDO INSIEME",
       "pts": "7",
       "played": "6",
@@ -134,7 +148,7 @@
     },
     {
       "team_id": 30188,
-      "pos": 10,
+      "pos": 11,
       "name": "CALCIOTTO LEVADA",
       "pts": "6",
       "played": "6",
@@ -147,31 +161,17 @@
       "is_home_team": false
     },
     {
-      "team_id": 30342,
-      "pos": 11,
-      "name": "BOCA BOYS",
-      "pts": "6",
-      "played": "6",
-      "wins": "2",
-      "draws": "0",
-      "losses": "4",
-      "for": "15",
-      "against": "22",
-      "gd": "-7",
-      "is_home_team": false
-    },
-    {
       "team_id": 30191,
       "pos": 12,
       "name": "EIGHTSIDE",
       "pts": "4",
-      "played": "6",
+      "played": "7",
       "wins": "1",
       "draws": "1",
-      "losses": "4",
-      "for": "11",
-      "against": "23",
-      "gd": "-12",
+      "losses": "5",
+      "for": "13",
+      "against": "26",
+      "gd": "-13",
       "is_home_team": false
     },
     {
@@ -193,13 +193,13 @@
       "pos": 14,
       "name": "A.C. OSPEDALETTO",
       "pts": "3",
-      "played": "6",
+      "played": "7",
       "wins": "1",
       "draws": "0",
-      "losses": "5",
-      "for": "11",
-      "against": "20",
-      "gd": "-9",
+      "losses": "6",
+      "for": "14",
+      "against": "24",
+      "gd": "-10",
       "is_home_team": false
     },
     {
