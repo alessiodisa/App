@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T20:17:32.228786+00:00",
+  "generated_at": "2026-11-26T03:16:42.710065+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -7,8 +7,22 @@
   },
   "standings": [
     {
-      "team_id": 30189,
+      "team_id": 30199,
       "pos": 1,
+      "name": "31036",
+      "pts": "18",
+      "played": "7",
+      "wins": "6",
+      "draws": "0",
+      "losses": "1",
+      "for": "28",
+      "against": "5",
+      "gd": "23",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30189,
+      "pos": 2,
       "name": "GENESIS",
       "pts": "18",
       "played": "7",
@@ -22,7 +36,7 @@
     },
     {
       "team_id": 30187,
-      "pos": 2,
+      "pos": 3,
       "name": "NOVA UNITED",
       "pts": "16",
       "played": "7",
@@ -33,20 +47,6 @@
       "against": "12",
       "gd": "11",
       "is_home_team": true
-    },
-    {
-      "team_id": 30199,
-      "pos": 3,
-      "name": "31036",
-      "pts": "15",
-      "played": "6",
-      "wins": "5",
-      "draws": "0",
-      "losses": "1",
-      "for": "23",
-      "against": "5",
-      "gd": "18",
-      "is_home_team": false
     },
     {
       "team_id": 30190,
@@ -123,13 +123,13 @@
       "pos": 9,
       "name": "JAGERBOMBERS",
       "pts": "8",
-      "played": "6",
+      "played": "7",
       "wins": "2",
       "draws": "2",
-      "losses": "2",
-      "for": "16",
-      "against": "14",
-      "gd": "2",
+      "losses": "3",
+      "for": "17",
+      "against": "18",
+      "gd": "-1",
       "is_home_team": false
     },
     {
@@ -137,18 +137,32 @@
       "pos": 10,
       "name": "ASD ALBAREDO INSIEME",
       "pts": "7",
-      "played": "6",
+      "played": "7",
       "wins": "2",
       "draws": "1",
-      "losses": "3",
+      "losses": "4",
       "for": "13",
-      "against": "20",
-      "gd": "-7",
+      "against": "25",
+      "gd": "-12",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30345,
+      "pos": 11,
+      "name": "VIDOR DE JANEIRO",
+      "pts": "7",
+      "played": "7",
+      "wins": "2",
+      "draws": "1",
+      "losses": "4",
+      "for": "17",
+      "against": "35",
+      "gd": "-18",
       "is_home_team": false
     },
     {
       "team_id": 30188,
-      "pos": 11,
+      "pos": 12,
       "name": "CALCIOTTO LEVADA",
       "pts": "6",
       "played": "6",
@@ -162,7 +176,7 @@
     },
     {
       "team_id": 30191,
-      "pos": 12,
+      "pos": 13,
       "name": "EIGHTSIDE",
       "pts": "4",
       "played": "7",
@@ -172,20 +186,6 @@
       "for": "13",
       "against": "26",
       "gd": "-13",
-      "is_home_team": false
-    },
-    {
-      "team_id": 30345,
-      "pos": 13,
-      "name": "VIDOR DE JANEIRO",
-      "pts": "4",
-      "played": "6",
-      "wins": "1",
-      "draws": "1",
-      "losses": "4",
-      "for": "13",
-      "against": "34",
-      "gd": "-21",
       "is_home_team": false
     },
     {

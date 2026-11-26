@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T20:17:23.145070+00:00",
+  "generated_at": "2026-11-26T03:16:33.688977+00:00",
   "source": "https://calciotto.tv/classifica-serie-a-2026-2027/",
   "team": {
     "name": "TREVISO UNITED",
@@ -7,8 +7,22 @@
   },
   "standings": [
     {
-      "team_id": 8310,
+      "team_id": 52,
       "pos": 1,
+      "name": "QUINTO TEAM",
+      "pts": "24",
+      "played": "11",
+      "wins": "8",
+      "draws": "0",
+      "losses": "3",
+      "for": "46",
+      "against": "29",
+      "gd": "17",
+      "is_home_team": false
+    },
+    {
+      "team_id": 8310,
+      "pos": 2,
       "name": "TREVISO UNITED",
       "pts": "23",
       "played": "10",
@@ -22,7 +36,7 @@
     },
     {
       "team_id": 16523,
-      "pos": 2,
+      "pos": 3,
       "name": "F.C. BORUSSIA PORCMUND",
       "pts": "22",
       "played": "10",
@@ -36,7 +50,7 @@
     },
     {
       "team_id": 19325,
-      "pos": 3,
+      "pos": 4,
       "name": "ADELANTES",
       "pts": "22",
       "played": "10",
@@ -46,20 +60,6 @@
       "for": "29",
       "against": "21",
       "gd": "8",
-      "is_home_team": false
-    },
-    {
-      "team_id": 52,
-      "pos": 4,
-      "name": "QUINTO TEAM",
-      "pts": "21",
-      "played": "10",
-      "wins": "7",
-      "draws": "0",
-      "losses": "3",
-      "for": "42",
-      "against": "28",
-      "gd": "14",
       "is_home_team": false
     },
     {
@@ -193,13 +193,13 @@
       "pos": 14,
       "name": "NEXT DINAMO",
       "pts": "8",
-      "played": "10",
+      "played": "11",
       "wins": "2",
       "draws": "2",
-      "losses": "6",
-      "for": "14",
-      "against": "22",
-      "gd": "-8",
+      "losses": "7",
+      "for": "15",
+      "against": "26",
+      "gd": "-11",
       "is_home_team": false
     },
     {
