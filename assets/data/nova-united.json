@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T13:19:30.056643+00:00",
+  "generated_at": "2026-11-26T22:41:17.549779+00:00",
   "source": "https://calciotto.tv/team/nova-united/",
   "team": {
     "name": "NOVA UNITED",
@@ -94,13 +94,13 @@
       "team_id": 30198,
       "pos": 7,
       "name": "VIRTUS SBI",
-      "pts": "9",
-      "played": "6",
+      "pts": "10",
+      "played": "7",
       "wins": "3",
-      "draws": "0",
+      "draws": "1",
       "losses": "3",
-      "for": "15",
-      "against": "14",
+      "for": "17",
+      "against": "16",
       "gd": "1",
       "is_home_team": false
     },
@@ -133,8 +133,22 @@
       "is_home_team": false
     },
     {
-      "team_id": 30196,
+      "team_id": 30188,
       "pos": 10,
+      "name": "CALCIOTTO LEVADA",
+      "pts": "7",
+      "played": "7",
+      "wins": "2",
+      "draws": "1",
+      "losses": "4",
+      "for": "21",
+      "against": "26",
+      "gd": "-5",
+      "is_home_team": false
+    },
+    {
+      "team_id": 30196,
+      "pos": 11,
       "name": "ASD ALBAREDO INSIEME",
       "pts": "7",
       "played": "7",
@@ -148,7 +162,7 @@
     },
     {
       "team_id": 30345,
-      "pos": 11,
+      "pos": 12,
       "name": "VIDOR DE JANEIRO",
       "pts": "7",
       "played": "7",
@@ -158,20 +172,6 @@
       "for": "17",
       "against": "35",
       "gd": "-18",
-      "is_home_team": false
-    },
-    {
-      "team_id": 30188,
-      "pos": 12,
-      "name": "CALCIOTTO LEVADA",
-      "pts": "6",
-      "played": "6",
-      "wins": "2",
-      "draws": "0",
-      "losses": "4",
-      "for": "19",
-      "against": "24",
-      "gd": "-5",
       "is_home_team": false
     },
     {
